@@ -1,10 +1,10 @@
 {
   "name": "synergy",
   "version": "1.0.0",
-  "description": "Hello World!",
+  "description": "CRM system",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "nodemon api/server.js",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
   },
