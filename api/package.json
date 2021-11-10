@@ -1,0 +1,28 @@
+{
+  "name": "synergy",
+  "version": "1.0.0",
+  "description": "CRM system",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon api/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IT-Academy-Social-Projects-KRV/Synergy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IT-Academy-Social-Projects-KRV/Synergy/issues"
+  },
+  "homepage": "https://github.com/IT-Academy-Social-Projects-KRV/Synergy#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
