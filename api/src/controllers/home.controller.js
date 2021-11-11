@@ -1,6 +1,6 @@
 class HomeController {
   home(req, res) {
-    res.status(200).json('u get home page');
+    res.status(200).json('U get home page');
   }
 }
 module.exports = new HomeController();
