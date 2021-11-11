@@ -1,6 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
+const { create } = require('../controllers/projectController')
 
-router.get('/create', (req, res) => {
-    console.log('Project created');
-});
+router.get('/create', create)
