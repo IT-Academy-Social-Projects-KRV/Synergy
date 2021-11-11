@@ -1,3 +1,3 @@
-export const create = (req, res) => {
+exports.create = (req, res) => {
   res.send('NOT IMPLEMENTED: Project create')
 }
