@@ -1,4 +1,4 @@
-const {models, Project} = require('../models1/models')
+const {models, Project} = require('../models/models')
 
 const projects = [
     {
