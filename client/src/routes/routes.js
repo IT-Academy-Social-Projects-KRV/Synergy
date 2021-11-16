@@ -10,7 +10,9 @@ import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
 import ProtectedRoute from '../components/ProtectedRoute';
+import { config } from '../configs';
 
+const { routes } = config;
 
 export const Routes = () => {
     const isAuth = true;   //! if isAuth===true we will see SideBar,Footer else we will see login/register
@@ -21,10 +23,10 @@ export const Routes = () => {
     if (!isAuth) {
         return (
             <>
-                <Redirect from='/' to='/login' />
+                <Redirect from='/' to={routes.pathToLogin} />
                 <Switch>
-                    <Route path='/login' exact render={() => <Authorization />} />
-                    <ProtectedRoute path='/registration' component={Authorization} />
+                    <Route path={routes.pathToLogin} exact render={() => <Authorization />} />
+                    <ProtectedRoute path={routes.pathToRegistration} component={Authorization} />
                 </Switch>
             </>
         )
@@ -38,12 +40,12 @@ export const Routes = () => {
                     <>
                         <SideBar />
                         <Switch>
-                            <Route path='/creating-project' exact render={() => <CreatingProject />} />
-                            <Route path='/project-list' exact render={() => <ProjectList />} />
-                            <Route path='/settings' exact render={() => <Settings />} />
-                            <Route path='/dashboard' exact render={() => <Project />} />
-                            <Route path='/bill-settings' exact render={() => <BillSettings />} />
-                            <Route path='/account' exact render={() => <Account />} />
+                            <Route path={routes.pathToCreatingProject} exact render={() => <CreatingProject />} />
+                            <Route path={routes.pathToProjectList} exact render={() => <ProjectList />} />
+                            <Route path={routes.pathToSettings} exact render={() => <Settings />} />
+                            <Route path={routes.pathToDashboard} exact render={() => <Project />} />
+                            <Route path={routes.pathToBillSettings} exact render={() => <BillSettings />} />
+                            <Route path={routes.pathToAccount} exact render={() => <Account />} />
                         </Switch>
                         <Footer />
                     </>
@@ -56,9 +58,9 @@ export const Routes = () => {
                     <>
                         <SideBar />
                         <Switch>
-                            <Route path='/dashboard' exact render={() => <Project />} />
-                            <Route path='/settings' exact render={() => <Settings />} />
-                            <Route path='/account' exact render={() => <Account />} />
+                            <Route path={routes.pathToDashboard} exact render={() => <Project />} />
+                            <Route path={routes.pathToSettings} exact render={() => <Settings />} />
+                            <Route path={routes.pathToAccount} exact render={() => <Account />} />
                         </Switch>
                         <Footer />
                     </>

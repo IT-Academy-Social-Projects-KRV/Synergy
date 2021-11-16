@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { config } from '../../configs';
 
+const { routes } = config;
 
 const SideBar = (props) => {
     const role = 'admin';
@@ -13,39 +15,39 @@ const SideBar = (props) => {
                         ?
                         <>
                             <li>
-                                <Link to='/dashboard'>Dashboard</Link>
+                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
                             </li>
                             <li>
-                                <Link to='/project-list'>Projects</Link>
+                                <NavLink to={routes.pathToProjectList}>Projects</NavLink>
                             </li>
                             <li>
-                                <Link to='/creating-project'>Creating project</Link>
+                                <NavLink to={routes.pathToCreatingProject}>Creating project</NavLink>
                             </li>
                             <li>
-                                <Link to='/settings'>Settings</Link>
+                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
                             </li>
                             <li>
-                                <Link to='/bill-settings'>Bill settings</Link>
+                                <NavLink to={routes.pathToBillSettings}>Bill settings</NavLink>
                             </li>
                             <li>
-                                <Link to='/account'>Account</Link>
+                                <NavLink to={routes.pathToAccount}>Account</NavLink>
                             </li>
                         </>
                         : ''
                 }
-                
+
                 {
                     role === 'customer'
                         ?
                         <>
                             <li>
-                                <Link to='/dashboard'>Dashboard</Link>
+                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
                             </li>
                             <li>
-                                <Link to='/settings'>Settings</Link>
+                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
                             </li>
                             <li>
-                                <Link to='/account'>Account</Link>
+                                <NavLink to={routes.pathToAccount}>Account</NavLink>
                             </li>
                         </>
                         : ''
