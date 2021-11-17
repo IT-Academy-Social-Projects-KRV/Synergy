@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const {
-  //   create,
   getOneProject,
   projectList,
   updateProject,
@@ -9,7 +8,6 @@ const {
   createProject,
 } = require('../controllers/projectController');
 
-// router.get('/create', create);
 router.get('/:id', getOneProject);
 router.get('/', projectList);
 router.post('/', createProject);

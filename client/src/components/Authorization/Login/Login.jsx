@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-
+import routes from '../../../configs/routes';
 
 const Login = () => {
+    const { pathToRegistration } = routes;
+
     return (
         <div>
             Login
-            <Link to='/registration'>to Registration</Link>
+            <Link to={pathToRegistration}>to Registration</Link>
         </div>
     )
 }

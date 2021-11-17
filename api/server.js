@@ -6,6 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const router = require('./src/routes');
 const sequelize = require('./db');
+const {addProjects} = require('./src/seeders/ProjectData')
 
 const PORT = process.env.PORT || 5000;
 
