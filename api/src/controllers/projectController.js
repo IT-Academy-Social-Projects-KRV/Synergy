@@ -1,27 +1,34 @@
-exports.getOneProject = (req, res) => {
+const projectsService = require('../services/projectService')
+
+exports.getOneProject = async (req, res) => {
   const id = req.params.id;
-  res.send('NOT IMPLEMENTED: getOneProject');
+  const project = await projectsService.getOneProject(id)
+  res.send(project);
 };
 
-exports.projectList = (req, res) => {
+exports.projectList = async (req, res) => {
   let { name } = req.query;
   //if(name) getSortedByName(name)
   //else getProjects()
-  res.status(200).json('here might be arr');
-};
-exports.createProject = (req, res) => {
-  const { name, description, date_start, date_finish } = req.body;
-  res.status(201).json('Access create');
+  const projects = await projectsService.getSortedByName()
+  res.status(200).json(projects);
 };
 
-exports.updateProject = (req, res) => {
+exports.createProject = async (req, res) => {
+  const { name, description, date_start, date_finish } = req.body;
+  const project = await projectsService.createProject(name, description, date_start, date_finish)
+  res.status(201).json(project);
+};
+
+exports.updateProject = async (req, res) => {
   const { name, description, date_start, date_finish } = req.body;
   const id = req.params.id;
-
-  res.status(200).json('Access update');
+  const project = await projectsService.updateProject(name, description, date_start, date_finish, id)
+  res.status(200).json(project);
 };
 
-exports.deleteProject = (req, res) => {
+exports.deleteProject = async (req, res) => {
   const id = req.params.id;
-  res.status(200).json('Project is disabled now');
+  await projectsService.deleteProject(id)
+  res.status(200).json('Succesfully deleted');
 };
