@@ -3,7 +3,10 @@ const { DataTypes } = require('sequelize')
 
 const Project = sequelize.define('project', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    name: { type: DataTypes.STRING, allowNull: false }
+    name: { type: DataTypes.STRING, allowNull: false },
+    description: { type: DataTypes.TEXT, allowNull: false},
+    date_start: {type: DataTypes.DATEONLY, allowNull: false},
+    date_finish: {type: DataTypes.DATEONLY, allowNull: false},
 })
 
 const User = sequelize.define('user', {
@@ -37,6 +40,11 @@ const Status = sequelize.define('status', {
     name: {type: DataTypes.TEXT, unique: true, allowNull: false}
 })
 
+const StatusCategory = sequelize.define('status_category', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    category: {type: DataTypes.TEXT, unique: true, allowNull: false}
+})
+
 const Token = sequelize.define('token', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
 })
@@ -59,6 +67,9 @@ Project.belongsTo(Status)
 Status.hasMany(Item)
 Item.belongsTo(Status)
 
+StatusCategory.hasMany(Status)
+Status.belongsTo(StatusCategory)
+
 Project.hasMany(Item)
 Item.belongsTo(Project)
 
@@ -69,5 +80,5 @@ User.hasMany(Comment)
 Comment.belongsTo(User)
 
 module.exports = {
-    Project, User, Role, Item, Comment, Status, Token,
+    Project, User, Role, Item, Comment, Status, StatusCategory, Token,
 }
