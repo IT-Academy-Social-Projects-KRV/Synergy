@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f3f5f4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar {
+    position: sticky;
+    left: 0;
+    top: 5%;
+    bottom: 10%;
+    flex: 0 0 15%;
+    background: #fff;
+    padding: 30px 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    &.moved {
+        li a span {
+            font-size: 0;
+        }
+    }
+}
+.sidebar_list {
+    margin-top: 15px;
+    li {
+        position: relative;
+        border-radius: 10px;
+        transition: all .5s ease;
+        a {
+            color: #7872d6;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        img {
+            margin-right: 10px;
+            padding: 3px;
+        }
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            height: 100%;
+            transition: all .5s ease;
+            background: linear-gradient(90deg, rgba(120,114,214,1) 0%, rgba(255,255,255,1) 100%);
+            opacity: 0;
+            border-radius: 10px;
+            transform: translateX(30px);
+        }
+        &:hover:before {
+            background: linear-gradient(90deg, rgba(120,114,214,1) 0%, rgba(255,255,255,1) 100%);
+            opacity: 1;
+            transform: translateX(0);
+        }
+        &:hover {
+            a {
+                color: #fff;
+            }
+            img {
+                border-radius: 5px;
+                background: #fff;
+            }
+        }
+    }
+}
+.active {
+    background: #7872d6;
+    color: #fff !important;
+    border-radius: 10px;
+}
+.active img {
+    background: #fff;
+    border-radius: 5px;
+}

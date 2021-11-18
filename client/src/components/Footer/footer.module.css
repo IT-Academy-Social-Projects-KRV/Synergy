@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+.footer {
+    background: #7872d6;
+    padding: 20px;
+    margin-top: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+.footer section {
+    color: #fff;
+}
+.footer section ul li:not(:last-child) {
+    margin-bottom: 5px;
+}
+.footer section h5 {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+.logo_block {
+    text-align: center;
+}
+.social li {
+    display: inline-block;
+}
+.social li:not(:last-child) {
+    margin-right: 10px;
+}
