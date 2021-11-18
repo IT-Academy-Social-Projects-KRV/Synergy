@@ -1,0 +1,34 @@
+.header {
+    margin-bottom: 20px;
+    color: #7872d6;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .button {
+        cursor: pointer;
+        transition: all .5s ease;
+        &:hover {
+            transform: skewX(15deg);
+        }
+    }
+    .exit {
+        margin-right: 30px;
+        img {
+            margin-right: 5px;
+        }
+    }
+}
+.sideBlock {
+    background: #fff;
+    padding: 15px;
+    flex: 0 0 15%;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo_container {
+        display: flex;
+        align-items: center;
+    }
+}
