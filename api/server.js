@@ -6,7 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const router = require('./src/routes');
 const sequelize = require('./db');
-const {addProjects} = require('./src/seeders/ProjectData')
+const {fillDb} = require('./src/seeders/FillData')
 
 const PORT = process.env.PORT || 5000;
 
@@ -29,4 +29,5 @@ const start = async function () {
   }
 };
 
+// fillDb()  <- uncomment it to fill your db with mock data
 start();
