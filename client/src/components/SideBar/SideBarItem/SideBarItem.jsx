@@ -1,9 +1,14 @@
+import React from "react";
+import {NavLink} from "react-router-dom";
+import styles from "../SideBar.module.scss";
 
-const SideBarItem = () => {
+const SideBarItem = props => {
     return (
-        <div>
-            SideBarItem
-        </div>
+        <li>
+            <NavLink activeClassName={styles.active} to={props.route}>
+                <img src={props.image} alt={props.alt}/><span>{props.title}</span>
+            </NavLink>
+        </li>
     )
 }
 
