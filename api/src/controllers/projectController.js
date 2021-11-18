@@ -15,8 +15,8 @@ exports.projectList = async (req, res) => {
 };
 
 exports.createProject = async (req, res) => {
-  const { name, description, date_start, date_finish } = req.body;
-  const project = await projectsService.createProject(name, description, date_start, date_finish)
+  const { name, description, date_start, date_finish, items} = req.body;
+  const project = await projectsService.createProject(name, description, date_start, date_finish, items)
   res.status(201).json(project);
 };
 

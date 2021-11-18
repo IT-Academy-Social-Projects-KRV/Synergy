@@ -5,4 +5,6 @@ Backend part for this project was generated with Node.js version 14.17.0.
 
 # Fill database with mock data
 
-To fill database with mock data call function 'addProjects()' before line 'start()' in server.js file.
+To fill database with mock data first of all you need to update your DB structure. For this change 'force' option value to 'true' in function sequelize.sync (server.js, line 23).
+Reload your server with CTRL+S. After that, again change option 'force' value, but this time to 'true'. Now, uncomment function 'fillDatabase' and reload your server with CTRL+S. After that, your database will be filled with mock data. Don't forget to comment 'fillDatabase' function, because if you don't do this, your database will be filled with same data again or you get some errors.
+

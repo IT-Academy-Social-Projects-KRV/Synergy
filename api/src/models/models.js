@@ -5,6 +5,7 @@ const Project = sequelize.define('project', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.TEXT, allowNull: false},
+    capital: {type: DataTypes.INTEGER, allowNull: false},
     date_start: {type: DataTypes.DATEONLY, allowNull: false},
     date_finish: {type: DataTypes.DATEONLY, allowNull: false},
 })
@@ -37,7 +38,7 @@ const Comment = sequelize.define('comment', {
 
 const Status = sequelize.define('status', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.TEXT, unique: false, allowNull: false}
+    name: {type: DataTypes.TEXT, unique: true, allowNull: false}
 })
 
 const StatusCategory = sequelize.define('status_category', {
