@@ -1,59 +1,20 @@
-import { NavLink } from 'react-router-dom';
-import { config } from '../../configs';
+import React from 'react';
+import './SideBar.module.scss';
+import styles from './SideBar.module.scss';
+import sidebarItems from "./sidebarItems";
+import SideBarItem from "./SideBarItem/SideBarItem";
 
-const { routes } = config;
-
-const SideBar = (props) => {
+const SideBar = props => {
     const role = 'admin';
 
     return (
-        <div>
-            SideBar
-            <ul>
-                {
-                    role === 'admin'
-                        ?
-                        <>
-                            <li>
-                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToProjectList}>Projects</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToCreatingProject}>Creating project</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToBillSettings}>Bill settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToAccount}>Account</NavLink>
-                            </li>
-                        </>
-                        : ''
-                }
-
-                {
-                    role === 'customer'
-                        ?
-                        <>
-                            <li>
-                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToAccount}>Account</NavLink>
-                            </li>
-                        </>
-                        : ''
-                }
+        <aside className={styles.sidebar + " " + props.sideClass}>
+            <h4>Management</h4>
+            <ul className={styles.sidebar_list}>
+                { role === 'admin' ? sidebarItems.Admin.map(item => <SideBarItem route={item.route} image={item.image} alt={item.alt} title={item.title} />) : ''}
+                { role === 'customer' ? sidebarItems.Customer.map(item => <SideBarItem route={item.route} image={item.image} alt={item.alt} title={item.title} />) : ''}
             </ul>
-        </div>
+        </aside>
     )
 }
 
