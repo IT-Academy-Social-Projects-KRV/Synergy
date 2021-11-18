@@ -1,10 +1,8 @@
-const { model } = require('../../db');
-const db = require('../../db');
-const models = require('../models/models')
+const {Project} = require('../models/models')
 
 exports.getSortedByName = async () => {
     try {
-        return await models.Project.findAll({order: [['name', 'ASC']]});
+        return await Project.findAll({order: [['name', 'ASC']]});
     } catch (error) {
         throw Error(error)
     }
@@ -13,7 +11,7 @@ exports.getSortedByName = async () => {
 
 exports.createProject = async (name, description, date_start, date_finish) => {
     try {   
-        return models.Project.create({name, description, date_start, date_finish});
+        return Project.create({name, description, date_start, date_finish, 'statusId': 1});
     } catch (error) {
         throw Error(error) 
     }
@@ -21,7 +19,7 @@ exports.createProject = async (name, description, date_start, date_finish) => {
 
 exports.projectList = async() => {
     try {
-        return await models.Project.findAll();
+        return await Project.findAll();
     } catch (error) {
         throw Error(error)
     }      
@@ -29,7 +27,7 @@ exports.projectList = async() => {
 
 exports.getOneProject = async(id) => {
     try {
-        return await models.Project.findOne({where: {id: [id]}});
+        return await Project.findOne({where: {id: [id]}});
     } catch (error) {
         throw Error(error)
     }
@@ -37,7 +35,7 @@ exports.getOneProject = async(id) => {
 
 exports.updateProject = async(name, description, date_start, date_finish, id) => {
     try {
-        return await models.Project.update({ name, description, date_start, date_finish}, {where: {id}});
+        return await Project.update({ name, description, date_start, date_finish}, {where: {id}});
     } catch (error) {
         throw Error(error)
     }
@@ -45,7 +43,7 @@ exports.updateProject = async(name, description, date_start, date_finish, id) =>
 
 exports.deleteProject = async(id) => {
     try {
-       return await models.Project.destroy({where: {id}})
+       return await Project.update({'statusId': 2},{where: {id}})
     } catch (error) {
         throw Error(error)
     }
