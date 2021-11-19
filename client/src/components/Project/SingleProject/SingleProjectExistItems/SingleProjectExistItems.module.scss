@@ -59,9 +59,10 @@ section{
                             text-align: right;
                         }
                     }
-                    tr.odd{
+                    tr:nth-child(even){
                         background-color: $tableColor;
                     }
+
                 }
             }            
         }   
