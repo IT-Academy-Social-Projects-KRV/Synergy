@@ -13,7 +13,7 @@ const ProjectList = () => {
             .then(response => {
                 setData(response.data);
             }).catch(err => {
-                setData(projectList);
+                // setData(projectList);
             });
 
         return () => setData([]);
@@ -22,7 +22,7 @@ const ProjectList = () => {
     return (
         <div>
             {
-                data !== [] ?
+                data.length > 0 ?
                     <>
                         <h1 className={styles.title}>Projects List</h1>
                         <ul className={styles.list}>
