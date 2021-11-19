@@ -2,7 +2,7 @@
 const Settings = () => {
     return (
         <div>
-            Settings
+            Settings  under construction
         </div>
     )
 }

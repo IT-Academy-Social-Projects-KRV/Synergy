@@ -2,7 +2,7 @@
 const Account = ()=>{
     return(
         <div>
-            Account
+            Account under construction
         </div>
     )
 }

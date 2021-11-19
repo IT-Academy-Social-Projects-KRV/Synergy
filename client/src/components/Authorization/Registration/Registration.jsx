@@ -6,7 +6,7 @@ const Registration = () => {
 
     return (
         <div>
-            Registration
+            Registration  under construction
             <Link to={pathToLogin}>to Login</Link>
         </div>
     )
