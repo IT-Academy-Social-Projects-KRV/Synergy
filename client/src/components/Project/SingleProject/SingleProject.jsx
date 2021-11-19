@@ -7,7 +7,7 @@ import SingleProjectExistItems from './SingleProjectExistItems/SingleProjectExis
 import styles from './SingleProject.module.scss';
 
 const SingleProject = () => {
-    return (    
+    return (
         <div>
             <main>
                 <div className={styles.bg_project}>
@@ -15,23 +15,23 @@ const SingleProject = () => {
                         <h1>Progect Name</h1>
                         <div className={styles.bg_project_block}>
                             <div className={styles.project_block}>
-                                <SingleProjectBill/>
-                                <SingleProjectInfo /> 
-                                <SingleProjectDescription/>                          
+                                <SingleProjectBill />
+                                <SingleProjectInfo />
+                                <SingleProjectDescription />
                             </div>
                             <div className={styles.project_diagram}>
-                                <SingleProjectDiagram/>
+                                <SingleProjectDiagram />
                             </div>
                         </div>
                         <div>
-                            <SingleProjectExistItems/>
+                            <SingleProjectExistItems />
                         </div>
                         <div>
-                            <SingleProjectAddItems/>
-                        </div>  
+                            <SingleProjectAddItems />
+                        </div>
                     </div>
                 </div>
-             </main> 
+            </main>
         </div>
     )
 }

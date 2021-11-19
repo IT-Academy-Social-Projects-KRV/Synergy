@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import {Route, Switch} from 'react-router-dom';
-import {Redirect} from 'react-router'
+import React, { useState } from "react";
+import { Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router'
 import Account from '../components/Account';
 import Authorization from '../components/Authorization';
 import CreatingProject from '../components/CreatingProject';
@@ -11,11 +11,11 @@ import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
 import ProtectedRoute from '../components/ProtectedRoute';
-import {config} from '../configs';
+import { config } from '../configs';
 import Header from "../components/Header/Header";
 import './routes.scss';
 
-const {routes} = config;
+const { routes } = config;
 
 export const Routes = () => {
     let [sideClass, setSideClass] = useState("")
@@ -29,10 +29,10 @@ export const Routes = () => {
     if (!isAuth) {
         return (
             <>
-                <Redirect from='/' to={routes.pathToLogin}/>
+                <Redirect from='/' to={routes.pathToLogin} />
                 <Switch>
-                    <Route path={routes.pathToLogin} exact render={() => <Authorization/>}/>
-                    <ProtectedRoute path={routes.pathToRegistration} component={Authorization}/>
+                    <Route path={routes.pathToLogin} exact render={() => <Authorization />} />
+                    <ProtectedRoute path={routes.pathToRegistration} component={Authorization} />
                 </Switch>
             </>
         )
@@ -49,14 +49,14 @@ export const Routes = () => {
                     <>
                         <main>
                             <SideBar sideClass={sideClass} />
-                            <section className={"main_content_container" + " " + sideClass}>
+                            <section className={"main_content_container" + sideClass}>
                                 <Switch>
-                                    <Route path={routes.pathToCreatingProject} exact render={() => <CreatingProject/>}/>
-                                    <Route path={routes.pathToProjectList} exact render={() => <ProjectList/>}/>
-                                    <Route path={routes.pathToSettings} exact render={() => <Settings/>}/>
-                                    <Route path={routes.pathToDashboard} exact render={() => <Project/>}/>
-                                    <Route path={routes.pathToBillSettings} exact render={() => <BillSettings/>}/>
-                                    <Route path={routes.pathToAccount} exact render={() => <Account/>}/>
+                                    <Route path={routes.pathToCreatingProject} exact render={() => <CreatingProject />} />
+                                    <Route path={routes.pathToProjectList} exact render={() => <ProjectList />} />
+                                    <Route path={routes.pathToSettings} exact render={() => <Settings />} />
+                                    <Route path={routes.pathToDashboard} exact render={() => <Project />} />
+                                    <Route path={routes.pathToBillSettings} exact render={() => <BillSettings />} />
+                                    <Route path={routes.pathToAccount} exact render={() => <Account />} />
                                 </Switch>
                             </section>
                         </main>
@@ -68,16 +68,16 @@ export const Routes = () => {
                 user.role === 'customer'
                     ?
                     <>
-                        <SideBar/>
+                        <SideBar />
                         <Switch>
-                            <Route path={routes.pathToDashboard} exact render={() => <Project/>}/>
-                            <Route path={routes.pathToSettings} exact render={() => <Settings/>}/>
-                            <Route path={routes.pathToAccount} exact render={() => <Account/>}/>
+                            <Route path={routes.pathToDashboard} exact render={() => <Project />} />
+                            <Route path={routes.pathToSettings} exact render={() => <Settings />} />
+                            <Route path={routes.pathToAccount} exact render={() => <Account />} />
                         </Switch>
                     </>
                     : ''
             }
-            <Footer/>
+            <Footer />
         </>
     );
 }

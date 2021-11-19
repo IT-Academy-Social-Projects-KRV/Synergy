@@ -2,7 +2,7 @@
 const BillSettings = ()=>{
     return(
         <div>
-            BillSettings
+            BillSettings under construction
         </div>
     )
 }

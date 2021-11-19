@@ -10,25 +10,25 @@ const SingleProjectAddItems = () => {
             <div className={styles.bg_add_items}>
                 <div className={styles.head}>
                     <h2>Add Items</h2>
-                </div> 
+                </div>
                 <div className={styles.add_items}>
-                    <div className={styles.items_submition}>  
-                        <Item/>
+                    <div className={styles.items_submition}>
+                        <Item />
                         <div className={styles.items_submition_sign}>
-                            <p className={styles.icon_submited}><CheckCircleIcon/></p>
+                            <p className={styles.icon_submited}><CheckCircleIcon /></p>
                             <p className={styles.submited}>Submited</p>
                         </div>
                     </div>
-                    <div className={styles.items_submition}> 
-                        <Item/>
+                    <div className={styles.items_submition}>
+                        <Item />
                         <div className={styles.items_submition_sign}>
-                            <p className={styles.icon_error}><ErrorOutlineRoundedIcon/></p>
-                            <p className={styles.error}>Error</p> 
+                            <p className={styles.icon_error}><ErrorOutlineRoundedIcon /></p>
+                            <p className={styles.error}>Error</p>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <Button className={styles.btn} variant="contained">Save</Button>
-            </div>  
+            </div>
         </section>
     )
 }

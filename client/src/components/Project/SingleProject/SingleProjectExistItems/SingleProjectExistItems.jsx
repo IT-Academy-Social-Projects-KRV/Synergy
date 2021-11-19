@@ -2,11 +2,11 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import styles from './SingleProjectExistItems.module.scss';
 
 const SingleProjectExistItems = () => {
-return (
-    <section>
-        <div className={styles.bg_exist_items}>
+    return (
+        <section>
+            <div className={styles.bg_exist_items}>
                 <h2>Exist Items</h2>
-            <div className={styles.exist_items_table}>
+                <div className={styles.exist_items_table}>
                     <table className={styles.table_items}>
                         <thead>
                             <tr>
@@ -27,8 +27,8 @@ return (
                                 <td><span>11.10.2021</span></td>
                                 <td className={styles.subm}><span className={styles.submited}>Applied</span></td>
                                 <td className={styles.cancel}>
-                                    <a href="#">
-                                        <span className={styles.icon_cancel}><CancelIcon/></span>
+                                    <a href="/dashboard" alt="Cancel Icon">
+                                        <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
@@ -39,8 +39,8 @@ return (
                                 <td><span>11.10.2021</span></td>
                                 <td className={styles.subm}><span className={styles.pending}>Pending</span></td>
                                 <td className={styles.cancel}>
-                                    <a href="#">
-                                        <span className={styles.icon_cancel}><CancelIcon/></span>
+                                    <a href="/dashboard" alt="Cancel Icon">
+                                        <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
@@ -51,8 +51,8 @@ return (
                                 <td><span>11.10.2021</span></td>
                                 <td className={styles.subm}><span className={styles.reject}>Reject</span></td>
                                 <td className={styles.cancel}>
-                                    <a href="#">
-                                        <span className={styles.icon_cancel}><CancelIcon/></span>
+                                    <a href="/dashboard" alt="Cancel Icon">
+                                        <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
@@ -63,16 +63,16 @@ return (
                                 <td><span>11.10.2021</span></td>
                                 <td className={styles.subm}><span className={styles.reject}>Reject</span></td>
                                 <td className={styles.cancel}>
-                                    <a href="#">
-                                        <span className={styles.icon_cancel}><CancelIcon/></span>
+                                    <a href="/dashboard" alt="Cancel Icon">
+                                        <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-            </div> 
-        </div>  
-    </section>
+                </div>
+            </div>
+        </section>
     )
 }
 
