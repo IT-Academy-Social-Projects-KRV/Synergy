@@ -1,6 +1,6 @@
-import React from "react";
-import {NavLink} from "react-router-dom";
-import styles from "../SideBar.module.scss";
+import React from 'react';
+import {NavLink} from 'react-router-dom';
+import styles from '../SideBar.module.scss';
 
 const SideBarItem = props => {
     return (

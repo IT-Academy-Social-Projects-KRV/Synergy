@@ -68,12 +68,16 @@ export const Routes = () => {
                 user.role === 'customer'
                     ?
                     <>
-                        <SideBar />
-                        <Switch>
-                            <Route path={routes.pathToDashboard} exact render={() => <Project />} />
-                            <Route path={routes.pathToSettings} exact render={() => <Settings />} />
-                            <Route path={routes.pathToAccount} exact render={() => <Account />} />
-                        </Switch>
+                        <main>
+                            <SideBar />
+                            <section className={"main_content_container" + sideClass}>
+                                <Switch>
+                                    <Route path={routes.pathToDashboard} exact render={() => <Project />} />
+                                    <Route path={routes.pathToSettings} exact render={() => <Settings />} />
+                                    <Route path={routes.pathToAccount} exact render={() => <Account />} />
+                                </Switch>
+                            </section>
+                        </main>
                     </>
                     : ''
             }
