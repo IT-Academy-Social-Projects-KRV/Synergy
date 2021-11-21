@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 import Account from '../components/Account';
 import Authorization from '../components/Authorization';
 import CreatingProject from '../components/CreatingProject';
@@ -18,13 +18,13 @@ import './routes.scss';
 const { routes } = config;
 
 export const Routes = () => {
-    let [sideClass, setSideClass] = useState("")
+    let [sideClass, setSideClass] = useState("");
     const isAuth = true;   //! if isAuth===true we will see SideBar,Footer else we will see login/register
     const user = {
-        role: 'admin'
-    }
+        role: 'admin',
+    };
 
-    let changeClass = () => sideClass === "moved" ? setSideClass("") : setSideClass("moved")
+    let changeClass = () => sideClass === "moved" ? setSideClass("") : setSideClass("moved");
 
     if (!isAuth) {
         return (
@@ -35,7 +35,7 @@ export const Routes = () => {
                     <ProtectedRoute path={routes.pathToRegistration} component={Authorization} />
                 </Switch>
             </>
-        )
+        );
     }
 
 
@@ -84,4 +84,4 @@ export const Routes = () => {
             <Footer />
         </>
     );
-}
+};

@@ -21,6 +21,6 @@ const fieldsForSideBar = {
         { route: routes.pathToSettings, image: settings, alt: 'settings', title: 'Settings' },
         { route: routes.pathToAccount, image: account, alt: 'account', title: 'Account' },
     ],
-}
+};
 
 export default fieldsForSideBar;

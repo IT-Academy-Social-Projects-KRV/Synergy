@@ -1,3 +1,3 @@
-import AdvancedLogo from './AdvancedLogo'
+import AdvancedLogo from './AdvancedLogo';
 
-export default AdvancedLogo
+export default AdvancedLogo;

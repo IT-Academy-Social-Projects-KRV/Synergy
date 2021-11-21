@@ -1,3 +1,3 @@
-import Name from './Name'
+import Name from './Name';
 
-export default Name
+export default Name;
