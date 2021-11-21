@@ -9,7 +9,7 @@ const Registration = () => {
             Registration  under construction
             <Link to={pathToLogin}>to Login</Link>
         </div>
-    )
-}
+    );
+};
 
-export default Registration
+export default Registration;

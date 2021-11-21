@@ -1,12 +1,10 @@
-import { Typography } from '@mui/material'
-import styles from './Header.module.scss'
+import { Typography } from '@mui/material';
+import styles from './Header.module.scss';
 
 const Header = () => {
-  return(
-    <Typography className={styles.text}>
-      You not have any project.
-    </Typography>
-  )
-}
+  return (
+    <Typography className={styles.text}>You not have any project.</Typography>
+  );
+};
 
-export default Header
+export default Header;

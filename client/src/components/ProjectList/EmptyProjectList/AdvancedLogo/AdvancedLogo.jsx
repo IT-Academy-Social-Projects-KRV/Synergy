@@ -1,6 +1,6 @@
-import { Box } from '@mui/material'
-import Logo from './Logo'
-import Name from './Name'
+import { Box } from '@mui/material';
+import Logo from './Logo';
+import Name from './Name';
 
 const AdvancedLogo = () => {
   return (
@@ -8,7 +8,7 @@ const AdvancedLogo = () => {
       <Logo />
       <Name />
     </Box>
-  )
-}
+  );
+};
 
-export default AdvancedLogo
+export default AdvancedLogo;

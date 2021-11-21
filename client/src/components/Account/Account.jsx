@@ -4,7 +4,7 @@ const Account = ()=>{
         <div>
             Account under construction
         </div>
-    )
-}
+    );
+};
 
-export default Account
+export default Account;

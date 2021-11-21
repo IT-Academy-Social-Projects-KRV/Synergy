@@ -1,27 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import Login from '../../components/Authorization/Login/Login'
-import Registration from '../../components/Authorization/Registration/Registration'
+import Login from '../../components/Authorization/Login/Login';
+import Registration from '../../components/Authorization/Registration/Registration';
 
 const Authorization = () => {
-    const location = useLocation();
-    const [pathName, setPathName] = useState(location.pathname);
+  const location = useLocation();
+  const [pathName, setPathName] = useState(location.pathname);
 
-    useEffect(() => {
-        setPathName(location.pathname);
-    }, [location])
+  useEffect(() => {
+    setPathName(location.pathname);
+  }, [location]);
 
-    return (
-        <div>
-            Authorization
-            {
-                pathName === '/login' ? <Login /> : ''
-            }
-            {
-                pathName === '/registration' ? <Registration /> : ''
-            }
-        </div>
-    )
-}
+  return (
+    <div>
+      Authorization
+      {pathName === '/login' ? <Login /> : ''}
+      {pathName === '/registration' ? <Registration /> : ''}
+    </div>
+  );
+};
 
-export default Authorization
+export default Authorization;
