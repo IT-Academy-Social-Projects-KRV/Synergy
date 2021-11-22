@@ -10,34 +10,34 @@ const SingleProjectExistItems = () => {
                     <table className={styles.table_items}>
                         <thead>
                             <tr>
-                                <th><span>ID</span></th>
-                                <th><span>Item name</span></th>
-                                <th><span>Cost</span></th>
-                                <th><span>Date added</span></th>
-                                <th className="text-center"><span>Status</span></th>
-                                <th><p className={styles.icon_error}></p></th>
+                                <th>ID</th>
+                                <th>Item name</th>
+                                <th>Cost</th>
+                                <th>Date added</th>
+                                <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td><div className={styles.id_field}>#1</div></td>
-                                <td><span>Cement</span></td>
-                                <td><span>255</span></td>
-                                <td><span>11.10.2021</span></td>
-                                <td className={styles.subm}><span className={styles.submited}>Applied</span></td>
+                                <td>Cement</td>
+                                <td>255</td>
+                                <td>11.10.2021</td>
+                                <td>Applied</td>
                                 <td className={styles.cancel}>
                                     <a href="/dashboard" alt="Cancel Icon">
                                         <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
-                            <tr className={styles.odd}>
+                            <tr>
                                 <td><div className={styles.id_field}>#2</div></td>
-                                <td><span >Cement</span></td>
-                                <td><span>255</span></td>
-                                <td><span>11.10.2021</span></td>
-                                <td className={styles.subm}><span className={styles.pending}>Pending</span></td>
+                                <td>Cement</td>
+                                <td>255</td>
+                                <td>11.10.2021</td>
+                                <td>Pending</td>
                                 <td className={styles.cancel}>
                                     <a href="/dashboard" alt="Cancel Icon">
                                         <span className={styles.icon_cancel}><CancelIcon /></span>
@@ -46,22 +46,22 @@ const SingleProjectExistItems = () => {
                             </tr>
                             <tr>
                                 <td><div className={styles.id_field}>#3</div></td>
-                                <td><span>Cement</span></td>
-                                <td><span>255</span></td>
-                                <td><span>11.10.2021</span></td>
-                                <td className={styles.subm}><span className={styles.reject}>Reject</span></td>
+                                <td>Cement</td>
+                                <td>255</td>
+                                <td>11.10.2021</td>
+                                <td>Reject</td>
                                 <td className={styles.cancel}>
                                     <a href="/dashboard" alt="Cancel Icon">
                                         <span className={styles.icon_cancel}><CancelIcon /></span>
                                     </a>
                                 </td>
                             </tr>
-                            <tr className={styles.odd}>
+                            <tr>
                                 <td><div className={styles.id_field}>#4</div></td>
-                                <td><span>Cement</span></td>
-                                <td><span>255</span></td>
-                                <td><span>11.10.2021</span></td>
-                                <td className={styles.subm}><span className={styles.reject}>Reject</span></td>
+                                <td>Cement</td>
+                                <td>255</td>
+                                <td>11.10.2021</td>
+                                <td>Reject</td>
                                 <td className={styles.cancel}>
                                     <a href="/dashboard" alt="Cancel Icon">
                                         <span className={styles.icon_cancel}><CancelIcon /></span>
