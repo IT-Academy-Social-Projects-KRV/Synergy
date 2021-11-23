@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes } from '../../routes/routes';
 
-const App = function () {
+const App = () => {
   return <Routes />;
 };
 

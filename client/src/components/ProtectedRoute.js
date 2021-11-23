@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 
 const token = 'Rockwell - Somebody`s Watching Me';
 
-const ProtectedRoute = function ({ component: Component, ...rest }) {
+const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}

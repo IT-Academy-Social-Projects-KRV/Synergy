@@ -29,6 +29,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/first": "error",
+    "import/newline-after-import": "error",
     "react/jsx-props-no-spreading": "off",
     "max-len": ["error", { "code": 120 }],
     "react/prop-types": "off",
@@ -39,7 +41,66 @@
     "no-console": "warn",
     "curly": ["error", "all"],
     "semi": [2, "always"],
-    "no-tabs": 0
+    "no-tabs": 0,
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "no-empty-function": [
+      "error",
+      {
+        "allow": ["arrowFunctions", "functions", "methods"]
+      }
+    ],
+    "no-alert": "warn",
+    "no-empty-pattern": "error",
+    "no-magic-numbers": [
+      "off",
+      {
+        "ignore": [],
+        "ignoreArrayIndexes": true,
+        "enforceConst": true,
+        "detectObjects": false
+      }
+    ],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "no-duplicate-imports": "off",
+    "no-var": "error",
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": true
+        },
+        "AssignmentExpression": {
+          "array": true,
+          "object": false
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-spread": "error",
+    "sort-imports": ["off", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    }],
+    "array-bracket-newline": ["off", "consistent"]
+    
   },
 
   "settings": {
