@@ -9,55 +9,58 @@ import Box from '@mui/material/Box';
 const borderColorInput = '#7973d7';
 
 const Calendar = () => {
-    const [value, setValue] = React.useState([null, null]);
+  const [value, setValue] = React.useState([null, null]);
 
-    return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <div className={styles.Calendar}>
-                <DateRangePicker
-                    startText=''
-                    endText=''
-                    calendars={1}
-                    value={value}
-                    onChange={(newValue) => {
-                        setValue(newValue);
-                    }}
-                    renderInput={(startProps, endProps) => (
-                        <React.Fragment>
-                            <TextField
-                                label=''
-                                size='small'
-                                color='primary'
-                                {...startProps}
-                                sx={{
-                                    ml: '5%', width: '40%',
-                                    '& .MuiOutlinedInput-root': {
-                                        '& > fieldset': {
-                                            borderColor: borderColorInput
-                                        }
-                                    }
-                                }}
-                            />
-                            <Box sx={{ mx: '3.5%', color: 'silver', fontSize: '11px' }}>to</Box>
-                            <TextField
-                                size='small'
-                                color='primary'
-                                {...endProps}
-                                sx={{
-                                    width: '40%',
-                                    '& .MuiOutlinedInput-root': {
-                                        '& > fieldset': {
-                                            borderColor: borderColorInput
-                                        }
-                                    }
-                                }}
-                            />
-                        </React.Fragment>
-                    )}
-                />
-            </div>
-        </LocalizationProvider>
-    );
-}
+  return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <div className={styles.Calendar}>
+        <DateRangePicker
+          startText=''
+          endText=''
+          calendars={1}
+          value={value}
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+          renderInput={(startProps, endProps) => (
+            <React.Fragment>
+              <TextField
+                label=''
+                size='small'
+                color='primary'
+                {...startProps}
+                sx={{
+                  ml: '5%',
+                  width: '40%',
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {
+                      borderColor: borderColorInput,
+                    },
+                  },
+                }}
+              />
+              <Box sx={{ mx: '3.5%', color: 'silver', fontSize: '11px' }}>
+                to
+              </Box>
+              <TextField
+                size='small'
+                color='primary'
+                {...endProps}
+                sx={{
+                  width: '40%',
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {
+                      borderColor: borderColorInput,
+                    },
+                  },
+                }}
+              />
+            </React.Fragment>
+          )}
+        />
+      </div>
+    </LocalizationProvider>
+  );
+};
 
-export default Calendar
+export default Calendar;

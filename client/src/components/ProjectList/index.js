@@ -1,3 +1,3 @@
 import ProjectList from './ProjectList';
 
-export default ProjectList
+export default ProjectList;

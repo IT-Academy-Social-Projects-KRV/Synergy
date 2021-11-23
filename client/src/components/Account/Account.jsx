@@ -1,10 +1,5 @@
+const Account = () => {
+  return <div>Account under construction</div>;
+};
 
-const Account = ()=>{
-    return(
-        <div>
-            Account under construction
-        </div>
-    )
-}
-
-export default Account
+export default Account;

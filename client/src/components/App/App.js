@@ -1,13 +1,8 @@
 import './App.css';
 import { Routes } from '../../routes/routes';
 
-
-function App() {
-  return (
-    <>
-      <Routes/>
-    </>
-  );
-}
+const App = function () {
+  return <Routes />;
+};
 
 export default App;

@@ -1,7 +1,7 @@
-import AdvancedLogo from './AdvancedLogo'
-import Description from './Description'
-import { Box } from '@mui/material'
-import styles from './EmptyProjectList.module.scss'
+import AdvancedLogo from './AdvancedLogo';
+import Description from './Description';
+import { Box } from '@mui/material';
+import styles from './EmptyProjectList.module.scss';
 
 const EmptyProjectList = () => {
   return (
@@ -9,7 +9,7 @@ const EmptyProjectList = () => {
       <AdvancedLogo />
       <Description />
     </Box>
-  )
-}
+  );
+};
 
-export default EmptyProjectList
+export default EmptyProjectList;

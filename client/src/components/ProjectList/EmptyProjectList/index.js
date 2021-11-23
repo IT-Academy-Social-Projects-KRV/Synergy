@@ -1,3 +1,3 @@
-import EmptyProjectList from './EmptyProjectList'
+import EmptyProjectList from './EmptyProjectList';
 
-export default EmptyProjectList
+export default EmptyProjectList;
