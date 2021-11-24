@@ -1,10 +1,16 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from '../SideBar.module.scss';
 
-const SideBarItem = () => {
-    return (
-        <div>
-            SideBarItem
-        </div>
-    )
-}
+const SideBarItem = ({ route, image, alt, title }) => {
+  return (
+    <li>
+      <NavLink activeClassName={styles.active} to={route}>
+        <img src={image} alt={alt} />
+        <span>{title}</span>
+      </NavLink>
+    </li>
+  );
+};
 
-export default SideBarItem
+export default SideBarItem;

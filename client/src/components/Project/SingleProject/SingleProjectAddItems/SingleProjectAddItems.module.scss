@@ -1,0 +1,47 @@
+$fontLight: #E5E5E5;
+$fontDark: #2b2a3f;
+$fontColor: #7973d7; 
+$submitedColor: #2AB957;
+$error: #FF0606;
+
+section{
+    padding: 0;
+    div.bg_add_items{
+        padding-bottom: 50px;
+        div.head{
+            h2{
+            color: $fontDark;
+            text-align: center;
+            padding-top: 100px;
+            }
+        }
+        div.add_items{
+            div.items_submition{
+                display: flex;
+                justify-content: flex-start;
+                div.items_submition_sign{
+                    display: flex;
+                    margin-left: 15px;
+                    color: $submitedColor;
+                    p.icon_error{
+                        color: $error;
+                    }
+                    p.error{
+                        color: $error;
+                    }
+                    p.error, p.submited{
+                        padding-left: 10px;;
+                    }
+                }
+            }
+        } 
+        Button.btn{
+            background-color: $fontColor;
+            margin-left: 20px;
+            height: 30px;
+            width: 200px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }       
+    } 
+}

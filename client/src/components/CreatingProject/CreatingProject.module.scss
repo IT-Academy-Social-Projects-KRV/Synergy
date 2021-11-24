@@ -1,0 +1,157 @@
+$borderColor: #7973d7;
+$createTitle: 14px;
+$fontSizeLabel: 10px;
+$fontSizePlaceholder: 15px;
+$fontFamily: 'Roboto';
+$backgroundColorButton: #7973d7;
+$fontColorPlaceholder: #acacac;
+
+div.Content{
+    background-color: white;
+    height: 70vh;
+    width: 86%;
+    float: left;
+    margin-top: 4%;
+    margin-left: 2%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    font-family: $fontFamily;
+
+    div.textContent{
+        height: 100%;
+        //width: 700px;
+        width: 60%;
+        margin: auto;
+        //background-color: silver;
+        
+        h1{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 37px;
+            display: flex;
+            align-items: center;
+            color: #21143E;
+            width: 130px;
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .mainForm{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            div.inputWithLabel{
+                width: 45%;
+                margin-right: 2.5%;
+                margin-left: 2.5%;
+            }
+            div.inputWithLabel{
+                div.Calendar{
+                    margin-top: 0;
+                }
+            }
+            div.inputWithArea{
+                width: 100%;
+                margin-left: 2.5%;
+            }
+            div{
+                position: relative;
+                margin-top: 8px;
+                height: 30px;
+                margin-bottom: 25px;
+            }
+            label{
+                font-size: $fontSizeLabel;
+                text-transform: uppercase;
+                font-weight: 800;
+                position: absolute;
+                top: -5px;
+                left: 8px;
+            }
+            div.calendarOnPage{
+                margin-top: 0px;
+                width: 50%;
+                label{              
+                    top: 3px;
+                    left: 27px;
+                }
+            }
+            textarea.textareaDescription{
+                border: 1px solid $borderColor;
+                border-radius: 5px;
+                margin-top: 15px;
+                height: 40px;
+                width: 90.5%;
+                max-width: 90.5%;
+                min-width: 90.5%;
+                padding-left: 6%;
+                padding-top: 10px;
+            }
+            textarea.textareaDescription::placeholder {
+                font-size: 11px;
+                font-weight: bold;
+                color: $fontColorPlaceholder;
+            }
+            div.textAlignLeft{
+                height: 15px;
+                width: 15px;
+                position: absolute;
+                top: 20px;
+                left: 15px;
+
+                div.longStrip{
+                margin: 0;
+                height: 1.5px;
+                width: 15px;
+                background-color: silver;
+                margin-bottom: 2.5px;
+                }
+                div.shortStrip{
+                    margin: 0;
+                    height: 1.5px;
+                    width: 12.5px;
+                    background-color: silver;
+                    margin-bottom: 2.5px;
+                }
+            }
+            input{
+                font-size: $fontSizePlaceholder;
+                font-weight: bold;
+                display: inline-block;
+                font-size: 11px;
+            }
+        }
+        div.addItems{
+            margin-top: 70px;
+            position: relative;;
+            div.addItemsTitle{
+                font-size: $fontSizeLabel;
+                text-transform: uppercase;
+                font-weight: bold;
+                position: absolute;
+                top: -30px;
+                left: 20px;
+                margin-bottom: 20px;
+            }
+            button.saveButton{
+                height: 25px;
+                width: 120px;
+                background-color: $backgroundColorButton;
+                text-align: center;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                position: relative;
+                margin-top: 0px !important;
+                margin-left: 9.5%;
+                margin-right: 15px;
+                font-size: 8px;
+                font-weight: bold;
+            }
+        }
+    }
+}

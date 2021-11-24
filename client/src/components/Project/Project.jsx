@@ -1,15 +1,13 @@
-import SingleProject from './SingleProject/SingleProject'
+import SingleProject from './SingleProject/SingleProject';
 
 const Project = () => {
-    return (
-        <div>
-            Project
-            <br/>
-            <div>
-                <SingleProject/>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div>
+      <div>
+        <SingleProject />
+      </div>
+    </div>
+  );
+};
 
-export default Project
+export default Project;
