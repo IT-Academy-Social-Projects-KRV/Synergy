@@ -1,0 +1,16 @@
+$fontDark: #2b2a3f; 
+
+section{
+    
+    div.diagram{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: $fontDark;
+        img{
+            width: 85%;
+        }
+    }
+}
+

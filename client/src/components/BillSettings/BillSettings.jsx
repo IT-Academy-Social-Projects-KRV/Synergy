@@ -1,10 +1,5 @@
+const BillSettings = () => {
+  return <div>BillSettings under construction</div>;
+};
 
-const BillSettings = ()=>{
-    return(
-        <div>
-            BillSettings
-        </div>
-    )
-}
-
-export default BillSettings
+export default BillSettings;

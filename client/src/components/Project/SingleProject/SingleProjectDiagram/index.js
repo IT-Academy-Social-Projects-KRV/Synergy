@@ -1,3 +1,3 @@
 import SingleProjectDiagram from './SingleProjectDiagram';
 
-export default SingleProjectDiagram
+export default SingleProjectDiagram;

@@ -1,60 +1,41 @@
-import { NavLink } from 'react-router-dom';
-import { config } from '../../configs';
+import React from 'react';
+import fieldsForSideBar from './sidebarItems';
+import styles from './SideBar.module.scss';
 
-const { routes } = config;
+import SideBarItem from './SideBarItem/SideBarItem';
 
 const SideBar = (props) => {
-    const role = 'admin';
+  const role = 'admin';
 
-    return (
-        <div>
-            SideBar
-            <ul>
-                {
-                    role === 'admin'
-                        ?
-                        <>
-                            <li>
-                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToProjectList}>Projects</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToCreatingProject}>Creating project</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToBillSettings}>Bill settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToAccount}>Account</NavLink>
-                            </li>
-                        </>
-                        : ''
-                }
+  return (
+    <aside className={styles.sidebar + ' ' + props.sideClass}>
+      <h4>Management</h4>
+      <ul className={styles.sidebar_list}>
+        {role === 'admin'
+          ? fieldsForSideBar.Admin.map((item) => (
+            <SideBarItem
+              key={item.title}
+              route={item.route}
+              image={item.image}
+              alt={item.alt}
+              title={item.title}
+            />
+          ))
+          : ''}
+        {role === 'customer'
+          ? fieldsForSideBar.Customer.map((item) => (
+            <SideBarItem
+              key={item.title}
+              route={item.route}
+              image={item.image}
+              alt={item.alt}
+              title={item.title}
+            />
+          ))
+          : ''}
+      </ul>
+    </aside>
+  );
+};
 
-                {
-                    role === 'customer'
-                        ?
-                        <>
-                            <li>
-                                <NavLink to={routes.pathToDashboard}>Dashboard</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToSettings}>Settings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={routes.pathToAccount}>Account</NavLink>
-                            </li>
-                        </>
-                        : ''
-                }
-            </ul>
-        </div>
-    )
-}
-
-export default SideBar
+export default SideBar;

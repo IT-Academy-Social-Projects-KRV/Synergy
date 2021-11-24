@@ -1,10 +1,3 @@
+const Settings = () => <div>Settings under construction</div>;
 
-const Settings = () => {
-    return (
-        <div>
-            Settings
-        </div>
-    )
-}
-
-export default Settings
+export default Settings;

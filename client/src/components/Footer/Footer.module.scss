@@ -1,0 +1,121 @@
+$backgroundColorFooter: #7973d7;
+$fontDarkFooter: #2F2E41;
+$fontLightFooter: #FFFFFF;
+$fontFamily: 'Roboto';
+$fontSizeSynergy: 12px;
+$fontSizeText: 9px;
+$fontSizeBottomText: 6px;
+$marginTopTd: 20px;
+
+footer{
+    background-color: $backgroundColorFooter;
+    height: 18vh;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    
+    div.FooterContent{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 0.7em;
+        margin-top: 1%;
+        font-family: $fontFamily;
+        font-style: normal;
+
+        div{
+            height: 80px;
+            width: 100px;
+            margin-right: 50px;
+            text-align: center;
+            margin-top: 5px;
+            
+            img{
+                width: 30px;
+                height: 27px;
+            }
+            p.SynergyCRM{
+                color: $fontLightFooter;
+                margin: 5px 0px 5px 0px;
+                font-weight: 500;
+                font-size: $fontSizeSynergy;
+            }
+            p.ProjectManager{
+                color: $fontDarkFooter;
+                margin: 0;
+                font-weight: bold;
+                font-size: $fontSizeText;
+            }
+        }
+        table{
+            border-collapse: collapse;
+            height: 40px;
+            width: 280px;
+            margin-top: 5px;
+            thead{
+                tr{
+                    th{
+                        color: $fontDarkFooter;
+                        width: 125px;
+                        text-align: left;
+                        padding-bottom: 5px;
+                        font-size:  $fontSizeText;
+                        font-weight: 700;
+                        font-family: $fontFamily;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        width: 100px;
+                        a{
+                            font-size:  $fontSizeText;
+                            font-weight: 700;
+                            text-decoration: none;
+                            color: $fontLightFooter;
+                            font-family: $fontFamily;
+                            
+                            img{
+                                margin-right: 10px;
+                                display: inline-block;
+                                margin-bottom: 18px;
+                                height: 15px;
+                            }
+                            img:hover{
+                                background-color: $fontDarkFooter;
+                                border-radius: 10px;
+                            }
+                        }
+                        a:hover{
+                            color: silver;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    div.bottomText{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: #CCCCCC;
+        font-family: $fontFamily;
+        font-style: normal;
+        font-weight: bold;
+        font-size: $fontSizeBottomText;
+        line-height: 14px;
+
+        img{
+            margin-right: 5px;
+            margin-top: 5px;
+            height: 8px;
+        }
+        span{
+            margin-top: 2px;
+        }
+    }
+}
+
