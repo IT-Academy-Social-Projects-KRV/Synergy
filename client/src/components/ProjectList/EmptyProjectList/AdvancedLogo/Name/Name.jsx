@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
-import styles from './Name.module.scss';
+import styles from './styles';
 
 const Name = () => {
   return (
-    <Typography className={styles.text} component='span'>
+    <Typography sx={styles.text} component='span'>
       Synergy
     </Typography>
   );

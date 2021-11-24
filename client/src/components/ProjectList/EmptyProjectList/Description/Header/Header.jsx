@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
-import styles from './Header.module.scss';
+import styles from './styles.js';
 
 const Header = () => {
   return (
-    <Typography className={styles.text}>You not have any project.</Typography>
+    <Typography sx={styles.text}>You not have any project.</Typography>
   );
 };
 
