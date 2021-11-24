@@ -1,5 +1,4 @@
 export const status = {
-    progress: 'In Progress',
-    pending: 'Pending'
-}
-
+  progress: 'In Progress',
+  pending: 'Pending',
+};

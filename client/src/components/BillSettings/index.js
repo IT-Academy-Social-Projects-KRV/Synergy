@@ -1,3 +1,3 @@
 import BillSettings from './BillSettings';
 
-export default BillSettings
+export default BillSettings;

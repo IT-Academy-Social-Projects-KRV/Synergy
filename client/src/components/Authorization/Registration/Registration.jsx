@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import routes from '../../../configs/routes';
 
 const Registration = () => {
-    const { pathToLogin } = routes;
+  const { pathToLogin } = routes;
 
-    return (
-        <div>
-            Registration
-            <Link to={pathToLogin}>to Login</Link>
-        </div>
-    )
-}
+  return (
+    <div>
+      Registration under construction
+      <Link to={pathToLogin}>to Login</Link>
+    </div>
+  );
+};
 
-export default Registration
+export default Registration;
