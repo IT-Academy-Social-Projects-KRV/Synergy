@@ -3,7 +3,20 @@
   "version": "1.0.0",
   "description": "CRM system",
   "main": "server.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "link-staged"
+    }
+  },
+  "link-staged": {
+    "**/*.js": [
+      "eslint ./src --fix",
+      "git add"
+    ]
+  },
   "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "start": "nodemon api/server.js",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
@@ -27,6 +40,14 @@
     "sequelize": "^6.9.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "nodemon": "^2.0.14",
+    "prettier": "2.5.0"
   }
 }
