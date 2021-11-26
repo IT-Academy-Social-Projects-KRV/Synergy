@@ -7,6 +7,7 @@ import ProjectListItem from './ProjectListItem/ProjectListItem';
 
 const ProjectList = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axios
       .get('http://localhost:4000/api/project')
