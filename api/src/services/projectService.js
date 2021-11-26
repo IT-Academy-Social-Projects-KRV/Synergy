@@ -1,6 +1,6 @@
 const { Project, Item } = require('../models/models');
 
-exports.getSortedByName = async () => {
+const getSortedByName = async () => {
   try {
     return await Project.findAll({ order: [['name', 'ASC']] });
   } catch (error) {
@@ -8,11 +8,21 @@ exports.getSortedByName = async () => {
   }
 };
 
-exports.createProject = async (name, description, date_start, date_finish, item) => {
+const createProject = async (
+  name,
+  description,
+  date_start,
+  date_finish,
+  item,
+) => {
   try {
     if (!item) {
       return Project.create({
-        name, description, date_start, date_finish, statusId: 1,
+        name,
+        description,
+        date_start,
+        date_finish,
+        statusId: 1,
       });
     }
     return Project.create(
@@ -37,7 +47,7 @@ exports.createProject = async (name, description, date_start, date_finish, item)
   }
 };
 
-exports.projectList = async () => {
+const projectList = async () => {
   try {
     return await Project.findAll();
   } catch (error) {
@@ -45,7 +55,7 @@ exports.projectList = async () => {
   }
 };
 
-exports.getOneProject = async (id) => {
+const getOneProject = async (id) => {
   try {
     return await Project.findOne({ where: { id: [id] } });
   } catch (error) {
@@ -53,20 +63,41 @@ exports.getOneProject = async (id) => {
   }
 };
 
-exports.updateProject = async (name, description, date_start, date_finish, id) => {
+const updateProject = async (
+  name,
+  description,
+  date_start,
+  date_finish,
+  id,
+) => {
   try {
-    return await Project.update({
-      name, description, date_start, date_finish,
-    }, { where: { id } });
+    return await Project.update(
+      {
+        name,
+        description,
+        date_start,
+        date_finish,
+      },
+      { where: { id } },
+    );
   } catch (error) {
     throw Error(error);
   }
 };
 
-exports.deleteProject = async (id) => {
+const deleteProject = async (id) => {
   try {
     return await Project.update({ statusId: 2 }, { where: { id } });
   } catch (error) {
     throw Error(error);
   }
+};
+
+module.exports = {
+  getSortedByName,
+  createProject,
+  projectList,
+  getOneProject,
+  updateProject,
+  deleteProject,
 };
