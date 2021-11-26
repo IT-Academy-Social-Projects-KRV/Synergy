@@ -1,8 +1,14 @@
+import React from 'react';
 import './App.css';
-import { Routes } from '../../routes/routes';
+import {Routes} from '../../routes/routes';
+import {AlertState} from '../Alert/context/AlertState';
 
 const App = () => {
-  return <Routes />;
+  return (
+    <AlertState>
+      <Routes/>
+    </AlertState>
+  );
 };
 
 export default App;

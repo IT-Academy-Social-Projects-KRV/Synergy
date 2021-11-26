@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './Calendar.module.scss';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -8,9 +8,13 @@ import Box from '@mui/material/Box';
 
 const borderColorInput = '#7973d7';
 
-const Calendar = () => {
+const Calendar = props => {
   const [value, setValue] = React.useState([null, null]);
-
+  useEffect(() => {
+    props.setData({...props.data,
+      date_start: new Date(value[0]).toISOString(),
+      date_finish: new Date(value[1]).toISOString()});
+  }, [value]);
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className={styles.Calendar}>
