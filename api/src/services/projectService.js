@@ -19,14 +19,7 @@ const getProjects = async (req) => {
 };
 
 const createProject = async (name, description, capital, date_start, date_finish) => {
-    const databaseResult = await projectRepository.createProject({
-        name,
-        description,
-        capital,
-        date_start,
-        date_finish,
-        statusId: 1
-    });
+    const databaseResult = await projectRepository.createProject(name, description, capital, date_start, date_finish);
     return databaseResult;
 };
 

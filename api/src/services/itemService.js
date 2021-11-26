@@ -1,70 +1,35 @@
-const { Item } = require('../models/models');
+const itemRepository = require('../dal/itemRepository');
 
 const getItems = async () => {
-  try {
-    return await Item.findAll();
-  } catch (error) {
-    throw Error(error);
-  }
+    const databaseResult = await itemRepository.getItems();
+    return databaseResult;
 };
 
 const getOneItem = async (id) => {
-  try {
-    return await Item.findOne({ where: { id: [id] } });
-  } catch (error) {
-    throw Error(error);
-  }
+    const databaseResult = await itemRepository.getItem(id);
+    return databaseResult;
+}
+
+const createItem = async (name, description, price, price_margin, projectId) => {
+    const databaseResult = await itemRepository.createItem(name, description, price, price_margin, projectId);
+    return databaseResult;
 };
 
-const createItem = async (
-  name,
-  description,
-  price,
-  price_margin,
-  projectId,
-) => {
-  try {
-    return Item.create({
-      name,
-      description,
-      price,
-      price_margin,
-      projectId,
-      statusId: 1,
-    });
-  } catch (error) {
-    throw Error(error);
-  }
-};
-
-const updateItem = async (name, description, price, price_margin, id) => {
-  try {
-    return await Item.update(
-      {
-        name,
-        description,
-        price,
-        price_margin,
-      },
-      { where: { id } },
-    );
-  } catch (error) {
-    throw Error(error);
-  }
+const updateItem = async (name, description, price, price_margin, statusId, id) => {
+    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, statusId, id);
+    return databaseResult;
 };
 
 const deleteItem = async (id) => {
-  try {
-    return await Item.update({ statusId: 2 }, { where: { id } });
-  } catch (error) {
-    throw Error(error);
-  }
+    const databaseResult = await itemRepository.deleteItem(id);
+    return databaseResult;
+
 };
 
 module.exports = {
-  getItems,
-  getOneItem,
-  createItem,
-  updateItem,
-  deleteItem,
-};
+    getItems,
+    getOneItem,
+    createItem,
+    updateItem,
+    deleteItem
+}
