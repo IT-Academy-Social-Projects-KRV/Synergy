@@ -1,24 +1,24 @@
-const {StatusCategory} = require('../models/models')
+const { StatusCategory } = require('../models/models');
 
 const categories = [
-    {
-        category: 'Shared'
-    },
-    {
-        category: 'User'
-    },
-    {
-        category: 'Project'
-    },
-    {
-        category: 'Item'
-    },
-]
+  {
+    category: 'Shared',
+  },
+  {
+    category: 'User',
+  },
+  {
+    category: 'Project',
+  },
+  {
+    category: 'Item',
+  },
+];
 
-async function addStatusCategories(){
-    for(const c in categories){
-        StatusCategory.create(categories[c])
-    }
+async function addStatusCategories() {
+  categories.forEach((category) => {
+    StatusCategory.create(category);
+  });
 }
 
 module.exports = addStatusCategories;
