@@ -2,8 +2,12 @@ const addStatusCategories = require('./StatusCategoryData');
 const addStatuses = require('./StatusData');
 const addProjects = require('./ProjectData');
 
-exports.fillDb = () => {
+const fillDb = () => {
   addStatusCategories();
   addStatuses();
   addProjects();
+};
+
+module.exports = {
+  fillDb,
 };
