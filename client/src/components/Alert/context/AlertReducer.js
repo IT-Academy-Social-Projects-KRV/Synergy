@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const alertReducer = (state, action) => {
   switch (action.type) {
     case 'SHOW_ALERT':
