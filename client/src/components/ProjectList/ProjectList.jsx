@@ -11,7 +11,7 @@ const ProjectList = () => {
   useEffect(() => {
     (async () => {
       const res = await get_request('project');
-      setData(res.data);
+      setData(res.data.projects);
     })();
   }, []);
 
