@@ -1,5 +1,5 @@
-const { Project, Item } = require('../models/models');
 const { Op } = require('sequelize');
+const { Project, Item } = require('../models/models');
 
 const getProjects = async (sortData, page, size, capitalData, name, date_start, date_finish) => {
     try {
@@ -9,21 +9,22 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
                 offset: size * (page - 1),
                 where: {
                     name: {
-                        [Op.substring]: [name || null]
+                        [Op.substring]: [name || null],
                     },
                     capital: {
-                        [Op.between]: capitalData
+                        [Op.between]: capitalData,
                     },
                     date_start: {
-                        [Op.gt]: date_start || '1970-01-01'
+                        [Op.gt]: date_start || '1970-01-01',
                     },
                     date_finish: {
-                        [Op.lt]: date_finish || '2038-01-19'
-                    }
+                        [Op.lt]: date_finish || '2038-01-19',
+                    },
                 },
                 order: [sortData],
-                include: Item
-            });
+                include: Item,
+            },
+            );
         return data;
     } catch (err) {
         throw Error(err);
@@ -38,7 +39,7 @@ const createProject = async (name, description, capital, date_start, date_finish
             capital,
             date_start,
             date_finish,
-            statusId: 1
+            statusId: 1,
         });
         return data;
     } catch (err) {
@@ -50,7 +51,7 @@ const getProject = async (id) => {
     try {
         const data = await Project.findOne({
             where: { id },
-            include: Item
+            include: Item,
         });
         return data;
     } catch (err) {
@@ -65,7 +66,7 @@ const updateProject = async (name, description, capital, date_start, date_finish
             description,
             capital,
             date_start,
-            date_finish
+            date_finish,
         }, { where: { id } });
         return data;
     } catch (err) {
@@ -87,5 +88,5 @@ module.exports = {
     createProject,
     getProject,
     updateProject,
-    deleteProject
+    deleteProject,
 }
