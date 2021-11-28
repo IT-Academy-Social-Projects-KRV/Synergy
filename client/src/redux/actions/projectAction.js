@@ -1,4 +1,4 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const setProjectList = createAction('project/set');
+export const setProject = createAction('project/set');
 

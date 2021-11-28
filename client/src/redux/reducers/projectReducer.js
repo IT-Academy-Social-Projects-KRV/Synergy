@@ -1,10 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setProjectList } from '../actions/projectAction';
-import { initialState } from '../initialState';
+import { setProject } from '../actions/projectAction';
 
+const initialState = {
+  project: [],
+};
 
 export const projectReducer = createReducer(initialState, {
-  [setProjectList]: (state, action) => {
+  [setProject]: (state, action) => {
     state.projectList = action.payload;
   },
+
 });

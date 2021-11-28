@@ -1,7 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { setUser } from '../actions/userAction';
-import { initialState } from '../initialState';
 
+
+const initialState = {
+  user: {},
+};
 
 export const userReducer = createReducer(initialState, {
   [setUser]: (state, action) => {
