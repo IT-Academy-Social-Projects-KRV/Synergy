@@ -13,7 +13,9 @@ const getOneItem = async (req, res) => {
 };
 
 const createItem = async (req, res) => {
-    const { name, description, price, price_margin, projectId } = req.body;
+    const {
+        name, description, price, price_margin, projectId
+    } = req.body;
     const item = await itemService.createItem(name, description, price, price_margin, projectId);
     res.status(status.CREATED)
         .json(item);

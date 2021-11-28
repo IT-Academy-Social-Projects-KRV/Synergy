@@ -14,14 +14,18 @@ const getOneProject = async (req, res) => {
 };
 
 const createProject = async (req, res) => {
-    const { name, description, capital, date_start, date_finish } = req.body;
+    const {
+        name, description, capital, date_start, date_finish
+    } = req.body;
     const project = await projectsService.createProject(name, description, capital, date_start, date_finish);
     res.status(status.CREATED)
         .json(project);
 };
 
 const updateProject = async (req, res) => {
-    const { name, description, capital, date_start, date_finish } = req.body;
+    const {
+        name, description, capital, date_start, date_finish
+    } = req.body;
     const id = req.params.id;
     const project = await projectsService.updateProject(name, description, capital, date_start, date_finish, id);
     res.status(status.OK)
