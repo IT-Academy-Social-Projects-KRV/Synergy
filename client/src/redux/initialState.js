@@ -1,5 +1,6 @@
 
 export const initialState = {
   user: {}, 
-  projectList: [],
+  project: [],
+  projectList:[],
 };

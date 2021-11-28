@@ -3,8 +3,8 @@ import { setProjectList } from '../actions/projectAction';
 import { initialState } from '../initialState';
 
 
-export const projectReducer = createReducer(initialState, {
+export const projectListReducer = createReducer(initialState, {
   [setProjectList]: (state, action) => {
     state.projectList = action.payload;
-  },
+  }
 });
