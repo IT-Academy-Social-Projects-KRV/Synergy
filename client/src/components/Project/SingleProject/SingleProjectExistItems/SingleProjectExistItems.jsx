@@ -1,5 +1,6 @@
 import CancelIcon from '@mui/icons-material/Cancel';
 import styles from './SingleProjectExistItems.module.scss';
+import ApproveRejectButtons from './ApproveRejectButtons';
 
 const SingleProjectExistItems = () => {
   return (
@@ -43,7 +44,9 @@ const SingleProjectExistItems = () => {
                 <td>Cement</td>
                 <td>255</td>
                 <td>11.10.2021</td>
-                <td>Pending</td>
+                <td>Pending
+                  <ApproveRejectButtons />
+                </td>
                 <td className={styles.cancel}>
                   <a href='/dashboard' alt='Cancel Icon'>
                     <span className={styles.icon_cancel}>
