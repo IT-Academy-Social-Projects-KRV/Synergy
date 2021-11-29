@@ -1,17 +1,15 @@
 @import '../../../../consts/variables.scss' ;
 
 .client {
+  @include brdrRadShadow;
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
-  box-shadow: $blockShadow;
   margin: 32px 0;
   padding: 12px 20px;
 
   &__icon,
   &__icon > div {
-    display: flex;
-    align-items: center;
+    @extend %flexAlign;
   }
 
   &__icon {

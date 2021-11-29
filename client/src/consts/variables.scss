@@ -1,8 +1,29 @@
 $fontDark: #21143e;
 $bgCard: white;
-$pageBgClr:#f3f5f4;
+$pageBgClr: #f3f5f4;
 
 $boxBgShadow: 3px 4px 50px 5px rgba(0, 0, 0, 0.05);
 $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
 $innerShadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
 $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+
+%baseFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flexAlign {
+  display: flex;
+  align-items: center;
+}
+
+@mixin brdrRadShadow {
+  box-shadow: $blockShadow;
+  border-radius: 25px;
+}
+
+@mixin fonts($fntSize, $fntWeight) {
+  font-size: $fntSize;
+  font-weight: $fntWeight;
+}

@@ -1,16 +1,13 @@
 @import '../../../../consts/variables.scss';
 
 .diagram {
-  display: flex;
+  @extend %baseFlex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 
   &__title {
-    font-size: 24px;
+    @include fonts($fntSize: 24px, $fntWeight: 700);
     color: $fontDark;
     margin-top: 14px;
-    font-weight: bold;
   }
 
   img {

@@ -6,7 +6,6 @@
 
   &__projectBlock {
     background-color: $bgCard;
-    margin: 0;
     padding: 32px 40px;
     border-radius: 30px 0 0 30px;
     margin-bottom: 32px;
@@ -19,15 +18,13 @@
   }
 
   &__projectTitle {
+    @include fonts($fntSize: 32px, $fntWeight: 700);
     color: $fontDark;
     text-align: center;
-    font-size: 32px;
-    font-weight: bold;
     margin-bottom: 100px;
   }
 
-  &__projectData,
-  &__diagram {
+  &__projectData {
     display: flex;
   }
 
@@ -37,11 +34,10 @@
   }
 
   &__diagram {
+    @extend %baseFlex;
     width: 50%;
     background: $bgCard;
     box-shadow: $blockShadow;
     border-radius: 25px;
-    align-items: center;
-    justify-content: center;
   }
 }
