@@ -25,8 +25,8 @@ const createItem = async (name, description, price, price_margin, projectId) => 
             description,
             price,
             price_margin,
-            projectId: projectId,
-            statusId: 1
+            projectId,
+            statusId: 1,
         });
         return data;
     } catch (err) {
@@ -41,7 +41,7 @@ const updateItem = async (name, description, price, price_margin, statusId, id) 
             description,
             price,
             price_margin,
-            statusId: statusId
+            statusId,
         }, { where: { id } });
         return data;
     } catch (err) {
@@ -63,5 +63,5 @@ module.exports = {
     getItem,
     createItem,
     updateItem,
-    deleteItem
+    deleteItem,
 }
