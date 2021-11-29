@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:4000/api/';
 
 const baseAxios = axios.create({
-  baseURL: baseUrl
+  baseUrl
 });
 
 export const useHttp = () => {
