@@ -1,12 +1,12 @@
 const Router = require('express');
 
 const router = new Router();
-const project = require('./projectRouter');
-const item = require('./itemRouter');
+const projects = require('./projectRouter');
+const items = require('./itemRouter');
 const error404 = require('./error404Router');
 
-router.use('/project', project);
-router.use('/item', item);
+router.use('/projects', projects);
+router.use('/items', items);
 router.use('/*', error404);
 
 module.exports = router;

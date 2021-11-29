@@ -23,7 +23,6 @@ const updateItem = async (name, description, price, price_margin, statusId, id) 
 const deleteItem = async (id) => {
     const databaseResult = await itemRepository.deleteItem(id);
     return databaseResult;
-
 };
 
 module.exports = {
@@ -31,5 +30,5 @@ module.exports = {
     getOneItem,
     createItem,
     updateItem,
-    deleteItem
+    deleteItem,
 }

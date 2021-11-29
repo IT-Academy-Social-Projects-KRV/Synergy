@@ -1,5 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
 const { Project } = require('../models/models');
 
 const projects = [
@@ -96,9 +94,9 @@ const projects = [
 ];
 
 async function addProjects() {
-  for (const p in projects) {
-    Project.create(projects[p]);
-  }
+  projects.forEach((project) => {
+    Project.create(project);
+  });
 }
 
 module.exports = addProjects;

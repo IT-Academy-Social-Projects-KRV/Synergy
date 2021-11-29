@@ -5,10 +5,10 @@
   "main": "server.js",
   "husky": {
     "hooks": {
-      "pre-commit": "link-staged"
+      "pre-commit": "lint-staged"
     }
   },
-  "link-staged": {
+  "lint-staged": {
     "**/*.js": [
       "eslint ./src --fix",
       "git add"
@@ -18,6 +18,9 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "start": "nodemon api/server.js",
+    "test": "npm run lint && nyc --reporter=lcovonly --reporter=html --reporter=text --reporter=texr-summary --check-coverage --lines 80 --branches 60 --functions 80  node node_modules/mocha/bin/mocha",
+    "test:unit": "node node_modules/mocha/bin/mocha --require @babel/polyfill --require @babel/register --timeout 50000 --recursive test/unit/",
+    "test:integration": "node node_modules/mocha/bin/mocha --require @babel/polyfill --require @babel/register --timeout 50000 --recursive test/integration",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
   },
@@ -32,6 +35,7 @@
   },
   "homepage": "https://github.com/IT-Academy-Social-Projects-KRV/Synergy#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -41,14 +45,19 @@
     "sequelize": "^6.9.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/register": "^7.16.0",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
+    "husky": "^4.3.8",
+    "jest": "^27.4.0",
     "lint-staged": "^12.1.2",
+    "mocha": "^9.1.3",
     "nodemon": "^2.0.14",
+    "nyc": "^15.1.0",
     "prettier": "2.5.0"
   }
 }
