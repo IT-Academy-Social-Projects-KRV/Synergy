@@ -1,8 +1,4 @@
-$fontLight: #e5e5e5;
-$fontDark: #21143e;
-$mainColor: #7973d7;
-
-$blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
+@import '../../../../consts/variables.scss' ;
 
 .bill {
   display: flex;
@@ -47,7 +43,7 @@ $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
   }
 
   .money {
-    box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: $innerShadow;
     padding: 5px 20px;
     height: 50px;
   }
@@ -57,7 +53,7 @@ $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
     padding: 5px;
     color: $fontDark;
     background-color: white;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: $iconBgShadow;
   }
 
   .price {

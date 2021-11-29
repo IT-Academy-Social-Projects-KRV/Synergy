@@ -1,3 +1,1 @@
-import SingleProjectBill from './SingleProjectBill';
-
-export default SingleProjectBill;
+export { default as SingleProjectBill } from './SingleProjectBill';

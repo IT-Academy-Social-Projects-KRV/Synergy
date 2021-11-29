@@ -1,7 +1,4 @@
-$fontLight: #e5e5e5;
-$fontDark: #21143e;
-$mainColor: #7973d7;
-$blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
+@import '../../../../consts/variables.scss' ;
 
 .client {
   display: flex;
@@ -18,7 +15,6 @@ $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
   }
 
   &__icon {
-    color: $mainColor;
     margin-bottom: 16px;
   }
 

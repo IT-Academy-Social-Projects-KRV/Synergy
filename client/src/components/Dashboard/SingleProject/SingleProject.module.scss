@@ -1,11 +1,7 @@
-$fontLight: #e5e5e5;
-$fontDark: #21143e;
-$boxShadowBg: 3px 4px 50px 5px rgba(0, 0, 0, 0.05);
-$blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
-$bgCard: white;
+@import '../../../consts/variables.scss';
 
 .board {
-  background: #f3f5f4;
+  background: $pageBgClr;
   width: 100%;
 
   &__projectBlock {
@@ -14,7 +10,7 @@ $bgCard: white;
     padding: 32px 40px;
     border-radius: 30px 0 0 30px;
     margin-bottom: 32px;
-    box-shadow: $boxShadowBg;
+    box-shadow: $boxBgShadow;
     min-height: 100vh;
 
     &:last-child {

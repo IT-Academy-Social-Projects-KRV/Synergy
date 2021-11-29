@@ -1,7 +1,4 @@
-$fontLight: #e5e5e5;
-$fontDark: #21143e;
-
-$blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
+@import '../../../../consts/variables.scss';
 
 .description {
   display: flex;
