@@ -5,8 +5,8 @@ const SingleProjectDiagram = () => {
   return (
     <section>
       <div className={styles.diagram}>
-        <h3>Analytics</h3>
-        <img alt='' src={diagram}></img>
+        <p className={styles.diagram__title}>Analytics</p>
+        <img src={diagram} alt='diagram'></img>
       </div>
     </section>
   );

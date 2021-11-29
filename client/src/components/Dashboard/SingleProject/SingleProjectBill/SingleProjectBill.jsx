@@ -5,29 +5,34 @@ import styles from './SingleProjectBill.module.scss';
 const SingleProjectBill = () => {
   return (
     <section>
-      <div className={styles.total}>
-        <div className={styles.bg_total}>
-          <h3>Total Income</h3>
-          <div className={styles.total_income}>
+      <div className={styles.bill}>
+        <div className={styles.bill__bg}>
+          <h3 className={styles.bill__title}>Total Income</h3>
+
+          <div className={styles.bill__income}>
             <p className={styles.icon}>
               <CreditCardRoundedIcon />
             </p>
+
             <div className={styles.money}>
-              <p className={styles.icon_money}>
+              <p className={styles.icon__money}>
                 <AttachMoneyRoundedIcon />
               </p>
               <p className={styles.price}>22.365</p>
             </div>
           </div>
         </div>
-        <div className={styles.bg_total}>
-          <h3>Total Outlay</h3>
-          <div className={styles.total_outlay}>
+
+        <div className={styles.bill__bg}>
+          <h3 className={styles.bill__title}>Total Outlay</h3>
+
+          <div className={styles.bill__outlay}>
             <p className={styles.icon}>
               <CreditCardRoundedIcon />
             </p>
+
             <div className={styles.money}>
-              <p className={styles.icon_money}>
+              <p className={styles.icon__money}>
                 <AttachMoneyRoundedIcon />
               </p>
               <p className={styles.price}>15.365</p>

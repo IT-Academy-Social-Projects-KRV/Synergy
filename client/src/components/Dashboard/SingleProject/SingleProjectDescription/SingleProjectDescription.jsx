@@ -4,8 +4,9 @@ const SingleProjectDescription = () => {
   return (
     <section>
       <div className={styles.description}>
-        <h3>Description</h3>
-        <p>
+        <b className={styles.description__title}>Description</b>
+
+        <p className={styles.description__text}>
           CRM stands for “Customer Relationship Management”. In most cases, when
           people talk about CRM, they are usually referring to a CRM system, a
           tool aimed at helping companies with sales, marketing and service

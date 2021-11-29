@@ -1,0 +1,44 @@
+$fontLight: #e5e5e5;
+$fontDark: #21143e;
+$mainColor: #7973d7;
+$blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
+
+.client {
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: $blockShadow;
+  margin: 32px 0;
+  padding: 12px 20px;
+
+  &__icon,
+  &__icon > div {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    color: $mainColor;
+    margin-bottom: 16px;
+  }
+
+  &__name,
+  &__date {
+    font-weight: 500;
+  }
+
+  &__name {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  &__date {
+    color: $fontDark;
+    font-size: 16px;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

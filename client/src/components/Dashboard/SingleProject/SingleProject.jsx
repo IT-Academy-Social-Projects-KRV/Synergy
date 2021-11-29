@@ -8,31 +8,35 @@ import styles from './SingleProject.module.scss';
 
 const SingleProject = () => {
   return (
-    <div>
+    <>
       <main>
-        <div className={styles.bg_project}>
-          <div className={styles.project_info}>
-            <h1>Progect Name</h1>
-            <div className={styles.bg_project_block}>
-              <div className={styles.project_block}>
+        <div className={styles.board}>
+          <div className={styles.board__projectBlock}>
+            <h1 className={styles.board__projectTitle}>Progect Name</h1>
+
+            <div className={styles.board__projectData}>
+              <div className={styles.board__block}>
                 <SingleProjectBill />
                 <SingleProjectInfo />
                 <SingleProjectDescription />
               </div>
-              <div className={styles.project_diagram}>
+
+              <div className={styles.board__diagram}>
                 <SingleProjectDiagram />
               </div>
             </div>
-            <div>
-              <SingleProjectExistItems />
-            </div>
-            <div>
-              <SingleProjectAddItems />
-            </div>
+          </div>
+
+          <div className={styles.board__projectBlock}>
+            <SingleProjectExistItems />
+          </div>
+
+          <div className={styles.board__projectBlock}>
+            <SingleProjectAddItems />
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import Authorization from '../components/Authorization';
 import CreatingProject from '../components/CreatingProject';
 import ProjectList from '../components/ProjectList';
 import Settings from '../components/Settings';
-import Project from '../components/Project';
+import { Dashboard } from '../components/Dashboard';
 import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
@@ -50,7 +50,7 @@ export const Routes = () => {
       <Header sideClass={sideClass} changeClass={changeClass} />
       {user.role === 'admin' ? (
         <>
-          <main>
+          <section className={'main__wrapper'}>
             <SideBar sideClass={sideClass} />
             <section className={'main_content_container' + sideClass}>
               <Switch>
@@ -72,7 +72,7 @@ export const Routes = () => {
                 <Route
                   path={routes.pathToDashboard}
                   exact
-                  render={() => <Project />}
+                  render={() => <Dashboard />}
                 />
                 <Route
                   path={routes.pathToBillSettings}
@@ -86,7 +86,7 @@ export const Routes = () => {
                 />
               </Switch>
             </section>
-          </main>
+          </section>
         </>
       ) : (
         ''
@@ -94,14 +94,14 @@ export const Routes = () => {
 
       {user.role === 'customer' ? (
         <>
-          <main>
+          <section className={'main__wrapper'}>
             <SideBar />
             <section className={'main_content_container' + sideClass}>
               <Switch>
                 <Route
                   path={routes.pathToDashboard}
                   exact
-                  render={() => <Project />}
+                  render={() => <Dashboard />}
                 />
                 <Route
                   path={routes.pathToSettings}
@@ -115,7 +115,7 @@ export const Routes = () => {
                 />
               </Switch>
             </section>
-          </main>
+          </section>
         </>
       ) : (
         ''

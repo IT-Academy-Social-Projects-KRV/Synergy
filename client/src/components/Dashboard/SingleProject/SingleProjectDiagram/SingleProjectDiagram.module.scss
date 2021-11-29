@@ -1,0 +1,20 @@
+$fontDark: #2b2a3f;
+
+.diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 24px;
+    color: $fontDark;
+    margin-top: 14px;
+    font-weight: bold;
+  }
+
+  img {
+    width: 85%;
+    margin-bottom: 32px;
+  }
+}
