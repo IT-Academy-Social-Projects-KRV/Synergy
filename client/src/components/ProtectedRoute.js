@@ -8,18 +8,20 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        token !== null ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: {
-                from: props.location,
-              },
-            }}
-          />
-        )
+        token !== null
+          ? (
+            <Component {...props} />
+          )
+          : (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: {
+                  from: props.location,
+                },
+              }}
+            />
+          )
       }
     />
   );

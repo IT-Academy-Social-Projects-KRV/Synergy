@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './CreatingProject.module.scss';
 import Item from './Items';
 import Calendar from './Calendars';
@@ -8,33 +8,34 @@ import TextField from '@mui/material/TextField';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import {useHttp} from '../../hooks/http_hook';
 import Loader from '../Loader/Loader';
 import {AlertContext} from '../Alert/context/AlertContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCreateProject, isLoaderSelector } from '../../redux';
 
 const borderColorInput = '#7973d7';
 
 const Content = () => {
-  const {post_request, loading} = useHttp();
+  const dispatch = useDispatch();
+  const isLoader = useSelector(isLoaderSelector);
   const alert = useContext(AlertContext);
   const [projectForm, setProjectForm] = useState({
     name: '', description: '', capital: '', date_start: '', date_finish: ''
   });
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(projectForm);
-  }, [projectForm]);
+
+  const handleCreateProject = () => {
+    dispatch(fetchCreateProject(projectForm));
+  };
 
   const sendForm = async () => {
-    const sendData = await post_request('project', projectForm);
+    handleCreateProject();
     setProjectForm({name: '', description: '', capital: '', date_start: '', date_finish: ''});
     alert.show('Project was created', 'success');
-    // eslint-disable-next-line no-console
-    console.log(sendData);
   };
+
   return (
     <>
-      {loading ? <Loader/> :
+      {isLoader ? <Loader/> :
         <div className={styles.Content}>
           <div className={styles.textContent}>
             <h1>Create project</h1>
