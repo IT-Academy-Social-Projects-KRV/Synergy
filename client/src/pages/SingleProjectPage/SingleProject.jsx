@@ -1,9 +1,9 @@
-import SingleProjectBill from './SingleProjectBill/SingleProjectBill';
-import SingleProjectInfo from './SingleProjectInfo/SingleProjectInfo';
-import SingleProjectDescription from './SingleProjectDescription/SingleProjectDescription';
-import SingleProjectDiagram from './SingleProjectDiagram/SingleProjectDiagram';
-import SingleProjectAddItems from './SingleProjectAddItems/SingleProjectAddItems';
-import SingleProjectExistItems from './SingleProjectExistItems/SingleProjectExistItems';
+import SingleProjectBill from './components/SingleProjectBill/SingleProjectBill';
+import SingleProjectInfo from './components/SingleProjectInfo/SingleProjectInfo';
+import SingleProjectDescription from './components/SingleProjectDescription/SingleProjectDescription';
+import SingleProjectDiagram from './components/SingleProjectDiagram/SingleProjectDiagram';
+import SingleProjectAddItems from './components/SingleProjectAddItems/SingleProjectAddItems';
+import SingleProjectExistItems from './components/SingleProjectExistItems/SingleProjectExistItems';
 import styles from './SingleProject.module.scss';
 
 const SingleProject = () => {

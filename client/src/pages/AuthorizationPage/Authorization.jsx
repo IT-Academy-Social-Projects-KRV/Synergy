@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Login from '../../components/Authorization/Login/Login';
-import Registration from '../../components/Authorization/Registration/Registration';
+import Login from '../AuthorizationPage/components/Login';
+import Registration from '../AuthorizationPage/components/Registration';
 
 const Authorization = () => {
   const location = useLocation();

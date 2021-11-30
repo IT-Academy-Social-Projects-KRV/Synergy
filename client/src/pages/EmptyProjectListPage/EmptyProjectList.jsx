@@ -1,5 +1,5 @@
-import AdvancedLogo from './AdvancedLogo';
-import Description from './Description';
+import AdvancedLogo from '../EmptyProjectListPage/components/AdvancedLogo/AdvancedLogo';
+import Description from '../EmptyProjectListPage/components/Description';
 import { Box } from '@mui/material';
 import styles from './EmptyProjectList.module.scss';
 

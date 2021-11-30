@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import routes from '../../../configs/routes';
+import routes from '../../../../configs/routes';
 
 const Registration = () => {
   const { pathToLogin } = routes;

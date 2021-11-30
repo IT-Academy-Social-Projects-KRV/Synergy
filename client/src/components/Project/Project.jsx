@@ -1,4 +1,4 @@
-import SingleProject from './SingleProject/SingleProject';
+import SingleProject from '../../pages/SingleProjectPage/SingleProject';
 
 const Project = () => {
   return (
