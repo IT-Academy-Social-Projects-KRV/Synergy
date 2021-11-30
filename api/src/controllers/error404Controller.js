@@ -1,6 +1,6 @@
 const status = require('http-status');
 
-const get404ErrorPage = async (res) => {
+const get404ErrorPage = async (req, res) => {
     res.status(status.NOT_FOUND).send('Page not found');
 }
 
