@@ -23,8 +23,9 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
                 },
                 order: [sortData],
                 include: Item,
+                distinct: true,
             },
-);
+        );
         return data;
     } catch (err) {
         throw Error(err);
