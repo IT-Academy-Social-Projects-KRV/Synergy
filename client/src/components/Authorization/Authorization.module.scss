@@ -1,0 +1,131 @@
+$fontColorTitleLoginPage:#6c63ff;
+$fontFamilyLoginPage: 'Roboto';
+
+%pStyle{
+    margin-top: 0;
+    color: $fontColorTitleLoginPage;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+%fontWeightSize{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.authorization{
+    font-family: $fontFamilyLoginPage;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__title{
+        width: 100%;
+        height: 15%;
+        margin-top: 2.5%;
+        text-align: center;
+        & > h1{
+            text-transform: uppercase;
+            color: $fontColorTitleLoginPage;
+            font-size: 28px;
+            margin-bottom: 0;
+        }
+        & > p{
+            text-transform: uppercase;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 10px;
+            margin-top: 0;
+        }
+    }
+    &__mainContent{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 5%;
+        div.logo{
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            img{
+                height: 100%;
+                width: 80%;
+            }
+        }
+        div.authorizationBox{
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            div.dataInputFields{
+                background-color: #fff;
+                height: 100%;
+                width: 80%;
+                margin: auto;
+                border-radius: 50px;
+                box-shadow: 0px 5px 100px 4px rgba(0, 0, 0, 0.05);
+                p.nameOfPageLogin{
+                    padding-top: 13%;
+                    @extend %pStyle;
+                }
+                p.nameOfPageRegistration{
+                    padding-top: 0.5%;
+                    @extend %pStyle;
+                }
+                form.authorizationForm{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    a{
+                        margin-top: 4%;
+                        @extend %fontWeightSize;
+                    }
+                    p.orWord{
+                        color: #b0b0b0;
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+                    p.existAccount{
+                        color: #b0b0b0;
+                        @extend %fontWeightSize;
+                        a{
+                            margin-top: 4%;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 600px){
+            div.logo, div.authorizationBox{
+                width: 100%;
+                height: 50%;
+            }
+        }
+    }
+    &__bottomCText{
+        color: #CCCCCC;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 10px;
+        width: 205px;
+        position: absolute;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        & > img{
+            margin-right: 5px;
+            height: 13px;
+            float: left;
+        }
+        & > span{
+            float: left;
+        }
+    }
+}
