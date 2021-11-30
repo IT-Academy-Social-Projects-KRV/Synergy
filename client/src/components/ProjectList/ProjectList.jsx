@@ -1,24 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './ProjectList.module.scss';
 import EmptyProjectList from './EmptyProjectList';
 import ProjectListItem from './ProjectListItem/ProjectListItem';
-import {useHttp} from '../../hooks/http_hook';
 import Loader from '../Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProjectList, isLoaderSelector, projectListSelector } from '../../redux';
 
 const ProjectList = () => {
-  const [data, setData] = useState([]);
-  const {get_request, loading} = useHttp();
+  const dispatch = useDispatch();
+  const projectList = useSelector(projectListSelector);
+  const isLoader = useSelector(isLoaderSelector);
+  
+  function handleFetchProjectList() {
+    dispatch(fetchProjectList());
+  }
+
   useEffect(() => {
-    (async () => {
-      const res = await get_request('project');
-      setData(res.data.projects);
-    })();
+    handleFetchProjectList();
   }, []);
 
   return (
     <div style={{height: '100%'}}>
-      {loading ? <Loader/> :
-        data.length > 0 ?
+      {isLoader ? <Loader/> :
+        projectList.length > 0 ?
           (
             <>
               <h1 className={styles.title}>Projects List</h1>
@@ -31,7 +35,7 @@ const ProjectList = () => {
                   <div>Description</div>
                   <div>Owner</div>
                 </li>
-                {data.map((d) => (
+                {projectList.map((d) => (
                   <ProjectListItem
                     key={d.id}
                     id={d.id}

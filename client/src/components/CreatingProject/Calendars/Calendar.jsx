@@ -8,13 +8,15 @@ import Box from '@mui/material/Box';
 
 const borderColorInput = '#7973d7';
 
-const Calendar = props => {
+const Calendar = ({data, setData}) => {
   const [value, setValue] = React.useState([null, null]);
+
   useEffect(() => {
-    props.setData({...props.data,
+    setData({data,
       date_start: new Date(value[0]).toISOString(),
       date_finish: new Date(value[1]).toISOString()});
   }, [value]);
+  
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className={styles.Calendar}>

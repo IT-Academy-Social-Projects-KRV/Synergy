@@ -6,7 +6,6 @@ const express = require('express');
 const cors = require('cors');
 const router = require('./src/routes');
 const sequelize = require('./db');
-// const { fillDatabase } = require('./src/seeders/FillData');
 
 const app = express();
 
@@ -25,6 +24,5 @@ const start = async () => {
 };
 
 start();
-// fillDatabase();
 
 module.exports = app;

@@ -1,7 +1,15 @@
 const projectRepository = require('../dal/projectRepository');
 
 const getProjects = async (req) => {
-    const { sort, page, size, capital, name, date_start, date_finish } = req.query;
+    const {
+        sort,
+        page,
+        size,
+        capital,
+        name,
+        date_start,
+        date_finish,
+      } = req.query;
     const sortData = !sort ? ['id', 'ASC'] : sort.match(/[a-z]+[^A-Z]+|[a-z][\W_][a-z]+|[A-Z]+(?![a-z])/g);
     const capitalData = !capital ? [0, 10000000] : capital.match(/([0-9]+)/g);
 
@@ -14,7 +22,7 @@ const getProjects = async (req) => {
         totalProjects,
         totalPages,
         currentPage,
-        projects
+        projects,
     };
 };
 
@@ -43,5 +51,5 @@ module.exports = {
     createProject,
     getOneProject,
     updateProject,
-    deleteProject
+    deleteProject,
 }

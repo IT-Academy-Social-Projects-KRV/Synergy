@@ -1,12 +1,21 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Alert from '@mui/material/Alert';
-import {AlertContext} from './context/AlertContext';
+import { AlertContext } from './context/AlertContext';
 
 const AlertWindow = () => {
-  const {hide, alert} = useContext(AlertContext);
+  const { hide, alert } = useContext(AlertContext);
+  
   return (
     <div>
-      {alert.visible ? <Alert onClick={hide} onClose={() => {}} severity={alert.type}>{alert.text}</Alert> : ''}
+      {alert.visible
+        ?
+        <Alert
+          onClick={hide}
+          onClose={() => { }}
+          severity={alert.type}>
+          {alert.text}
+        </Alert>
+        : ''}
     </div>
   );
 };
