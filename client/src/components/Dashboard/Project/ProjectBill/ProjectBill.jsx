@@ -1,6 +1,6 @@
 import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import CreditCardRoundedIcon from '@mui/icons-material/CreditCardRounded';
-import styles from './SingleProjectBill.module.scss';
+import styles from './ProjectBill.module.scss';
 
 const ProjectBill = () => {
   return (

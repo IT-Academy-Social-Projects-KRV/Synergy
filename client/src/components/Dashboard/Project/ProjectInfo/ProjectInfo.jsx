@@ -1,5 +1,5 @@
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import styles from './SingleProjectInfo.module.scss';
+import styles from './ProjectInfo.module.scss';
 
 const ProjectInfo = () => {
   return (

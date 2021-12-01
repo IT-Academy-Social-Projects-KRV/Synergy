@@ -13,7 +13,7 @@
   }
 
   &__title {
-    @include headerTitle($fontSize: 24px)
+    @include headerTitle($fontSize: 24px);
   }
 
   &__bg,
@@ -51,6 +51,21 @@
   }
 
   .price {
-    @include fonts($fntSize: 24px, $fntWeight: 700)
+    @include fonts($fntSize: 24px, $fntWeight: 700);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bill {
+    display: flex;
+    flex-direction: column;
+
+    &__bg {
+      width: 100%;
+
+      & + & {
+        margin-top: 16px;
+      }
+    }
   }
 }
