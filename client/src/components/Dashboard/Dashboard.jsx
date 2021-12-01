@@ -1,9 +1,9 @@
-import SingleProject from './SingleProject/SingleProject';
+import Project from './Project/SingleProject';
 
 const Dashboard = () => {
   return (
     <>
-      <SingleProject />
+      <Project />
     </>
   );
 };

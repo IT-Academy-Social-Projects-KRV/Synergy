@@ -1,7 +1,7 @@
 import diagram from '../../../../assets/images/MainPageImages/diagram.png';
-import styles from './SingleProjectDiagram.module.scss';
+import styles from './ProjectDiagram.module.scss';
 
-const SingleProjectDiagram = () => {
+const ProjectDiagram = () => {
   return (
     <section>
       <div className={styles.diagram}>
@@ -12,4 +12,4 @@ const SingleProjectDiagram = () => {
   );
 };
 
-export default SingleProjectDiagram;
+export default ProjectDiagram;

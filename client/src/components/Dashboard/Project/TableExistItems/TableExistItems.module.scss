@@ -1,0 +1,17 @@
+@import '../../../../consts/variables.scss';
+
+.statusPending {
+  @include itemStatus($pendingTxt, $pendingBg);
+}
+
+.statusApplied {
+  @include itemStatus($appliedTxt, $rejectBg);
+}
+
+.statusRejected {
+  @include itemStatus($rejectTxt, $rejectBg);
+}
+
+.table__title {
+  @include headerTitle;
+}

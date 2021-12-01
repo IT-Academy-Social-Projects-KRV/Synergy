@@ -1,1 +1,0 @@
-export { default as SingleProjectInfo } from './SingleProjectInfo';

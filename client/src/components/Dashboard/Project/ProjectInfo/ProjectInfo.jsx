@@ -1,7 +1,7 @@
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import styles from './SingleProjectInfo.module.scss';
 
-const SingleProjectInfo = () => {
+const ProjectInfo = () => {
   return (
     <section>
       <div className={styles.client}>
@@ -20,4 +20,4 @@ const SingleProjectInfo = () => {
   );
 };
 
-export default SingleProjectInfo;
+export default ProjectInfo;

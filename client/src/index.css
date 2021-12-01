@@ -22,7 +22,10 @@ p,
 a,
 dl,
 dt,
-dd {
+dd,
+th,
+tr,
+td {
   margin: 0;
   padding: 0;
   border: 0;

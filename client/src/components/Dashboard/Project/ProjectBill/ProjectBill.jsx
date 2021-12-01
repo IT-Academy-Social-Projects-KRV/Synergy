@@ -2,7 +2,7 @@ import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import CreditCardRoundedIcon from '@mui/icons-material/CreditCardRounded';
 import styles from './SingleProjectBill.module.scss';
 
-const SingleProjectBill = () => {
+const ProjectBill = () => {
   return (
     <section>
       <div className={styles.bill}>
@@ -44,4 +44,4 @@ const SingleProjectBill = () => {
   );
 };
 
-export default SingleProjectBill;
+export default ProjectBill;

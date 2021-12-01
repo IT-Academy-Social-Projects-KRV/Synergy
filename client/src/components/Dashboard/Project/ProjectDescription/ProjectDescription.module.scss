@@ -5,6 +5,7 @@
   @include brdrRadShadow;
   flex-direction: column;
   color: $fontDark;
+  box-shadow: $innerDescShadow;
 
   &__title {
     margin-top: 16px;

@@ -1,6 +1,6 @@
-import styles from './SingleProjectDescription.module.scss';
+import styles from './ProjectDescription.module.scss';
 
-const SingleProjectDescription = () => {
+const ProjectDescription = () => {
   return (
     <section>
       <div className={styles.description}>
@@ -21,4 +21,4 @@ const SingleProjectDescription = () => {
   );
 };
 
-export default SingleProjectDescription;
+export default ProjectDescription;

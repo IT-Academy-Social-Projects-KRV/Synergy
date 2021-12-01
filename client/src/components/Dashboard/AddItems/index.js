@@ -1,3 +1,1 @@
-import AddItems from './AddItems';
-
-export default AddItems;
+export { default as AddItems } from './AddItems';

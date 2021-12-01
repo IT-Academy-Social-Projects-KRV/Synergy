@@ -13,9 +13,7 @@
   }
 
   &__title {
-    @include fonts($fntSize: 24px, $fntWeight: 700);
-    color: $fontDark;
-    margin-bottom: 32px;
+    @include headerTitle($fontSize: 24px)
   }
 
   &__bg,
