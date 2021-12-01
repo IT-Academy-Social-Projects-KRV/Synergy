@@ -1,0 +1,13 @@
+@import '../../../../consts/variables.scss';
+
+.addItems {
+  padding-bottom: 50px;
+
+  &__title {
+    @include headerTitle;
+  }
+
+  &__blockInput {
+    width: 100%;
+  }
+}

@@ -2,6 +2,9 @@ $fontDark: #21143e;
 $bgCard: white;
 $fontLight: #e5e5e5;
 $pageBgClr: #f3f5f4;
+$purple: #7771d4;
+$darkPurple: #645fb5;
+$gray: #93939d;
 
 $tableColor: #f1f3f2;
 $itemTableClr: #564e45;
@@ -11,9 +14,9 @@ $rejectTxt: #ff0606;
 $appliedTxt: #2ab957;
 $pendingTxt: #495dc1;
 
-$pendingBg: #D6D4FD;
-$rejectBg: #FFF1EE;
-$appliedBg: #F3FDEE;
+$pendingBg: #d6d4fd;
+$rejectBg: #fff1ee;
+$appliedBg: #f3fdee;
 
 $boxBgShadow: 3px 4px 50px 5px rgba(0, 0, 0, 0.05);
 $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
@@ -59,4 +62,39 @@ $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   padding: 5px 10px;
   text-align: center;
   background-color: $bgClr;
+}
+
+@mixin textField {
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: 2px solid $purple;
+  padding-left: 16px;
+  min-width: 150px;
+  &:focus {
+    outline: 1px solid $darkPurple;
+    color: $darkPurple;
+  }
+}
+
+@mixin textArea {
+  outline: none;
+  resize: vertical;
+  font-family: 'Roboto';
+  font-size: 16px;
+  padding: 16px;
+  border: 2px solid $purple;
+  min-height: 150px;
+  height: auto;
+  border-radius: 10px;
+  min-width: 150px;
+}
+
+@mixin submitMsg($colorMsg, $bgClr) {
+  color: $colorMsg;
+  font-weight: medium;
+  background-color: $bgClr;
+  padding: 5px 10px;
+  margin-left: 16px;
+  border-radius: 5px;
 }

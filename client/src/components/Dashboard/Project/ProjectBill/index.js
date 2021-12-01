@@ -1,1 +1,1 @@
-export { default as SingleProjectBill } from './SingleProjectBill';
+export { default as ProjectBill } from './ProjectBill';

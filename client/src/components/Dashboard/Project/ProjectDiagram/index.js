@@ -1,1 +1,1 @@
-export { default as SingleProjectDiagram } from './SingleProjectDiagram';
+export { default as ProjectDiagram } from './ProjectDiagram';

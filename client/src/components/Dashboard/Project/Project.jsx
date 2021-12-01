@@ -1,12 +1,12 @@
-import ProjectBill from './ProjectBill/ProjectBill';
-import SingleProjectInfo from './ProjectInfo/ProjectInfo';
-import ProjectDescription from './ProjectDescription/ProjectDescription';
-import ProjectDiagram from './ProjectDiagram/ProjectDiagram';
-import SingleProjectAddItems from './SingleProjectAddItems/SingleProjectAddItems';
-import TableExistItems from './TableExistItems/TableExistItems';
+import { ProjectBill } from './ProjectBill';
+import { ProjectInfo } from './ProjectInfo';
+import { ProjectDescription } from './ProjectDescription';
+import { ProjectDiagram } from './ProjectDiagram';
+import { ProjectAddItems } from './ProjectAddItems';
+import { TableExistItems } from './TableExistItems';
 import styles from './SingleProject.module.scss';
 
-const SingleProject = () => {
+const Project = () => {
   return (
     <>
       <main>
@@ -17,7 +17,7 @@ const SingleProject = () => {
             <div className={styles.board__projectData}>
               <div className={styles.board__block}>
                 <ProjectBill />
-                <SingleProjectInfo />
+                <ProjectInfo />
                 <ProjectDescription />
               </div>
 
@@ -32,7 +32,7 @@ const SingleProject = () => {
           </div>
 
           <div className={styles.board__projectBlock}>
-            <SingleProjectAddItems />
+            <ProjectAddItems />
           </div>
         </div>
       </main>
@@ -40,4 +40,4 @@ const SingleProject = () => {
   );
 };
 
-export default SingleProject;
+export default Project;

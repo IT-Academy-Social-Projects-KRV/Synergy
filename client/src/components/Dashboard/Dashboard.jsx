@@ -1,9 +1,9 @@
-import Project from './Project/SingleProject';
+import { ProjectPage } from './Project';
 
 const Dashboard = () => {
   return (
     <>
-      <Project />
+      <ProjectPage />
     </>
   );
 };
