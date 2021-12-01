@@ -7,7 +7,8 @@ export const fetchCreateProject = (payload) => (dispatch) => {
 
   const fetchData = async () => {
     try{
-      await postRequest('project',payload);
+      dispatch(setIsLoader(true));
+      await postRequest('projects', payload);
     }
     catch(e){
       dispatch(setRequestError(e));
