@@ -16,7 +16,11 @@ const createItem = async (name, description, price, price_margin, projectId) => 
 };
 
 const updateItem = async (name, description, price, price_margin, statusId, id) => {
-    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, statusId, id);
+    const changeStatusId = {
+        Approved: 7,
+        Pejected: 8,
+    }
+    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, changeStatusId[statusId], id);
     return databaseResult;
 };
 
