@@ -1,5 +1,2 @@
 /node_modules
-
-# testing
-/coverage
-/.nyc_output
+/tests/coverage
