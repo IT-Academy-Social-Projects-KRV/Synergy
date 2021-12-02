@@ -12,7 +12,7 @@ const Calendar = ({data, setData}) => {
   const [value, setValue] = React.useState([null, null]);
 
   useEffect(() => {
-    setData({data,
+    setData({...data,
       date_start: new Date(value[0]).toISOString(),
       date_finish: new Date(value[1]).toISOString()});
   }, [value]);

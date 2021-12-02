@@ -13,6 +13,6 @@ router.get('/:id', getOneProject);
 router.get('/', projectList);
 router.post('/', createProject);
 router.patch('/:id', updateProject);
-router.patch('/:id', deleteProject);
+router.delete('/:id', deleteProject);
 
 module.exports = router;
