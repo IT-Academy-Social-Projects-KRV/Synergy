@@ -15,12 +15,12 @@ const createItem = async (name, description, price, price_margin, projectId) => 
     return databaseResult;
 };
 
-const updateItem = async (name, description, price, price_margin, statusId, id) => {
-    const changeStatusId = {
+const updateItem = async (name, description, price, price_margin, itemStatus, id) => {
+    const changeItemStatus = {
         Approved: 7,
-        Pejected: 8,
+        Rejected: 8,
     }
-    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, changeStatusId[statusId], id);
+    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, changeItemStatus[itemStatus], id);
     return databaseResult;
 };
 
