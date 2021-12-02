@@ -1,10 +1,10 @@
 import { Link } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import styles from './CreateNewProject.module.scss';
+import styles from './styles.js';
 
 const CreateNewProject = () => {
   return (
-    <Link className={styles.link} color='inherit' href='#' underline='always'>
+    <Link sx={styles.link} href='#' underline='always'>
       Do you want create new?
       <OpenInNewIcon fontSize='small' />
     </Link>
