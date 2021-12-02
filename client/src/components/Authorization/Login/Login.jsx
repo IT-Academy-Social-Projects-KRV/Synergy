@@ -2,44 +2,9 @@ import loginLogo from '../../../assets/images/AuthorizationImages/loginLogo.png'
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import styles from '../../Authorization/Authorization.module.scss';
+import { style } from '../style.jsx';
 
-const style = {
-  loginBtn: {
-    mt: '30px',
-    ml: 'auto',
-    mr: 'auto',
-    width: '200px',
-    backgroundColor: '#6c63ff',
-    '&:hover': {
-      backgroundColor: '#39358d'
-    }
-  },
-  inputName: {
-    width: '60%', 
-    ml: 'auto', 
-    mr: 'auto',
-    mb: '20px',
-    fontSize: '15px',
-    fontWeight: 'bold'
-  },
-  inputEmail: {
-    width: '60%', 
-    ml: 'auto', 
-    mr: 'auto',
-    mb: '20px',
-    fontSize: '15px',
-    fontWeight: 'bold'
-  },
-  inputPassword: {
-    width: '60%', 
-    ml: 'auto', 
-    mr: 'auto',
-    fontSize: '15px',
-    fontWeight: 'bold'
-  }
-};
 const Login = () => {
-
   return (
     <div className={styles.authorization__mainContent}>
       <div className={styles.logo}>
@@ -49,11 +14,11 @@ const Login = () => {
         <div className={styles.dataInputFields}>
           <p className={styles.nameOfPageLogin}>Login</p>
           <form className={styles.authorizationForm}>
-            <Input name='email' type='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$'
-              placeholder='Email' sx={style.inputEmail}/>
+            <Input name='email' type='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$' placeholder='Email'
+              sx={style.inputEmail}/>
             <Input name='password' type='password' placeholder='Password' sx={style.inputPassword}/>
             <a href='/login'>Forgot password?</a>
-            <Button variant='contained' type='submit' sx={style.loginBtn}>Login</Button>
+            <Button variant='contained' type='submit' sx={style.saveOrLoginBtn}>Login</Button>
           </form>
         </div>
       </div>

@@ -6,10 +6,11 @@ import styles from '../Authorization/Authorization.module.scss';
 import CLogo from '../../assets/images/MainPageImages/C.png';
 
 const Authorization = () => {
-  
+
   const location = useLocation();
-  
+
   const [pathName, setPathName] = useState(location.pathname);
+  
   useEffect(() => {
     setPathName(location.pathname);
   }, [location]);
@@ -20,8 +21,8 @@ const Authorization = () => {
         <h1>Synergy</h1>
         <p>Welcome to your project manager</p>
       </div>
-      {pathName === '/login' ? <Login/> : ''}
-      {pathName === '/registration' ? <Registration/> : ''} 
+      {pathName === '/login' && <Login/>}
+      {pathName === '/registration' && <Registration/>} 
       <div className={styles.authorization__bottomCText}>
         <img src={CLogo} alt='Copyright sign'/>
         <span>SYNERGY, 2021. ALL RIGHTS RESERVED</span>
@@ -29,4 +30,5 @@ const Authorization = () => {
     </div>
   );
 };
+
 export default Authorization;
