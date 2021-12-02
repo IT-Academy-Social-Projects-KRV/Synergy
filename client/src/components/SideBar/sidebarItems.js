@@ -1,5 +1,5 @@
 import routes from '../../configs/routes';
-import dashboard from '../../assets/images/SideBarImages/dashboard.svg';
+import dashboard from '../../assets/images/SideBarImages/dashboard_full.svg';
 import projects from '../../assets/images/SideBarImages/projects.svg';
 import CreateProject from '../../assets/images/SideBarImages/create_project.svg';
 import settings from '../../assets/images/SideBarImages/settings.svg';

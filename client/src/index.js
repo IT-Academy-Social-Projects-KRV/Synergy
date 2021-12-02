@@ -4,13 +4,20 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Provider } from 'react-redux';
+import { store } from './redux';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

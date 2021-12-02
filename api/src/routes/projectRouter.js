@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const {
   getOneProject,
@@ -12,6 +13,6 @@ router.get('/:id', getOneProject);
 router.get('/', projectList);
 router.post('/', createProject);
 router.patch('/:id', updateProject);
-router.patch('/delete/:id', deleteProject);
+router.delete('/:id', deleteProject);
 
 module.exports = router;

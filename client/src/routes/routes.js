@@ -13,6 +13,7 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import { config } from '../configs';
 import Header from '../components/Header/Header';
 import './routes.scss';
+import AlertWindow from '../components/Alert/AlertWindow';
 
 const { routes } = config;
 
@@ -52,7 +53,8 @@ export const Routes = () => {
         <>
           <section className={'main__wrapper'}>
             <SideBar sideClass={sideClass} />
-            <section className={'main_content_container' + sideClass}>
+            <section className={'main_content_container' + ' ' + sideClass}>
+              <AlertWindow/>
               <Switch>
                 <Route
                   path={routes.pathToCreatingProject}
