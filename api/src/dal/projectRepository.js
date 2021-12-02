@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Project, Item } = require('../models/models');
+const { Project, Item, User } = require('../models/models');
 
 const getProjects = async (sortData, page, size, capitalData, name, date_start, date_finish) => {
     try {
@@ -20,9 +20,14 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
                     date_finish: {
                         [Op.lt]: date_finish || '2038-01-19',
                     },
+                    statusId: {
+                        [Op.ne]: 2,
+                    },
                 },
                 order: [sortData],
-                include: Item,
+                include: [{ model: User, attributes: ['first_name', 'last_name', 'email'] },
+                    Item,
+                ],
                 distinct: true,
             },
         );
@@ -34,7 +39,7 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
 
 const createProject = async (name, description, capital, date_start, date_finish) => {
     try {
-        const data = Project.create({
+        const data = await Project.create({
             name,
             description,
             capital,
@@ -62,7 +67,7 @@ const getProject = async (id) => {
 
 const updateProject = async (name, description, capital, date_start, date_finish, id) => {
     try {
-        const data = Project.update({
+        const data = await Project.update({
             name,
             description,
             capital,
@@ -77,7 +82,7 @@ const updateProject = async (name, description, capital, date_start, date_finish
 
 const deleteProject = async (id) => {
     try {
-        const data = Project.update({ statusId: 2 }, { where: { id } });
+        const data = await Project.update({ statusId: 2 }, { where: { id } });
         return data;
     } catch (err) {
         throw Error(err);

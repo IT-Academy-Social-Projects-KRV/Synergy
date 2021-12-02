@@ -14,7 +14,6 @@ const getProjects = async (req) => {
     const capitalData = !capital ? [0, 10000000] : capital.match(/([0-9]+)/g);
 
     const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 5, capitalData, name, date_start, date_finish);
-
     const { count: totalProjects, rows: projects } = databaseResult;
     const totalPages = Math.ceil(totalProjects / (size || 5));
     const currentPage = page || 1;
