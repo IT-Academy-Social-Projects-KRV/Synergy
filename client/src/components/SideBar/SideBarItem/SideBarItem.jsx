@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../SideBar.module.scss';
-import {AlertContext} from '../../Alert/context/AlertContext';
+import { AlertContext } from '../../Alert/context/AlertContext';
 
 const SideBarItem = ({ route, image, alt, title }) => {
   const alert = useContext(AlertContext);

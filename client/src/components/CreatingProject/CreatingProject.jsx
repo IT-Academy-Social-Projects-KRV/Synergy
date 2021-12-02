@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './CreatingProject.module.scss';
 import Item from './Items';
 import Calendar from './Calendars';
@@ -9,7 +9,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Loader from '../Loader/Loader';
-import {AlertContext} from '../Alert/context/AlertContext';
+import { AlertContext } from '../Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
 
@@ -20,7 +20,11 @@ const Content = () => {
   const isLoader = useSelector(isLoaderSelector);
   const alert = useContext(AlertContext);
   const [projectForm, setProjectForm] = useState({
-    name: '', description: '', capital: '', date_start: '', date_finish: ''
+    name: '',
+    description: '',
+    capital: '',
+    date_start: '',
+    date_finish: '',
   });
 
   const handleCreateProject = () => {
@@ -29,21 +33,33 @@ const Content = () => {
 
   const sendForm = async () => {
     handleCreateProject();
-    setProjectForm({name: '', description: '', capital: '', date_start: '', date_finish: ''});
+    setProjectForm({
+      name: '',
+      description: '',
+      capital: '',
+      date_start: '',
+      date_finish: '',
+    });
     alert.show('Project was created', 'success');
   };
 
   return (
     <>
-      {isLoader ? <Loader/> :
+      {isLoader ? (
+        <Loader />
+      ) : (
         <div className={styles.Content}>
           <div className={styles.textContent}>
             <h1>Create project</h1>
             <FormControl variant='standard' className={styles.mainForm}>
               <div className={styles.inputWithLabel}>
-                <label className={styles.labelWithMarginLeft}>Project title</label>
+                <label className={styles.labelWithMarginLeft}>
+                  Project title
+                </label>
                 <TextField
-                  onChange={e => setProjectForm({...projectForm, name: e.target.value})}
+                  onChange={(e) =>
+                    setProjectForm({ ...projectForm, name: e.target.value })
+                  }
                   className={styles.title}
                   color='primary'
                   size='small'
@@ -60,7 +76,7 @@ const Content = () => {
                     startAdornment: (
                       <InputAdornment position='start'>
                         <BorderColorIcon
-                          sx={{height: '15px', marginTop: '15px', ml: -1}}
+                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
                         />
                       </InputAdornment>
                     ),
@@ -86,7 +102,7 @@ const Content = () => {
                     startAdornment: (
                       <InputAdornment position='start'>
                         <PersonIcon
-                          sx={{height: '15px', marginTop: '15px', ml: -1}}
+                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
                         />
                       </InputAdornment>
                     ),
@@ -97,7 +113,9 @@ const Content = () => {
               <div className={styles.inputWithLabel}>
                 <label className={styles.labelWithMarginLeft}>Capital</label>
                 <TextField
-                  onChange={e => setProjectForm({...projectForm, capital: e.target.value})}
+                  onChange={(e) =>
+                    setProjectForm({ ...projectForm, capital: e.target.value })
+                  }
                   size='small'
                   color='primary'
                   sx={{
@@ -112,7 +130,7 @@ const Content = () => {
                     startAdornment: (
                       <InputAdornment position='start'>
                         <AttachMoneyIcon
-                          sx={{height: '15px', marginTop: '15px', ml: -1}}
+                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
                         />
                       </InputAdornment>
                     ),
@@ -123,7 +141,7 @@ const Content = () => {
               </div>
               <div className={styles.calendarOnPage}>
                 <label>Data release</label>
-                <Calendar data={projectForm} setData={setProjectForm}/>
+                <Calendar data={projectForm} setData={setProjectForm} />
               </div>
               <div className={styles.inputWithArea}>
                 <label className={styles.textareaLabel}>Description</label>
@@ -134,7 +152,12 @@ const Content = () => {
                   <div className={styles.shortStrip}></div>
                 </div>
                 <textarea
-                  onChange={e => setProjectForm({...projectForm, description: e.target.value})}
+                  onChange={(e) =>
+                    setProjectForm({
+                      ...projectForm,
+                      description: e.target.value,
+                    })
+                  }
                   className={styles.textareaDescription}
                   placeholder='Type description...'
                 />
@@ -148,11 +171,13 @@ const Content = () => {
                 typeSecondInput='number'
                 typeTax='number'
               />
-              <button onClick={sendForm} className={styles.saveButton}>SAVE</button>
+              <button onClick={sendForm} className={styles.saveButton}>
+                SAVE
+              </button>
             </div>
           </div>
         </div>
-      }
+      )}
     </>
   );
 };
