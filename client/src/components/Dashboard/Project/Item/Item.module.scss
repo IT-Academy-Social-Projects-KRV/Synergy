@@ -1,0 +1,73 @@
+@import '../../../../consts/variables.scss';
+
+.item {
+  &__textField {
+    @extend %flexAlign;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  &__idBlock {
+    @extend %baseFlex;
+    min-width: 25px;
+    min-height: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 16px;
+    background-color: $purple;
+    color: $fontLight;
+
+    .itemId {
+      @include fonts($fntSize: '18px', $fntWeight: 'bold');
+    }
+  }
+
+  &__titleTextField,
+  &__priceTextField {
+    @include textField;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+
+  &__priceTextField {
+    padding-left: 30px;
+    background: url(../../../../assets/images/MainPageImages/Dolar.jpg)
+      no-repeat scroll 16px 16px;
+  }
+
+  &__titleTextField,
+  &__descText {
+    width: 40%;
+  }
+
+  &__priceTextField {
+    margin: 0 18px;
+  }
+
+  &__submitMsg,
+  &__errorMsg,
+  .iconWrapper {
+    @extend %baseFlex;
+  }
+
+  &__submitMsg {
+    @include submitMsg($appliedTxt, $appliedBg);
+  }
+
+  &__errorMsg {
+    @include submitMsg($rejectTxt, $rejectBg);
+  }
+
+  &__desc {
+    display: flex;
+  }
+
+  &__descText {
+    @include textArea;
+    margin-left: 65px;
+    max-height: 30vh;
+  }
+}

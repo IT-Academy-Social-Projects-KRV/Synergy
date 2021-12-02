@@ -1,7 +1,6 @@
 import React from 'react';
 import fieldsForSideBar from './sidebarItems';
 import styles from './SideBar.module.scss';
-
 import SideBarItem from './SideBarItem/SideBarItem';
 
 const SideBar = (props) => {

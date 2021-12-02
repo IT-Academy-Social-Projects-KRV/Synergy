@@ -1,0 +1,21 @@
+@import '../../../../consts/variables.scss';
+
+.description {
+  @extend %baseFlex;
+  @include brdrRadShadow;
+  flex-direction: column;
+  color: $fontDark;
+  box-shadow: $innerDescShadow;
+
+  &__title {
+    margin-top: 16px;
+  }
+
+  &__text {
+    @include fonts($fntSize: 14px, $fntWeight: 400);
+    line-height: 18px;
+    padding: 16px 20px;
+    text-align: justify;
+    text-indent: 24px;
+  }
+}

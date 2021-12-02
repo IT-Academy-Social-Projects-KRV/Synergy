@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:4000/api/';
 
 const baseAxios = axios.create({
-  baseUrl
+  baseUrl,
 });
 
 export const useHttp = () => {
@@ -11,7 +11,7 @@ export const useHttp = () => {
     try {
       const response = await baseAxios.get(baseUrl + url);
       return response;
-    }catch (e) {
+    } catch (e) {
       throw new Error(e);
     }
   };
@@ -25,5 +25,5 @@ export const useHttp = () => {
       throw new Error(e);
     }
   };
-  return {getRequest, postRequest };
+  return { getRequest, postRequest };
 };

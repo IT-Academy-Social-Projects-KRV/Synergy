@@ -1,8 +1,8 @@
 header {
   & > div {
-    transition: all 1s ease;
+    transition: all .6s ease;
     span {
-      transition: all .7s ease;
+      transition: all .2s ease;
       opacity: 1;
       transform: translateX(0);
       width: max-content;
@@ -18,25 +18,26 @@ header {
     }
   }
 }
-main {
+.main__wrapper {
   position: relative;
   display: flex;
-  justify-content: space-between;
+
   .main_content_container {
-    flex: 0 0 81%;
+    width: 100%;
     background: #fff;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    transition: all 1s ease;
+    transition: all .6s ease;
+    
     &.moved {
       flex: 0 0 94% !important;
     }
   }
 }
 aside {
-  transition: all 1s ease;
+  transition: all .6s ease;
   span, h4 {
-    transition: all .5s ease;
+    transition: all .2s ease;
     transform: translateX(0);
     visibility: visible;
     opacity: 1;
