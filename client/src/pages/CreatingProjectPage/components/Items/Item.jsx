@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Item.module.scss';
-import Dollar from '../../../assets/images/MainPageImages/Dollar.png';
+import Dollar from '../../../../assets/images/MainPageImages/Dollar.png';
 
 const Item = (props) => {
   return (

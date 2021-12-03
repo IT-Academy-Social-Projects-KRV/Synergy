@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Login from '../../components/Authorization/Login/Login';
-import Registration from '../../components/Authorization/Registration/Registration';
-import styles from '../Authorization/Authorization.module.scss';
+import Login from './components/Login';
+import Registration from './components/Registration';
+import styles from './Authorization.module.scss';
 import CLogo from '../../assets/images/MainPageImages/C.png';
 
 const Authorization = () => {

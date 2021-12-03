@@ -1,11 +1,11 @@
-import AdvancedLogo from './AdvancedLogo';
-import Description from './Description';
+import AdvancedLogo from './components/AdvancedLogo';
+import Description from './components/Description';
 import { Box } from '@mui/material';
 import styles from './styles';
 
 const EmptyProjectList = () => {
   return (
-    <Box className={styles.box}>
+    <Box sx={styles.box}>
       <AdvancedLogo />
       <Description />
     </Box>
