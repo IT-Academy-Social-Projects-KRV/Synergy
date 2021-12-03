@@ -18,6 +18,8 @@ $pendingBg: #d6d4fd;
 $rejectBg: #fff1ee;
 $appliedBg: #f3fdee;
 
+$bottomTextColor: #CCCCCC;
+
 $boxBgShadow: 3px 4px 50px 5px rgba(0, 0, 0, 0.05);
 $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
 $innerShadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
@@ -33,6 +35,29 @@ $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 %flexAlign {
   display: flex;
   align-items: center;
+}
+
+%bottomText {
+  color: $bottomTextColor;
+  font-style: normal;
+  font-size: 10px;
+  width: 205px;
+  position: absolute;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin pStyle($paddingTop) {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: $purple;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: $paddingTop;
 }
 
 @mixin headerTitle($fontSize: 32px) {
