@@ -1,16 +1,5 @@
-$fontColorTitleLoginPage:#6c63ff;
+@import '../../consts/variables.scss';
 
-%pStyle{
-    margin-top: 0;
-    color: $fontColorTitleLoginPage;
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-}
-%fontWeightSize{
-    font-weight: bold;
-    font-size: 12px;
-}
 .authorization{
     margin: 0;
     padding: 0;
@@ -19,6 +8,7 @@ $fontColorTitleLoginPage:#6c63ff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-weight: bold;
     &__title{
         width: 100%;
         height: 15%;
@@ -26,14 +16,13 @@ $fontColorTitleLoginPage:#6c63ff;
         text-align: center;
         & > h1{
             text-transform: uppercase;
-            color: $fontColorTitleLoginPage;
+            color: $purple;
             font-size: 28px;
             margin-bottom: 0;
         }
         & > p{
             text-transform: uppercase;
             font-style: normal;
-            font-weight: bold;
             font-size: 10px;
             margin-top: 0;
         }
@@ -63,35 +52,34 @@ $fontColorTitleLoginPage:#6c63ff;
                 width: 80%;
                 margin: auto;
                 border-radius: 50px;
-                box-shadow: 0px 5px 100px 4px rgba(0, 0, 0, 0.05);
+                box-shadow: $boxBgShadow;
                 .nameOfPageLogin{
-                    padding-top: 4rem;
-                    @extend %pStyle;
+                    @include pStyle($paddingTop: 4.5rem);
                 }
                 .nameOfPageRegistration{
-                    padding-top: 0.5rem;
-                    @extend %pStyle;
+                    @include pStyle($paddingTop: 0.75rem);
                 }
                 .authorizationForm{
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
                     & > a{
-                        color: $fontColorTitleLoginPage;
+                        color: $purple;
                         margin-top: 1.5rem;
-                        @extend %fontWeightSize;
+                        font-size: 12px;
                     }
                     .orWord{
-                        color: #b0b0b0;
+                        color: $gray;
                         font-size: 15px;
-                        font-weight: bold;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
                     }
                     .existAccount{
-                        color: #b0b0b0;
+                        color: $gray;
                         margin: 0;
-                        @extend %fontWeightSize;
+                        font-size: 12px;
                         & > a{
-                            color: $fontColorTitleLoginPage;
+                            color: $purple;
                             margin-left: 10px;
                         }
                     }
@@ -100,18 +88,7 @@ $fontColorTitleLoginPage:#6c63ff;
         }
     }
     &__bottomCText{
-        color: #CCCCCC;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 10px;
-        width: 205px;
-        position: absolute;
-        bottom: 0;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        text-align: center;
+        @extend %bottomText;
         & > img{
             margin-right: 5px;
             height: 13px;
