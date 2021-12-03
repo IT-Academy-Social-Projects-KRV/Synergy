@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import routes from '../../../configs/routes';
-import registrationLogo from '../../../assets/images/AuthorizationImages/registrationLogo.png';
-import styles from '../../Authorization/Authorization.module.scss';
+import routes from '../../../../configs/routes';
+import registrationLogo from '../../../../assets/images/AuthorizationImages/registrationLogo.png';
+import styles from '../../Authorization.module.scss';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import { style } from '../style.jsx';
+import { style } from '../../style.jsx';
 
 const Registration = () => {
 

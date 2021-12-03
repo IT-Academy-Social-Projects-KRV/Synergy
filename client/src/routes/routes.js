@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Account from '../components/Account';
-import Authorization from '../components/Authorization';
-import CreatingProject from '../components/CreatingProject';
-import ProjectList from '../components/ProjectList';
+import Authorization from '../pages/AuthorizationPage';
+import CreatingProject from '../pages/CreatingProjectPage';
+import ProjectList from '../pages/ProjectListPage';
 import Settings from '../components/Settings';
-import { Dashboard } from '../components/Dashboard';
+import { Dashboard } from '../pages/ProjectPage';
 import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
@@ -19,7 +19,7 @@ const { routes } = config;
 
 export const Routes = () => {
   const [sideClass, setSideClass] = useState('');
-  const isAuth = true; //! if isAuth===true we will see SideBar,Footer else we will see login/register
+  const isAuth = false; //! if isAuth===true we will see SideBar,Footer else we will see login/register
   const user = {
     role: 'admin',
   };
