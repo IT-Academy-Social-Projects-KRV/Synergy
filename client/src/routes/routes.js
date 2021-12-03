@@ -19,7 +19,7 @@ const { routes } = config;
 
 export const Routes = () => {
   const [sideClass, setSideClass] = useState('');
-  const isAuth = false; //! if isAuth===true we will see SideBar,Footer else we will see login/register
+  const isAuth = true; //! if isAuth===true we will see SideBar,Footer else we will see login/register
   const user = {
     role: 'admin',
   };
