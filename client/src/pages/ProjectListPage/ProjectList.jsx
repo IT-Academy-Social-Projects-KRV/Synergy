@@ -8,6 +8,7 @@ import {
   fetchProjectList,
   isLoaderSelector,
   projectListSelector,
+  setIsLoader
 } from '../../redux';
 
 const ProjectList = () => {
@@ -21,6 +22,9 @@ const ProjectList = () => {
 
   useEffect(() => {
     handleFetchProjectList();
+    return () => {
+      dispatch(setIsLoader(false));
+    };
   }, []);
 
   return (
