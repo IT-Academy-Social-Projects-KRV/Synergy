@@ -1,10 +1,10 @@
 const styles = {
   box: {
-    height: '230px',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     textAlign: 'center',
   },
 };

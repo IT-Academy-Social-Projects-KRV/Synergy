@@ -1,8 +1,8 @@
-import loginLogo from '../../../assets/images/AuthorizationImages/loginLogo.png';
+import loginLogo from '../../../../assets/images/AuthorizationImages/loginLogo.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import styles from '../../Authorization/Authorization.module.scss';
-import { style } from '../style.jsx';
+import styles from '../../Authorization.module.scss';
+import { style } from '../../style.jsx';
 
 const Login = () => {
   return (

@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
 import styles from './CreatingProject.module.scss';
-import Item from './Items';
-import Calendar from './Calendars';
+import Item from './components/Items';
+import Calendar from './components/Calendar';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import Loader from '../Loader/Loader';
-import { AlertContext } from '../Alert/context/AlertContext';
+import Loader from '../../components/Loader';
+import { AlertContext } from '../../components/Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
 

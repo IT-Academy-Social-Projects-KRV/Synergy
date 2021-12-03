@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Account from '../components/Account';
-import Authorization from '../components/Authorization';
-import CreatingProject from '../components/CreatingProject';
-import ProjectList from '../components/ProjectList';
+import Authorization from '../pages/AuthorizationPage';
+import CreatingProject from '../pages/CreatingProjectPage';
+import ProjectList from '../pages/ProjectListPage';
 import Settings from '../components/Settings';
-import { Dashboard } from '../components/Dashboard';
+import { Dashboard } from '../pages/ProjectPage';
 import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';

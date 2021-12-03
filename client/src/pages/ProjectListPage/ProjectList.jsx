@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import styles from './ProjectList.module.scss';
-import EmptyProjectList from './EmptyProjectList';
-import ProjectListItem from './ProjectListItem/ProjectListItem';
-import Loader from '../Loader/Loader';
+import EmptyProjectList from '../EmptyProjectListPage';
+import ProjectListItem from './components/ProjectListItem';
+import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchProjectList,
   isLoaderSelector,
   projectListSelector,
+  setIsLoader
 } from '../../redux';
 
 const ProjectList = () => {
@@ -21,6 +22,9 @@ const ProjectList = () => {
 
   useEffect(() => {
     handleFetchProjectList();
+    return () => {
+      dispatch(setIsLoader(false));
+    };
   }, []);
 
   return (
