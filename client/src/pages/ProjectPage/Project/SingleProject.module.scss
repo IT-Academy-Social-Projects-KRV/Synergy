@@ -1,0 +1,64 @@
+@import '../../../consts/variables.scss';
+
+.board {
+  background: $pageBgClr;
+  width: 100%;
+
+  &__projectBlock {
+    background-color: $bgCard;
+    padding: 32px 40px;
+    border-radius: 30px 0 0 30px;
+    margin-bottom: 32px;
+    box-shadow: $boxBgShadow;
+    min-height: 100vh;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__projectTitle {
+    @include fonts($fntSize: 32px, $fntWeight: 700);
+    color: $fontDark;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  &__projectData {
+    display: flex;
+  }
+
+  &__block {
+    width: 50%;
+    margin-right: 32px;
+  }
+
+  &__diagram {
+    @extend %baseFlex;
+    width: 50%;
+    background: $bgCard;
+    box-shadow: $blockShadow;
+    border-radius: 25px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .board {
+    &__diagram {
+      margin-bottom: 32px;
+    }
+
+    &__block {
+      margin-right: 0;
+    }
+
+    &__block,
+    &__diagram {
+      width: 100%;
+    }
+
+    &__projectData {
+      flex-wrap: wrap-reverse;
+    }
+  }
+}

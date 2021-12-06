@@ -1,0 +1,38 @@
+@import '../../../../consts/variables.scss' ;
+
+.client {
+  @include brdrRadShadow;
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+  padding: 12px 20px;
+
+  &__icon,
+  &__icon > div {
+    @extend %flexAlign;
+  }
+
+  &__icon {
+    margin-bottom: 16px;
+  }
+
+  &__name,
+  &__date {
+    font-weight: 500;
+  }
+
+  &__name {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  &__date {
+    color: $fontDark;
+    font-size: 16px;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

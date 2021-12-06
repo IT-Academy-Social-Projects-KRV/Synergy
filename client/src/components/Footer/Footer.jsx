@@ -1,69 +1,54 @@
-import React from 'react';
 import styles from './Footer.module.scss';
 import SynergyLogo from '../../assets/images/MainPageImages/Logo.png';
 import FacebookLogo from '../../assets/images/MainPageImages/Facebook.png';
-import LinkedInkLogo from '../../assets/images/MainPageImages/LinkedIn.png';
+import LinkedInLogo from '../../assets/images/MainPageImages/LinkedIn.png';
 import GitLogo from '../../assets/images/MainPageImages/Git.png';
 import CLogo from '../../assets/images/MainPageImages/C.png';
 
 const Footer = () => {
   return (
     <footer>
-      <div className={styles.FooterContent}>
-        <div>
-          <img src={SynergyLogo} alt='third' />
-          <p className={styles.SynergyCRM}>SYNERGY | CRM</p>
-          <p className={styles.ProjectManager}>PROJECT MANAGER</p>
+      <div className={styles.footerContent}>
+        <div className={styles.logoSynergy}>
+          <img src={SynergyLogo} alt='Synergy logo'/>
+          <p className={styles.synergyCRM}>
+            Synergy | CRM
+          </p>
+          <p className={styles.projectManager}>
+            Project manager
+          </p>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Support</th>
-              <th>About</th>
-              <th>Social Links</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <a href='/dashboard'>Contact Us</a>
-              </td>
-              <td>
-                <a href='/dashboard'>Our Projects</a>
-              </td>
-              <td rowSpan='3'>
-                <a href='/dashboard'>
-                  <img src={FacebookLogo} alt='fifth' />
-                </a>
-                <a href='/dashboard'>
-                  <img src={LinkedInkLogo} alt='sixth' />
-                </a>
-                <a href='/dashboard'>
-                  <img src={GitLogo} alt='seventh' />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/dashboard'>FAQ</a>
-              </td>
-              <td>
-                <a href='/dashboard'>FAQ</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/dashboard'>Support Request</a>
-              </td>
-              <td>
-                <a href='/dashboard'>Support Request</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={styles.linksSupport}>
+          <div>
+            <p>Support</p>
+            <a href='/login'>Contact Us</a>
+            <a href='/login'>FAQ</a>
+            <a href='/login'>Support Request</a>
+          </div>
+          <div>
+            <p>About</p>
+            <a href='/login'>Our Projects</a>
+            <a href='/login'>FAQ</a>
+            <a href='/login'>Support Request</a>
+          </div>
+          <div>
+            <p>Social Links</p>
+            <p className={styles.imgSocialMedia}>
+              <a href='/login'>
+                <img src={FacebookLogo} alt='Facebook logo'/>
+              </a>
+              <a href='/login'>
+                <img src={LinkedInLogo} alt='LinkedIn logo'/>
+              </a>
+              <a href='/login'>
+                <img src={GitLogo} alt='Git logo'/>
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
       <div className={styles.bottomText}>
-        <img src={CLogo} alt='fourth' />
+        <img src={CLogo} alt='Copyright sign'/>
         <span>SYNERGY, 2021. ALL RIGHTS RESERVED</span>
       </div>
     </footer>

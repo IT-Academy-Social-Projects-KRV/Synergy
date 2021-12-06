@@ -1,0 +1,71 @@
+@import '../../../../consts/variables.scss';
+
+.bill {
+  @extend %flexAlign;
+  justify-content: space-between;
+
+  &__bg {
+    @include brdrRadShadow;
+    flex-direction: column;
+    justify-content: center;
+    width: 47.5%;
+    height: 200px;
+  }
+
+  &__title {
+    @include headerTitle($fontSize: 24px);
+  }
+
+  &__bg,
+  &__income,
+  &__outlay,
+  .money,
+  .icon,
+  .icon__money {
+    @extend %flexAlign;
+  }
+
+  &__income,
+  &__outlay {
+    justify-content: center;
+    color: $fontDark;
+  }
+
+  .money,
+  .icon {
+    border-radius: 5px;
+  }
+
+  .money {
+    box-shadow: $innerShadow;
+    padding: 5px 20px;
+    height: 50px;
+  }
+
+  .icon {
+    height: 100%;
+    padding: 5px;
+    color: $fontDark;
+    background-color: white;
+    box-shadow: $iconBgShadow;
+  }
+
+  .price {
+    @include fonts($fntSize: 24px, $fntWeight: 700);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bill {
+    display: flex;
+    flex-direction: column;
+
+    &__bg {
+      width: 100%;
+
+      & + & {
+        margin-top: 16px;
+      }
+    }
+  }
+}

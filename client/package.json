@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.1.0",
     "@mui/lab": "^5.0.0-alpha.55",
     "@mui/material": "^5.1.0",
+    "@mui/utils": "^5.2.2",
     "@reduxjs/toolkit": "^1.6.2",
     "@syncfusion/ej2-react-calendars": "^19.3.53",
     "@testing-library/jest-dom": "^5.11.4",

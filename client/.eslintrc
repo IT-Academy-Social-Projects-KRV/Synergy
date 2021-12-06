@@ -93,14 +93,17 @@
       }
     ],
     "prefer-spread": "error",
-    "sort-imports": ["off", {
-      "ignoreCase": false,
-      "ignoreDeclarationSort": false,
-      "ignoreMemberSort": false,
-      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-    }],
-    "array-bracket-newline": ["off", "consistent"]
-    
+    "sort-imports": [
+      "off",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "array-bracket-newline": ["off", "consistent"],
+    "object-curly-spacing": ["error", "always"]
   },
 
   "settings": {
