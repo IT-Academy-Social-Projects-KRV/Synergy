@@ -23,10 +23,10 @@ const createItem = async (req, res) => {
 
 const updateItem = async (req, res) => {
     const {
- name, description, price, price_margin, statusId,
+ name, description, price, price_margin, itemStatus,
 } = req.body;
     const { id } = req.params;
-    const item = await itemService.updateItem(name, description, price, price_margin, statusId, id);
+    const item = await itemService.updateItem(name, description, price, price_margin, itemStatus, id);
     res.status(status.OK)
         .json(item);
 };
