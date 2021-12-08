@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const { Project, Item, User } = require('../models/models');
+const { statusesId } = require('../constans/constants');
 
 const getProjects = async (sortData, page, size, capitalData, name, dateStart, dateFinish) => {
     try {
@@ -21,7 +22,7 @@ const getProjects = async (sortData, page, size, capitalData, name, dateStart, d
                         [Op.lt]: dateFinish || '2038-01-19',
                     },
                     statusId: {
-                        [Op.ne]: 2,
+                        [Op.ne]: statusesId.DELETED,
                     },
                 },
                 order: [sortData],
@@ -45,7 +46,7 @@ const createProject = async (name, description, capital, dateStart, dateFinish) 
             capital,
             dateStart,
             dateFinish,
-            statusId: 1,
+            statusId: statusesId.NEW,
         });
         return data;
     } catch (err) {
@@ -84,7 +85,7 @@ const updateProject = async (name, description, capital, dateStart, dateFinish, 
 
 const deleteProject = async (id) => {
     try {
-        const data = await Project.update({ statusId: 2 }, { where: { id } });
+        const data = await Project.update({ statusId: statusesId.DELETED }, { where: { id } });
         return data;
     } catch (err) {
         throw Error(err);
