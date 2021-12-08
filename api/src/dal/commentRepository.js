@@ -11,7 +11,7 @@ const getComments = async (itemId) => {
                 order: [['createdAt', 'ASC']],
                 include: [{
                     model: User,
-                    attributes: ['first_name', 'last_name', 'email'],
+                    attributes: ['firstName', 'lastName', 'email'],
                     include: {
                         model: Role,
                         attributes: ['name'],
@@ -44,7 +44,14 @@ const getComment = async (id) => {
     try {
         const data = await Comment.findOne({
             where: { id },
-            include: User,
+            include: [{
+                model: User,
+                attributes: ['firstName', 'lastName', 'email'],
+                include: {
+                    model: Role,
+                    attributes: ['name'],
+                },
+            }],
         });
         return data;
     } catch (err) {

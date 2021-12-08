@@ -9,7 +9,7 @@ module.exports = {
         name: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
         price: priceData,
-        price_margin: priceData * 1.2,
+        priceMargin: priceData * 1.2,
         createdAt: faker.date.recent(),
         updatedAt: faker.date.recent(),
         statusId: faker.random.arrayElement([1, 4, 7, 8]),

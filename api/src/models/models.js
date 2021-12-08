@@ -6,14 +6,14 @@ const Project = sequelize.define('project', {
   name: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.TEXT, allowNull: false },
   capital: { type: DataTypes.DOUBLE, allowNull: false },
-  date_start: { type: DataTypes.DATEONLY, allowNull: false },
-  date_finish: { type: DataTypes.DATEONLY, allowNull: false },
+  dateStart: { type: DataTypes.DATEONLY, allowNull: false },
+  dateFinish: { type: DataTypes.DATEONLY, allowNull: false },
 });
 
 const User = sequelize.define('user', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  first_name: { type: DataTypes.STRING, allowNull: false },
-  last_name: { type: DataTypes.STRING, allowNull: false },
+  firstName: { type: DataTypes.STRING, allowNull: false },
+  lastName: { type: DataTypes.STRING, allowNull: false },
   email: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: false },
 });
@@ -28,7 +28,7 @@ const Item = sequelize.define('item', {
   name: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.TEXT, allowNull: false },
   price: { type: DataTypes.DOUBLE, allowNull: false },
-  price_margin: { type: DataTypes.DOUBLE, allowNull: false },
+  priceMargin: { type: DataTypes.DOUBLE, allowNull: false },
 });
 
 const Comment = sequelize.define('comment', {

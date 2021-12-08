@@ -6,8 +6,8 @@ module.exports = {
         for (let i = 0; i < 200; i++) {
             const role = i === 0 ? 2 : 1;
             data.push({
-                first_name: faker.name.firstName(),
-                last_name: faker.name.lastName(),
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 email: faker.internet.email(),
                 password: faker.internet.password(),
                 createdAt: faker.date.recent(),

@@ -25,13 +25,13 @@ const getItem = async (id) => {
     }
 }
 
-const createItem = async (name, description, price, price_margin, projectId) => {
+const createItem = async (name, description, price, priceMargin, projectId) => {
     try {
         const data = await Item.create({
             name,
             description,
             price,
-            price_margin,
+            priceMargin,
             projectId,
             statusId: 1,
         });
@@ -41,13 +41,13 @@ const createItem = async (name, description, price, price_margin, projectId) => 
     }
 }
 
-const updateItem = async (name, description, price, price_margin, statusId, id) => {
+const updateItem = async (name, description, price, priceMargin, statusId, id) => {
     try {
         const data = await Item.update({
             name,
             description,
             price,
-            price_margin,
+            priceMargin,
             statusId,
         }, { where: { id } });
         return data;
