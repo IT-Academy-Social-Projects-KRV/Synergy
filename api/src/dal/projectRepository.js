@@ -1,7 +1,8 @@
 const { Op } = require('sequelize');
-const { Project, Item } = require('../models/models');
+const { Project, Item, User } = require('../models/models');
+const { statusesId } = require('../constans/constants');
 
-const getProjects = async (sortData, page, size, capitalData, name, date_start, date_finish) => {
+const getProjects = async (sortData, page, size, capitalData, name, dateStart, dateFinish) => {
     try {
         const data = await Project.findAndCountAll(
             {
@@ -14,15 +15,20 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
                     capital: {
                         [Op.between]: capitalData,
                     },
-                    date_start: {
-                        [Op.gt]: date_start || '1970-01-01',
+                    dateStart: {
+                        [Op.gt]: dateStart || '1970-01-01',
                     },
-                    date_finish: {
-                        [Op.lt]: date_finish || '2038-01-19',
+                    dateFinish: {
+                        [Op.lt]: dateFinish || '2038-01-19',
+                    },
+                    statusId: {
+                        [Op.ne]: statusesId.DELETED,
                     },
                 },
                 order: [sortData],
-                include: Item,
+                include: [{ model: User, attributes: ['firstName', 'lastName', 'email'] },
+                    Item,
+                ],
                 distinct: true,
             },
         );
@@ -32,15 +38,15 @@ const getProjects = async (sortData, page, size, capitalData, name, date_start, 
     }
 }
 
-const createProject = async (name, description, capital, date_start, date_finish) => {
+const createProject = async (name, description, capital, dateStart, dateFinish) => {
     try {
-        const data = Project.create({
+        const data = await Project.create({
             name,
             description,
             capital,
-            date_start,
-            date_finish,
-            statusId: 1,
+            dateStart,
+            dateFinish,
+            statusId: statusesId.NEW,
         });
         return data;
     } catch (err) {
@@ -52,7 +58,9 @@ const getProject = async (id) => {
     try {
         const data = await Project.findOne({
             where: { id },
-            include: Item,
+            include: [{ model: User, attributes: ['firstName', 'lastName', 'email'] },
+                Item,
+            ],
         });
         return data;
     } catch (err) {
@@ -60,14 +68,14 @@ const getProject = async (id) => {
     }
 }
 
-const updateProject = async (name, description, capital, date_start, date_finish, id) => {
+const updateProject = async (name, description, capital, dateStart, dateFinish, id) => {
     try {
-        const data = Project.update({
+        const data = await Project.update({
             name,
             description,
             capital,
-            date_start,
-            date_finish,
+            dateStart,
+            dateFinish,
         }, { where: { id } });
         return data;
     } catch (err) {
@@ -77,7 +85,7 @@ const updateProject = async (name, description, capital, date_start, date_finish
 
 const deleteProject = async (id) => {
     try {
-        const data = Project.update({ statusId: 2 }, { where: { id } });
+        const data = await Project.update({ statusId: statusesId.DELETED }, { where: { id } });
         return data;
     } catch (err) {
         throw Error(err);

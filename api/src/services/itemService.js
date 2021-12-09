@@ -1,4 +1,5 @@
 const itemRepository = require('../dal/itemRepository');
+const { itemStatuses } = require('../constans/constants');
 
 const getItems = async () => {
     const databaseResult = await itemRepository.getItems();
@@ -10,13 +11,17 @@ const getOneItem = async (id) => {
     return databaseResult;
 }
 
-const createItem = async (name, description, price, price_margin, projectId) => {
-    const databaseResult = await itemRepository.createItem(name, description, price, price_margin, projectId);
+const createItem = async (name, description, price, priceMargin, projectId) => {
+    const databaseResult = await itemRepository.createItem(name, description, price, priceMargin, projectId);
     return databaseResult;
 };
 
-const updateItem = async (name, description, price, price_margin, statusId, id) => {
-    const databaseResult = await itemRepository.updateItem(name, description, price, price_margin, statusId, id);
+const updateItem = async (name, description, price, priceMargin, itemStatus, id) => {
+    const changeItemStatus = {
+        Approved: itemStatuses.APPROVED,
+        Rejected: itemStatuses.REJECTED,
+    }
+    const databaseResult = await itemRepository.updateItem(name, description, price, priceMargin, changeItemStatus[itemStatus], id);
     return databaseResult;
 };
 
