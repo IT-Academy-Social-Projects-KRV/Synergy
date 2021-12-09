@@ -51,6 +51,11 @@ $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   bottom: 0;
 }
 
+@mixin labelMargin($marginTop) {
+  margin-top: $marginTop;
+  margin-bottom: 5px; 
+}
+
 @mixin pStyle($paddingTop) {
   margin-top: 0;
   margin-bottom: 1.5rem;

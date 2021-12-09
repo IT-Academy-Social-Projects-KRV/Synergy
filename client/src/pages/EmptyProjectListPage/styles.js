@@ -1,6 +1,6 @@
 const styles = {
   box: {
-    height: '100%',
+    minHeight: 'calc(100vh - 304px)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

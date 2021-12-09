@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import styles from './Calendar.module.scss';
+import styles from '../../CreatingProject.module.scss';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateRangePicker from '@mui/lab/DateRangePicker';
 import Box from '@mui/material/Box';
-
-const borderColorInput = '#7973d7';
+import { style } from '../../style.jsx';
 
 const Calendar = ({ data, setData }) => {
+  
   const [value, setValue] = React.useState([null, null]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Calendar = ({ data, setData }) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <div className={styles.Calendar}>
+      <div className={styles.calendar}>
         <DateRangePicker
           startText=''
           endText=''
@@ -37,31 +37,14 @@ const Calendar = ({ data, setData }) => {
                 size='small'
                 color='primary'
                 {...startProps}
-                sx={{
-                  ml: '5%',
-                  width: '40%',
-                  '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {
-                      borderColor: borderColorInput,
-                    },
-                  },
-                }}
+                sx={style.textFieldStart}
               />
-              <Box sx={{ mx: '3.5%', color: 'silver', fontSize: '11px' }}>
-                to
-              </Box>
+              <Box sx={style.box}>to</Box>
               <TextField
                 size='small'
                 color='primary'
                 {...endProps}
-                sx={{
-                  width: '40%',
-                  '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {
-                      borderColor: borderColorInput,
-                    },
-                  },
-                }}
+                sx={style.textFieldEnd}
               />
             </React.Fragment>
           )}

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,OAAO,CAAC,kDAAI;AAEZ,AAAA,GAAG,AAAA,SAAS,CAAA;EACR,KAAK,EAAE,IAAI;CACd",
-    "sources": [
-        "Calendar.module.scss"
-    ],
-    "names": [],
-    "file": "Calendar.module.css"
-}
