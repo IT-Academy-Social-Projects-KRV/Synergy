@@ -1,65 +1,18 @@
-const statuses = [
-  {
-    id: 1,
-    name: 'New',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 1,
-  },
-  {
-    id: 2,
-    name: 'Deleted',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 1,
-  },
-  {
-    id: 3,
-    name: 'Registered',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 2,
-  },
-  {
-    id: 4,
-    name: 'In progress',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 3,
-  },
-  {
-    id: 5,
-    name: 'Finished',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 3,
-  },
-  {
-    id: 6,
-    name: 'Archived',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 3,
-  },
-  {
-    id: 7,
-    name: 'Approved',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 4,
-  },
-  {
-    id: 8,
-    name: 'Rejected',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    statusCategoryId: 4,
-  },
-];
+const { statuses } = require('../constans/constants');
 
 module.exports = {
   up: async (queryInterface) => {
-    await queryInterface.bulkInsert('statuses', statuses, {})
+    const data = [];
+    for (let i = 1; i < statuses.length + 1; i++) {
+      data.push({
+        id: i,
+        name: statuses[i - 1].STATUS,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        statusCategoryId: statuses[i - 1].CATEGORY_ID,
+      })
+    }
+    await queryInterface.bulkInsert('statuses', data, {})
   },
 
   down: async (queryInterface) => {

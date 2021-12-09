@@ -1,25 +1,27 @@
+const { statusCategories } = require('../constans/constants');
+
 const categories = [
     {
         id: 1,
-        category: 'Shared',
+        category: statusCategories.SHARED,
         createdAt: new Date(),
         updatedAt: new Date(),
     },
     {
         id: 2,
-        category: 'User',
+        category: statusCategories.USER,
         createdAt: new Date(),
         updatedAt: new Date(),
     },
     {
         id: 3,
-        category: 'Project',
+        category: statusCategories.PROJECT,
         createdAt: new Date(),
         updatedAt: new Date(),
     },
     {
         id: 4,
-        category: 'Item',
+        category: statusCategories.ITEM,
         createdAt: new Date(),
         updatedAt: new Date(),
     },
