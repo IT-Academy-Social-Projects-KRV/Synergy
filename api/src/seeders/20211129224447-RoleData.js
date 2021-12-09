@@ -1,13 +1,15 @@
+const { userRoles } = require('../constans/constants');
+
 const roles = [
     {
         id: 1,
-        name: 'USER',
+        name: userRoles.USER,
         createdAt: new Date(),
         updatedAt: new Date(),
     },
     {
         id: 2,
-        name: 'ADMIN',
+        name: userRoles.ADMIN,
         createdAt: new Date(),
         updatedAt: new Date(),
     },

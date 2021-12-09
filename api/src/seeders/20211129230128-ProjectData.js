@@ -3,13 +3,14 @@ const faker = require('faker');
 module.exports = {
   up: async (queryInterface) => {
     const data = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 1; i < 51; i++) {
       data.push({
+        id: i,
         name: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
         capital: faker.commerce.price(300, 20000, 2),
-        date_start: faker.date.past(),
-        date_finish: faker.date.future(),
+        dateStart: faker.date.past(),
+        dateFinish: faker.date.future(),
         createdAt: faker.date.recent(),
         updatedAt: faker.date.recent(),
         userId: faker.datatype.number({ min: 2, max: 200 }),
