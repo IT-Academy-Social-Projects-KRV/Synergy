@@ -12,6 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$/;
 
   const handleFetchLoginUser = (fields) => {
     dispatch(fetchLoginUser(fields));
@@ -19,11 +20,10 @@ const Login = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    //!VALIDATION before request 
 
     handleFetchLoginUser({
-      email: email,
-      password: password
+      email,
+      password
     });
   };
 
@@ -42,7 +42,7 @@ const Login = () => {
               type='email'
               value={email}
               onChange={e => setEmail(e.target.value)}
-              pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$' 
+              pattern={emailPattern}
               placeholder='Email'
               sx={style.inputEmail}
             />
