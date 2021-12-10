@@ -8,7 +8,6 @@ import CLogo from '../../assets/images/MainPageImages/C.png';
 const Authorization = () => {
 
   const location = useLocation();
-
   const [pathName, setPathName] = useState(location.pathname);
   
   useEffect(() => {
