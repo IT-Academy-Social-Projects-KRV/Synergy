@@ -1,9 +1,9 @@
-import styles from './Footer.module.scss';
 import SynergyLogo from '../../assets/images/MainPageImages/Logo.png';
 import FacebookLogo from '../../assets/images/MainPageImages/Facebook.png';
 import LinkedInLogo from '../../assets/images/MainPageImages/LinkedIn.png';
 import GitLogo from '../../assets/images/MainPageImages/Git.png';
 import CLogo from '../../assets/images/MainPageImages/C.png';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
