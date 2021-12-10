@@ -8,8 +8,8 @@ const jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey = process.env.SECRET_KEY;
 
-const strategy = new JwtStrategy(jwtOptions, (jwt_payload, done) => {
-  const user = User.findOne({ id: jwt_payload.id });
+const strategy = new JwtStrategy(jwtOptions, (jwtPayload, done) => {
+  const user = User.findOne({ id: jwtPayload.id });
     if (user) {
       done(null, user);
     } else {
