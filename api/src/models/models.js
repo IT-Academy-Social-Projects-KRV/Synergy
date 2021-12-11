@@ -81,5 +81,12 @@ User.hasMany(Comment);
 Comment.belongsTo(User);
 
 module.exports = {
-  Project, User, Role, Item, Comment, Status, StatusCategory, Token,
+  Project,
+  User,
+  Role,
+  Item,
+  Comment,
+  Status,
+  StatusCategory,
+  Token,
 };

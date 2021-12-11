@@ -19,7 +19,7 @@
     "lint:fix": "eslint ./src --fix",
     "start": "nodemon api/server.js",
     "test": "jest --verbose --rootDir=tests",
-    "test:watch":"jest --verbose --rootDir=tests --watch",
+    "test:watch": "jest --verbose --rootDir=tests --watch",
     "test:coverage": "jest --verbose --rootDir=tests --coverage",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
@@ -43,7 +43,8 @@
     "jest-config": "^27.4.2",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.9.0"
+    "sequelize": "^6.9.0",
+    "swagger-ui-express": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
