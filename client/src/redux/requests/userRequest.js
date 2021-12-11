@@ -1,4 +1,4 @@
-import { setIsExistUser, setIsLoader, setRequestError } from '..';
+import { setIsExistUser, setIsLoader, setRequestError, setUser } from '..';
 import { useHttp } from '../../hooks/useHttp';
 
 
@@ -27,7 +27,14 @@ export const fetchLoginUser = (payload) => (dispatch) => {
   const fetchData = async () => {
     try {
       dispatch(setIsLoader(true));
-      await postRequest('login', payload);
+      const res = await postRequest('user/login', payload);
+      // eslint-disable-next-line no-console
+      if (res.status === 200) {
+        localStorage.setItem('user', JSON.stringify(res.user));
+        localStorage.setItem('userToken', res.token);
+        dispatch(setUser(res.user));
+        dispatch(setIsExistUser(true));
+      }
     }
     catch (e) {
       dispatch(setRequestError(e));
