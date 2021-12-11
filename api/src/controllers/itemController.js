@@ -14,13 +14,13 @@ const getOneItem = async (req, res) => {
 
 const createItem = async (req, res) => {
   const {
- name, description, price, price_margin, projectId,
+ name, description, price, priceMargin, projectId,
 } = req.body;
   const item = await itemService.createItem(
     name,
     description,
     price,
-    price_margin,
+    priceMargin,
     projectId,
   );
   res.status(status.CREATED).json(item);
@@ -28,14 +28,14 @@ const createItem = async (req, res) => {
 
 const updateItem = async (req, res) => {
   const {
- name, description, price, price_margin, itemStatus,
+ name, description, price, priceMargin, itemStatus,
 } = req.body;
   const { id } = req.params;
   const item = await itemService.updateItem(
     name,
     description,
     price,
-    price_margin,
+    priceMargin,
     itemStatus,
     id,
   );

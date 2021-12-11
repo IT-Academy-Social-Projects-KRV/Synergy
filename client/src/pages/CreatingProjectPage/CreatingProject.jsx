@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react';
-import styles from './CreatingProject.module.scss';
-import Item from './components/Items';
 import Calendar from './components/Calendar';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
@@ -12,13 +10,17 @@ import Loader from '../../components/Loader';
 import { AlertContext } from '../../components/Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
-
-const borderColorInput = '#7973d7';
+import { style } from '../CreatingProjectPage/style.jsx';
+import styles from './CreatingProject.module.scss';
 
 const Content = () => {
+
   const dispatch = useDispatch();
+
   const isLoader = useSelector(isLoaderSelector);
+
   const alert = useContext(AlertContext);
+
   const [projectForm, setProjectForm] = useState({
     name: '',
     description: '',
@@ -42,115 +44,80 @@ const Content = () => {
     });
     alert.show('Project was created', 'success');
   };
-
+  
   return (
     <>
       {isLoader ? (
         <Loader />
       ) : (
-        <div className={styles.Content}>
-          <div className={styles.textContent}>
+        <div className={styles.content}>
+          <div className={styles.content__stuffing}>
             <h1>Create project</h1>
             <FormControl variant='standard' className={styles.mainForm}>
-              <div className={styles.inputWithLabel}>
-                <label className={styles.labelWithMarginLeft}>
-                  Project title
-                </label>
+              <div className={`${styles.inputTextfield} ${styles.inputWithMarginRight}`}>
+                <div className={styles.label}>Project title</div>
                 <TextField
                   onChange={(e) =>
-                    setProjectForm({ ...projectForm, name: e.target.value })
+                    setProjectForm({
+                      ...projectForm,
+                      name: e.target.value
+                    })
                   }
-                  className={styles.title}
-                  color='primary'
                   size='small'
-                  sx={{
-                    width: '100%',
-                    height: '25px',
-                    '& .MuiOutlinedInput-root': {
-                      '& > fieldset': {
-                        borderColor: borderColorInput,
-                      },
-                    },
-                  }}
+                  sx={style.textFieldWithMarginRight}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <BorderColorIcon
-                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
-                        />
+                        <BorderColorIcon sx={style.icons}/>
                       </InputAdornment>
                     ),
-                    placeholder: 'Type title...',
-                    border: '1px solid red',
+                    placeholder: 'Type title...'
                   }}
                 />
               </div>
-              <div className={styles.inputWithLabel}>
-                <label>Customer email</label>
+              <div className={styles.inputTextfield}>
+                <div className={styles.label}>Customer email</div>
                 <TextField
                   size='small'
-                  color='primary'
-                  sx={{
-                    width: '100%',
-                    '& .MuiOutlinedInput-root': {
-                      '& > fieldset': {
-                        borderColor: borderColorInput,
-                      },
-                    },
-                  }}
+                  sx={style.textFieldWithoutMargin}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <PersonIcon
-                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
-                        />
+                        <PersonIcon sx={style.icons}/>
                       </InputAdornment>
                     ),
-                    placeholder: 'Type owner...',
+                    placeholder: 'Type email...'
                   }}
                 />
               </div>
-              <div className={styles.inputWithLabel}>
-                <label className={styles.labelWithMarginLeft}>Capital</label>
+              <div className={`${styles.inputTextfield} ${styles.inputWithMarginRight}`}>
+                <div className={styles.label}>Capital</div>
                 <TextField
                   onChange={(e) =>
-                    setProjectForm({ ...projectForm, capital: e.target.value })
+                    setProjectForm({
+                      ...projectForm,
+                      capital: e.target.value
+                    })
                   }
                   size='small'
-                  color='primary'
-                  sx={{
-                    width: '100%',
-                    '& .MuiOutlinedInput-root': {
-                      '& > fieldset': {
-                        borderColor: borderColorInput,
-                      },
-                    },
-                  }}
+                  sx={style.textFieldWithMarginRight}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <AttachMoneyIcon
-                          sx={{ height: '15px', marginTop: '15px', ml: -1 }}
-                        />
+                        <AttachMoneyIcon sx={style.icons}/>
                       </InputAdornment>
                     ),
                     type: 'number',
-                    placeholder: 'Type capital...',
+                    placeholder: 'Type capital...'
                   }}
                 />
               </div>
-              <div className={styles.calendarOnPage}>
-                <label>Data release</label>
-                <Calendar data={projectForm} setData={setProjectForm} />
+              <div className={styles.inputTextfield}>
+                <div className={styles.label}>Data release</div>
+                <Calendar data={projectForm} setData={setProjectForm}/>
               </div>
-              <div className={styles.inputWithArea}>
-                <label className={styles.textareaLabel}>Description</label>
-                <div className={styles.textAlignLeft}>
-                  <div className={styles.longStrip}></div>
-                  <div className={styles.shortStrip}></div>
-                  <div className={styles.longStrip}></div>
-                  <div className={styles.shortStrip}></div>
-                </div>
+              <div className={styles.inputTextfield}>
+                <div className={styles.textAreaLabel}>Description</div>
                 <textarea
                   onChange={(e) =>
                     setProjectForm({
@@ -162,19 +129,12 @@ const Content = () => {
                   placeholder='Type description...'
                 />
               </div>
+              <div className={styles.button}>
+                <button onClick={sendForm} className={styles.saveButton}>
+                  SAVE
+                </button>
+              </div>
             </FormControl>
-            <div className={styles.addItems}>
-              <div className={styles.addItemsTitle}>Add items</div>
-              <Item
-                id='1'
-                typeFirstInput='text'
-                typeSecondInput='number'
-                typeTax='number'
-              />
-              <button onClick={sendForm} className={styles.saveButton}>
-                SAVE
-              </button>
-            </div>
           </div>
         </div>
       )}

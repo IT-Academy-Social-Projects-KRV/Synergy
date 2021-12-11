@@ -1,17 +1,16 @@
 @import '../../consts/variables.scss';
 
-footer{
+.footer{
     background-color: $purple;
-    margin-top: 1rem;
+    margin-top: 20px;
     height: 200px;
     font-weight: 700;
     width: 100%;
     bottom: 0;
     left: 0;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-radius: 20px 20px 0 0;
     position: relative;
-    .footerContent{
+    &__content{
         width: 50rem;
         height: 90%;
         margin: auto;
@@ -50,7 +49,8 @@ footer{
                     color: white;
                     width: fit-content;
                     &:hover{
-                        color: $gray;
+                        color: #D1CEFE;
+                        transition: all .25s;
                     }
                 }
                 & > p{
@@ -62,11 +62,14 @@ footer{
                         display: inline-block;
                         margin-right: 20px;
                     }
+                    & > a:last-child{
+                        margin-right: 0;
+                    }
                 }
             }    
         }
     }
-    .bottomText{
+    &__bottomText{
         @extend %bottomText;
         & > img{
             margin-right: 5px;
@@ -79,14 +82,21 @@ footer{
     }
 }
 @media screen and (max-width: 600px){
-    footer{
-        .footerContent{
+    .footer{
+        &__content{
             width:100%;
+            font-size: 14px;
             .logoSynergy{
                 display: none;
             }
             .linksSupport{
                 width: 100%;
+                & > div{
+                    & > a{
+                        margin-right: 16px;
+                        display: block;
+                    }
+                }
             }
         }
     }
