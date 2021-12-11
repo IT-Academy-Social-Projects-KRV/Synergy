@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-//import { useHistory } from 'react-router-dom';
 import styles from './Header.module.scss';
 import logo from '../../assets/images/HeaderImages/Logo_header.svg';
 import button from '../../assets/images/HeaderImages/button.svg';
@@ -10,14 +9,13 @@ import { setIsExistUser, setUser } from '../../redux';
 
 const Header = ({ sideClass, changeClass }) => {
   const dispatch = useDispatch();
-  //const history = useHistory();
+  
   const handleExit = (e) => {
     e.preventDefault(); 
 
     dispatch(setUser({}));
-    localStorage.clear();
+    sessionStorage.clear();
     dispatch(setIsExistUser(false));
-    //history.push('/login');
   };
   return (
     <header className={styles.header}>

@@ -28,10 +28,9 @@ export const fetchLoginUser = (payload) => (dispatch) => {
     try {
       dispatch(setIsLoader(true));
       const res = await postRequest('user/login', payload);
-      // eslint-disable-next-line no-console
       if (res.status === 200) {
-        localStorage.setItem('user', JSON.stringify(res.user));
-        localStorage.setItem('userToken', res.token);
+        sessionStorage.setItem('user',JSON.stringify(res.user));
+        sessionStorage.setItem('userToken', res.token);
         dispatch(setUser(res.user));
         dispatch(setIsExistUser(true));
       }
