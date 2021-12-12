@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Project, Item, User } = require('../models/models');
+const { Project, Item, User } = require('../models/modelsAssociations');
 const { statusesId } = require('../constans/constants');
 
 const getProjects = async (sortData, page, size, capitalData, name, dateStart, dateFinish) => {
