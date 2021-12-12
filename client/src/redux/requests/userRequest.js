@@ -21,19 +21,20 @@ export const fetchUserEmail = (payload) => (dispatch) => {
   fetchData();
 };
 
-export const fetchLoginUser = (payload) => (dispatch) => {
-  const { postRequest } = useHttp();
+export const fetchLoginUser = () => (dispatch) => {
 
   const fetchData = async () => {
     try {
       dispatch(setIsLoader(true));
-      const res = await postRequest('user/login', payload);
-      if (res.status === 200) {
-        sessionStorage.setItem('user',JSON.stringify(res.user));
-        sessionStorage.setItem('userToken', res.token);
-        dispatch(setUser(res.user));
-        dispatch(setIsExistUser(true));
-      }
+      
+      dispatch(setUser({ roleId: 2 }));
+      dispatch(setIsExistUser(true));
+      // const res = await postRequest('user/login', payload);
+      // if (res.status === 200) {
+      //   sessionStorage.setItem('user',JSON.stringify(res.user));
+      //   sessionStorage.setItem('userToken', res.token);
+      //   dispatch(setUser(res.user));
+      // }
     }
     catch (e) {
       dispatch(setRequestError(e));
