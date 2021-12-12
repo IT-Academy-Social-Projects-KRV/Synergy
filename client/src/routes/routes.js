@@ -24,7 +24,6 @@ export const Routes = () => {
  
   const isExistUser = useSelector(isExistUserSelector); 
   const user = useSelector(userSelector);
-
   const changeClass = () =>
     sideClass === 'moved' ? setSideClass('') : setSideClass('moved');
 
@@ -46,7 +45,7 @@ export const Routes = () => {
       </>
     );
   }
-
+  
   return (
     <>
       <Header sideClass={sideClass} changeClass={changeClass} />
