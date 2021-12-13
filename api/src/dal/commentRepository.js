@@ -1,4 +1,4 @@
-const { Comment, User, Role } = require('../models/models');
+const { Comment, User, Role } = require('../models/modelsAssociations');
 
 const getComments = async (itemId) => {
     try {

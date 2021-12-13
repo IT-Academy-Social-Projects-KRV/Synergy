@@ -1,32 +1,18 @@
-const { Op } = require('sequelize');
-const { Project, Item, User } = require('../models/models');
+const { Project, Item, User } = require('../models/modelsAssociations');
 const { statusesId } = require('../constans/constants');
 
-const getProjects = async (sortData, page, size, capitalData, name, dateStart, dateFinish) => {
+const getProjects = async (sortData, page, size, filters) => {
     try {
         const data = await Project.findAndCountAll(
             {
                 limit: size,
                 offset: size * (page - 1),
-                where: {
-                    name: {
-                        [Op.substring]: [name || null],
-                    },
-                    capital: {
-                        [Op.between]: capitalData,
-                    },
-                    dateStart: {
-                        [Op.gt]: dateStart || '1970-01-01',
-                    },
-                    dateFinish: {
-                        [Op.lt]: dateFinish || '2038-01-19',
-                    },
-                    statusId: {
-                        [Op.ne]: statusesId.DELETED,
-                    },
-                },
+                where: filters,
                 order: [sortData],
-                include: [{ model: User, attributes: ['firstName', 'lastName', 'email'] },
+                include: [{
+                    model: User,
+                    attributes: ['firstName', 'lastName', 'email'],
+                },
                     Item,
                 ],
                 distinct: true,
@@ -38,7 +24,7 @@ const getProjects = async (sortData, page, size, capitalData, name, dateStart, d
     }
 }
 
-const createProject = async (name, description, capital, dateStart, dateFinish) => {
+const createProject = async (name, description, capital, dateStart, dateFinish, userId) => {
     try {
         const data = await Project.create({
             name,
@@ -47,6 +33,7 @@ const createProject = async (name, description, capital, dateStart, dateFinish) 
             dateStart,
             dateFinish,
             statusId: statusesId.NEW,
+            userId,
         });
         return data;
     } catch (err) {
@@ -58,7 +45,10 @@ const getProject = async (id) => {
     try {
         const data = await Project.findOne({
             where: { id },
-            include: [{ model: User, attributes: ['firstName', 'lastName', 'email'] },
+            include: [{
+                model: User,
+                attributes: ['firstName', 'lastName', 'email'],
+            },
                 Item,
             ],
         });
