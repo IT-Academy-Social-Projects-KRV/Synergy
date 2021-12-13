@@ -5,7 +5,6 @@ module.exports = {
     const data = [];
     for (let i = 1; i < statuses.length + 1; i++) {
       data.push({
-        id: i,
         name: statuses[i - 1].STATUS,
         createdAt: new Date(),
         updatedAt: new Date(),
