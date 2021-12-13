@@ -8,7 +8,7 @@ export const fetchProjectList = () => (dispatch) => {
   const fetchData = async () => {
     try {
       dispatch(setIsLoader(true));
-      const res = await getRequest('project');
+      const res = await getRequest('projects');
       dispatch(setProjectList(res.data.projects));
     } catch (e) {
       dispatch(setRequestError(e));
