@@ -3,10 +3,9 @@ const faker = require('faker');
 module.exports = {
     up: async (queryInterface) => {
         const data = [];
-        for (let i = 1; i < 201; i++) {
+        for (let i = 0; i < 200; i++) {
             const role = i === 0 ? 2 : 1;
             data.push({
-                id: i,
                 firstName: faker.name.firstName(),
                 lastName: faker.name.lastName(),
                 email: faker.internet.email(),

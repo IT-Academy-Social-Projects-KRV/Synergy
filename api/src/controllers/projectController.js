@@ -3,9 +3,9 @@ const projectsService = require('../services/projectService');
 
 const projectList = async (req, res) => {
     const {
-        sort, page, size, capital, name, dateStart, dateFinish,
+        sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish,
     } = req.query;
-    const projects = await projectsService.getProjects(sort, page, size, capital, name, dateStart, dateFinish);
+    const projects = await projectsService.getProjects(sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish);
     res.status(statusCode.OK)
         .json(projects);
 };
@@ -13,14 +13,15 @@ const projectList = async (req, res) => {
 const getOneProject = async (req, res) => {
     const { id } = req.params;
     const project = await projectsService.getOneProject(id);
-    res.send(project);
+    res.status(statusCode.OK)
+        .json(project);
 };
 
 const createProject = async (req, res) => {
     const {
-        name, description, capital, dateStart, dateFinish,
+        name, description, capital, dateStart, dateFinish, userId,
     } = req.body;
-    const project = await projectsService.createProject(name, description, capital, dateStart, dateFinish);
+    const project = await projectsService.createProject(name, description, capital, dateStart, dateFinish, userId);
     res.status(statusCode.CREATED)
         .json(project);
 };
@@ -39,13 +40,13 @@ const deleteProject = async (req, res) => {
     const { id } = req.params;
     await projectsService.deleteProject(id);
     res.status(statusCode.OK)
-        .json('Succesfully deleted');
+        .json(`Project ${id} deleted`);
 };
 
 module.exports = {
-    projectList,
-    getOneProject,
-    createProject,
-    updateProject,
-    deleteProject,
-}
+  projectList,
+  getOneProject,
+  createProject,
+  updateProject,
+  deleteProject,
+};

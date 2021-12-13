@@ -2,7 +2,11 @@ const Router = require('express');
 
 const router = new Router();
 const {
-  getItems, getOneItem, createItem, updateItem, deleteItem,
+  getItems,
+  getOneItem,
+  createItem,
+  updateItem,
+  deleteItem,
 } = require('../controllers/itemController');
 
 router.get('/', getItems);
