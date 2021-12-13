@@ -3,9 +3,8 @@ const { statuses } = require('../constans/constants');
 module.exports = {
   up: async (queryInterface) => {
     const data = [];
-    for (let i = 1; i < statuses.length + 1; i++) {
+    for (let i = 0; i < statuses.length; i++) {
       data.push({
-        id: i,
         name: statuses[i - 1].STATUS,
         createdAt: new Date(),
         updatedAt: new Date(),
