@@ -1,4 +1,4 @@
-const status = require('http-status');
+const statusCode = require('http-status');
 const projectsService = require('../services/projectService');
 
 const projectList = async (req, res) => {
@@ -6,7 +6,7 @@ const projectList = async (req, res) => {
         sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish,
     } = req.query;
     const projects = await projectsService.getProjects(sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(projects);
 };
 
@@ -22,8 +22,7 @@ const createProject = async (req, res) => {
         name, description, capital, dateStart, dateFinish, userId,
     } = req.body;
     const project = await projectsService.createProject(name, description, capital, dateStart, dateFinish, userId);
-    res.status(status.CREATED)
-        .json(project);
+    res.status(statusCode.CREATED)
 };
 
 const updateProject = async (req, res) => {
@@ -32,14 +31,14 @@ const updateProject = async (req, res) => {
     } = req.body;
     const { id } = req.params;
     const project = await projectsService.updateProject(name, description, capital, dateStart, dateFinish, id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(project);
 };
 
 const deleteProject = async (req, res) => {
     const { id } = req.params;
     await projectsService.deleteProject(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(`Project ${id} deleted`);
 };
 

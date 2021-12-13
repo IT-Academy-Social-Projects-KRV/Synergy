@@ -1,4 +1,4 @@
-const status = require('http-status');
+const statusCode = require('http-status');
 const itemService = require('../services/itemService');
 
 const getItems = async (req, res) => {
@@ -19,7 +19,7 @@ const createItem = async (req, res) => {
         name, description, price, priceMargin, projectId,
     } = req.body;
     const item = await itemService.createItem(name, description, price, priceMargin, projectId);
-    res.status(status.CREATED)
+    res.status(statusCode.CREATED)
         .json(item);
 };
 
@@ -29,14 +29,14 @@ const updateItem = async (req, res) => {
 } = req.body;
     const { id } = req.params;
     const item = await itemService.updateItem(name, description, price, priceMargin, itemStatus, id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(item);
 };
 
 const deleteItem = async (req, res) => {
     const { id } = req.params;
     await itemService.deleteItem(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(`Item ${id} deleted`);
 };
 

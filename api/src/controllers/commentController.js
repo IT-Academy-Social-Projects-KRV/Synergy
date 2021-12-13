@@ -1,4 +1,4 @@
-const status = require('http-status');
+const statusCode = require('http-status');
 const commentService = require('../services/commentService');
 
 const getComments = async (req, res) => {
@@ -20,7 +20,7 @@ const createComment = async (req, res) => {
         content, itemId, userId,
     } = req.body;
     const comment = await commentService.createComment(content, itemId, userId);
-    res.status(status.CREATED)
+    res.status(statusCode.CREATED)
         .json(comment);
 };
 
@@ -30,14 +30,14 @@ const updateComment = async (req, res) => {
     } = req.body;
     const { id } = req.params;
     const comment = await commentService.updateComment(content, itemId, userId, id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(comment);
 };
 
 const deleteComment = async (req, res) => {
     const { id } = req.params;
     await commentService.deleteComment(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(`Comment ${id} deleted`);
 };
 
