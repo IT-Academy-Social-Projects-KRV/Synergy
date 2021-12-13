@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import routes from '../../../../configs/routes';
-import Vector from '../../../../img/Vector.png';
+import Vector from '../../../../assets/images/ItemImages/Vector.png';
 import styles from './ItemPage.module.scss';
 
 const { pathToDashboard } = routes;
@@ -66,7 +66,7 @@ const ItemPage = () => {
             <div className={styles.inputField}>
               <input type='text' placeholder='Type message...'/>
               <button>
-                <img src={Vector}/>
+                <img src={Vector} alt='Vector image'/>
               </button>
             </div>
           </div>
