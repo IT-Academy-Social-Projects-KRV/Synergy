@@ -4,14 +4,14 @@ const commentService = require('../services/commentService');
 const getComments = async (req, res) => {
     const { itemId } = req.body;
     const comments = await commentService.getComments(itemId);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(comments);
 }
 
 const getOneComment = async (req, res) => {
     const { id } = req.params;
     const comment = await commentService.getOneComment(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(comment);
 };
 
