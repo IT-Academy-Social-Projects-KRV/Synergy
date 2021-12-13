@@ -1,12 +1,13 @@
 const projectRepository = require('../dal/projectRepository');
+const { getFiltersForProject } = require('../utils/helpers/filter');
 
-const getProjects = async (sort, page, size, capital, name, dateStart, dateFinish) => {
-    const sortData = !sort ? ['id', 'ASC'] : sort.match(/[a-z]+[^A-Z]+|[a-z][\W_][a-z]+|[A-Z]+(?![a-z])/g);
-    const capitalData = !capital ? [0, 10000000] : capital.match(/([0-9]+)/g);
+const getProjects = async (sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish) => {
+    const filters = getFiltersForProject(name, capital, dateStart, dateFinish);
+    const sortData = !sortBy && !sortDirection ? ['id', 'ASC'] : [sortBy, sortDirection];
 
-    const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 5, capitalData, name, dateStart, dateFinish);
+    const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 10, filters);
     const { count: totalProjects, rows: projects } = databaseResult;
-    const totalPages = Math.ceil(totalProjects / (size || 5));
+    const totalPages = Math.ceil(totalProjects / (size || 10));
     const currentPage = page || 1;
     return {
         totalProjects,
@@ -16,8 +17,8 @@ const getProjects = async (sort, page, size, capital, name, dateStart, dateFinis
     };
 };
 
-const createProject = async (name, description, capital, dateStart, dateFinish) => {
-    const databaseResult = await projectRepository.createProject(name, description, capital, dateStart, dateFinish);
+const createProject = async (name, description, capital, dateStart, dateFinish, userId) => {
+    const databaseResult = await projectRepository.createProject(name, description, capital, dateStart, dateFinish, userId);
     return databaseResult;
 };
 
