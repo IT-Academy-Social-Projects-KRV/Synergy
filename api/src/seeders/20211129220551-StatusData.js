@@ -5,10 +5,10 @@ module.exports = {
     const data = [];
     for (let i = 0; i < statuses.length; i++) {
       data.push({
-        name: statuses[i - 1].STATUS,
+        name: statuses[i].STATUS,
         createdAt: new Date(),
         updatedAt: new Date(),
-        statusCategoryId: statuses[i - 1].CATEGORY_ID,
+        statusCategoryId: statuses[i].CATEGORY_ID,
       })
     }
     await queryInterface.bulkInsert('statuses', data, {})
