@@ -24,11 +24,11 @@ module.exports = {
                 type: 'number',
                 example: 1,
               },
-              date_start: {
+              dateStart: {
                 type: 'string',
                 example: '2021-12-11',
               },
-              date_finish: {
+              dateFinish: {
                 type: 'string',
                 example: '2021-12-12',
               },

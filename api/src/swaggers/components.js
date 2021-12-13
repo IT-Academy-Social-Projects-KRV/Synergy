@@ -8,11 +8,11 @@ module.exports = {
             type: 'integer',
             description: 'The auto generated id of the user',
           },
-          first_name: {
+          firstName: {
             type: 'string',
             description: 'User first name',
           },
-          last_name: {
+          lastName: {
             type: 'string',
             description: 'User last name',
           },
@@ -28,13 +28,7 @@ module.exports = {
       },
       Project: {
         type: 'object', // data type
-        required: [
-          'name',
-          'description',
-          'capital',
-          'date_start',
-          'date_finish',
-        ],
+        required: ['name', 'description', 'capital', 'dateStart', 'dateFinish'],
         properties: {
           id: {
             type: 'integer',
@@ -56,13 +50,13 @@ module.exports = {
             description: 'The capital of project',
             example: 1,
           },
-          date_start: {
+          dateStart: {
             type: 'string',
             description: 'The start of project',
             format: 'date',
             example: '2021-12-11',
           },
-          date_finish: {
+          dateFinish: {
             type: 'string',
             description: 'The finish of project',
             format: 'date',
@@ -84,7 +78,7 @@ module.exports = {
           'name',
           'description',
           'price',
-          'price_margin',
+          'priceMargin',
           'statusId',
           'projectId',
         ],
@@ -109,7 +103,7 @@ module.exports = {
             description: 'The price of item',
             example: 1000,
           },
-          price_margin: {
+          priceMargin: {
             type: 'number',
             description: 'The price of item for customer',
             example: 1500,
