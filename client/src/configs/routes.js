@@ -7,6 +7,7 @@ const routes = {
   pathToDashboard: '/dashboard',
   pathToBillSettings: '/bill-settings',
   pathToAccount: '/account',
+  pathToItemPage: '/item'
 };
 
 export default routes;

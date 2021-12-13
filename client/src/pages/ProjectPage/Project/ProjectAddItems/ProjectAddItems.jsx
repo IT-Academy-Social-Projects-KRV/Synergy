@@ -1,7 +1,11 @@
 import { Item } from '../Item';
+import { Link } from 'react-router-dom';
+import routes from '../../../../configs/routes';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import styles from './ProjectAddItems.module.scss';
+
+const { pathToItemPage } = routes;
 
 const ProjectAddItems = () => {
   const style = {
@@ -39,9 +43,11 @@ const ProjectAddItems = () => {
           </Box>
 
           <Box sx={style.boxBtn}>
-            <Button sx={style.btnSubmit} variant='contained'>
-              Add item
-            </Button>
+            <Link to={pathToItemPage}>
+              <Button sx={style.btnSubmit} variant='contained'>
+                Add item
+              </Button>
+            </Link>
 
             <Button sx={style.btnSubmit} variant='contained' type='submit'>
               Save

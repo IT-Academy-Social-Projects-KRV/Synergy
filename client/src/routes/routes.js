@@ -6,6 +6,7 @@ import CreatingProject from '../pages/CreatingProjectPage';
 import ProjectList from '../pages/ProjectListPage';
 import Settings from '../components/Settings';
 import { Dashboard } from '../pages/ProjectPage';
+import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import SideBar from '../components/SideBar';
 import Footer from '../components/Footer';
@@ -86,6 +87,11 @@ export const Routes = () => {
                   exact
                   render={() => <Account />}
                 />
+                <Route
+                  path={routes.pathToItemPage}
+                  exact
+                  render={() => <ItemPage />}
+                />
               </Switch>
             </section>
           </section>
@@ -114,6 +120,11 @@ export const Routes = () => {
                   path={routes.pathToAccount}
                   exact
                   render={() => <Account />}
+                />
+                <Route
+                  path={routes.pathToItemPage}
+                  exact
+                  render={() => <ItemPage />}
                 />
               </Switch>
             </section>
