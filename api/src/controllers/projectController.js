@@ -13,7 +13,7 @@ const projectList = async (req, res) => {
 const getOneProject = async (req, res) => {
     const { id } = req.params;
     const project = await projectsService.getOneProject(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(project);
 };
 
@@ -23,6 +23,7 @@ const createProject = async (req, res) => {
     } = req.body;
     const project = await projectsService.createProject(name, description, capital, dateStart, dateFinish, userId);
     res.status(statusCode.CREATED)
+        .json(project);
 };
 
 const updateProject = async (req, res) => {

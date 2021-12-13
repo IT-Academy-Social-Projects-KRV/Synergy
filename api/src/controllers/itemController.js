@@ -3,14 +3,14 @@ const itemService = require('../services/itemService');
 
 const getItems = async (req, res) => {
     const items = await itemService.getItems();
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(items);
 }
 
 const getOneItem = async (req, res) => {
     const { id } = req.params;
     const item = await itemService.getOneItem(id);
-    res.status(status.OK)
+    res.status(statusCode.OK)
         .json(item);
 };
 
