@@ -24,7 +24,7 @@ const createItem = async (req, res) => {
 };
 
 const updateItem = async (req, res) => {
-    const {
+  const {
  name, description, price, priceMargin, itemStatus,
 } = req.body;
     const { id } = req.params;
@@ -41,9 +41,9 @@ const deleteItem = async (req, res) => {
 };
 
 module.exports = {
-    getItems,
-    getOneItem,
-    createItem,
-    updateItem,
-    deleteItem,
-}
+  getItems,
+  getOneItem,
+  createItem,
+  updateItem,
+  deleteItem,
+};
