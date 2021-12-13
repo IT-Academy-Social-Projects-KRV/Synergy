@@ -7,6 +7,4 @@ const app = require('./app');
 
 const PORT = process.env.PORT || 5000;
 
-module.exports = app.listen(PORT, () => {
-  console.log(`Serve is started on port ${PORT}`);
-});
+module.exports = app.listen(PORT);

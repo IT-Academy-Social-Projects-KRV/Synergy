@@ -1,4 +1,4 @@
-const { Item, Comment } = require('../models/models');
+const { Item, Comment } = require('../models/modelsAssociations');
 const { statusesId } = require('../constans/constants');
 
 const getItems = async () => {

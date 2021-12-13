@@ -2,7 +2,7 @@ const passportJWT = require('passport-jwt');
 
 const { ExtractJwt } = passportJWT;
 const JwtStrategy = passportJWT.Strategy;
-const { User } = require('../src/models/models');
+const { User } = require('../src/models/modelsAssociations');
 
 const jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
