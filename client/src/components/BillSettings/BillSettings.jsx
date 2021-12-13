@@ -1,5 +1,5 @@
 const BillSettings = () => {
-  return <div>BillSettings under construction</div>;
+  return <div data-testid='billBlock' >BillSettings under construction</div>;
 };
 
 export default BillSettings;
