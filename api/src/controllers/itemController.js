@@ -16,7 +16,6 @@ const createItem = async (req, res) => {
   const {
  name, description, price, priceMargin, projectId,
 } = req.body;
-  console.log(req.body);
   const item = await itemService.createItem(
     name,
     description,

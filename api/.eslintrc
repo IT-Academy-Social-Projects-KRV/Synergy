@@ -1,105 +1,94 @@
 {
-    "env": {
-        "commonjs": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "airbnb-base"
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": "off",
+    "semi": "off",
+    "no-var": "warn",
+    "no-alert": 0,
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all"
+      }
     ],
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": "off",
-        "semi": "off",
-        "no-var": "warn",
-        "no-alert": 0,
-        "prefer-const": [
-            "error",
-            {
-              "destructuring": "all"
-            }
-          ],
-          "arrow-parens": 0,
-          "arrow-body-style": [
-            2,
-            "as-needed"
-          ],
-        "no-console": [
-            0,
-            {
-              "allow": [
-                "warn",
-                "error"
-              ]
-            }
-          ],
-          "max-len": [
-            2,
-            {
-              "code": 200,
-              "ignoreComments": true,
-              "ignoreTrailingComments": true,
-              "ignoreUrls": true,
-              "ignoreStrings": true,
-              "ignoreTemplateLiterals": true,
-              "ignoreRegExpLiterals": true
-            }
-          ],
-        "no-return-await": 1,
-        "camelcase": 0,
-        "no-useless-return": 2,
-        "no-multi-str": 2,
-        "no-constant-condition": 1,
-        "multiline-comment-style": 0,
-        "no-plusplus": 0,
-        "no-tabs": 0,
-        "no-nested-ternary": 0,
-        "no-unneeded-ternary": 2,
-        "prefer-arrow-callback": 1,
-        "prefer-template": 1,
-        "spaced-comment": 0,
-        "prefer-destructuring": 1,
-        "prefer-default-export": 0,
-        "import/prefer-default-export": 0,
-        "import/no-import-module-exports": 0,
-        "class-methods-use-this": 0,
-        "no-underscore-dangle": 0,
-        "no-case-declarations": 0,
-        "lines-around-comment": 1,
-        "linebreak-style": 0,
-        "no-multiple-empty-lines": 2,
-        "no-extra-parens": [
-            1,
-            "functions"
-          ],
-          "no-param-reassign": [
-            2,
-            {
-              "props": false
-            }
-          ],
-          "no-multi-spaces": [
-            1,
-            {
-              "exceptions": {
-                "VariableDeclarator": true,
-                "FunctionExpression": true
-              }
-            }
-          ],
-          "radix": 0,
-          "no-shadow": 0,
-          "quotes": [
-            2,
-            "single",
-            {
-              "avoidEscape": true,
-              "allowTemplateLiterals": true
-            }
-          ],
-          "no-confusing-arrow": 0
-     }
+    "arrow-parens": 0,
+    "arrow-body-style": [2, "as-needed"],
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 200,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "no-return-await": 1,
+    "camelcase": [2, { "properties": "always" }],
+    "no-useless-return": 2,
+    "no-multi-str": 2,
+    "no-constant-condition": 1,
+    "multiline-comment-style": 0,
+    "no-plusplus": 0,
+    "no-tabs": 0,
+    "no-nested-ternary": 0,
+    "no-unneeded-ternary": 2,
+    "prefer-arrow-callback": 1,
+    "prefer-template": 1,
+    "spaced-comment": 0,
+    "prefer-destructuring": 1,
+    "prefer-default-export": 0,
+    "import/prefer-default-export": 0,
+    "import/no-import-module-exports": 0,
+    "class-methods-use-this": 0,
+    "no-underscore-dangle": 0,
+    "no-case-declarations": 0,
+    "lines-around-comment": 1,
+    "linebreak-style": 0,
+    "no-multiple-empty-lines": 2,
+    "no-extra-parens": [1, "functions"],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "no-multi-spaces": [
+      1,
+      {
+        "exceptions": {
+          "VariableDeclarator": true,
+          "FunctionExpression": true
+        }
+      }
+    ],
+    "radix": 0,
+    "no-shadow": 0,
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "no-confusing-arrow": 0
+  }
 }

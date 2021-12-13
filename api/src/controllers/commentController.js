@@ -3,7 +3,6 @@ const commentService = require('../services/commentService');
 
 const getComments = async (req, res) => {
   const { itemId } = req.body;
-  console.log(req.body);
   const comments = await commentService.getComments(itemId);
   res.send(comments);
 };
