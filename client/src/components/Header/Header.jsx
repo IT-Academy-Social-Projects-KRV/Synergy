@@ -4,8 +4,19 @@ import styles from './Header.module.scss';
 import logo from '../../assets/images/HeaderImages/Logo_header.svg';
 import button from '../../assets/images/HeaderImages/button.svg';
 import exit from '../../assets/images/HeaderImages/exit.svg';
+import { useDispatch } from 'react-redux';
+import { setIsExistUser, setUser } from '../../redux';
 
 const Header = ({ sideClass, changeClass }) => {
+  const dispatch = useDispatch();
+  
+  const handleExit = (e) => {
+    e.preventDefault(); 
+
+    dispatch(setUser({}));
+    sessionStorage.clear();
+    dispatch(setIsExistUser(false));
+  };
   return (
     <header className={styles.header}>
       <div className={styles.sideBlock + ' ' + sideClass}>
@@ -21,7 +32,7 @@ const Header = ({ sideClass, changeClass }) => {
         />
       </div>
       <div className={styles.exit}>
-        <NavLink to='/dashboard'>
+        <NavLink to='/dashboard' onClick={(e) => handleExit(e)}>
           <img src={exit} alt='exit' />
           <span>Exit</span>
         </NavLink>

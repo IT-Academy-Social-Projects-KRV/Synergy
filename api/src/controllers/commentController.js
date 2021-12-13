@@ -3,15 +3,16 @@ const commentService = require('../services/commentService');
 
 const getComments = async (req, res) => {
     const { itemId } = req.body;
-    console.log(req.body)
     const comments = await commentService.getComments(itemId);
-    res.send(comments);
+    res.status(status.OK)
+        .json(comments);
 }
 
 const getOneComment = async (req, res) => {
     const { id } = req.params;
     const comment = await commentService.getOneComment(id);
-    res.send(comment);
+    res.status(status.OK)
+        .json(comment);
 };
 
 const createComment = async (req, res) => {
@@ -37,7 +38,7 @@ const deleteComment = async (req, res) => {
     const { id } = req.params;
     await commentService.deleteComment(id);
     res.status(statusCode.OK)
-        .json(`Item ${id} deleted`);
+        .json(`Comment ${id} deleted`);
 };
 
 module.exports = {

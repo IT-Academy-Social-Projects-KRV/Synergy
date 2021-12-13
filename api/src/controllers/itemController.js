@@ -3,13 +3,15 @@ const itemService = require('../services/itemService');
 
 const getItems = async (req, res) => {
     const items = await itemService.getItems();
-    res.send(items);
+    res.status(status.OK)
+        .json(items);
 }
 
 const getOneItem = async (req, res) => {
     const { id } = req.params;
     const item = await itemService.getOneItem(id);
-    res.send(item);
+    res.status(status.OK)
+        .json(item);
 };
 
 const createItem = async (req, res) => {
