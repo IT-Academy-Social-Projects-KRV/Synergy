@@ -51,6 +51,22 @@ $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   bottom: 0;
 }
 
+%marginTopLeftItem{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+@mixin fontStyleItem($fontSize: 32px) {
+  font-weight: 700;
+  font-size: $fontSize; 
+}
+
+@mixin pElementItem($textAlign: left) {
+  text-align: $textAlign;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
 @mixin labelMargin($marginTop) {
   margin-top: $marginTop;
   margin-bottom: 5px; 

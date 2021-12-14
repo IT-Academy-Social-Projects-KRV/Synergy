@@ -19,8 +19,9 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import styles from './TableExistItems.module.scss';
+import routes from '../../../../configs/routes';
 
 const style = {
   table: {
@@ -389,8 +390,8 @@ const ExistItems = () => {
                         </TableCell>
                         <TableCell sx={style.text}>
                           <Box>
-                            <Link sx={{ color: '#7771D4' }} href='#'>
-                              <OpenInNewIcon />
+                            <Link to={routes.pathToItemPage}>
+                              <OpenInNewIcon sx={{ color: '#7771D4' }} />
                             </Link>
                           </Box>
                         </TableCell>
