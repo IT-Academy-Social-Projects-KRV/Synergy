@@ -7,7 +7,7 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer data-testid='footerBlock' className={styles.footer}>
       <div className={styles.footer__content}>
         <div className={styles.logoSynergy}>
           <img src={SynergyLogo} alt='Synergy logo'/>
