@@ -4,7 +4,7 @@ import './loader.scss';
 
 const Loader = () => {
   return (
-    <div className='loader'>
+    <div data-testid='loaderDiv' className='loader'>
       <img className='rotate' src={logo} alt='logo'/>
     </div>
   );

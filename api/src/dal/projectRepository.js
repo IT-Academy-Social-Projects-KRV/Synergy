@@ -58,34 +58,47 @@ const getProject = async (id) => {
     }
 }
 
-const updateProject = async (name, description, capital, dateStart, dateFinish, id) => {
-    try {
-        const data = await Project.update({
-            name,
-            description,
-            capital,
-            dateStart,
-            dateFinish,
-        }, { where: { id } });
-        return data;
-    } catch (err) {
-        throw Error(err);
-    }
-}
+const updateProject = async (
+  name,
+  description,
+  capital,
+  dateStart,
+  dateFinish,
+  id,
+) => {
+  try {
+    const data = await Project.update(
+      {
+        name,
+        description,
+        capital,
+        dateStart,
+        dateFinish,
+      },
+      { where: { id } },
+    );
+    return data;
+  } catch (err) {
+    throw Error(err);
+  }
+};
 
 const deleteProject = async (id) => {
-    try {
-        const data = await Project.update({ statusId: statusesId.DELETED }, { where: { id } });
-        return data;
-    } catch (err) {
-        throw Error(err);
-    }
-}
+  try {
+    const data = await Project.update(
+      { statusId: statusesId.DELETED },
+      { where: { id } },
+    );
+    return data;
+  } catch (err) {
+    throw Error(err);
+  }
+};
 
 module.exports = {
-    getProjects,
-    createProject,
-    getProject,
-    updateProject,
-    deleteProject,
-}
+  getProjects,
+  createProject,
+  getProject,
+  updateProject,
+  deleteProject,
+};

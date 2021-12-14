@@ -6,8 +6,8 @@ const AlertWindow = () => {
   const { hide, alert } = useContext(AlertContext);
   
   return (
-    <div>
-      {alert.visible
+    <div data-testid='alertBlock'>
+      {alert?.visible          
         ?
         <Alert
           onClick={hide}

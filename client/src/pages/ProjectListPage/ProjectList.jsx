@@ -50,8 +50,8 @@ const ProjectList = () => {
                 name={d.name}
                 desc={d.description}
                 capital={d.capital}
-                start={d.date_start}
-                finish={d.date_finish}
+                start={d.dateStart}
+                finish={d.dateFinish}
               />
             ))}
           </ul>
