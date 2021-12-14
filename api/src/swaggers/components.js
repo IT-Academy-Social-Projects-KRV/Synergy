@@ -62,10 +62,6 @@ module.exports = {
             format: 'date',
             example: '2021-12-12',
           },
-          // item: {
-          //   type: 'array',
-          //   items: { $ref: '#/components/schemas/Item' },
-          // },
           statusId: {
             type: 'integer',
             example: 1,

@@ -1,8 +1,5 @@
 module.exports = {
   tags: [
-    // {
-    //   name: 'User CRUD operations',
-    // },
     {
       name: 'Project CRUD operations',
     },
