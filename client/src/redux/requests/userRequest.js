@@ -1,4 +1,5 @@
 import { setIsExistUser, setIsLoader, setRequestError, setUser } from '..';
+//import statusCode from '../../consts/statusCode';
 import { useHttp } from '../../hooks/useHttp';
 
 
@@ -21,7 +22,10 @@ export const fetchUserEmail = (payload) => (dispatch) => {
   fetchData();
 };
 
-export const fetchLoginUser = () => (dispatch) => {
+export const fetchLoginUser = (
+  // payload
+) => (dispatch) => {
+  //const { postRequest } = useHttp();
 
   const fetchData = async () => {
     try {
@@ -30,10 +34,11 @@ export const fetchLoginUser = () => (dispatch) => {
       dispatch(setUser({ roleId: 2 }));
       dispatch(setIsExistUser(true));
       // const res = await postRequest('user/login', payload);
-      // if (res.status === 200) {
+      // if (res.status === statusCode.OK) {
       //   sessionStorage.setItem('user',JSON.stringify(res.user));
       //   sessionStorage.setItem('userToken', res.token);
       //   dispatch(setUser(res.user));
+      //   dispatch(setIsExistUser(true));
       // }
     }
     catch (e) {
