@@ -11,7 +11,6 @@ module.exports = {
         name: 'id',
         in: 'path',
         schema: {
-          //   $ref: '#/components/schemas/Project',
         },
         type: 'integer',
         required: true,
@@ -31,16 +30,7 @@ module.exports = {
     responses: {
       201: {
         description: 'successful operation',
-        // content: {
-        //   'application/json': {
-        //     schema: {
-        //       $ref: '#/components/schemas/Project',
-        //     },
-        //   },
-        // },
       },
     },
   },
 };
-
-// find pet

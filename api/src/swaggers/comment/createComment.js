@@ -11,29 +11,6 @@ module.exports = {
       content: {
         'application/json': {
           schema: {
-            //   properties: {
-            //     name: {
-            //       type: 'string',
-            //       example: 'string',
-            //     },
-            //     description: {
-            //       type: 'string',
-            //       example: 'string',
-            //     },
-            //     capital: {
-            //       type: 'number',
-            //       example: 1,
-            //     },
-            //     date_start: {
-            //       type: 'string',
-            //       example: '2021-12-11',
-            //     },
-            //     date_finish: {
-            //       type: 'string',
-            //       example: '2021-12-12',
-            //     },
-
-            //   },
             $ref: '#/components/schemas/Comments',
           },
         },
@@ -53,5 +30,3 @@ module.exports = {
     },
   },
 };
-
-// find pet

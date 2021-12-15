@@ -5,11 +5,9 @@ const updateProject = require('./updateProject');
 const deleteProject = require('./deleteProject');
 
 module.exports = {
-  // paths: {
   '/api/projects': {
     ...getProjects,
     ...createProject,
   },
   '/api/projects/{id}': { ...getProject, ...updateProject, ...deleteProject },
-  // },
 };

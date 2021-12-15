@@ -32,7 +32,6 @@ module.exports = {
                 type: 'string',
                 example: '2021-12-12',
               },
-              // $ref: '#/components/schemas/Project',
             },
           },
         },
@@ -52,5 +51,3 @@ module.exports = {
     },
   },
 };
-
-// find pet
