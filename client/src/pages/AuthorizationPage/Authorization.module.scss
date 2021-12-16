@@ -3,7 +3,6 @@
 .authorization{
     margin: 0;
     padding: 0;
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -53,11 +52,14 @@
                 margin: auto;
                 border-radius: 50px;
                 box-shadow: $boxBgShadow;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 .nameOfPageLogin{
-                    @include pStyle($paddingTop: 4.5rem);
+                    @include pStyle;
                 }
                 .nameOfPageRegistration{
-                    @include pStyle($paddingTop: 0.75rem);
+                    @include pStyle;
                 }
                 .authorizationForm{
                     display: flex;
@@ -84,7 +86,7 @@
                         }
                     }
                 }
-            }
+            }       
         }
     }
     &__bottomCText{

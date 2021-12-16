@@ -26,6 +26,9 @@ $innerShadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
 $innerDescShadow: inset 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
 $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
+$headerHeight: 64px;
+$headerMarginBottom: 20px;
+
 %baseFlex {
   display: flex;
   justify-content: center;
@@ -72,13 +75,12 @@ $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 5px; 
 }
 
-@mixin pStyle($paddingTop) {
+@mixin pStyle() {
   margin-top: 0;
   margin-bottom: 1.5rem;
   color: $purple;
   font-size: 25px;
   font-weight: bold;
-  padding-top: $paddingTop;
 }
 
 @mixin headerTitle($fontSize: 32px) {

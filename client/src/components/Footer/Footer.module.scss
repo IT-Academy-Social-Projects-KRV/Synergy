@@ -1,6 +1,7 @@
 @import '../../consts/variables.scss';
 
 .footer{
+    flex-shrink: 0;
     background-color: $purple;
     margin-top: 20px;
     height: 200px;

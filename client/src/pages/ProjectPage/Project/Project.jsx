@@ -12,7 +12,7 @@ const Project = () => {
       <main>
         <div className={styles.board}>
           <div className={styles.board__projectBlock}>
-            <h1 className={styles.board__projectTitle}>Progect Name</h1>
+            <h1 className={styles.board__projectTitle}>Project Name</h1>
 
             <div className={styles.board__projectData}>
               <div className={styles.board__block}>

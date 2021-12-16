@@ -49,92 +49,94 @@ export const Routes = () => {
   
   return (
     <>
-      <Header sideClass={sideClass} changeClass={changeClass} />
-      {user.roleId === 2 ? (
-        <>
-          <Redirect from='/login'  to={routes.pathToDashboard} />
-          <section className={'main__wrapper'}>
-            <SideBar sideClass={sideClass} />
-            <section className={'main_content_container' + ' ' + sideClass}>
-              <AlertWindow/>
-              <Switch>
-                <Route
-                  path={routes.pathToCreatingProject}
-                  exact
-                  render={() => <CreatingProject />}
-                />
-                <Route
-                  path={routes.pathToProjectList}
-                  exact
-                  render={() => <ProjectList />}
-                />
-                <Route
-                  path={routes.pathToSettings}
-                  exact
-                  render={() => <Settings />}
-                />
-                <Route
-                  path={routes.pathToDashboard}
-                  exact
-                  render={() => <Dashboard />}
-                />
-                <Route
-                  path={routes.pathToBillSettings}
-                  exact
-                  render={() => <BillSettings />}
-                />
-                <Route
-                  path={routes.pathToAccount}
-                  exact
-                  render={() => <Account />}
-                />
-                <Route
-                  path={routes.pathToItemPage}
-                  exact
-                  render={() => <ItemPage />}
-                />
-              </Switch>
+      <section className={'top'}>
+        <Header sideClass={sideClass} changeClass={changeClass} />
+        {user.roleId === 2 ? (
+          <>
+            <Redirect from='/login'  to={routes.pathToDashboard} />
+            <section className={'main__wrapper'}>
+              <SideBar sideClass={sideClass} />
+              <section className={'main_content_container' + ' ' + sideClass}>
+                <AlertWindow/>
+                <Switch>
+                  <Route
+                    path={routes.pathToCreatingProject}
+                    exact
+                    render={() => <CreatingProject />}
+                  />
+                  <Route
+                    path={routes.pathToProjectList}
+                    exact
+                    render={() => <ProjectList />}
+                  />
+                  <Route
+                    path={routes.pathToSettings}
+                    exact
+                    render={() => <Settings />}
+                  />
+                  <Route
+                    path={routes.pathToDashboard}
+                    exact
+                    render={() => <Dashboard />}
+                  />
+                  <Route
+                    path={routes.pathToBillSettings}
+                    exact
+                    render={() => <BillSettings />}
+                  />
+                  <Route
+                    path={routes.pathToAccount}
+                    exact
+                    render={() => <Account />}
+                  />
+                  <Route
+                    path={routes.pathToItemPage}
+                    exact
+                    render={() => <ItemPage />}
+                  />
+                </Switch>
+              </section>
             </section>
-          </section>
-        </>
-      ) : (
-        ''
-      )}
+          </>
+        ) : (
+          ''
+        )}
 
-      {user.roleId === 1 ? (
-        <>
-          <Redirect from='/login' to={routes.pathToDashboard} />
-          <section className={'main__wrapper'}>
-            <SideBar />
-            <section className={'main_content_container' + sideClass}>
-              <Switch>
-                <Route
-                  path={routes.pathToDashboard}
-                  exact
-                  render={() => <Dashboard />}
-                />
-                <Route
-                  path={routes.pathToSettings}
-                  exact
-                  render={() => <Settings />}
-                />
-                <Route
-                  path={routes.pathToAccount}
-                  exact
-                  render={() => <Account />}
-                />
-                <Route
-                  path={routes.pathToItemPage}
-                  exact
-                  render={() => <ItemPage />}
-                />
-              </Switch>
+        {user.roleId === 1 ? (
+          <>
+            <Redirect from='/login' to={routes.pathToDashboard} />
+            <section className={'main__wrapper'}>
+              <SideBar />
+              <section className={'main_content_container' + sideClass}>
+                <Switch>
+                  <Route
+                    path={routes.pathToDashboard}
+                    exact
+                    render={() => <Dashboard />}
+                  />
+                  <Route
+                    path={routes.pathToSettings}
+                    exact
+                    render={() => <Settings />}
+                  />
+                  <Route
+                    path={routes.pathToAccount}
+                    exact
+                    render={() => <Account />}
+                  />
+                  <Route
+                    path={routes.pathToItemPage}
+                    exact
+                    render={() => <ItemPage />}
+                  />
+                </Switch>
+              </section>
             </section>
-          </section>
-        </>
-      ) : (
-        ''
-      )}
+          </>
+        ) : (
+          ''
+        )}
+      </section>
       <Footer />
     </>
   );
