@@ -7,11 +7,11 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Loader from '../../components/Loader';
-import { AlertContext } from '../../components/Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
 import { style } from '../CreatingProjectPage/style.jsx';
 import styles from './CreatingProject.module.scss';
+import { AlertContext } from '../../components/Alert/context/AlertContext';
 
 const Content = () => {
 
@@ -25,12 +25,16 @@ const Content = () => {
     name: '',
     description: '',
     capital: '',
-    date_start: '',
-    date_finish: '',
+    dateStart: '',
+    dateFinish: ''
   });
 
   const handleCreateProject = () => {
-    dispatch(fetchCreateProject(projectForm));
+    dispatch(fetchCreateProject(projectForm)).then(res => {
+      res !== undefined ?
+        alert.show('Project was created', 'success') :
+        alert.show('Something went wrong', 'error');
+    });
   };
 
   const sendForm = async () => {
@@ -39,16 +43,16 @@ const Content = () => {
       name: '',
       description: '',
       capital: '',
-      date_start: '',
-      date_finish: '',
+      dateStart: '',
+      dateFinish: '',
     });
-    alert.show('Project was created', 'success');
+
   };
-  
+
   return (
     <>
       {isLoader ? (
-        <Loader />
+        <Loader/>
       ) : (
         <div className={styles.content}>
           <div className={styles.content__stuffing}>

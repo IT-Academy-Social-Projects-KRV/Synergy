@@ -3,9 +3,8 @@ import { createProject } from '../../services/projects.service';
 
 export const fetchCreateProject = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
-
   try {
-    await createProject(payload);
+    return await createProject(payload);
   } catch (e) {
     dispatch(setRequestError(e));
   } finally {

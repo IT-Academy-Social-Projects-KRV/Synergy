@@ -14,8 +14,8 @@ const Calendar = ({ data, setData }) => {
   useEffect(() => {
     setData({
       ...data,
-      date_start: new Date(value[0]).toISOString(),
-      date_finish: new Date(value[1]).toISOString(),
+      dateStart: new Date(value[0]).toISOString(),
+      dateFinish: new Date(value[1]).toISOString(),
     });
   }, [value]);
 
