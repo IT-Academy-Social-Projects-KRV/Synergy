@@ -9,21 +9,21 @@ const Authorization = () => {
 
   const location = useLocation();
   const [pathName, setPathName] = useState(location.pathname);
-  
+  console.log('render');
   useEffect(() => {
     setPathName(location.pathname);
   }, [location]);
 
-  return(
+  return (
     <div className={styles.authorization}>
       <div className={styles.authorization__title}>
         <h1>Synergy</h1>
         <p>Welcome to your project manager</p>
       </div>
-      {pathName === '/login' && <Login/>}
-      {pathName === '/registration' && <Registration/>} 
+      {pathName === '/' && <Login />}
+      {pathName === '/registration' && <Registration />}
       <div className={styles.authorization__bottomCText}>
-        <img src={CLogo} alt='Copyright sign'/>
+        <img src={CLogo} alt='Copyright sign' />
         <span>SYNERGY, 2021. ALL RIGHTS RESERVED</span>
       </div>
     </div>

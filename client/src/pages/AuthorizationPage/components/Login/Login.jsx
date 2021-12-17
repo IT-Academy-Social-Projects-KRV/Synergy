@@ -6,9 +6,12 @@ import { style } from '../../style.jsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchLoginUser } from '../../../../redux';
+import { useHistory } from 'react-router-dom';
+import routes from '../../../../configs/routes';
 
 
 const Login = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,6 +28,9 @@ const Login = () => {
       email,
       password
     });
+    history.push(
+      location.state?.requestedPath ?? routes.AuthRoutes.pathToDashboard
+    );
   };
 
 

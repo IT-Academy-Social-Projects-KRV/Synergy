@@ -1,5 +1,6 @@
-import { setIsExistUser, setIsLoader, setRequestError, setUser } from '..';
+import { setIsLoader, setRequestError, setUser } from '..';
 //import statusCode from '../../consts/statusCode';
+
 
 export const fetchLoginUser = (
   // payload
@@ -7,8 +8,9 @@ export const fetchLoginUser = (
   dispatch(setIsLoader(true));
 
   try {
+    sessionStorage.setItem('token',('dfdsfsfsfsf'));
     dispatch(setUser({ roleId: 2 }));
-    dispatch(setIsExistUser(true));
+    // dispatch(setIsExistUser(true));
     // const res = await postRequest('user/login', payload);
     // if (res.status === statusCode.OK) {
     //   sessionStorage.setItem('user',JSON.stringify(res.user));
