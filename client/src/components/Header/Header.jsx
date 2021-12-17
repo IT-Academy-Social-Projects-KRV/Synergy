@@ -5,25 +5,23 @@ import logo from '../../assets/images/HeaderImages/Logo_header.svg';
 import button from '../../assets/images/HeaderImages/button.svg';
 import exit from '../../assets/images/HeaderImages/exit.svg';
 import { useDispatch } from 'react-redux';
-import { setIsExistUser, setUser } from '../../redux';
+import { setIsAuthed, setUser } from '../../redux';
 
 const Header = ({ sideClass, changeClass }) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  
-  const handleExit = (e) => {
-    e.preventDefault(); 
 
+  const handleExit = () => {
     dispatch(setUser({}));
+    dispatch(setIsAuthed(false));
     sessionStorage.clear();
-    dispatch(setIsExistUser(false));
-    history.push('/dashboard');
+    history.push('/');
   };
 
   return (
     <header data-testid='headerBlock' className={styles.header}>
-      <div data-testid='headerLogoBlock'  className={styles.sideBlock + ' ' + sideClass}>
+      <div data-testid='headerLogoBlock' className={styles.sideBlock + ' ' + sideClass}>
         <div className={styles.logo_container}>
           <img src={logo} alt='logo' />
           <span>Synergy | CRM</span>
