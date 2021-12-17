@@ -53,7 +53,7 @@ export const Routes = () => {
       <Header sideClass={sideClass} changeClass={changeClass} />
       {user.roleId === userRole.AdminRole ? (
         <>
-          <Redirect from='/login'  to={routes.pathToDashboard} />
+          <Redirect from='/login'  to={routes.pathToProjectList} />
           <section className={'main__wrapper'}>
             <SideBar sideClass={sideClass} />
             <section className={'main_content_container' + ' ' + sideClass}>
@@ -104,7 +104,7 @@ export const Routes = () => {
 
       {user.roleId === userRole.UserRole ? (
         <>
-          <Redirect from='/login' to={routes.pathToDashboard} />
+          <Redirect from='/login' to={routes.pathToProjectList} />
           <section className={'main__wrapper'}>
             <SideBar />
             <section className={'main_content_container' + sideClass}>

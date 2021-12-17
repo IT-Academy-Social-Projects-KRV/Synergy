@@ -5,3 +5,4 @@ export const projectPageSelector = state => state.projectList.projectPages;
 export const projectSelector = state => state.project.project;
 export const isLoaderSelector = state => state.helpers.isLoader;
 export const requestErrorSelector = state => state.helpers.requestError;
+export const itemSelector = state => state.item.item;

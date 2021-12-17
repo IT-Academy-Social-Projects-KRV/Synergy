@@ -1,7 +1,7 @@
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import styles from './ProjectInfo.module.scss';
 
-const ProjectInfo = () => {
+const ProjectInfo = ({ firstName, lastName, orderDate, releaseDate }) => {
   return (
     <section>
       <div className={styles.client}>
@@ -10,11 +10,11 @@ const ProjectInfo = () => {
             <AccountCircleRoundedIcon />
           </div>
 
-          <h4 className={styles.client__name}>Client name</h4>
+          <h4 className={styles.client__name}>{firstName} {lastName}</h4>
         </div>
 
-        <p className={styles.client__date}>Order date: 28.11.2021</p>
-        <p className={styles.client__date}>Release date: 15.03.2022</p>
+        <p className={styles.client__date}>Order date: {orderDate}</p>
+        <p className={styles.client__date}>Release date: {releaseDate}</p>
       </div>
     </section>
   );
