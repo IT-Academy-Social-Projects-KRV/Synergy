@@ -16,13 +16,14 @@ import Footer from '../components/Footer';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { isAuthedSelector } from '../redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { isAuthedSelector, setUser, userSelector } from '../redux';
 
 const Routes = () => {
+  const dispatch = useDispatch();
   const isAuthed = useSelector(isAuthedSelector);
   const [sideClass, setSideClass] = useState('');
- 
+  const user = useSelector(userSelector);
   const changeClass = () =>
     sideClass === 'moved' ? setSideClass('') : setSideClass('moved');
 
@@ -30,6 +31,10 @@ const Routes = () => {
   const history = useHistory();
 
   useEffect(() => {
+    if (Object.keys(user).length === 0) {
+      dispatch(setUser(JSON.parse(sessionStorage.getItem('user'))));
+    }
+
     if (location.pathname !== history.location.pathname) {
       history.push(location.pathname);
     }

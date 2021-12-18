@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import fieldsForSideBar from './sidebarItems';
 import styles from './SideBar.module.scss';
 import SideBarItem from './SideBarItem/SideBarItem';
 import userRole from '../../consts/userRoles';
 
 const SideBar = (props) => {
-  const [userStorage, setUserStorage] = useState({});
-
-  useEffect(() => {
-    setUserStorage(JSON.parse(sessionStorage.getItem('user')));
-  }, []);
+  const [userStorage] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   return (
     <aside className={styles.sidebar + ' ' + props.sideClass}>
