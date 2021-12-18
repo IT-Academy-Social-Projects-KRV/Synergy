@@ -5,7 +5,7 @@ import logo from '../../assets/images/HeaderImages/Logo_header.svg';
 import button from '../../assets/images/HeaderImages/button.svg';
 import exit from '../../assets/images/HeaderImages/exit.svg';
 import { useDispatch } from 'react-redux';
-import { setIsAuthed, setUser } from '../../redux';
+import { setUser } from '../../redux';
 
 const Header = ({ sideClass, changeClass }) => {
 
@@ -13,8 +13,7 @@ const Header = ({ sideClass, changeClass }) => {
   const dispatch = useDispatch();
 
   const handleExit = () => {
-    dispatch(setUser({}));
-    dispatch(setIsAuthed(false));
+    dispatch(setUser(null));
     sessionStorage.clear();
     history.push('/');
   };
@@ -35,6 +34,7 @@ const Header = ({ sideClass, changeClass }) => {
         />
       </div>
       <div className={styles.exit}>
+        {/*TODO: modify div to react-router-dom <Link> */}
         <div onClick={(e) => handleExit(e)}>
           <img src={exit} alt='exit' />
           <span>Exit</span>

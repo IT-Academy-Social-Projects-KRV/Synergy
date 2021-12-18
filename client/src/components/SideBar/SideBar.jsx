@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../redux';
 import fieldsForSideBar from './sidebarItems';
 import styles from './SideBar.module.scss';
 import SideBarItem from './SideBarItem/SideBarItem';
 import userRole from '../../consts/userRoles';
 
 const SideBar = (props) => {
-  const [userStorage, setUserStorage] = useState({});
-
-  useEffect(() => {
-    setUserStorage(JSON.parse(sessionStorage.getItem('user')));
-  }, []);
+  const user = useSelector(userSelector);
 
   return (
     <aside className={styles.sidebar + ' ' + props.sideClass}>
       <h4>Management</h4>
       <ul className={styles.sidebar_list}>
-        {userStorage.roleId === userRole.AdminRole
+        {user.roleId === userRole.AdminRole
           ? fieldsForSideBar.Admin.map((item) => (
             <SideBarItem
               key={item.title}
@@ -26,7 +24,7 @@ const SideBar = (props) => {
             />
           ))
           : ''}
-        {userStorage.roleId === userRole.UserRole
+        {user.roleId === userRole.UserRole
           ? fieldsForSideBar.Customer.map((item) => (
             <SideBarItem
               key={item.title}
