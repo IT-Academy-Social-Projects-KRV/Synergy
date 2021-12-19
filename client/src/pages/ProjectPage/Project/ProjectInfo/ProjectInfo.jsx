@@ -13,8 +13,8 @@ const ProjectInfo = ({ firstName, lastName, orderDate, releaseDate }) => {
           <h4 className={styles.client__name}>{firstName} {lastName}</h4>
         </div>
 
-        <p className={styles.client__date}>Order date: {orderDate}</p>
-        <p className={styles.client__date}>Release date: {releaseDate}</p>
+        <p data-testid='orderDate' className={styles.client__date}>Order date: {orderDate}</p>
+        <p data-testid='releaseDate' className={styles.client__date}>Release date: {releaseDate}</p>
       </div>
     </section>
   );
