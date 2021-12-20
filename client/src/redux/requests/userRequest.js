@@ -1,19 +1,23 @@
-import { setIsExistUser, setIsLoader, setRequestError, setUser } from '..';
-//import statusCode from '../../consts/statusCode';
+import { setIsLoader, setRequestError, setUser } from '..';
+// import statusCode from '../../consts/statusCode';
+// import { logIn } from '../../services/user.service';
+
 
 export const fetchLoginUser = (
-  // payload
+  //payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
-
   try {
-    dispatch(setUser({ roleId: 2 }));
-    dispatch(setIsExistUser(true));
-    // const res = await postRequest('user/login', payload);
+    sessionStorage.setItem('token', ('dfdsfsfsfsf'));
+    sessionStorage.setItem('user', JSON.stringify({ id: 1, roleId: 2 }));
+    dispatch(setUser(JSON.parse(sessionStorage.getItem('user'))));
+    // const res = await logIn(payload);
+  
     // if (res.status === statusCode.OK) {
-    //   sessionStorage.setItem('user',JSON.stringify(res.user));
-    //   sessionStorage.setItem('userToken', res.token);
-    //   dispatch(setUser(res.user));
+    //   sessionStorage.setItem('user',JSON.stringify(res.data.user));
+    //   sessionStorage.setItem('token', res.data.token);
+    //   dispatch(setUser(res.data.user));
+    //   dispatch(setIsAuthed(true));
     // }
   }
   catch (e) {
@@ -22,7 +26,7 @@ export const fetchLoginUser = (
   finally {
     dispatch(setIsLoader(false));
   }
-  
+
   // TODO: Create function for fetching user email in registration.
   // export const fetchUserEmail = (payload) => (dispatch) => {
   //   const { postRequest } = useHttp();

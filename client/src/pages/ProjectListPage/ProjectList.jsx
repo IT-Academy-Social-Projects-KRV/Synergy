@@ -10,6 +10,8 @@ import {
   projectListSelector,
   setIsLoader
 } from '../../redux';
+import { Link } from 'react-router-dom';
+import routes from '../../configs/routes';
 
 const ProjectList = () => {
   const dispatch = useDispatch();
@@ -44,15 +46,19 @@ const ProjectList = () => {
               <div>Owner</div>
             </li>
             {projectList.map((d) => (
-              <ProjectListItem
+              <Link 
+                to={routes.AuthRoutes.pathToDashboard} 
                 key={d.id}
-                id={d.id}
-                name={d.name}
-                desc={d.description}
-                capital={d.capital}
-                start={d.dateStart}
-                finish={d.dateFinish}
-              />
+              >
+                <ProjectListItem
+                  id={d.id}
+                  name={d.name}
+                  desc={d.description}
+                  capital={d.capital}
+                  start={d.dateStart}
+                  finish={d.dateFinish}
+                />
+              </Link>
             ))}
           </ul>
         </>

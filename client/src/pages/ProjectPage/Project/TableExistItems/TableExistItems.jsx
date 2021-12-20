@@ -21,11 +21,11 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import TextField from '@mui/material/TextField';
 import styles from './TableExistItems.module.scss';
 import routes from '../../../../configs/routes';
-import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchItemById } from '../../../../redux';
 import STATUS from '../../../../consts/itemStatuses';
+import { Button } from '@mui/material';
 
 const style = {
   table: {
@@ -284,7 +284,6 @@ const mappedItems = (array) => {
 
 const ExistItems = ({ itemsData }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('nameItem');
@@ -346,9 +345,8 @@ const ExistItems = ({ itemsData }) => {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  const redirectToItem = async (id) => {
-    await dispatch(fetchItemById(id));
-    history.push(routes.pathToItemPage);
+  const redirectToItem = id => {
+    dispatch(fetchItemById(id));
   };
 
   return (
@@ -418,11 +416,11 @@ const ExistItems = ({ itemsData }) => {
                           </Box>
                         </TableCell>
                         <TableCell sx={style.text}>
-                          <Box>
-                            <Button sx={{ color: '#7771D4' }} onClick={() => redirectToItem(row.id)}>
-                              <OpenInNewIcon />
-                            </Button>
-                          </Box>
+                          <Button onClick={() => redirectToItem(row.id)}>
+                            <Link to={routes.AuthRoutes.pathToItemPage}>
+                              <OpenInNewIcon sx={{ color: '#7771D4' }} />
+                            </Link>
+                          </Button>
                         </TableCell>
                       </TableRow>
                     );
