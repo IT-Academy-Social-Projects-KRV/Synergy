@@ -1,11 +1,13 @@
 import loginLogo from '../../../../assets/images/AuthorizationImages/loginLogo.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
+
 import styles from '../../../../consts/Authorization.module.scss';
 import { style } from '../../style.jsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchLoginUser } from '../../../../redux';
+
 import { useHistory } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';

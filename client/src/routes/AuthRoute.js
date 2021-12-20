@@ -11,7 +11,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
   const [sideClass, setSideClass] = useState('');
 
   const user = useSelector(userSelector);
- 
+
   const changeClass = () =>
     sideClass === 'moved' ? setSideClass('') : setSideClass('moved');
 
@@ -19,18 +19,20 @@ const AuthRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        !user ? 
+        !user ?
           <Redirect to={routes.NonAuthRoutes.pathToLogin} />
           :
           <>
-            <Header sideClass={sideClass} changeClass={changeClass} />
-            <section className={'main__wrapper'}>
-              <SideBar sideClass={sideClass} />
-              <section className={`main_content_container ${sideClass}`}>
-                <Component {...props} />
+            <section className={'top'}>
+              <Header sideClass={sideClass} changeClass={changeClass} />
+              <section className={'main__wrapper'}>
+                <SideBar sideClass={sideClass} />
+                <section className={`main_content_container ${sideClass}`}>
+                  <Component {...props} />
+                </section>
               </section>
+              <Footer />
             </section>
-            <Footer />
           </>
       }
     />

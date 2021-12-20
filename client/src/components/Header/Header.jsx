@@ -15,7 +15,7 @@ const Header = ({ sideClass, changeClass }) => {
   const handleExit = () => {
     dispatch(setUser(null));
     sessionStorage.clear();
-    history.push('/');
+    history.push('/'); //? If make this line 'comment', test will be work correctly!
   };
 
   return (

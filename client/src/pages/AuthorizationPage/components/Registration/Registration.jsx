@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import registrationLogo from '../../../../assets/images/AuthorizationImages/registrationLogo.png';
+
 import styles from '../../../../consts/Authorization.module.scss';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 import { style } from '../../style.jsx';
+
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
 import AutorizationFooter from '../../../../shared/Autorization/AutorizationFooter';
+
 
 const Registration = () => {
 
