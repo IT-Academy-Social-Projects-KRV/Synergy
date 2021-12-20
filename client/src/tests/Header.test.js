@@ -1,6 +1,9 @@
 import { render } from '@testing-library/react';
 import Header from '../components/Header/Header';
-//import { shallow } from 'enzyme';
+import { shallow, configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+configure({ adapter: new Adapter() });
 
 const baseProps = {
   sideClass: 'moved',
@@ -29,13 +32,13 @@ describe('Should render Header component with all items', () => {
     //expect(getByTestId('logoButton').getAttribute('onClick','changeClasss'));
     //expect(getByTestId('headerLogoBlock').getAttribute('className')).toEqual('sideBlock moved');
   });
-  // it('Header component props ', () => {
-  //   const baseProps = {
-  //     sideClass: 'moved',
-  //     changeClass : jest.fn()
-  //   };
-  //   const header = shallow(<Header {...baseProps} />);
-  //   header.find('img').simulate('click');
-  //   expect(header.state('sideClass')).toBe('');
-  // });
+  it('Header component props ', () => {
+    const baseProps = {
+      sideClass: 'moved',
+      changeClass : jest.fn()
+    };
+    const header = shallow(<Header {...baseProps} />);
+    header.find('img').simulate('click');
+    expect(header.state('sideClass')).toBe('');
+  });
 });

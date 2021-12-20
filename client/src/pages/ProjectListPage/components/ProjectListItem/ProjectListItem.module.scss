@@ -6,6 +6,10 @@
   justify-content: space-between;
   color: #7872d6;
   font-weight: 500;
+  &:hover {
+    background-color: #7972d61c;
+    cursor: pointer;
+  }
   &:not(:last-child) {
     margin-bottom: 10px;
   }
