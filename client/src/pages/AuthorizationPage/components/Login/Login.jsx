@@ -1,12 +1,11 @@
 import loginLogo from '../../../../assets/images/AuthorizationImages/loginLogo.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import styles from '../../Authorization.module.scss';
 import { style } from '../../style.jsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchLoginUser } from '../../../../redux';
-
+import styles from '../../Authorization.module.scss';
 
 const Login = () => {
   const dispatch = useDispatch();

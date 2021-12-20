@@ -14,6 +14,7 @@ const Project = () => {
   const isLoader = useSelector(isLoaderSelector);
 
   return (
+
     isLoader ? 
       <Loader /> 
       : 
@@ -22,7 +23,6 @@ const Project = () => {
           <div className={styles.board}>
             <div className={styles.board__projectBlock}>
               <h1 className={styles.board__projectTitle}>{project.name}</h1>
-
               <div className={styles.board__projectData}>
                 <div className={styles.board__block}>
                   <ProjectBill />
