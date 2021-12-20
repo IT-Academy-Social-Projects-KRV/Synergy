@@ -11,14 +11,14 @@ import Checkbox from '@mui/material/Checkbox';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import styles from './TableExistItems.module.scss';
 import routes from '../../../../configs/routes';
-import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchItemById } from '../../../../redux';
 import STATUS from '../../../../consts/itemStatuses';
 import EnhancedTableHead  from './EnhancedTableHead/EnhancedTableHead';
 import EnhancedTableToolbar from './EnhancedTableToolbar/EnhancedTableToolbar';
 import { style, rows } from '../../../../consts/tableExistItems';
+import { Button } from '@mui/material';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -62,7 +62,6 @@ const mappedItems = (array) => {
 
 const ExistItems = ({ itemsData }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('nameItem');
@@ -123,9 +122,8 @@ const ExistItems = ({ itemsData }) => {
 
   const redirectToItem = async (id) => {
     await dispatch(fetchItemById(id));
-    history.push(routes.pathToItemPage);
   };
-
+  
   return (
     <>
       <h1 className={styles.table__title}>Exist Items</h1>
@@ -192,11 +190,11 @@ const ExistItems = ({ itemsData }) => {
                           </Box>
                         </TableCell>
                         <TableCell sx={style.text}>
-                          <Box>
-                            <Button sx={{ color: '#7771D4' }} onClick={() => redirectToItem(row.id)}>
-                              <OpenInNewIcon />
-                            </Button>
-                          </Box>
+                          <Button onClick={() => redirectToItem(row.id)}>
+                            <Link to={routes.AuthRoutes.pathToItemPage}>
+                              <OpenInNewIcon sx={{ color: '#7771D4' }} />
+                            </Link>
+                          </Button>
                         </TableCell>
                       </TableRow>
                     );

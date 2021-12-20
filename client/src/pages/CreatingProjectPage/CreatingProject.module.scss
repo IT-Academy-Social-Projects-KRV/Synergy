@@ -1,40 +1,36 @@
 @import '../../consts/variables.scss';
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
-.content{
-    width: 100%;
-    margin: auto;
-    min-height: calc(100vh - 304px);
-    &__stuffing{
+.content {
+    @extend %widthMargin;
+    &__stuffing {
         height: 100%;
         width: 80%;
         margin: auto;
         padding: 32px;
-        & > h1{
+        & > h1 {
             @include fonts($fntSize: 32px, $fntWeight: 700);
             color: $fontDark;
             text-align: center;
         }
-        .mainForm{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            .inputTextfield{
+        .mainForm {
+            @include flex;
+            .inputTextfield {
                 width: 48%;
                 font-weight: 700;
                 text-transform: uppercase;
                 color: $fontDark;
                 font-size: 14px;
-                .label{
+                .label {
                     @include labelMargin($marginTop: 30px);
                 }
-                .сalendar{
+                .сalendar {
                     width: 100%;
                 }
-                .textAreaLabel{
+                .textAreaLabel {
                     @include labelMargin($marginTop: 15px);
                 }
-                & > textarea{
+                & > textarea {
                     box-sizing: border-box;
                     outline: none;
                     resize: vertical;
@@ -46,22 +42,22 @@
                     min-width: 208.5%;
                     height: auto;
                     border-radius: 5px;
-                    &::placeholder{
+                    &::placeholder {
                         color: #a3a3a3;
                         font-weight: normal;
                     }
-                    &:focus{
+                    &:focus {
                         border: 2px solid #645fb5;
                         padding: 15px;
                     }
                 }
             }
-            .inputWithMarginRight{
+            .inputWithMarginRight {
                 margin-right: 4%;
             }
-            .button{
+            .button {
                 width: 100%;
-                .saveButton{
+                .saveButton {
                     height: 30px;
                     width: 150px;
                     background-color: $purple;
@@ -78,13 +74,13 @@
         }
     }
 }
-@media screen and (max-width: 600px){
-    .content{
-        &__stuffing{
+@media screen and (max-width: 600px) {
+    .content {
+        &__stuffing {
             width: 100%;
-            .mainForm{
+            .mainForm {
                 flex-direction: column;
-                .inputTextfield{
+                .inputTextfield {
                     width: 100%;
                 }
             }

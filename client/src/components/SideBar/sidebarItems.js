@@ -9,37 +9,37 @@ import account from '../../assets/images/SideBarImages/account.svg';
 const fieldsForSideBar = {
   Admin: [
     {
-      route: routes.pathToDashboard,
+      route: routes.AuthRoutes.pathToDashboard,
       image: dashboard,
       alt: 'dashboard',
       title: 'Dashboard',
     },
     {
-      route: routes.pathToProjectList,
+      route: routes.AuthRoutes.pathToProjectList,
       image: projects,
       alt: 'projects',
       title: 'Projects',
     },
     {
-      route: routes.pathToCreatingProject,
+      route: routes.AuthRoutes.pathToCreatingProject,
       image: CreateProject,
       alt: 'CreateProject',
       title: 'Creating project',
     },
     {
-      route: routes.pathToSettings,
+      route: routes.AuthRoutes.pathToSettings,
       image: settings,
       alt: 'settings',
       title: 'Settings',
     },
     {
-      route: routes.pathToBillSettings,
+      route: routes.AuthRoutes.pathToBillSettings,
       image: bill,
       alt: 'bill',
       title: 'Bill settings',
     },
     {
-      route: routes.pathToAccount,
+      route: routes.AuthRoutes.pathToAccount,
       image: account,
       alt: 'account',
       title: 'Account',
@@ -47,19 +47,19 @@ const fieldsForSideBar = {
   ],
   Customer: [
     {
-      route: routes.pathToDashboard,
+      route: routes.AuthRoutes.pathToDashboard,
       image: dashboard,
       alt: 'dashboard',
       title: 'Dashboard',
     },
     {
-      route: routes.pathToSettings,
+      route: routes.AuthRoutes.pathToSettings,
       image: settings,
       alt: 'settings',
       title: 'Settings',
     },
     {
-      route: routes.pathToAccount,
+      route: routes.AuthRoutes.pathToAccount,
       image: account,
       alt: 'account',
       title: 'Account',

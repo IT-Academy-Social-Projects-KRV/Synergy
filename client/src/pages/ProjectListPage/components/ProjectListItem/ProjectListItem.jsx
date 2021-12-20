@@ -1,17 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchProjectById } from '../../../../redux';
-import routes from '../../../../configs/routes';
 import style from './ProjectListItem.module.scss';
 
 const ProjectListItem = (props) => {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleClick = async () => {
     await dispatch(fetchProjectById(props.id));
-    history.push(routes.pathToDashboard);
   };
 
   return (
