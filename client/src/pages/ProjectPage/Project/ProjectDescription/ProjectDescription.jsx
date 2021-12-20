@@ -6,7 +6,7 @@ const ProjectDescription = ({ description }) => {
       <div className={styles.description}>
         <b className={styles.description__title}>Description</b>
 
-        <p className={styles.description__text}>
+        <p data-testid='description' className={styles.description__text}>
           {description}
         </p>
       </div>

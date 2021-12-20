@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Header component with all items should render with given state from Redux store 1`] = `
+<header
+  className="header"
+  data-testid="headerBlock"
+>
+  <div
+    className="sideBlock undefined"
+    data-testid="headerLogoBlock"
+  >
+    <div
+      className="logo_container"
+    >
+      <img
+        alt="logo"
+        src="Logo_header.svg"
+      />
+      <span>
+        Synergy | CRM
+      </span>
+    </div>
+    <img
+      alt="logoButton"
+      className="button"
+      data-testid="logoButton"
+      onClick={[Function]}
+      src="button.svg"
+    />
+  </div>
+  <div
+    className="exit"
+  >
+    <div
+      onClick={[Function]}
+    >
+      <img
+        alt="exit"
+        src="exit.svg"
+      />
+      <span>
+        Exit
+      </span>
+    </div>
+  </div>
+</header>
+`;

@@ -3,7 +3,7 @@ import styles from './ProjectDiagram.module.scss';
 
 const ProjectDiagram = () => {
   return (
-    <section>
+    <section data-testid='projectDiagramSection'>
       <div className={styles.diagram}>
         <p className={styles.diagram__title}>Analytics</p>
         <img src={diagram} alt='diagram'></img>
