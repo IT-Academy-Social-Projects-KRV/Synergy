@@ -1,8 +1,8 @@
 const projectRepository = require('../dal/projectRepository');
-const { getFiltersForProject } = require('../utils/helpers/filter');
+const filter = require('../utils/helpers/filter');
 
 const getProjects = async (sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish) => {
-    const filters = getFiltersForProject(name, capital, dateStart, dateFinish);
+    const filters = filter.getFiltersForProject(name, capital, dateStart, dateFinish);
     const sortData = !sortBy && !sortDirection ? ['id', 'ASC'] : [sortBy, sortDirection];
 
     const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 10, filters);
