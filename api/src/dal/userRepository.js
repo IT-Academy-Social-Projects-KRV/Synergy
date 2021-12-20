@@ -1,4 +1,32 @@
 const { User } = require('../models/modelsAssociations');
+const { statusesId } = require('../constans/constants');
+
+const getUsers = async () => {
+  try {
+    const getAllUsers = await User.findAll({
+      order: [['id', 'ASC']],
+    });
+      return getAllUsers;
+  } catch (err) {
+      throw Error(err);
+  }
+}
+
+const registerUser = async (firstName, lastName, email, password) => {
+  try {
+    const newUser = await User.create({
+      firstName,
+      lastName,
+      email,
+      password,
+      roleId: 1,
+      statusId: statusesId.NEW,
+    });
+      return newUser;
+  } catch (err) {
+      throw Error(err);
+  }
+}
 
 const loginUser = async (email) => {
   try {
@@ -10,5 +38,7 @@ const loginUser = async (email) => {
 }
 
 module.exports = {
-    loginUser,
+  getUsers,
+  registerUser,
+  loginUser,
 }
