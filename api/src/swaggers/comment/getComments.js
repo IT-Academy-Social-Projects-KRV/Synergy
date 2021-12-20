@@ -19,15 +19,6 @@ module.exports = {
         },
       },
     ],
-    //   {
-    //     in: 'body',
-    //     name: 'body',
-    //     description: 'Item id',
-    //     required: true,
-    //     schema: {
-    //       $ref: '#/components/schemas/Comments',
-    //     },
-    //   },
     responses: {
       200: {
         description: 'Comments were obtained',

@@ -5,7 +5,6 @@ const updateComment = require('./updateComment');
 const deleteComment = require('./deleteComment');
 
 module.exports = {
-  // paths: {
   '/api/comments': {
     ...createComment,
     ...getComments,
@@ -15,5 +14,4 @@ module.exports = {
     ...updateComment,
     ...deleteComment,
   },
-  // },
 };

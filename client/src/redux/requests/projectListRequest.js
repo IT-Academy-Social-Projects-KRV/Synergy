@@ -1,20 +1,14 @@
-import { setIsLoader, setRequestError } from '..';
-import { useHttp } from '../../hooks/useHttp';
-import { setProjectList } from '..';
+import { setIsLoader, setRequestError, setProjectList } from '..';
+import { getAllProjects } from '../../services/projects.service';
 
-export const fetchProjectList = () => (dispatch) => {
-  const { getRequest } = useHttp();
-
-  const fetchData = async () => {
-    try {
-      dispatch(setIsLoader(true));
-      const res = await getRequest('projects');
-      dispatch(setProjectList(res.data.projects));
-    } catch (e) {
-      dispatch(setRequestError(e));
-    } finally {
-      dispatch(setIsLoader(false));
-    }
-  };
-  fetchData();
+export const fetchProjectList = () => async (dispatch) => {
+  dispatch(setIsLoader(true));
+  try {
+    const res = await getAllProjects();
+    dispatch(setProjectList(res.data.projects));
+  } catch (e) {
+    dispatch(setRequestError(e));
+  } finally {
+    dispatch(setIsLoader(false));
+  }
 };

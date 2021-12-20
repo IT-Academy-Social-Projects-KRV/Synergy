@@ -2,12 +2,11 @@ import { createReducer } from '@reduxjs/toolkit';
 import { setProject } from '../actions/projectAction';
 
 const initialState = {
-  project: [],
+  project: null,
 };
 
 export const projectReducer = createReducer(initialState, {
   [setProject]: (state, action) => {
-    state.projectList = action.payload;
+    state.project = action.payload;
   },
-
 });

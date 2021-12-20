@@ -1,6 +1,6 @@
 @import '../../consts/variables.scss';
 
-.footer{
+.footer {
     flex-shrink: 0;
     background-color: $purple;
     margin-top: 20px;
@@ -11,92 +11,90 @@
     left: 0;
     border-radius: 20px 20px 0 0;
     position: relative;
-    &__content{
+    &__content {
         width: 50rem;
         height: 90%;
         margin: auto;
-        display: flex;
-        flex-direction: row;
+        @include flex;
         justify-content: center;
-        .logoSynergy{
-            width: 30%;
-            text-align: center;
-            margin-top: 2.5rem;
-            .synergyCRM{
-                color: $fontLight;
-                font-size: 1.1em;
-                margin-top: 10px;
-                margin-bottom: 5px;
-                text-transform: uppercase;
-            }
-            .projectManager{
-                color: $fontDark;
-                font-size: 0.8em;
-                text-transform: uppercase;
-            }
+    }
+    &__logoSynergy {
+        width: 30%;
+        text-align: center;
+        margin-top: 2.5rem;
+        .synergyCRM {
+            color: $fontLight;
+            font-size: 1.1em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
         }
-        .linksSupport{
-            width: 70%;
-            height: 80%;
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            & > div{
-                & > a{
-                    display: block;
-                    margin-bottom: 10px;
-                    margin-right: 35px;
-                    color: white;
-                    width: fit-content;
-                    &:hover{
-                        color: #D1CEFE;
-                        transition: all .25s;
-                    }
-                }
-                & > p{
-                    color: $fontDark;
-                    margin-bottom: 20px;
-                }
-                .imgSocialMedia{
-                    & > a{
-                        display: inline-block;
-                        margin-right: 20px;
-                    }
-                    & > a:last-child{
-                        margin-right: 0;
-                    }
-                }
-            }    
+        .projectManager {
+            color: $fontDark;
+            font-size: 0.8em;
+            text-transform: uppercase;
         }
     }
-    &__bottomText{
+    &__linksSupport {
+        width: 70%;
+        height: 80%;
+        margin-top: 2rem;
+        @include flex;
+        justify-content: center;
+        & > div {
+            & > a {
+                display: block;
+                margin-bottom: 10px;
+                margin-right: 35px;
+                color: white;
+                width: fit-content;
+                &:hover {
+                    color: #D1CEFE;
+                    transition: all .25s;
+                }
+            }
+            & > p {
+                color: $fontDark;
+                margin-bottom: 20px;
+            }
+            .imgSocialMedia {
+                & > a {
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+                & > a:last-child {
+                    margin-right: 0;
+                }
+            }
+        }    
+    }
+    &__bottomText {
         @extend %bottomText;
-        & > img{
+        & > img {
             margin-right: 5px;
             height: 13px;
             float: left;
         }
-        & > span{
+        & > span {
             float: left;
         }
     }
 }
-@media screen and (max-width: 600px){
-    .footer{
-        &__content{
+@media screen and (max-width: 600px) {
+    .footer {
+        &__content {
             width:100%;
             font-size: 14px;
-            .logoSynergy{
-                display: none;
-            }
-            .linksSupport{
-                width: 100%;
-                & > div{
-                    & > a{
-                        margin-right: 16px;
-                        display: block;
-                    }
+        }
+        &__logoSynergy {
+            display: none;
+        }
+        &__linksSupport {
+            width: 100%;
+            & > div {
+                & > a {
+                    margin-right: 16px;
+                    display: block;
                 }
             }
         }

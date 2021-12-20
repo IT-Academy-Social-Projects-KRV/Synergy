@@ -17,6 +17,7 @@ import './routes.scss';
 import AlertWindow from '../components/Alert/AlertWindow';
 import { useSelector } from 'react-redux';
 import { isExistUserSelector, userSelector } from '../redux';
+import userRole from '../consts/userRoles';
 
 const { routes } = config;
 
@@ -51,9 +52,9 @@ export const Routes = () => {
     <>
       <section className={'top'}>
         <Header sideClass={sideClass} changeClass={changeClass} />
-        {user.roleId === 2 ? (
+        {user.roleId === userRole.AdminRole ? (
           <>
-            <Redirect from='/login'  to={routes.pathToDashboard} />
+            <Redirect from='/login'  to={routes.pathToProjectList} />
             <section className={'main__wrapper'}>
               <SideBar sideClass={sideClass} />
               <section className={'main_content_container' + ' ' + sideClass}>
@@ -101,10 +102,9 @@ export const Routes = () => {
         ) : (
           ''
         )}
-
-        {user.roleId === 1 ? (
+        {user.roleId === userRole.UserRole ? (
           <>
-            <Redirect from='/login' to={routes.pathToDashboard} />
+            <Redirect from='/login' to={routes.pathToProjectList} />
             <section className={'main__wrapper'}>
               <SideBar />
               <section className={'main_content_container' + sideClass}>

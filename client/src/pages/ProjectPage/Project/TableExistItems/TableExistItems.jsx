@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -19,8 +19,13 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import styles from './TableExistItems.module.scss';
+import routes from '../../../../configs/routes';
+import { Button } from '@mui/material';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchItemById } from '../../../../redux';
+import STATUS from '../../../../consts/itemStatuses';
 
 const style = {
   table: {
@@ -265,12 +270,32 @@ const EnhancedTableToolbar = (props) => {
   );
 };
 
-const ExistItems = () => {
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('nameItem');
-  const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+const mappedItems = (array) => {
+  return array.map(item => {
+    return {
+      id: item.id,
+      nameItem: item.name,
+      costItem: item.price,
+      dataAddedItem: item.updatedAt,
+      statusItem: item.statusId,
+    };
+  });
+};
+
+const ExistItems = ({ itemsData }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('nameItem');
+  const [selected, setSelected] = useState([]);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    setItems(mappedItems(itemsData));
+  }, []);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -321,6 +346,11 @@ const ExistItems = () => {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+  const redirectToItem = async (id) => {
+    await dispatch(fetchItemById(id));
+    history.push(routes.pathToItemPage);
+  };
+
   return (
     <>
       <h1 className={styles.table__title}>Exist Items</h1>
@@ -340,7 +370,7 @@ const ExistItems = () => {
                 rowCount={rows.length}
               />
               <TableBody sx={style.tableBody}>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(items, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.nameItem);
@@ -375,23 +405,23 @@ const ExistItems = () => {
                           scope='row'
                           sx={style.blockId}
                         >
-                          {row.id}
+                          {index + 1}
                         </TableCell>
                         <TableCell sx={style.text}>{row.nameItem}</TableCell>
-                        <TableCell sx={style.text}>{row.costItem}</TableCell>
+                        <TableCell sx={style.text}>${row.costItem}</TableCell>
                         <TableCell sx={style.text}>
                           {row.dataAddedItem}
                         </TableCell>
                         <TableCell sx={style.text}>
                           <Box className={styles.statusApplied}>
-                            {row.statusItem}
+                            {STATUS[row.statusItem]}
                           </Box>
                         </TableCell>
                         <TableCell sx={style.text}>
                           <Box>
-                            <Link sx={{ color: '#7771D4' }} href='#'>
+                            <Button sx={{ color: '#7771D4' }} onClick={() => redirectToItem(row.id)}>
                               <OpenInNewIcon />
-                            </Link>
+                            </Button>
                           </Box>
                         </TableCell>
                       </TableRow>

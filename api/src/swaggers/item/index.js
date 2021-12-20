@@ -5,7 +5,6 @@ const updateItem = require('./updateItem');
 const deleteItem = require('./deleteItem');
 
 module.exports = {
-  // paths: {
   '/api/items': {
     ...createItem,
     ...getItems,
@@ -15,5 +14,4 @@ module.exports = {
     ...updateItem,
     ...deleteItem,
   },
-  // },
 };

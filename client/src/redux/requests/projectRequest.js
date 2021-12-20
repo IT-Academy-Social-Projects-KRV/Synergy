@@ -1,18 +1,26 @@
-import { setIsLoader, setRequestError } from '..';
-import { useHttp } from '../../hooks/useHttp';
+import { setIsLoader, setRequestError, setProject } from '..';
+import { createProject, getProjectById } from '../../services/projects.service';
 
-export const fetchCreateProject = (payload) => (dispatch) => {
-  const { postRequest } = useHttp();
+export const fetchProjectById = (payload) => async (dispatch) => {
+  dispatch(setIsLoader(true));
+  try {
+    const { data } = await getProjectById(payload);
+    dispatch(setProject(data));
+  } catch (e) {
+    dispatch(setRequestError(e));
+  } finally {
+    dispatch(setIsLoader(false));
+  }
+};
 
-  const fetchData = async () => {
-    try {
-      dispatch(setIsLoader(true));
-      await postRequest('projects', payload);
-    } catch (e) {
-      dispatch(setRequestError(e));
-    } finally {
-      dispatch(setIsLoader(false));
-    }
-  };
-  fetchData();
+export const fetchCreateProject = (payload) => async (dispatch) => {
+  dispatch(setIsLoader(true));
+
+  try {
+    await createProject(payload);
+  } catch (e) {
+    dispatch(setRequestError(e));
+  } finally {
+    dispatch(setIsLoader(false));
+  }
 };

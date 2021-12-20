@@ -9,7 +9,6 @@ module.exports = {
         name: 'id',
         in: 'path',
         schema: {
-          //   $ref: '#/components/schemas/Project',
         },
         type: 'integer',
         required: true,
@@ -30,5 +29,3 @@ module.exports = {
     },
   },
 };
-
-// find pet

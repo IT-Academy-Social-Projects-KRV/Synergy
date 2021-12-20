@@ -40,6 +40,16 @@ $headerMarginBottom: 20px;
   align-items: center;
 }
 
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%widthMargin {
+  width: 100%;
+  margin: auto;
+}
+
 %bottomText {
   color: $bottomTextColor;
   font-style: normal;
@@ -57,6 +67,12 @@ $headerMarginBottom: 20px;
 %marginTopLeftItem{
   margin-top: 30px;
   margin-left: 30px;
+}
+
+@mixin flex($flexDirection: row) {
+  display: flex;
+  flex-direction: $flexDirection;
+  flex-wrap: wrap;
 }
 
 @mixin fontStyleItem($fontSize: 32px) {
@@ -104,7 +120,7 @@ $headerMarginBottom: 20px;
 @mixin itemStatus($txtClr, $bgClr) {
   display: inline-block;
   border-radius: 5px;
-  width: 80px;
+  width: 100px;
   color: $txtClr;
   font-weight: 500;
   padding: 5px 10px;
