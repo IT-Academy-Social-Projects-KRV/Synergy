@@ -10,9 +10,9 @@ const RangeInput = ({ options, setOptions }) => {
 
   return (
     <>
-      <h3 style={{ paddingLeft: 40 + 'px' }}>Filter by capital</h3>
+      <h3 style={{ paddingLeft: '40px' }}>Filter by capital</h3>
       <div className={style.inputContainer}>
-        <Box sx={{ width: 80 + '%' }}>
+        <Box sx={{ width: '80%' }}>
           <Slider
             value={options.capital}
             getAriaLabel={() => 'Capital range'}
