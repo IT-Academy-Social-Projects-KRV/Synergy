@@ -2,8 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import { setProjectList, setProjectPages } from '../actions/projectListAction';
 
 const initialState = {
-  projectList:[],
-  projectPages: 1
+  projectList: null,
 };
 
 export const projectListReducer = createReducer(initialState, {

@@ -2,14 +2,17 @@ import React from 'react';
 import { Pagination } from '@mui/material';
 import './Pagination.scss';
 
-const PaginationBar = ({ totalPages, sendSort, options }) => {
+const PaginationBar = ({ currentPage, totalPages, options, setOptions }) => {
 
   const handlerPage = (e, value) => {
-    sendSort({ ...options }, value);
+    setOptions({ ...options, page: value });
   };
+
   return <Pagination
+    page={Number(currentPage)}
+    count={totalPages} 
     onChange={handlerPage}
-    count={totalPages} shape='rounded'
+    shape='rounded'
   />;
 };
 

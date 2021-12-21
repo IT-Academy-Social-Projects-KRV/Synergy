@@ -11,9 +11,7 @@ import styles from './SortComponent.module.scss';
 
 
 const SortComponent = ({ sendSort, options, setOptions }) => {
-  const handleClick = () => {
-    sendSort({ ...options });
-  };
+
   return (
     <>
       <RangeInput options={options} setOptions={setOptions} />
@@ -23,7 +21,7 @@ const SortComponent = ({ sendSort, options, setOptions }) => {
         <DateFinishInput options={options} setOptions={setOptions} />
         <SelectInputSortBy options={options} setOptions={setOptions} />
         <SelectInputSortDirection options={options} setOptions={setOptions} />
-        <Button variant='outlined' onClick={handleClick}>Sort</Button>
+        <Button variant='outlined' onClick={sendSort}>Sort</Button>
       </div>
     </>
   );

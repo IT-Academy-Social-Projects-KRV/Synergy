@@ -1,12 +1,11 @@
-import { setRequestError, setProjectList, setProjectPages, setIsLoader } from '..';
+import { setRequestError, setProjectList, setIsLoader } from '..';
 import { getSortProjects } from '../../services/projects.service';
 
-export const fetchSortProjectList = (options, page) => async (dispatch) => {
+export const fetchSortProjectList = (options) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
-    const res = await getSortProjects(options, page);
-    dispatch(setProjectList(res.data.projects));
-    dispatch(setProjectPages(res.data.totalPages));
+    const res = await getSortProjects(options);
+    dispatch(setProjectList(res.data));
   } catch (e) {
     dispatch(setRequestError(e));
   } finally {

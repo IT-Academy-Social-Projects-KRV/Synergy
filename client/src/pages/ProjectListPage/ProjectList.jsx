@@ -5,93 +5,77 @@ import ProjectListItem from './components/ProjectListItem';
 import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchProjectList,
   isLoaderSelector,
   projectListSelector,
-  setIsLoader, projectPageSelector, fetchSortProjectList
+  setIsLoader,
+  fetchSortProjectList
 } from '../../redux';
 import SortComponent from './components/SortComponent/SortComponent';
 import PaginationBar from './components/Pagination/PaginationBar';
 import './ProjectListTransition.scss';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import routes from '../../configs/routes';
 
 const ProjectList = () => {
+  const dispatch = useDispatch();
+  const projectList = useSelector(projectListSelector);
+  const isLoader = useSelector(isLoaderSelector);
+ 
   const [options, setOptions] = useState({
     name: '',
     capital: [0, 100000],
     dateStart: '',
-    dateFinish: ''
+    dateFinish: '',
+    page: 1
   });
-  const dispatch = useDispatch();
-  const projectPages = useSelector(projectPageSelector);
-  const projectList = useSelector(projectListSelector);
-  const isLoader = useSelector(isLoaderSelector);
 
-  function handleFetchProjectList() {
-    dispatch(fetchProjectList());
+  function handleSortProjectsList() {
+    dispatch(fetchSortProjectList(options));
   }
-
-  function handleSortProjectsList(options, page) {
-    dispatch(fetchSortProjectList(options, page));
-  }
-
 
   useEffect(() => {
-    handleFetchProjectList();
+    handleSortProjectsList();
     return () => {
       dispatch(setIsLoader(false));
     };
-  }, []);
+  }, [options.page]);
 
   return (
     <div style={{ height: '100%' }}>
       {isLoader ? (
         <Loader/>
-      ) : projectList.length > 0 ? (
+      ) : projectList ? (
         <>
           <h1 className={styles.title}>Projects List</h1>
           <SortComponent options={options} setOptions={setOptions} sendSort={handleSortProjectsList}/>
           <div className={styles.container}>
-            <TransitionGroup component='ul' className={styles.list}>
-              <li className={styles.list_head}>
-                <div>ID</div>
-                <div>Capital</div>
-                <div>Added date</div>
-                <div>Release date</div>
-                <div>Description</div>
-                <div>Owner</div>
-              </li>
-              {projectList.map((d) => (
-                <CSSTransition
-                  key={d.id}
-                  in={projectList}
-                  timeout={700}
-                  classNames='list'
-                  unmountOnExit
-                  mountOnEnter
-                >
-                  <Link 
-                    to={routes.AuthRoutes.pathToDashboard} 
-                    key={d.id}
-                  >
-                    <ProjectListItem
-                      id={d.id}
-                      name={d.name}
-                      desc={d.description}
-                      capital={d.capital}
-                      start={d.dateStart}
-                      finish={d.dateFinish}
-                    />
-                  </Link>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
+            <li className={styles.list_head}>
+              <div>Capital</div>
+              <div>Added date</div>
+              <div>Release date</div>
+              <div>Description</div>
+              <div>Owner</div>
+            </li>
+            {projectList.projects.map((d) => (
+              <Link 
+                key={d.id}
+                to={routes.AuthRoutes.pathToDashboard}
+              >
+                <ProjectListItem
+                  id={d.id}
+                  name={d.name}
+                  desc={d.description}
+                  capital={d.capital}
+                  start={d.dateStart}
+                  finish={d.dateFinish}
+                />
+              </Link>
+            ))}
             <PaginationBar
-              sendSort={handleSortProjectsList}
               options={options}
-              totalPages={projectPages}
+              setOptions={setOptions}
+              currentPage={projectList.currentPage}
+              totalPages={projectList.totalPages}
             />
           </div>
         </>

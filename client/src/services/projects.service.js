@@ -4,7 +4,6 @@ const getAllProjects = () => {
   return api.get('/projects');
 };
 
-// eslint-disable-next-line max-len
 const getSortProjects = (
   { 
     name, 
@@ -12,21 +11,21 @@ const getSortProjects = (
     dateStart, 
     dateFinish, 
     sortBy = 'capital', 
-    sortDirection = 'ASC' 
-  }, 
-  page = 1
+    sortDirection = 'ASC',
+    page
+  },
 ) => {
-  return api.get(
-    `/projects?
-      size=10&
-      sortBy=${sortBy}&
-      sortDirection=${sortDirection}&
-      capital=${capital[0]}-${capital[1]}&
-      name=${name}&
-      page=${page}&
-      dateStart=${dateStart}&
-      dateFinish=${dateFinish}`
-  );
+  return api.get('/projects', { 
+    params: {
+      name, 
+      capital: `${capital[0]}-${capital[1]}`, 
+      dateStart, 
+      dateFinish, 
+      sortBy,
+      sortDirection,
+      page
+    } 
+  });
 };
 
 const getProjectById = (id) => {
