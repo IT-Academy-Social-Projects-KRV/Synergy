@@ -6,6 +6,7 @@ import DateStartInput from '../DateSortInputs/DateStartInput';
 import DateFinishInput from '../DateSortInputs/DateFinishInput';
 import SelectInputSortBy from '../SelectInput/SelectInputSortBy';
 import SelectInputSortDirection from '../SelectInput/SelectInputSortDirection';
+import styles from './SortComponent.module.scss';
 
 
 const SortComponent = ({ sendSort, options, setOptions }) => {
@@ -15,8 +16,7 @@ const SortComponent = ({ sendSort, options, setOptions }) => {
   return (
     <div>
       <RangeInput options={options} setOptions={setOptions} />
-      {/* eslint-disable-next-line max-len */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 40 + 'px', paddingRight: 40 + 'px' }}>
+      <div className={styles.container}>
         <SearchNameInput options={options} setOptions={setOptions} />
         <DateStartInput options={options} setOptions={setOptions} />
         <DateFinishInput options={options} setOptions={setOptions} />
