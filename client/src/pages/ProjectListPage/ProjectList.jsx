@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ProjectList.module.scss';
 import EmptyProjectList from '../EmptyProjectListPage';
 import ProjectListItem from './components/ProjectListItem';
 import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchProjectList,
   isLoaderSelector,
   projectListSelector,
-  setIsLoader
+  setIsLoader,
+  fetchSortProjectList
 } from '../../redux';
+import SortComponent from './components/SortComponent/SortComponent';
+import PaginationBar from './components/Pagination/PaginationBar';
+import './ProjectListTransition.scss';
 import { Link } from 'react-router-dom';
 import routes from '../../configs/routes';
 
@@ -17,38 +20,46 @@ const ProjectList = () => {
   const dispatch = useDispatch();
   const projectList = useSelector(projectListSelector);
   const isLoader = useSelector(isLoaderSelector);
+ 
+  const [options, setOptions] = useState({
+    name: '',
+    capital: [0, 100000],
+    dateStart: '',
+    dateFinish: '',
+    page: 1
+  });
 
-  function handleFetchProjectList() {
-    dispatch(fetchProjectList());
+  function handleSortProjectsList() {
+    dispatch(fetchSortProjectList(options));
   }
 
   useEffect(() => {
-    handleFetchProjectList();
+    handleSortProjectsList();
     return () => {
       dispatch(setIsLoader(false));
     };
-  }, []);
+  }, [options.page]);
 
   return (
     <div style={{ height: '100%' }}>
       {isLoader ? (
-        <Loader />
-      ) : projectList.length > 0 ? (
+        <Loader/>
+      ) : projectList ? (
         <>
           <h1 className={styles.title}>Projects List</h1>
-          <ul className={styles.list}>
+          <SortComponent options={options} setOptions={setOptions} sendSort={handleSortProjectsList}/>
+          <div className={styles.container}>
             <li className={styles.list_head}>
-              <div>ID</div>
               <div>Capital</div>
               <div>Added date</div>
               <div>Release date</div>
               <div>Description</div>
               <div>Owner</div>
             </li>
-            {projectList.map((d) => (
+            {projectList.projects.map((d) => (
               <Link 
-                to={routes.AuthRoutes.pathToDashboard} 
                 key={d.id}
+                to={routes.AuthRoutes.pathToDashboard}
               >
                 <ProjectListItem
                   id={d.id}
@@ -60,10 +71,16 @@ const ProjectList = () => {
                 />
               </Link>
             ))}
-          </ul>
+            <PaginationBar
+              options={options}
+              setOptions={setOptions}
+              currentPage={projectList.currentPage}
+              totalPages={projectList.totalPages}
+            />
+          </div>
         </>
       ) : (
-        <EmptyProjectList />
+        <EmptyProjectList/>
       )}
     </div>
   );

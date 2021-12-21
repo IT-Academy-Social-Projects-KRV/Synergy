@@ -4,8 +4,33 @@ const getAllProjects = () => {
   return api.get('/projects');
 };
 
+const getSortProjects = (
+  { 
+    name, 
+    capital, 
+    dateStart, 
+    dateFinish, 
+    sortBy = 'capital', 
+    sortDirection = 'ASC',
+    page
+  },
+) => {
+  return api.get('/projects', { 
+    params: {
+      name, 
+      capital: `${capital[0]}-${capital[1]}`, 
+      dateStart, 
+      dateFinish, 
+      sortBy,
+      sortDirection,
+      page
+    } 
+  });
+};
+
 const getProjectById = (id) => {
   return api.get(`/projects/${id}`);
+
 };
 
 const createProject = (payload) => {
@@ -14,6 +39,7 @@ const createProject = (payload) => {
 
 export {
   getAllProjects,
-  getProjectById,
-  createProject
+  createProject,
+  getSortProjects,
+  getProjectById
 };

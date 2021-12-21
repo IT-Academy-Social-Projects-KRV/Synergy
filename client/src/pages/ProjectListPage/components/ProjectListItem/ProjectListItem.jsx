@@ -13,9 +13,6 @@ const ProjectListItem = (props) => {
   return (
     <div onClick={handleClick}>
       <li className={style.item}>
-        <div>
-          <span className={style.id}>#{props.id}</span>
-        </div>
         <div>${props.capital}</div>
         <div>{props.start}</div>
         <div>{props.finish}</div>

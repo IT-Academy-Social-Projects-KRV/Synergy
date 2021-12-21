@@ -15,9 +15,8 @@ export const fetchProjectById = (payload) => async (dispatch) => {
 
 export const fetchCreateProject = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
-
   try {
-    await createProject(payload);
+    return await createProject(payload);
   } catch (e) {
     dispatch(setRequestError(e));
   } finally {

@@ -1,0 +1,16 @@
+.list-enter-active {
+  animation: move .7s ease-in alternate-reverse;
+}
+.list-exit-active {
+  animation: move .7s ease-out forwards;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
