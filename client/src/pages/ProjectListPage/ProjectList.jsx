@@ -21,8 +21,6 @@ const ProjectList = () => {
     capital: [0, 100000],
     dateStart: '',
     dateFinish: ''
-    // sortBy: '',
-    // sortDirection: ''
   });
   const dispatch = useDispatch();
   const projectPages = useSelector(projectPageSelector);
@@ -34,8 +32,6 @@ const ProjectList = () => {
   }
 
   function handleSortProjectsList(options, page) {
-    // eslint-disable-next-line no-debugger
-    debugger;
     dispatch(fetchSortProjectList(options, page));
   }
 
