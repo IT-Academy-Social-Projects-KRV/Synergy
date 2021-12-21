@@ -30,9 +30,9 @@ const AuthRoute = ({ component: Component, ...rest }) => {
                 <section className={`main_content_container ${sideClass}`}>
                   <Component {...props} />
                 </section>
-              </section>
-              <Footer />
+              </section> 
             </section>
+            <Footer />
           </>
       }
     />
