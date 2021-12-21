@@ -14,7 +14,6 @@ export * from './reducers/itemReducer';
 
 export * from './selectors/selectors';
 
-export * from './requests/projectListRequest';
 export * from './requests/projectListSortRequest';
 export * from './requests/projectRequest';
 export * from './requests/userRequest';
