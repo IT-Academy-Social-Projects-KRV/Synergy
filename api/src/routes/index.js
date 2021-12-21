@@ -7,7 +7,7 @@ const projects = require('./projectRouter');
 const items = require('./itemRouter');
 const comments = require('./commentRouter');
 
-router.use('/user', userRouter);
+router.use('/users', userRouter);
 router.use('/projects', projects);
 router.use('/items', items);
 router.use('/comments', comments);
