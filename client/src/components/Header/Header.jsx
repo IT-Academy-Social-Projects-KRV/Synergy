@@ -1,21 +1,21 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import logo from '../../assets/images/HeaderImages/Logo_header.svg';
 import button from '../../assets/images/HeaderImages/button.svg';
 import exit from '../../assets/images/HeaderImages/exit.svg';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux';
+import { Button } from '@mui/material';
+import routes from '../../configs/routes';
 
 const Header = ({ sideClass, changeClass }) => {
 
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleExit = () => {
     dispatch(setUser(null));
     sessionStorage.clear();
-    history.push('/'); //? If make this line 'comment', test will be work correctly!
   };
 
   return (
@@ -34,11 +34,12 @@ const Header = ({ sideClass, changeClass }) => {
         />
       </div>
       <div className={styles.exit}>
-        {/*TODO: modify div to react-router-dom <Link> */}
-        <div onClick={(e) => handleExit(e)}>
-          <img src={exit} alt='exit' />
-          <span>Exit</span>
-        </div>
+        <Link to={routes.NonAuthRoutes.pathToLogin}>
+          <Button onClick={handleExit}>
+            <img src={exit} alt='exit' />
+            <span>Exit</span>
+          </Button>
+        </Link>
       </div>
     </header>
   );
