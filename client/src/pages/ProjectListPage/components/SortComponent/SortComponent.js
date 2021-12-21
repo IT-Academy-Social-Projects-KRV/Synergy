@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import RangeInput from '../RangeInput/RangeInput';
 import { Button } from '@mui/material';
@@ -14,7 +15,7 @@ const SortComponent = ({ sendSort, options, setOptions }) => {
     sendSort({ ...options });
   };
   return (
-    <div>
+    <>
       <RangeInput options={options} setOptions={setOptions} />
       <div className={styles.container}>
         <SearchNameInput options={options} setOptions={setOptions} />
@@ -24,7 +25,7 @@ const SortComponent = ({ sendSort, options, setOptions }) => {
         <SelectInputSortDirection options={options} setOptions={setOptions} />
         <Button variant='outlined' onClick={handleClick}>Sort</Button>
       </div>
-    </div>
+    </>
   );
 };
 

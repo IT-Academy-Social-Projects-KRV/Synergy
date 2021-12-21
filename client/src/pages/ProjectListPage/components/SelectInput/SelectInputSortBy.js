@@ -7,13 +7,22 @@ import Select from '@mui/material/Select';
 
 const SelectInputSortBy = ({ options, setOptions }) => {
 
+  //TEMPORARY SOLUTION!!!
+  const style = {
+    textfield: {
+      '& .MuiInputLabel-outlined': {
+        transform: 'translate(14px, 50%) scale(1)'
+      }
+    }
+  };
+
   const handleChange = event => {
     setOptions({ ...options, sortBy: event.target.value });
   };
 
   return (
     <Box sx={{ minWidth: 220 }}>
-      <FormControl fullWidth>
+      <FormControl sx={style.textfield} fullWidth>
         <InputLabel id='demo-simple-select-label'>Sort by</InputLabel>
         <Select
           labelId='demo-simple-select-label'
