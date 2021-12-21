@@ -31,10 +31,10 @@ const SelectInputSortBy = ({ options, setOptions }) => {
           label='Sort by'
           onChange={handleChange}
         >
-          <MenuItem value={'name'}>Name</MenuItem>
-          <MenuItem value={'capital'}>Capital</MenuItem>
-          <MenuItem value={'dateStart'}>Date Start</MenuItem>
-          <MenuItem value={'dateFinish'}>Date Finish</MenuItem>
+          <MenuItem value='name'>Name</MenuItem>
+          <MenuItem value='capital'>Capital</MenuItem>
+          <MenuItem value='dateStart'>Date Start</MenuItem>
+          <MenuItem value='dateFinish'>Date Finish</MenuItem>
         </Select>
       </FormControl>
     </Box>

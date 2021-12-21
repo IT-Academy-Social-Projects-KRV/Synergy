@@ -8,6 +8,11 @@ const SearchNameInput = ({ options, setOptions }) => {
       ml: 4,
     },
   };
+
+  const handleChange = (e) => {
+    setOptions({ ...options, name: e.target.value });
+  };
+
   return (
     <div>
       <TextField
@@ -18,7 +23,7 @@ const SearchNameInput = ({ options, setOptions }) => {
         multiline
         size='small'
         value={options.name}
-        onChange={e => void setOptions({ ...options, name: e.target.value })}
+        onChange={handleChange}
       />
     </div>
   );

@@ -31,8 +31,8 @@ const SelectInputSortDirection = ({ options, setOptions }) => {
           label='Sort direction'
           onChange={handleChange}
         >
-          <MenuItem value={'ASC'}>From smallest</MenuItem>
-          <MenuItem value={'DESC'}>From biggest</MenuItem>
+          <MenuItem value='ASC'>From smallest</MenuItem>
+          <MenuItem value='DESC'>From biggest</MenuItem>
         </Select>
       </FormControl>
     </Box>
