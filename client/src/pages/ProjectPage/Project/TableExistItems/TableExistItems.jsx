@@ -4,104 +4,21 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import { visuallyHidden } from '@mui/utils';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import TextField from '@mui/material/TextField';
 import styles from './TableExistItems.module.scss';
 import routes from '../../../../configs/routes';
-import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchItemById } from '../../../../redux';
 import STATUS from '../../../../consts/itemStatuses';
-
-const style = {
-  table: {
-    scrollSnapMarginTop: '32px',
-    minWidth: 300,
-  },
-
-  boxTable: {
-    boxShadow: 'none',
-    width: '100%',
-    mb: 2,
-  },
-
-  tableBody: {
-    '& > tr:nth-of-type(even)': {
-      backgroundColor: '#f1f3f2',
-    },
-  },
-
-  textField: {
-    color: '#7771D4',
-    ml: 4,
-  },
-
-  tableHead: {
-    fontSize: '18px',
-    fontWeight: 'medium',
-  },
-
-  tablePagination: {
-    color: '#7771D4',
-  },
-
-  text: {
-    color: '#564e45',
-    fontSize: '14px',
-    borderBottom: '1px solid #EEE6E7',
-  },
-
-  blockId: {
-    backgroundColor: '#7771D4',
-    color: 'white',
-    fontSize: '18px',
-    width: '50px',
-    height: '50px',
-    fontWeight: 'medium',
-    padding: 0,
-    textAlign: 'center',
-  },
-};
-
-function createData(id, nameItem, costItem, dataAddedItem, statusItem) {
-  return {
-    id,
-    nameItem,
-    costItem,
-    dataAddedItem,
-    statusItem,
-  };
-}
-
-const rows = [
-  createData('#1', 'Hummer', '$432', '11.10.2021', 'Pending'),
-  createData('#2', 'Dog', '$432', '11.10.2021', 'Applied'),
-  createData('#3', 'Hotdog', '$432', '11.10.2021', 'Rejected'),
-  createData('#4', 'Sink', '$432', '11.10.2021', 'Applied'),
-  createData('#5', 'Metal tube', '$432', '11.10.2021', 'Pending'),
-  createData('#6', 'Brushes', '$432', '11.10.2021', 'Rejected'),
-  createData('#7', 'Clock', '$432', '11.10.2021', 'Applied'),
-  createData('#8', 'Clue', '$432', '11.10.2021', 'Pending'),
-  createData('#9', 'Bed', '$432', '11.10.2021', 'Applied'),
-  createData('#10', 'Car', '$432', '11.10.2021', 'Pending'),
-  createData('#11', 'Glasses', 0, '11.10.2021', 'Rejected'),
-  createData('#12', 'Nails', '$432', '11.10.2021', 'Applied'),
-  createData('#13', 'Workers', '$432', '11.10.2021', 'Rejected'),
-];
+import EnhancedTableHead  from './EnhancedTableHead/EnhancedTableHead';
+import EnhancedTableToolbar from './EnhancedTableToolbar/EnhancedTableToolbar';
+import { style, rows } from '../../../../consts/tableExistItems';
+import { Button } from '@mui/material';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -131,145 +48,6 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-  {
-    id: 'id',
-    numeric: false,
-    disablePadding: true,
-    label: 'ID',
-  },
-  {
-    id: 'ItemName',
-    numeric: true,
-    disablePadding: false,
-    label: 'Item name',
-  },
-  {
-    id: 'cost',
-    numeric: true,
-    disablePadding: false,
-    label: 'Cost',
-  },
-  {
-    id: 'dataAdded',
-    numeric: false,
-    disablePadding: false,
-    label: 'Data added',
-  },
-  {
-    id: 'status',
-    numeric: false,
-    disablePadding: false,
-    label: 'Status',
-  },
-  {
-    id: 'openPage',
-    numeric: false,
-    disablePadding: false,
-    label: 'Open page',
-  },
-];
-
-const EnhancedTableHead = (props) => {
-  const {
-    onSelectAllClick,
-    order,
-    orderBy,
-    numSelected,
-    rowCount,
-    onRequestSort,
-  } = props;
-  const createSortHandler = (property) => (event) => {
-    onRequestSort(event, property);
-  };
-
-  return (
-    <TableHead>
-      <TableRow>
-        <TableCell padding='checkbox'>
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              'aria-label': 'select all items',
-            }}
-            sx={{
-              color: '#7771D4',
-            }}
-          />
-        </TableCell>
-
-        {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            padding={headCell.disablePadding ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-            sx={style.tableHead}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component='span' sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
-  );
-};
-
-const EnhancedTableToolbar = (props) => {
-  const { numSelected } = props;
-
-  return (
-    <Toolbar>
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color='inherit'
-          variant='subtitle1'
-          component='div'
-        >
-          {numSelected} selected
-        </Typography>
-      ) : null}
-
-      {numSelected > 0 ? (
-        <Tooltip title='Delete'>
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <>
-          <Tooltip title='Filter list'>
-            <IconButton>
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-
-          <TextField
-            sx={style.textField}
-            id='outlined-textarea'
-            label='Search'
-            placeholder='Type item...'
-            multiline
-            size='small'
-          />
-        </>
-      )}
-    </Toolbar>
-  );
-};
-
 const mappedItems = (array) => {
   return array.map(item => {
     return {
@@ -284,7 +62,6 @@ const mappedItems = (array) => {
 
 const ExistItems = ({ itemsData }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('nameItem');
@@ -292,6 +69,9 @@ const ExistItems = ({ itemsData }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [items, setItems] = useState([]);
+
+  const isSelected = (nameItem) => selected.indexOf(nameItem) !== -1;
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   useEffect(() => {
     setItems(mappedItems(itemsData));
@@ -328,7 +108,6 @@ const ExistItems = ({ itemsData }) => {
         selected.slice(selectedIndex + 1)
       );
     }
-
     setSelected(newSelected);
   };
 
@@ -341,20 +120,13 @@ const ExistItems = ({ itemsData }) => {
     setPage(0);
   };
 
-  const isSelected = (nameItem) => selected.indexOf(nameItem) !== -1;
-
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-
   const redirectToItem = async (id) => {
     await dispatch(fetchItemById(id));
-    history.push(routes.pathToItemPage);
   };
-
+  
   return (
     <>
       <h1 className={styles.table__title}>Exist Items</h1>
-
       <Box>
         <Paper sx={style.boxTable}>
           <EnhancedTableToolbar numSelected={selected.length} />
@@ -418,11 +190,11 @@ const ExistItems = ({ itemsData }) => {
                           </Box>
                         </TableCell>
                         <TableCell sx={style.text}>
-                          <Box>
-                            <Button sx={{ color: '#7771D4' }} onClick={() => redirectToItem(row.id)}>
-                              <OpenInNewIcon />
-                            </Button>
-                          </Box>
+                          <Button onClick={() => redirectToItem(row.id)}>
+                            <Link to={routes.AuthRoutes.pathToItemPage}>
+                              <OpenInNewIcon sx={{ color: '#7771D4' }} />
+                            </Link>
+                          </Button>
                         </TableCell>
                       </TableRow>
                     );

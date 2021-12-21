@@ -1,5 +1,5 @@
 export const userSelector = state => state.user.user;
-export const isExistUserSelector = state => state.user.isExistUser;
+export const isAuthedSelector = state => state.user.isAuthed;
 export const projectListSelector = state => state.projectList.projectList;
 export const projectPageSelector = state => state.projectList.projectPages;
 export const projectSelector = state => state.project.project;

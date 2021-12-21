@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Routes } from '../../routes/routes';
+import Routes from '../../routes/route';
 import { AlertState } from '../Alert/context/AlertState';
 
 const App = () => {

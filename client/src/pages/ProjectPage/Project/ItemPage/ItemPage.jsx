@@ -7,8 +7,6 @@ import routes from '../../../../configs/routes';
 import Vector from '../../../../assets/images/ItemImages/Vector.png';
 import styles from './ItemPage.module.scss';
 
-const { pathToDashboard } = routes;
-
 const ItemPage = () => {
   const item = useSelector(itemSelector);
   const isLoader = useSelector(isLoaderSelector);
@@ -18,7 +16,7 @@ const ItemPage = () => {
       item ?
         <div className={styles.content}>
           <div className={styles.content__caption}>
-            <Link to={pathToDashboard}>&larr; Back</Link>
+            <Link to={routes.AuthRoutes.pathToDashboard}>&larr; Back</Link>
             <h1>{item.name}</h1>
           </div>
           <div className={styles.content__main}>

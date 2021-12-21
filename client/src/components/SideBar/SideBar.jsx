@@ -1,9 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../redux';
 import fieldsForSideBar from './sidebarItems';
 import styles from './SideBar.module.scss';
 import SideBarItem from './SideBarItem/SideBarItem';
-import { useSelector } from 'react-redux';
-import { userSelector } from '../../redux';
 import userRole from '../../consts/userRoles';
 
 const SideBar = (props) => {

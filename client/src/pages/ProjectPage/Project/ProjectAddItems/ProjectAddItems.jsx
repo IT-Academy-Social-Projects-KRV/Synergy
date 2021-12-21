@@ -5,8 +5,6 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import styles from './ProjectAddItems.module.scss';
 
-const { pathToItemPage } = routes;
-
 const ProjectAddItems = () => {
   const style = {
     btnSubmit: {
@@ -43,7 +41,7 @@ const ProjectAddItems = () => {
           </Box>
 
           <Box sx={style.boxBtn}>
-            <Link to={pathToItemPage}>
+            <Link to={routes.AuthRoutes.pathToItemPage}>
               <Button sx={style.btnSubmit} variant='contained'>
                 Add item
               </Button>

@@ -14,6 +14,8 @@ import SortComponent from './components/SortComponent/SortComponent';
 import PaginationBar from './components/Pagination/PaginationBar';
 import './ProjectListTransition.scss';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
+import routes from '../../configs/routes';
 
 const ProjectList = () => {
   const [options, setOptions] = useState({
@@ -70,15 +72,19 @@ const ProjectList = () => {
                   unmountOnExit
                   mountOnEnter
                 >
-                  <ProjectListItem
+                  <Link 
+                    to={routes.AuthRoutes.pathToDashboard} 
                     key={d.id}
-                    id={d.id}
-                    name={d.name}
-                    desc={d.description}
-                    capital={d.capital}
-                    start={d.dateStart}
-                    finish={d.dateFinish}
-                  />
+                  >
+                    <ProjectListItem
+                      id={d.id}
+                      name={d.name}
+                      desc={d.description}
+                      capital={d.capital}
+                      start={d.dateStart}
+                      finish={d.dateFinish}
+                    />
+                  </Link>
                 </CSSTransition>
               ))}
             </TransitionGroup>
