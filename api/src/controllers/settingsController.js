@@ -3,9 +3,9 @@ const settingsService = require('../services/settingsService');
 
 const updateUserSettings = async (req, res) => {
   const {
-    firstName, lastName, email, userId,
+    firstName, lastName, userId,
   } = req.body;
-  const settings = await settingsService.updateSettings(firstName, lastName, email, userId);
+  const settings = await settingsService.updateSettings(firstName, lastName, userId);
   res.status(statusCode.OK)
     .json(settings);
 };
@@ -18,7 +18,7 @@ const updatePassword = async (req, res) => {
   res.status(statusCode.OK)
     .json(resetPassword);
 };
-
+//! For next sprint
 const getBillSettings = async (req, res) => {
   const { id } = req.params;
   const billSettings = await settingsService.getBillSettings(id);
