@@ -7,7 +7,7 @@ import { style } from '../../style.jsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchLoginUser } from '../../../../redux';
-
+import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
@@ -17,6 +17,14 @@ import AutorizationFooter from '../../../../shared/Autorization/AutorizationFoot
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    mode: 'onBlur'
+  });
   //const user = useSelector(userSelector);
 
   const [email, setEmail] = useState('');
