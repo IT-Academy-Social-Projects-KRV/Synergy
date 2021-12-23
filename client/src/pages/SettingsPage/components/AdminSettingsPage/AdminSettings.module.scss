@@ -1,0 +1,205 @@
+.settings_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+.alert{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: flex-start;
+    color: #098707;
+    background: #EDF7ED;
+    height: 50px;
+    border-radius: 20px 0px 0px 0px;
+    justify-content: space-between;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+
+    .alert_elements{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-left: 35px;
+        margin-top: 15px;
+
+        .alert_title{
+            margin-left: 12px;
+        }
+    }
+}
+.alert_cancel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-right: 35px;
+    cursor: pointer;
+}
+.settings_body_wrapper {
+    margin: 0 35px;
+}
+
+.settings_title{
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+    z-index: 2;
+    margin: 20px auto 0 auto;
+    background-color: white;
+    padding: 12px 48px;
+    border-radius: 16px;
+}
+.settings_personal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .settings_personal__header{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 40px;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #E8E7FB;
+            width: 99%;
+            margin: 0 auto;
+            margin-top: 5px;
+            bottom: -10px;
+            border-radius: 10px;
+            left: 0.5%;
+        }
+    }
+}
+.settings_personal__header_title{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #787D8C;
+    margin-top: 12px;
+}
+.settings_personal__header_subtitle{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #787D8C;
+    margin-top: 10px;
+}
+.profile_tab{
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #E8E7FB;
+    color:#7872D6;
+    border-radius: 10px;
+}
+.settings_security{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.settings_security__header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        border-bottom: 2px solid #E8E7FB;
+        width: 99%;
+        margin: 0 auto;
+        margin-top: 5px;
+        bottom: -10px;
+        border-radius: 10px;
+        left: 0.5%;
+    }
+}
+
+.settings_personal__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .settings_personal__form_inputs{
+        margin-top: 32px;
+    }
+}
+.inputs_title{
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: bold;
+    color: #7872D6;
+    margin: 0 10px 0 12px;
+}
+.username_input{
+    width: 400px;
+    height: 45px;
+    border: 2px solid #7771d4;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.settings_personal__form_actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 32px;
+}
+.password_tab{
+    background: #E8E7FB;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 18px;
+    color:#7872D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.settings_security__header_title{
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #787D8C;
+    margin-top: 12px;
+}
+.settings_security__header_subtitle{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #787D8C;
+    margin-top: 10px;
+}
+.settings_security__body{
+    display: flex;
+    margin: 40px 0 40px 0 ;
+
+    .span_link{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #7872D6;
+        margin-left: 10px;
+    }
+}

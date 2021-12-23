@@ -6,12 +6,13 @@ import CreatingProject from '../pages/CreatingProjectPage';
 import AuthRoute from './AuthRoute';
 import UnauthenticatedRoute from './UnauthenticatedRoute';
 import './routes.scss';
-import Settings from '../components/Settings';
+import AdminSettings from '../pages/SettingsPage/components/AdminSettingsPage/AdminSettings';
 import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import Account from '../components/Account';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
+import Customers from '../components/Customers';
 
 const Routes = () => {
   return (
@@ -32,6 +33,13 @@ const Routes = () => {
         component={Dashboard}
       />
       <AuthRoute
+        exact
+        path={routes.AuthRoutes.pathToCustomers}
+        component={Customers}
+        //change to admin only when admin registration to be ready
+      >
+      </AuthRoute>
+      <AuthRoute
         path={routes.AuthRoutes.pathToCreatingProject}
         exact
         component={CreatingProject}
@@ -44,7 +52,7 @@ const Routes = () => {
       <AuthRoute
         path={routes.AuthRoutes.pathToSettings}
         exact
-        component={Settings}
+        component={AdminSettings}
       />
       <AuthRoute
         path={routes.AuthRoutes.pathToBillSettings}
