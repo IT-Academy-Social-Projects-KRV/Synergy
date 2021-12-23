@@ -24,7 +24,7 @@ const start = async () => {
     await sequelize.authenticate();
     await sequelize.sync({ force: false });
   } catch (e) {
-    start();
+    throw new Error(e);
   }
 };
 
