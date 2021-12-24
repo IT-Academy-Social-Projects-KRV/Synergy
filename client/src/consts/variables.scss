@@ -27,7 +27,7 @@ $innerDescShadow: inset 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
 $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
 $headerHeight: 64px;
-$headerMarginBottom: 20px;
+$headerMarginBottom: 40px;
 
 %baseFlex {
   display: flex;
@@ -67,6 +67,14 @@ $headerMarginBottom: 20px;
 %marginTopLeftItem{
   margin-top: 30px;
   margin-left: 30px;
+}
+
+@mixin input($width: 100%) {
+  width: $width;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $fontDark;
+  font-size: 14px;
 }
 
 @mixin flex($flexDirection: row) {

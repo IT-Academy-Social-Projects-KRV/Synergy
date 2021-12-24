@@ -7,11 +7,11 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Loader from '../../components/Loader';
+import { AlertContext } from '../../components/Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
 import { style } from '../CreatingProjectPage/style.jsx';
 import styles from './CreatingProject.module.scss';
-import { AlertContext } from '../../components/Alert/context/AlertContext';
 
 const Content = () => {
 
@@ -120,7 +120,7 @@ const Content = () => {
                 <div className={styles.label}>Data release</div>
                 <Calendar data={projectForm} setData={setProjectForm}/>
               </div>
-              <div className={styles.inputTextfield}>
+              <div className={styles.inputTextArea}>
                 <div className={styles.textAreaLabel}>Description</div>
                 <textarea
                   onChange={(e) =>
