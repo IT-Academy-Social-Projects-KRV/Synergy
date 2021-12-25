@@ -27,4 +27,16 @@ const valCapital = {
   valueAsNumber: true,
 };
 
-export { valEmail, valRequired, valCapital }; 
+const valPassword = {
+  required: 'Field is required',
+  minLength: {
+    value: 5,
+    message: 'At least 5 characters'
+  },
+  pattern: {
+    value: Regex.password,
+    message: 'At least 5 characters and one digit'
+  }
+};
+
+export { valEmail, valRequired, valCapital, valPassword }; 

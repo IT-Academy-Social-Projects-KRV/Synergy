@@ -13,7 +13,7 @@ import { Link, useHistory } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
 import AutorizationFooter from '../../../../shared/Autorization/AutorizationFooter';
-import { valEmail } from '../../../../consts/validationPropertiesForFields';
+import { valEmail, valPassword } from '../../../../consts/validationPropertiesForFields';
 
 
 const Login = () => {
@@ -69,13 +69,7 @@ const Login = () => {
                 {errors?.email && <p>{errors?.email?.message || 'Error, try again'}</p>}
               </div>
               <Input
-                {...register('password', {
-                  required: 'Field password is required',
-                  minLength: {
-                    value: 5,
-                    message: 'At least 5 characters'
-                  }
-                })}
+                {...register('password', valPassword)}
                 type='password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
