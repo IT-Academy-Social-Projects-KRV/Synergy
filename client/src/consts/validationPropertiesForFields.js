@@ -33,10 +33,10 @@ const valPassword = {
     value: 5,
     message: 'At least 5 characters'
   },
-  pattern: {
-    value: Regex.password,
-    message: 'At least 5 characters and one digit'
-  }
+  // pattern: {
+  //   value: Regex.password,
+  //   message: 'At least 5 characters and one digit'
+  // }
 };
 
 export { valEmail, valRequired, valCapital, valPassword }; 
