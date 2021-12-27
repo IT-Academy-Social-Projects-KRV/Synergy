@@ -1,0 +1,17 @@
+.textBlock {
+	p {
+		font-weight: 200;
+		font-size: 15px;
+		color: red;
+	}
+}
+.validBlock {
+	font-size: 15px;
+	font-weight: 200;
+	color: red;
+	text-transform: none;
+	margin-top: 20px;
+}
+.error {
+	color: red;
+}
