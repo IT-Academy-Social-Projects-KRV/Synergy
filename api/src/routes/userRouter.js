@@ -10,10 +10,12 @@ const {
     loginUser,
     auth,
 } = require('../controllers/userController');
+const validateMiddleware = require('../middlewares/validate');
+const { userSchema } = require('../validations/schemas');
 
 router.get('/', userList);
-router.post('/register', registerUser);
-router.post('/login', loginUser);
+router.post('/register', validateMiddleware(userSchema.registerUser, 'body'), registerUser);
+router.post('/login', validateMiddleware(userSchema.loginUser, 'body'), loginUser);
 router.get('/protected', passport.authenticate('jwt', { session: false }), auth);
 
 module.exports = router;
