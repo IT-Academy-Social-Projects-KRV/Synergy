@@ -12,9 +12,14 @@ const validateMiddleware = require('../middlewares/validate');
 const schemas = require('../validations/schemas');
 
 router.get('/', getItems);
-router.get('/:id', validateMiddleware(schemas.getItem, 'params'), getOneItem);
-router.post('/', validateMiddleware(schemas.postItem, 'body'), createItem);
-router.patch('/:id', updateItem);
-router.delete('/:id', deleteItem);
+router.get('/:id', validateMiddleware(schemas.itemId, 'params'), getOneItem);
+router.post('/', validateMiddleware(schemas.createItem, 'body'), createItem);
+router.patch(
+  '/:id',
+  validateMiddleware(schemas.itemId, 'params'),
+  validateMiddleware(schemas.editItem, 'body'),
+  updateItem,
+);
+router.delete('/:id', validateMiddleware(schemas.itemId, 'params'), deleteItem);
 
 module.exports = router;
