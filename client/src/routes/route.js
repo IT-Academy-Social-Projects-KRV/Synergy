@@ -12,7 +12,7 @@ import BillSettings from '../components/BillSettings';
 import Account from '../components/Account';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
-import Customers from '../components/Customers';
+
 
 const Routes = () => {
   return (
@@ -32,13 +32,6 @@ const Routes = () => {
         path={routes.AuthRoutes.pathToDashboard}
         component={Dashboard}
       />
-      <AuthRoute
-        exact
-        path={routes.AuthRoutes.pathToCustomers}
-        component={Customers}
-        //change to admin only when admin registration to be ready
-      >
-      </AuthRoute>
       <AuthRoute
         path={routes.AuthRoutes.pathToCreatingProject}
         exact

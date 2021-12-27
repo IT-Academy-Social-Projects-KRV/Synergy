@@ -3,9 +3,9 @@ const settingsService = require('../services/settingsService');
 
 const updateUserSettings = async (req, res) => {
   const {
-    firstName, lastName, userId,
+    firstName, lastName, id,
   } = req.body;
-  const settings = await settingsService.updateSettings(firstName, lastName, userId);
+  const settings = await settingsService.updateSettings(firstName, lastName, id);
   res.status(statusCode.OK)
     .json(settings);
 };
