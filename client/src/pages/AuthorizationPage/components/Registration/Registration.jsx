@@ -4,15 +4,20 @@ import registrationLogo from '../../../../assets/images/AuthorizationImages/regi
 import styles from '../../../../consts/Authorization.module.scss';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { style } from '../../style.jsx';
 import { useForm } from 'react-hook-form';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
 import AutorizationFooter from '../../../../shared/Autorization/AutorizationFooter';
 import { valPassword, valRequired } from '../../../../consts/validationPropertiesForFields';
 import validStyle from '../../../../consts/validation.module.scss';
+import { useDispatch } from 'react-redux';
+// import { isLoaderSelector } from '../../../../redux';
+import React, { useState } from 'react';
+import { fetchRegisterUser } from '../../../../redux';
 
 const Registration = () => {
+  const history = useHistory();
   const {
     register,
     formState: { errors },
@@ -22,8 +27,35 @@ const Registration = () => {
   });
   const { pathToLogin } = routes.NonAuthRoutes;
 
-  const onSubmit = () => {
+  const dispatch = useDispatch();
+  //
+  // const isLoader = useSelector(isLoaderSelector);
 
+  const [emailForm, setEmailForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  console.log(emailForm[name]);
+
+  const handleRegisterUser = () => {
+    dispatch(fetchRegisterUser(emailForm));
+  };
+
+
+  const onSubmit = () => {
+    handleRegisterUser();
+    setEmailForm({
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
+    });
+    history.push(
+      routes.NonAuthRoutes.pathToLogin
+    );
   };
 
   return (
@@ -39,9 +71,31 @@ const Registration = () => {
             <form onSubmit={handleSubmit(onSubmit)} className={styles.authorizationForm}>
               <Input
                 {...register('name', valRequired)}
+                onChange={(e) =>
+                  setEmailForm({
+                    ...emailForm,
+                    firstName: e.target.value
+                  })
+                }
                 name='name'
                 type='text'
-                placeholder='Name Surname'
+                placeholder='Name'
+                sx={style.inputName}
+              />
+              <div className={validStyle.textBlock}>
+                {errors?.name && <p>{errors?.name?.message || 'Error, try again'}</p>}
+              </div>
+              <Input
+                {...register('surname', valRequired)}
+                onChange={(e) =>
+                  setEmailForm({
+                    ...emailForm,
+                    lastName: e.target.value
+                  })
+                }
+                name='surname'
+                type='text'
+                placeholder='Surname'
                 sx={style.inputName}
               />
               <div className={validStyle.textBlock}>
@@ -49,6 +103,12 @@ const Registration = () => {
               </div>
               <Input
                 {...register('email', valRequired)}
+                onChange={(e) =>
+                  setEmailForm({
+                    ...emailForm,
+                    email: e.target.value
+                  })
+                }
                 name='email'
                 type='email'
                 placeholder='Email'
@@ -59,6 +119,12 @@ const Registration = () => {
               </div>
               <Input
                 {...register('password', valPassword)}
+                onChange={(e) =>
+                  setEmailForm({
+                    ...emailForm,
+                    password: e.target.value
+                  })
+                }
                 name='password'
                 type='password'
                 placeholder='Password'
