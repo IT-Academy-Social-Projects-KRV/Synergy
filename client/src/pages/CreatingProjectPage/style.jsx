@@ -1,4 +1,6 @@
 const borderColorInput = '#7771d4';
+const borderRadius = '10px';
+const border = '2px solid #7771d4';
 
 export const style = {
   textFieldWithoutMargin: {
@@ -6,7 +8,9 @@ export const style = {
     height: '25px',
     '& .MuiOutlinedInput-root': {
       '& > fieldset': {
-        borderColor: borderColorInput
+        borderColor: borderColorInput,
+        borderRadius: borderRadius,
+        border: border
       },
       '&.Mui-focused fieldset': {
         borderColor: '#645fb5'
@@ -23,6 +27,8 @@ export const style = {
     '& .MuiOutlinedInput-root': {
       '& > fieldset': {
         borderColor: borderColorInput,
+        borderRadius: borderRadius,
+        border: border
       },
       '&.Mui-focused fieldset': {
         borderColor: '#645fb5'
@@ -40,7 +46,9 @@ export const style = {
     width: '48%',
     '& .MuiOutlinedInput-root': {
       '& > fieldset': {
-        borderColor: borderColorInput
+        borderColor: borderColorInput,
+        borderRadius: borderRadius,
+        border: border
       },
       '&.Mui-focused fieldset': {
         borderColor: '#645fb5'
@@ -54,7 +62,9 @@ export const style = {
     width: '48%',
     '& .MuiOutlinedInput-root': {
       '& > fieldset': {
-        borderColor: borderColorInput
+        borderColor: borderColorInput,
+        borderRadius: borderRadius,
+        border: border
       },
       '&.Mui-focused fieldset': {
         borderColor: '#645fb5'
