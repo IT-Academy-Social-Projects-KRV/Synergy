@@ -9,15 +9,6 @@ const DateFinishInput = ({ options, setOptions }) => {
     setOptions({ ...options, dateFinish: newValue.toISOString() });
   };
 
-  //TEMPORARY SOLUTION!!!
-  const style = {
-    textfield: {
-      '& .MuiInputLabel-outlined': {
-        transform: 'translate(14px, 50%) scale(1)'
-      }
-    }
-  };
-
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DesktopDatePicker
@@ -25,7 +16,7 @@ const DateFinishInput = ({ options, setOptions }) => {
         inputFormat='yyyy-MM-dd'
         value={options.dateFinish}
         onChange={handleChange}
-        renderInput={(params) => <TextField sx={style.textfield} {...params} />}
+        renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>
   );

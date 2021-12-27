@@ -4,32 +4,38 @@ import Button from '@mui/material/Button';
 
 import styles from '../../../../consts/Authorization.module.scss';
 import { style } from '../../style.jsx';
+import validStyle from '../../../../consts/validation.module.scss';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchLoginUser } from '../../../../redux';
-
-import { useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { Link, useHistory } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
 import AutorizationFooter from '../../../../shared/Autorization/AutorizationFooter';
+import { valEmail, valPassword } from '../../../../consts/validationPropertiesForFields';
 
 
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    mode: 'onBlur',
+  });
   //const user = useSelector(userSelector);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$/;
 
   const handleFetchLoginUser = (fields) => {
     dispatch(fetchLoginUser(fields));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const onSubmit = () => {
     handleFetchLoginUser({
       email,
       password
@@ -51,25 +57,29 @@ const Login = () => {
         <div className={styles.authorizationBox}>
           <div className={styles.dataInputFields}>
             <p className={styles.nameOfPageLogin}>Login</p>
-            <form className={styles.authorizationForm} onSubmit={e => handleSubmit(e)}>
+            <form className={styles.authorizationForm} onSubmit={handleSubmit(onSubmit)}>
               <Input
-                name='email'
-                type='email'
+                {...register('email', valEmail)}
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                pattern={emailPattern}
                 placeholder='Email'
                 sx={style.inputEmail}
               />
+              <div className={validStyle.textBlock}>
+                {errors?.email && <p>{errors?.email?.message || 'Error, try again'}</p>}
+              </div>
               <Input
-                name='password'
+                {...register('password', valPassword)}
                 type='password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder='Password'
                 sx={style.inputPassword}
               />
-              <a href='/login'>Forgot password?</a>
+              <div className={validStyle.textBlock}>
+                {errors?.password && <p>{errors?.password?.message || 'Error, try again'}</p>}
+              </div>
+              <Link to='/'>Forgot password?</Link>
               <Button
                 variant='contained'
                 type='submit'

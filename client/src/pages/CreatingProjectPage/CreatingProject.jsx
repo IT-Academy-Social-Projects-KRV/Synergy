@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Calendar from './components/Calendar';
 import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PersonIcon from '@mui/icons-material/Person';
@@ -11,9 +10,20 @@ import { AlertContext } from '../../components/Alert/context/AlertContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateProject, isLoaderSelector } from '../../redux';
 import { style } from '../CreatingProjectPage/style.jsx';
+import { useForm } from 'react-hook-form';
 import styles from './CreatingProject.module.scss';
+import validStyle from '../../consts/validation.module.scss';
+import { valCapital, valEmail, valRequired } from '../../consts/validationPropertiesForFields';
+import { Button } from '@mui/material';
 
 const Content = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    mode: 'onSubmit',
+  });
 
   const dispatch = useDispatch();
 
@@ -52,51 +62,62 @@ const Content = () => {
   return (
     <>
       {isLoader ? (
-        <Loader/>
+        <Loader />
       ) : (
         <div className={styles.content}>
           <div className={styles.content__stuffing}>
             <h1>Create project</h1>
-            <FormControl variant='standard' className={styles.mainForm}>
+            <form className={styles.mainForm} onSubmit={handleSubmit(sendForm)}>
               <div className={`${styles.inputTextfield} ${styles.inputWithMarginRight}`}>
                 <div className={styles.label}>Project title</div>
                 <TextField
+                  {...register('title', valRequired)}
                   onChange={(e) =>
                     setProjectForm({
                       ...projectForm,
                       name: e.target.value
                     })
                   }
+
                   size='small'
                   sx={style.textFieldWithMarginRight}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <BorderColorIcon sx={style.icons}/>
+                        <BorderColorIcon sx={style.icons} />
                       </InputAdornment>
                     ),
                     placeholder: 'Type title...'
                   }}
                 />
+                <div className={validStyle.textBlock, validStyle.validBlock}>
+                  {errors?.title && <p>{errors?.title?.message || 'Error, try again'}</p>}
+                </div>
               </div>
+
               <div className={styles.inputTextfield}>
                 <div className={styles.label}>Customer email</div>
                 <TextField
+                  {...register('email', valEmail)}
                   size='small'
                   sx={style.textFieldWithoutMargin}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <PersonIcon sx={style.icons}/>
+                        <PersonIcon sx={style.icons} />
                       </InputAdornment>
                     ),
                     placeholder: 'Type email...'
                   }}
                 />
+                <div className={validStyle.textBlock, validStyle.validBlock}>
+                  {errors?.email && <p>{errors?.email?.message || 'Error, try again'}</p>}
+                </div>
               </div>
               <div className={`${styles.inputTextfield} ${styles.inputWithMarginRight}`}>
                 <div className={styles.label}>Capital</div>
                 <TextField
+                  {...register('capital', valCapital)}
                   onChange={(e) =>
                     setProjectForm({
                       ...projectForm,
@@ -108,17 +129,20 @@ const Content = () => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
-                        <AttachMoneyIcon sx={style.icons}/>
+                        <AttachMoneyIcon sx={style.icons} />
                       </InputAdornment>
                     ),
                     type: 'number',
                     placeholder: 'Type capital...'
                   }}
                 />
+                <div className={validStyle.textBlock, validStyle.validBlock}>
+                  {errors?.capital && <p>{errors?.capital?.message || 'Error, try again'}</p>}
+                </div>
               </div>
               <div className={styles.inputTextfield}>
                 <div className={styles.label}>Data release</div>
-                <Calendar data={projectForm} setData={setProjectForm}/>
+                <Calendar data={projectForm} setData={setProjectForm} />
               </div>
               <div className={styles.inputTextArea}>
                 <div className={styles.textAreaLabel}>Description</div>
@@ -134,11 +158,11 @@ const Content = () => {
                 />
               </div>
               <div className={styles.button}>
-                <button onClick={sendForm} className={styles.saveButton}>
+                <Button type='submit' className={styles.saveButton}>
                   SAVE
-                </button>
+                </Button>
               </div>
-            </FormControl>
+            </form>
           </div>
         </div>
       )}

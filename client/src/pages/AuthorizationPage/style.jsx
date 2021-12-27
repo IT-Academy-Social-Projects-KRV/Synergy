@@ -29,6 +29,7 @@ export const style = {
     width: '60%', 
     ml: 'auto', 
     mr: 'auto',
+    mb: '20px',
     fontSize: '15px',
     fontWeight: 'bold'
   }
