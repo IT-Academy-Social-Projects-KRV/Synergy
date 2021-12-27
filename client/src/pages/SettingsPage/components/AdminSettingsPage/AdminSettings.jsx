@@ -7,7 +7,7 @@ import username_icon from '../../../../assets//images/SettingsPageImages/usernam
 import changes_was_saved_icon from '../../../../assets/images/SettingsPageImages/changes_was_saved.svg';
 import cancel from '../../../../assets/images/SettingsPageImages/cancel.svg';
 import style from './AdminSettings.module.scss';
-import SaveButton from '../../../../shared/Buttons/Save';
+import { SaveButton }  from '../../../../shared/Buttons/Save';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUpdateUser } from '../../../../redux/requests/userRequest';
 
@@ -19,9 +19,9 @@ const AdminSettings = () => {
 
   const [isShowChanges, setShowChanges] = useState(false);
   
-  const [firstName, setFirstname] = useState('');
+  const [firstName, setFirstname] = useState(user.firstName);
 
-  const [lastName, setLastname] = useState('');
+  const [lastName, setLastname] = useState(user.lastName);
 
   const handleFirstName = () => {
     dispatch(fetchUpdateUser({ firstName: firstName, lastName: lastName, id: user.id })).then(() => {
@@ -79,14 +79,14 @@ const AdminSettings = () => {
                   <img src={username_icon}></img>
                   <span className={style.inputs_title}>First name</span>
                   <input
-                    defaultValue={user.firstName}
+                    defaultValue={firstName}
                     className={style.username_input}
                     onChange={(event) => setFirstname(event.target.value)}
                   >
                   </input>
                   <span className={style.inputs_title}>Last name</span>
                   <input
-                    defaultValue={user.lastName}
+                    defaultValue={lastName}
                     className={style.username_input}
                     onChange={(event) => setLastname(event.target.value)}
                   >

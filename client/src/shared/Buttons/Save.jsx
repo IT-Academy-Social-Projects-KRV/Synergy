@@ -19,4 +19,7 @@ const SaveButton = ({ sx, clickHandler }) => {
     <Button onClick={clickHandler} sx={{ ...style, ...sx }}>Save</Button>
   );
 };
-export default SaveButton;
+
+export {
+  SaveButton
+};
