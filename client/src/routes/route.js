@@ -6,7 +6,7 @@ import CreatingProject from '../pages/CreatingProjectPage';
 import AuthRoute from './AuthRoute';
 import UnauthenticatedRoute from './UnauthenticatedRoute';
 import './routes.scss';
-import AdminSettings from '../pages/SettingsPage/components/AdminSettingsPage/AdminSettings';
+import Settings from '../pages/SettingsPage/components/AdminSettingsPage/Settings';
 import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import Account from '../components/Account';
@@ -45,7 +45,7 @@ const Routes = () => {
       <AuthRoute
         path={routes.AuthRoutes.pathToSettings}
         exact
-        component={AdminSettings}
+        component={Settings}
       />
       <AuthRoute
         path={routes.AuthRoutes.pathToBillSettings}
