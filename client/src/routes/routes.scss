@@ -8,6 +8,7 @@ html, body, #root {
 }
 .top {
   flex: 1 0 auto;
+  margin-bottom: 40px;
   header {
     height: $headerHeight;
     & > div {
@@ -36,8 +37,8 @@ html, body, #root {
     .main_content_container {
       width: 100%;
       background: #fff;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
       transition: all .6s ease;
       &.moved {
         flex: 0 0 94% !important;

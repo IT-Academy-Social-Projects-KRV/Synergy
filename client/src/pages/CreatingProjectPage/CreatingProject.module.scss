@@ -5,7 +5,7 @@
     @extend %widthMargin;
     &__stuffing {
         height: 100%;
-        width: 80%;
+        max-width: 832px;
         margin: auto;
         padding: 32px;
         & > h1 {
@@ -15,20 +15,20 @@
         }
         .mainForm {
             @include flex;
+            width: 100%;
             .inputTextfield {
-                width: 48%;
-                font-weight: 700;
-                text-transform: uppercase;
-                color: $fontDark;
-                font-size: 14px;
+                @include input($width: 48%);
                 .label {
-                    @include labelMargin($marginTop: 30px);
+                    @include labelMargin($marginTop: 49px);
                 }
                 .сalendar {
                     width: 100%;
                 }
+            }
+            .inputTextArea {
+                @include input;
                 .textAreaLabel {
-                    @include labelMargin($marginTop: 15px);
+                    @include labelMargin($marginTop: 35px);
                 }
                 & > textarea {
                     box-sizing: border-box;
@@ -36,12 +36,13 @@
                     resize: vertical;
                     font-family: 'Roboto';
                     font-size: 16px;
-                    padding: 16px;
-                    border: 1px solid $purple;
-                    min-height: 100px;
-                    min-width: 208.5%;
+                    padding: 15px;
+                    border: 2px solid $purple;
+                    min-height: 80px;
+                    max-height: 160px;
+                    min-width: 100%;
                     height: auto;
-                    border-radius: 5px;
+                    border-radius: 10px;
                     &::placeholder {
                         color: #a3a3a3;
                         font-weight: normal;
@@ -68,7 +69,7 @@
                     position: relative;
                     font-size: 10px;
                     font-weight: bold;
-                    margin-top: 10px;
+                    margin-top: 32px;
                 }
             }
         }
