@@ -1,7 +1,11 @@
 import api from '../hooks/useAxios';
 
 const logIn = (payload) => {
-  return api.post('/user/login', payload);
+  return api.post('/users/login', payload);
+};
+
+const userChanges = (payload) => {
+  return api.post('/settings/', payload);
 };
 
 const register = (payload) => {
@@ -11,4 +15,5 @@ const register = (payload) => {
 export {
   logIn,
   register,
+  userChanges,
 };

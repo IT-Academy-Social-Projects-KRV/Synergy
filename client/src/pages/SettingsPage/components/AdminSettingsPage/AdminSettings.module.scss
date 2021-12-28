@@ -1,0 +1,178 @@
+@import '../../../../consts/variables';
+.settings_container{
+    @extend %flexColumn;
+    justify-content: flex-start;
+    position: relative;
+}
+.alert{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: $limeBg;
+    background: $defaultWhiteBg;
+    height: 50px;
+    border-radius: 20px 0px 0px 0px;
+    justify-content: space-between;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+
+    .alert_elements{
+        @extend %baseFlex;
+        @include alertSettings;
+
+        .alert_title{
+            margin-left: 12px;
+        }
+    }
+    .alert_cancel{
+        @extend %baseFlex;
+        margin: 15px 15px 0 0 ;
+        cursor: pointer;
+    }
+}
+
+.settings_body_wrapper {
+    margin: 0 35px;
+}
+
+.settings_title{
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    margin: 20px auto 0 auto;
+    background-color: $bgCard;
+    padding: 12px 48px;
+    border-radius: 16px;
+}
+.settings_personal{
+    @extend %flexColumn;
+    justify-content: flex-start;
+
+    .settings_personal__header{
+        @extend %flexColumn;
+        align-items: flex-start;
+        margin-top: 40px;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid $ligghtPurpleBg;
+            width: 99%;
+            margin: 0 auto;
+            margin-top: 5px;
+            bottom: -10px;
+            border-radius: 10px;
+            left: 0.5%;
+        }
+        .settings_personal__header_title{
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 23px;
+            color: $defaultGrayText;
+            margin-top: 12px;
+        }
+        .settings_personal__header_subtitle{
+            @include settingsSubTitle;
+        }
+    }
+}
+
+.profile_tab{
+    @extend %baseFlex;
+    @include settingsTabs;
+}
+
+
+.settings_personal__form{
+    @extend %flexColumn;
+    justify-content: flex-start;
+
+    .settings_personal__form_inputs{
+        margin-top: 32px;
+
+        .input{
+            @extend %flexRow;
+            align-items: center;
+        }
+    }
+}
+.inputs_title{
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: bold;
+    color: $purple;
+    margin: 0 15px 0 12px;
+}
+.username_input{
+    width: 250px;
+    height: 45px;
+    border: 2px solid $purple;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: $defaultGrayText;
+    padding-left: 10px;
+   
+}
+.settings_personal__form_actions{
+    @extend %flexColumn;
+    justify-content: flex-start;
+    margin-top: 32px;
+    
+    .password_tab{
+        @extend %baseFlex;
+        @include settingsTabs;
+        margin-top: 30px;
+    }
+
+}
+
+.settings_security{
+    @extend %flexColumn;
+    justify-content: flex-start;
+
+    .settings_security__header{
+        @extend %flexColumn;
+        align-items: flex-start;
+        margin-top: 40px;
+        position: relative;
+    
+        &:after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid $ligghtPurpleBg;
+            width: 99%;
+            margin: 0 auto;
+            margin-top: 5px;
+            bottom: -10px;
+            border-radius: 10px;
+            left: 0.5%;
+        }
+        .settings_security__header_title{
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 23px;
+            color: $defaultGrayText;
+            margin-top: 12px;
+        }
+        .settings_security__header_subtitle{
+            @include settingsSubTitle;
+        }
+    }
+}
+
+.settings_security__body{
+    display: flex;
+    margin: 40px 0 40px 0 ;
+
+    .span_link{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: $purple;
+        margin-left: 10px;
+    }
+}

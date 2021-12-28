@@ -55,6 +55,7 @@ const loginUser = async (email, password) => {
       return {
         status: statusCode.OK,
         message: 'Success!',
+        user,
         token,
       };
     }
