@@ -6,12 +6,13 @@ import CreatingProject from '../pages/CreatingProjectPage';
 import AuthRoute from './AuthRoute';
 import UnauthenticatedRoute from './UnauthenticatedRoute';
 import './routes.scss';
-import Settings from '../components/Settings';
+import Settings from '../pages/SettingsPage/components/AdminSettingsPage/AdminSettings';
 import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import Account from '../components/Account';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
+
 
 const Routes = () => {
   return (

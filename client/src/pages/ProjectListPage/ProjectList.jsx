@@ -55,7 +55,7 @@ const ProjectList = () => {
               <div>Added date</div>
               <div>Release date</div>
               <div>Description</div>
-              <div>Owner</div>
+              <div>Project name</div>
             </li>
             {projectList.projects.map((d) => (
               <Link 
