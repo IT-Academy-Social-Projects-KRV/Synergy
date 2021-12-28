@@ -16,6 +16,6 @@ const { userSchema } = require('../validations/schemas');
 router.get('/', userList);
 router.post('/register', validateMiddleware(userSchema.registerUser, 'body'), registerUser);
 router.post('/login', validateMiddleware(userSchema.loginUser, 'body'), loginUser);
-router.get('/protected', passport.authenticate('jwt', { session: false }), auth);
+router.get('/auth', passport.authenticate('jwt', { session: false }), auth);
 
 module.exports = router;
