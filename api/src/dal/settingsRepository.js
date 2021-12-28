@@ -1,11 +1,11 @@
 const { User } = require('../models/modelsAssociations');
 
-const updateSettings = async (firstName, lastName, userId) => {
+const updateSettings = async (firstName, lastName, id) => {
   try {
     const data = await User.update({
       firstName,
       lastName,
-    }, { where: { userId } });
+    }, { where: { id }, returning: true });
     return data;
   } catch (err) {
     throw Error(err);

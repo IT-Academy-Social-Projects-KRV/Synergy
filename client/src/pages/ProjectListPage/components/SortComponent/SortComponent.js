@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import RangeInput from '../RangeInput/RangeInput';
 import { Button } from '@mui/material';

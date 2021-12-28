@@ -5,6 +5,7 @@ $pageBgClr: #f3f5f4;
 $purple: #7771d4;
 $darkPurple: #645fb5;
 $gray: #93939d;
+$ligghtPurpleBg: #E8E7FB;
 
 $tableColor: #f1f3f2;
 $itemTableClr: #564e45;
@@ -13,10 +14,13 @@ $tableBorder: #eee6e7;
 $rejectTxt: #ff0606;
 $appliedTxt: #2ab957;
 $pendingTxt: #495dc1;
+$defaultGrayText: #787D8C;
 
 $pendingBg: #d6d4fd;
 $rejectBg: #fff1ee;
 $appliedBg: #f3fdee;
+$limeBg: #098707;
+$defaultWhiteBg: #EDF7ED;
 
 $bottomTextColor: #CCCCCC;
 
@@ -33,6 +37,11 @@ $headerMarginBottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+%flexRow {
+  display: flex;
+  flex-direction: row;
 }
 
 %flexAlign {
@@ -67,6 +76,11 @@ $headerMarginBottom: 40px;
 %marginTopLeftItem{
   margin-top: 30px;
   margin-left: 30px;
+}
+
+@mixin alertSettings($flexDirection: row) {
+  margin-left: 35px;
+  margin-top: 15px;
 }
 
 @mixin input($width: 100%) {
@@ -108,11 +122,26 @@ $headerMarginBottom: 40px;
 }
 
 @mixin headerTitle($fontSize: 32px) {
-  font-size: $fontSize;
   font-weight: 700;
   margin-bottom: 40px;
   text-align: center;
   color: $fontDark;
+}
+
+@mixin settingsSubTitle($fontSize: 14px) {
+  font-weight: 500;
+  line-height: 16px;
+  color: $defaultGrayText;
+  margin-top: 10px;
+}
+@mixin settingsTabs($font-size: 18px) {
+    flex-direction: column;
+    width: 100px;
+    height: 50px;
+    font-weight: 500;
+    background-color: $ligghtPurpleBg;
+    color: $purple;
+    border-radius: 10px;
 }
 
 @mixin brdrRadShadow {
