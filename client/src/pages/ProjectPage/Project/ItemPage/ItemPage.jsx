@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { itemSelector, isLoaderSelector } from '../../../../redux';
+import Moment from 'moment';
 import Loader from '../../../../components/Loader';
 import STATUS from '../../../../consts/itemStatuses';
 import routes from '../../../../configs/routes';
@@ -23,7 +24,7 @@ const ItemPage = () => {
             <div className={styles.information}>
               <div className={styles.input}>
                 <p>Data added</p>
-                <p>{item.createdAt}</p>
+                <p>{Moment(item.createdAt).format('DD.MM.YYYY')}</p>
               </div>
               <div className={styles.input}>
                 <p>Cost</p>
