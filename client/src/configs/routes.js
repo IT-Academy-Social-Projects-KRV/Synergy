@@ -11,6 +11,8 @@ const routes = {
   NonAuthRoutes : {
     pathToLogin: '/',
     pathToRegistration: '/registration',
+    pathToReset: '/reset',
+    pathToForgotPassword: '/forgotpass',
   }
 };
 

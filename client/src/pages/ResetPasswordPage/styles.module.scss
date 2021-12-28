@@ -1,0 +1,129 @@
+@import '../../consts/variables.scss';
+
+.reset{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  &__title {
+    width: 100%;
+    height: 15%;
+    margin-top: 4rem;
+    text-align: center;
+    & > h1 {
+      text-transform: uppercase;
+      color: $purple;
+      margin: auto;
+      height: 70px;
+      width: 341px;
+      top: 187px;
+      font-weight: bold;
+      border-radius: nullpx;
+      font-size: 48px;
+      margin-bottom: -10px;
+    }
+    & > p {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 0;
+    }
+  }
+
+.mainBox {
+  width: 600px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  .dataInputFields {
+      background-color: #fff;
+      height: 100%;
+      width: 100%;
+      margin: auto;
+      border-radius: 50px;
+      position: relative;
+      box-shadow: $boxBgShadow;
+      @include flex($flexDirection: column);
+      justify-content: center;
+      .savedBack{
+        background-color:#EDF7ED;        ;
+        position: absolute; 
+        width: 100%;
+        height: 48px;
+        text-align: left;
+        padding-left: 35px;
+        padding-top: 15px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        top: 0px;
+        .savedText {
+          display:inline-block;
+          color: #098707;
+          font-size: 16px;
+          margin-left: 5px;
+        }
+      }
+      .logoCircleBig {
+        border: 0px solid#BEBAFF80;        ;
+        border-radius: 31px;
+        position: absolute;
+        width: 62px;
+        height: 62px;
+        top: 48px;
+        left: 279px;
+        margin-left: auto;
+        background-color: #BEBAFF80;
+        .logoCirclelittle {
+          border: 0px solid#AFAAFF99;
+          position: absolute;
+          background: #AFAAFF99;
+          border-radius: 31px;
+          width: 42px;
+          height: 42px;
+          left: 10px;
+          top: 10px;
+          .logo {
+            text-align: center;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: 12px;
+            top: 12px;
+          }
+        }
+      }
+      .nameOfBox {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 36px;
+        font-weight: 700;
+      }
+      .requirementsText {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+      .mainForm {
+          @include flex($flexDirection: column);
+
+          .inputPas {
+            width: 60%;
+            margin: auto;
+            margin-top: 20px;
+          }
+
+          .resetButton {
+            width: 60%;
+            height: 40px;
+            margin: auto;
+            margin-top: 20px;
+            background-color: #7872D6;
+          }
+
+          .loginHref {
+            margin-top: 5px;
+            font-size: 14px;
+          }
+      }
+    }
+  }       
+}

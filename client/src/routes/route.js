@@ -11,6 +11,8 @@ import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import Account from '../components/Account';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
+import UpdatePassword from '../pages/ResetPasswordPage/ResetPassword';
+import ForgotPassword from '../pages/ForgotPasswordPage/ForgotPassword';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
 
 const Routes = () => {
@@ -25,6 +27,16 @@ const Routes = () => {
         exact
         path={routes.NonAuthRoutes.pathToRegistration}
         component={Registration}
+      />
+      <UnauthenticatedRoute
+        exact
+        path={routes.NonAuthRoutes.pathToReset}
+        component={UpdatePassword}
+      />
+      <UnauthenticatedRoute
+        exact
+        path={routes.NonAuthRoutes.pathToForgotPassword}
+        component={ForgotPassword}
       />
       <AuthRoute
         exact
