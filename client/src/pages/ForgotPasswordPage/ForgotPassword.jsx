@@ -1,4 +1,5 @@
 import React from 'react';
+import CLogo from '../../assets/images/MainPageImages/C.png';
 import keyLogo from '../../assets/images/ResetPasswordImages/Key.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
@@ -39,6 +40,10 @@ const ForgotPassword = () => {
             </Button>
             <a href='/login' className={styles.loginHref}>Back to log in</a>
           </form>
+        </div>
+        <div className={styles.bottomCText}>
+          <img src={CLogo} alt='Copyright sign' />
+          <span>SYNERGY, 2021. ALL RIGHTS RESERVED</span>
         </div>
       </div>
     </div>

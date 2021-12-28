@@ -125,5 +125,16 @@
           }
       }
     }
+  }
+  .bottomCText {
+    @extend %bottomText;
+    & > img {
+        margin-right: 5px;
+        height: 13px;
+        float: left;
+    }
+    & > span {
+        float: left;
+    }
   }       
 }
