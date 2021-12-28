@@ -52,7 +52,7 @@ export const fetchLoginUser = (
 export const fetchRegisterUser = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
-    return await register(payload);
+    await register(payload);
   } catch (e) {
     dispatch(setRequestError(e));
   } finally {

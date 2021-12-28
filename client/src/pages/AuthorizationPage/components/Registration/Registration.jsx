@@ -37,8 +37,6 @@ const Registration = () => {
     password: ''
   });
 
-  console.log(emailForm[name]);
-
   const handleRegisterUser = () => {
     dispatch(fetchRegisterUser(emailForm));
   };
