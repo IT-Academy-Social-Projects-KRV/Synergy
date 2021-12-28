@@ -7,7 +7,7 @@ import username_icon from '../../../../assets//images/SettingsPageImages/usernam
 import changes_was_saved_icon from '../../../../assets/images/SettingsPageImages/changes_was_saved.svg';
 import cancel from '../../../../assets/images/SettingsPageImages/cancel.svg';
 import style from './AdminSettings.module.scss';
-import { SaveButton }  from '../../../../shared/Buttons/Save';
+import { Save }  from '../../../../shared/Buttons';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUpdateUser } from '../../../../redux/requests/userRequest';
 
@@ -96,9 +96,9 @@ const AdminSettings = () => {
               </div>
 
               <div className={style.settings_personal__form_actions}>
-                <SaveButton clickHandler={sendUserName} variant='contained' type='submit'>
+                <Save clickHandler={sendUserName} variant='contained' type='submit'>
                 Save
-                </SaveButton>
+                </Save>
                 <div className={style.password_tab}>
                   <span>Password</span>
                 </div>
@@ -114,7 +114,7 @@ const AdminSettings = () => {
                 <span>Security</span>
               </div>
               <div className={style.settings_security__header_subtitle}>
-                <span>You can change the password</span>
+                <span>You can resset the password</span>
               </div>
             </div>
 

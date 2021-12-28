@@ -20,6 +20,4 @@ const SaveButton = ({ sx, clickHandler }) => {
   );
 };
 
-export {
-  SaveButton
-};
+export default SaveButton;
