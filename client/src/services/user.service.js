@@ -8,7 +8,12 @@ const userChanges = (payload) => {
   return api.post('/settings/', payload);
 };
 
-export {
-  logIn, userChanges,
+const register = (payload) => {
+  return api.post('/users/register', payload);
 };
 
+export {
+  logIn,
+  register,
+  userChanges,
+};
