@@ -22,8 +22,7 @@
     "test:watch": "jest --verbose --rootDir=tests --watch",
     "test:coverage": "jest --verbose --rootDir=tests --coverage",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
-    "db:seed:all": "./node_modules/.bin/babel-node.cmd ./node_modules/.bin/sequelize.cmd db:seed:all"
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js"
   },
   "repository": {
     "type": "git",
@@ -58,7 +57,6 @@
     "@babel/core": "^7.16.0",
     "@babel/node": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
-    "@babel/register": "^7.16.7",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -71,5 +69,10 @@
     "prettier": "2.5.0",
     "regenerator-runtime": "^0.13.9",
     "sequelize-cli": "^6.3.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
