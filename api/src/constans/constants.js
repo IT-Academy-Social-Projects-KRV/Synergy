@@ -56,7 +56,7 @@ const statuses = [
   },
 ]
 
-export {
+module.exports = {
   statusesId,
   userRoles,
   statusCategories,
