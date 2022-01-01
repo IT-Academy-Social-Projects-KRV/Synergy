@@ -1,8 +1,8 @@
-const projectRepository = require('../dal/projectRepository');
-const filter = require('../utils/helpers/filter');
+import projectRepository from '../dal/projectRepository';
+import { getFiltersForProject } from '../utils/helpers/filter';
 
 const getProjects = async (sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish) => {
-    const filters = filter.getFiltersForProject(name, capital, dateStart, dateFinish);
+    const filters = getFiltersForProject(name, capital, dateStart, dateFinish);
     const sortData = !sortBy && !sortDirection ? ['id', 'ASC'] : [sortBy, sortDirection];
 
     const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 10, filters);
@@ -37,7 +37,7 @@ const deleteProject = async (id) => {
     return databaseResult;
 };
 
-module.exports = {
+export default {
     getProjects,
     createProject,
     getOneProject,

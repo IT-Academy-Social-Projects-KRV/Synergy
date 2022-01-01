@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   servers: [
     {
       url: 'http://localhost:4000',

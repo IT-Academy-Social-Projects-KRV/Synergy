@@ -1,12 +1,12 @@
-const Router = require('express');
-const statusCode = require('http-status');
+import Router from 'express';
+import statusCode from 'http-status';
+import userRouter from './userRouter';
+import projects from './projectRouter';
+import items from './itemRouter';
+import comments from './commentRouter';
+import settings from './settingsRouter';
 
 const router = new Router();
-const userRouter = require('./userRouter');
-const projects = require('./projectRouter');
-const items = require('./itemRouter');
-const comments = require('./commentRouter');
-const settings = require('./settingsRouter');
 
 router.use('/users', userRouter);
 router.use('/projects', projects);
@@ -14,7 +14,7 @@ router.use('/items', items);
 router.use('/comments', comments);
 router.use('/settings', settings);
 router.use('/*', (req, res) => {
-    res.status(statusCode.NOT_FOUND).send('Page not found');
+    res.status(statusCode.BAD_GATEWAY).send('Bad gateway');
 });
 
-module.exports = router;
+export default router;

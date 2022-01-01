@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const statusCode = require('http-status');
-const userRepository = require('../dal/userRepository');
-const { User } = require('../models/modelsAssociations');
+import jwt from 'jsonwebtoken';
+import statusCode from 'http-status';
+import userRepository from '../dal/userRepository';
+import { User } from '../models/modelsAssociations';
 
 const getUsers = async () => {
   const getAllUsers = await userRepository.getUsers();
@@ -65,7 +65,7 @@ const loginUser = async (email, password) => {
       };
 }
 
-module.exports = {
+export default {
   getUsers,
   registerUser,
   loginUser,

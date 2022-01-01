@@ -1,5 +1,5 @@
-const statusCode = require('http-status');
-const userService = require('../services/userService');
+import statusCode from 'http-status';
+import userService from '../services/userService';
 
 const userList = async (req, res) => {
   const result = await userService.getUsers();
@@ -29,7 +29,7 @@ const auth = (req, res) => {
   });
 };
 
-module.exports = {
+export {
   userList,
   registerUser,
   loginUser,

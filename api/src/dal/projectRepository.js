@@ -1,5 +1,5 @@
-const { Project, Item, User } = require('../models/modelsAssociations');
-const { statusesId } = require('../constans/constants');
+import { statusesId } from '../constans/constants';
+import { Project, Item, User } from '../models/modelsAssociations';
 
 const getProjects = async (sortData, page, size, filters) => {
     try {
@@ -95,7 +95,7 @@ const deleteProject = async (id) => {
   }
 };
 
-module.exports = {
+export default {
   getProjects,
   createProject,
   getProject,

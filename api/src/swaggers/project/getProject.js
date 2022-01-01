@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   get: {
     tags: ['Project CRUD operations'],
     summary: 'Find project by ID',

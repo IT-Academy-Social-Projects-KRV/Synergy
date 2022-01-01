@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   delete: {
     tags: ['Items CRUD operations'],
     summary: 'Deletes an item',

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   patch: {
     tags: ['Project CRUD operations'],
     summary: 'Update an existing project',
