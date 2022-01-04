@@ -1,10 +1,10 @@
-const getProjects = require('./getProjects');
-const getProject = require('./getProject');
-const createProject = require('./createProject');
-const updateProject = require('./updateProject');
-const deleteProject = require('./deleteProject');
+import getProjects from './getProjects';
+import getProject from './getProject';
+import createProject from './createProject';
+import updateProject from './updateProject';
+import deleteProject from './deleteProject';
 
-module.exports = {
+export default {
   '/api/projects': {
     ...getProjects,
     ...createProject,

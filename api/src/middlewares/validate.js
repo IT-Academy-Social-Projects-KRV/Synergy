@@ -12,4 +12,4 @@ const validateMiddleware = (schema, property) => (req, res, next) => {
   }
 }
 
-module.exports = validateMiddleware;
+export default validateMiddleware;

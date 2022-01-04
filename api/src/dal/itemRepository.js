@@ -1,5 +1,5 @@
-const { Item, Comment } = require('../models/modelsAssociations');
-const { statusesId } = require('../constans/constants');
+import { Item, Comment } from '../models/modelsAssociations';
+import { statusesId } from '../constans/constants';
 
 const getItems = async () => {
   try {
@@ -79,7 +79,7 @@ const deleteItem = async (id) => {
   }
 };
 
-module.exports = {
+export default {
   getItems,
   getItem,
   createItem,

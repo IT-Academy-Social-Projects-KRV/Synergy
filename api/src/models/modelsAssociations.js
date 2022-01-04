@@ -1,11 +1,11 @@
-const { Comment } = require('./commentModel');
-const { Item } = require('./itemModel');
-const { Project } = require('./projectModel');
-const { Role } = require('./roleModel');
-const { StatusCategory } = require('./statusCategoryModel');
-const { Status } = require('./statusModel');
-const { Token } = require('./tokenModel');
-const { User } = require('./userModel');
+import Comment from './commentModel';
+import Item from './itemModel';
+import Project from './projectModel';
+import Role from './roleModel';
+import StatusCategory from './statusCategoryModel';
+import Status from './statusModel';
+import Token from './tokenModel';
+import User from './userModel';
 
 User.hasMany(Project);
 Project.belongsTo(User);
@@ -37,6 +37,6 @@ Comment.belongsTo(Item);
 User.hasMany(Comment);
 Comment.belongsTo(User);
 
-module.exports = {
+export {
   Project, User, Role, Item, Comment, Status, StatusCategory, Token,
 };

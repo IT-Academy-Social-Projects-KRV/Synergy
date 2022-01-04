@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   patch: {
     tags: ['Items CRUD operations'],
     summary: 'Update an existing item',

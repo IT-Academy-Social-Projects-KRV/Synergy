@@ -1,10 +1,10 @@
-const createItem = require('./createItem');
-const getItems = require('./getItems');
-const getItem = require('./getItem');
-const updateItem = require('./updateItem');
-const deleteItem = require('./deleteItem');
+import createItem from './createItem';
+import getItems from './getItems';
+import getItem from './getItem';
+import updateItem from './updateItem';
+import deleteItem from './deleteItem';
 
-module.exports = {
+export default {
   '/api/items': {
     ...createItem,
     ...getItems,

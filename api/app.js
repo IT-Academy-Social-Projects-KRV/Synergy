@@ -1,14 +1,10 @@
-const path = require('path');
-require('dotenv').config({
-  path: path.resolve(__dirname, 'config/config.env'),
-});
-const express = require('express');
-const cors = require('cors');
-const passport = require('passport');
-const swaggerUi = require('swagger-ui-express');
-const docs = require('./src/swaggers');
-const router = require('./src/routes');
-const sequelize = require('./db');
+import express from 'express';
+import cors from 'cors';
+import passport from 'passport';
+import swaggerUi from 'swagger-ui-express';
+import docs from './src/swaggers';
+import router from './src/routes';
+import sequelize from './db';
 
 const app = express();
 
@@ -30,4 +26,4 @@ const start = async () => {
 
 start();
 
-module.exports = app;
+export default app;

@@ -1,4 +1,4 @@
-const { User } = require('../models/modelsAssociations');
+import { User } from '../models/modelsAssociations';
 
 const updateSettings = async (firstName, lastName, id) => {
   try {
@@ -23,7 +23,7 @@ const updatePassword = async (password, userId) => {
   }
 }
 
-module.exports = {
+export default {
   updateSettings,
   updatePassword,
 };

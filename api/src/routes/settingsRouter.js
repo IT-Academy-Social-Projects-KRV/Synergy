@@ -1,12 +1,12 @@
-const express = require('express');
-
-const router = express.Router();
-const {
+import express from 'express';
+import {
     updateUserSettings,
     updatePassword,
-} = require('../controllers/settingsController');
+} from '../controllers/settingsController';
+
+const router = express.Router();
 
 router.post('/', updateUserSettings);
 router.post('/reset', updatePassword);
 
-module.exports = router;
+export default router;

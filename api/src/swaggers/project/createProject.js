@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   post: {
     tags: ['Project CRUD operations'],
     summary: 'Add a new project to the store',

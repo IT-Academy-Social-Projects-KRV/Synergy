@@ -1,8 +1,8 @@
-const item = require('./item');
-const project = require('./project');
-const comment = require('./comment');
+import item from './item';
+import project from './project';
+import comment from './comment';
 
-module.exports = {
+export default {
   paths: {
     ...item,
     ...project,

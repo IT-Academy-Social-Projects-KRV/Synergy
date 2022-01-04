@@ -1,5 +1,5 @@
-const { Op } = require('sequelize');
-const { statusesId } = require('../../constans/constants');
+import { Op } from 'sequelize';
+import { statusesId } from '../../constans/constants';
 
 const getFiltersForProject = (name, capital, dateStart, dateFinish) => {
     const filters = {};
@@ -19,4 +19,4 @@ const getFiltersForProject = (name, capital, dateStart, dateFinish) => {
     return filters;
 }
 
-module.exports = { getFiltersForProject }
+export { getFiltersForProject };

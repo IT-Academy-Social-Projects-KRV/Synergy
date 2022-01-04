@@ -1,4 +1,4 @@
-const settingsRepository = require('../dal/settingsRepository');
+import settingsRepository from '../dal/settingsRepository';
 
 const updateSettings = async (firstName, lastName, id) => {
     const databaseResult = await settingsRepository.updateSettings(firstName, lastName, id);
@@ -9,7 +9,7 @@ const updatePassword = async (password, userId) => {
   const databaseResult = await settingsRepository.updatePassword(password, userId);
   return databaseResult;
 }
-module.exports = {
+export default {
   updateSettings,
   updatePassword,
 };
