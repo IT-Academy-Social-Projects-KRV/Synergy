@@ -1,4 +1,4 @@
-const { Comment, User, Role } = require('../models/modelsAssociations');
+import { Comment, User, Role } from '../models/modelsAssociations';
 
 const getComments = async (itemId) => {
     try {
@@ -81,7 +81,7 @@ const deleteComment = async (id) => {
     }
 }
 
-module.exports = {
+export default {
     getComments,
     createComment,
     getComment,

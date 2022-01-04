@@ -1,5 +1,5 @@
-const statusCode = require('http-status');
-const commentService = require('../services/commentService');
+import statusCode from 'http-status';
+import commentService from '../services/commentService';
 
 const getComments = async (req, res) => {
     const { itemId } = req.body;
@@ -41,7 +41,7 @@ const deleteComment = async (req, res) => {
         .json(`Comment ${id} deleted`);
 };
 
-module.exports = {
+export {
   getComments,
   getOneComment,
   createComment,

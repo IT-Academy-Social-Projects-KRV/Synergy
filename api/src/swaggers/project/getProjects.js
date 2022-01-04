@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   get: {
     tags: ['Project CRUD operations'],
     description: 'Get projects',

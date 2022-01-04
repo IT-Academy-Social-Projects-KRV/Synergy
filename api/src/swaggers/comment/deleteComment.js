@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   delete: {
     tags: ['Comments CRUD operations'],
     summary: 'Deletes an comment',

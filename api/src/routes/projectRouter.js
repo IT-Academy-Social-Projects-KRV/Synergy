@@ -1,15 +1,15 @@
-const express = require('express');
-
-const router = express.Router();
-const {
+import express from 'express';
+import {
   getOneProject,
   projectList,
   updateProject,
   deleteProject,
   createProject,
-} = require('../controllers/projectController');
-const validateMiddleware = require('../middlewares/validate');
-const { projectSchema } = require('../validations/schemas');
+} from '../controllers/projectController';
+import validateMiddleware from '../middlewares/validate';
+import { projectSchema } from '../validations/schemas';
+
+const router = express.Router();
 
 router.get('/', projectList);
 router.get('/:id', validateMiddleware(projectSchema.id, 'params'), getOneProject);
@@ -22,4 +22,4 @@ router.patch(
 );
 router.delete('/:id', validateMiddleware(projectSchema.id, 'params'), deleteProject);
 
-module.exports = router;
+export default router;

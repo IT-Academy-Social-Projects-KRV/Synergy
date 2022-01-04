@@ -1,5 +1,5 @@
-const { User } = require('../models/modelsAssociations');
-const { statusesId } = require('../constans/constants');
+import { User } from '../models/modelsAssociations';
+import { statusesId } from '../constans/constants';
 
 const getUsers = async () => {
   try {
@@ -37,7 +37,7 @@ const loginUser = async (email) => {
   }
 }
 
-module.exports = {
+export default {
   getUsers,
   registerUser,
   loginUser,

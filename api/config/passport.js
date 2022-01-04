@@ -1,14 +1,12 @@
-const passportJWT = require('passport-jwt');
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { User } from '../src/models/modelsAssociations';
 
-const { ExtractJwt } = passportJWT;
-const JwtStrategy = passportJWT.Strategy;
-const { User } = require('../src/models/modelsAssociations');
+const jwtOptions = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET_KEY,
+};
 
-const jwtOptions = {};
-jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-jwtOptions.secretOrKey = process.env.SECRET_KEY;
-
-const strategy = new JwtStrategy(jwtOptions, (jwtPayload, done) => {
+const strategy = new Strategy(jwtOptions, (jwtPayload, done) => {
   const user = User.findOne({ id: jwtPayload.id });
     if (user) {
       done(null, user);
@@ -17,6 +15,6 @@ const strategy = new JwtStrategy(jwtOptions, (jwtPayload, done) => {
     }
 });
 
-module.exports = (passport) => {
+export default (passport) => {
   passport.use(strategy);
 };
