@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  api:
+    build: ./api
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+    container_name: api
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: db
+    restart: always
+  client:
+    build: ./client
+    ports:
+      - '3000:3000'
+    container_name: client
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: postgres
+    restart: always
