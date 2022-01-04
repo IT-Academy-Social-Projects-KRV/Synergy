@@ -1,5 +1,5 @@
-const statusCode = require('http-status');
-const projectsService = require('../services/projectService');
+import statusCode from 'http-status';
+import projectsService from '../services/projectService';
 
 const projectList = async (req, res) => {
     const {
@@ -43,7 +43,7 @@ const deleteProject = async (req, res) => {
         .json(`Project ${id} deleted`);
 };
 
-module.exports = {
+export {
   projectList,
   getOneProject,
   createProject,

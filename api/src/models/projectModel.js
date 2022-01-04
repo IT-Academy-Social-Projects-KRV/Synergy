@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../db');
+import { DataTypes } from 'sequelize';
+import sequelize from '../../db';
 
 const Project = sequelize.define('project', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -10,6 +10,4 @@ const Project = sequelize.define('project', {
   dateFinish: { type: DataTypes.DATEONLY, allowNull: false },
 });
 
-module.exports = {
-  Project,
-};
+export default Project;

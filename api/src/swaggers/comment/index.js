@@ -1,10 +1,10 @@
-const createComment = require('./createComment');
-const getComments = require('./getComments');
-const getComment = require('./getComment');
-const updateComment = require('./updateComment');
-const deleteComment = require('./deleteComment');
+import createComment from './createComment';
+import getComments from './getComments';
+import getComment from './getComment';
+import updateComment from './updateComment';
+import deleteComment from './deleteComment';
 
-module.exports = {
+export default {
   '/api/comments': {
     ...createComment,
     ...getComments,

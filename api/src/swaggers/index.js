@@ -1,10 +1,10 @@
-const basicInfo = require('./basicInfo');
-const servers = require('./servers');
-const tags = require('./tags');
-const components = require('./components');
-const paths = require('./paths');
+import basicInfo from './basicInfo';
+import servers from './servers';
+import tags from './tags';
+import components from './components';
+import paths from './paths';
 
-module.exports = {
+export default {
   ...basicInfo,
   ...servers,
   ...tags,

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   get: {
     tags: ['Comments CRUD operations'],
     description: 'Get comments',
