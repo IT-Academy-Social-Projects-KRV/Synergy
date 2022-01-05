@@ -26,7 +26,7 @@ const Project = (props) => {
   return (
     isLoader ? 
       <Loader /> 
-      : 
+      :
       <main>
         <div className={styles.board}>
           <div className={styles.board__projectBlock}>
@@ -35,8 +35,8 @@ const Project = (props) => {
               <div className={styles.board__block}>
                 <ProjectBill />
                 <ProjectInfo
-                  firstName={project.user.firstName}
-                  lastName={project.user.lastName}
+                  firstName={project?.user?.firstName && project.user.firstName}
+                  lastName={project?.user?.lastName && project.user.lastName }
                   orderDate={project.dateStart}
                   releaseDate={project.dateFinish} />
                 <ProjectDescription description={project.description} />

@@ -54,6 +54,12 @@ const fieldsForSideBar = {
     //   title: 'Dashboard',
     // },
     {
+      route: routes.AuthRoutes.pathToProjectList,
+      image: projects,
+      alt: 'projects',
+      title: 'Projects',
+    },
+    {
       route: routes.AuthRoutes.pathToSettings,
       image: settings,
       alt: 'settings',
