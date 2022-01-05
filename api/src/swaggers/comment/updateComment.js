@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   patch: {
     tags: ['Comments CRUD operations'],
     summary: 'Update an existing comment',

@@ -1,5 +1,5 @@
-const statusCode = require('http-status');
-const settingsService = require('../services/settingsService');
+import statusCode from 'http-status';
+import settingsService from '../services/settingsService';
 
 const updateUserSettings = async (req, res) => {
   const {
@@ -35,7 +35,7 @@ const updateBillSettings = async (req, res) => {
     .json(billSettings);
 };
 
-module.exports = {
+export {
   updateUserSettings,
   updatePassword,
   getBillSettings,

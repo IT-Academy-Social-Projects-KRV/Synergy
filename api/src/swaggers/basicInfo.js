@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   openapi: '3.0.3',
   info: {
     title: 'Synergy title',

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   post: {
     tags: ['Comments CRUD operations'],
     summary: 'Add a new comment to the item',

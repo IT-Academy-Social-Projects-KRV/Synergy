@@ -1,4 +1,4 @@
-const commentRepository = require('../dal/commentRepository');
+import commentRepository from '../dal/commentRepository';
 
 const getComments = async (itemId) => {
     const databaseResult = await commentRepository.getComments(itemId);
@@ -25,7 +25,7 @@ const deleteComment = async (id) => {
     return databaseResult;
 };
 
-module.exports = {
+export default {
     getComments,
     getOneComment,
     createComment,

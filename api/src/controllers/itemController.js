@@ -1,5 +1,5 @@
-const statusCode = require('http-status');
-const itemService = require('../services/itemService');
+import statusCode from 'http-status';
+import itemService from '../services/itemService';
 
 const getItems = async (req, res) => {
     const items = await itemService.getItems();
@@ -40,7 +40,7 @@ const deleteItem = async (req, res) => {
         .json(`Item ${id} deleted`);
 };
 
-module.exports = {
+export {
   getItems,
   getOneItem,
   createItem,

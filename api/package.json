@@ -17,12 +17,12 @@
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "start": "nodemon api/server.js",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
     "test": "jest --verbose --rootDir=tests",
     "test:watch": "jest --verbose --rootDir=tests --watch",
     "test:coverage": "jest --verbose --rootDir=tests --coverage",
-    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon api/server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server.js"
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,10 @@
     "swagger-ui-express": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.7",
     "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -64,6 +67,12 @@
     "lint-staged": "^12.1.2",
     "nodemon": "^2.0.14",
     "prettier": "2.5.0",
+    "regenerator-runtime": "^0.13.9",
     "sequelize-cli": "^6.3.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

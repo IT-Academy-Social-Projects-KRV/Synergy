@@ -1,5 +1,5 @@
-const itemRepository = require('../dal/itemRepository');
-const { statusesId } = require('../constans/constants');
+import itemRepository from '../dal/itemRepository';
+import { statusesId } from '../constans/constants';
 
 const getItems = async () => {
     const databaseResult = await itemRepository.getItems();
@@ -30,7 +30,7 @@ const deleteItem = async (id) => {
     return databaseResult;
 };
 
-module.exports = {
+export default {
     getItems,
     getOneItem,
     createItem,
