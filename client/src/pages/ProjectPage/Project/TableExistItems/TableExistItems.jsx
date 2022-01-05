@@ -12,8 +12,6 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import styles from './TableExistItems.module.scss';
 import routes from '../../../../configs/routes';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchItemById } from '../../../../redux';
 import STATUS from '../../../../consts/itemStatuses';
 import EnhancedTableHead  from './EnhancedTableHead/EnhancedTableHead';
 import EnhancedTableToolbar from './EnhancedTableToolbar/EnhancedTableToolbar';
@@ -61,8 +59,6 @@ const mappedItems = (array) => {
 };
 
 const ExistItems = ({ itemsData }) => {
-  const dispatch = useDispatch();
-
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('nameItem');
   const [selected, setSelected] = useState([]);
@@ -118,10 +114,6 @@ const ExistItems = ({ itemsData }) => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
-  };
-
-  const redirectToItem = async (id) => {
-    await dispatch(fetchItemById(id));
   };
   
   return (
@@ -190,8 +182,8 @@ const ExistItems = ({ itemsData }) => {
                           </Box>
                         </TableCell>
                         <TableCell sx={style.text}>
-                          <Button onClick={() => redirectToItem(row.id)}>
-                            <Link to={routes.AuthRoutes.pathToItemPage}>
+                          <Button>
+                            <Link to={`${routes.AuthRoutes.pathToItemPage}/${row.id}`}>
                               <OpenInNewIcon sx={{ color: '#7771D4' }} />
                             </Link>
                           </Button>

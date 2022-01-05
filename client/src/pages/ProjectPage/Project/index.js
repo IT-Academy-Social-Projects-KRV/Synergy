@@ -1,1 +1,3 @@
-export { default as ProjectPage } from './Project';
+import ProjectPage from './Project';
+
+export default ProjectPage;

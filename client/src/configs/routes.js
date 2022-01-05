@@ -4,6 +4,7 @@ const routes = {
     pathToProjectList: '/project-list',
     pathToSettings: '/settings',
     pathToDashboard: '/dashboard',
+    pathToProject: '/project',
     pathToBillSettings: '/bill-settings',
     pathToAccount: '/account',
     pathToItemPage: '/item'
