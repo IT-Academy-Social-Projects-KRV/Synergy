@@ -7,6 +7,4 @@ const Bill = sequelize.define('bill', {
   militaryTax: { type: DataTypes.DECIMAL, allowNull: false },
 });
 
-module.exports = {
-  Bill,
-};
+export default Bill;

@@ -6,6 +6,7 @@ import StatusCategory from './statusCategoryModel';
 import Status from './statusModel';
 import Token from './tokenModel';
 import User from './userModel';
+import Bill from './billModel';
 
 User.hasMany(Project);
 Project.belongsTo(User);
@@ -36,6 +37,9 @@ Comment.belongsTo(Item);
 
 User.hasMany(Comment);
 Comment.belongsTo(User);
+
+Project.hasOne(Bill);
+Bill.belongsTo(Project);
 
 export {
   Project, User, Role, Item, Comment, Status, StatusCategory, Token,
