@@ -60,7 +60,7 @@ const ProjectList = () => {
             {projectList.projects.map((d) => (
               <Link 
                 key={d.id}
-                to={routes.AuthRoutes.pathToDashboard}
+                to={`${routes.AuthRoutes.pathToProject}/${d.id}`}
               >
                 <ProjectListItem
                   id={d.id}

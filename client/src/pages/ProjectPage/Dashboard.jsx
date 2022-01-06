@@ -1,9 +1,9 @@
 import { ProjectPage } from './Project';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
     <>
-      <ProjectPage />
+      <ProjectPage {...props} />
     </>
   );
 };
