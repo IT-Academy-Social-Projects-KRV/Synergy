@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../variables.scss';
 
 .authorization {
   width: 100%;
@@ -7,7 +7,7 @@
 
   &__title {
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 5vh;
     text-align: center;
 
     & > h1 {
@@ -15,25 +15,29 @@
       color: $purple;
       font-size: 48px;
     }
+
     & > p {
       text-transform: uppercase;
       font-size: 18px;
     }
   }
+
   &__mainContent {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 7vh;
     @include flex;
 
     .logo {
       width: 50%;
-      height: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       & > img {
-        height: 100%;
-        width: 80%;
+        width: 90%;
       }
     }
+    
     .authorizationBox {
       width: 50%;
       height: 100%;
@@ -50,25 +54,34 @@
         @include flex($flexDirection: column);
         justify-content: center;
 
-        .nameOfPageLogin,
-        .nameOfPageRegistration {
+        .titleForm {
           @include pStyle;
           letter-spacing: 1px;
         }
+
         .authorizationForm {
           @include flex($flexDirection: column);
+
           & > a {
             color: $purple;
             margin-top: 25px;
             font-size: 14px;
             text-decoration: underline;
+
+            &:hover {
+              color: $darkPurple;
+              transition: all .25s
+            }
           }
+
           .orWord {
             color: $gray;
-            font-size: 15px;
-            margin: 20px 0;
+            font-size: 14px;
+            margin: 10px 0 20px 0;
           }
-          .existAccount {
+
+          .existAccount,
+          .dontHaveAccount {
             color: $gray;
             font-size: 14px;
 
@@ -76,7 +89,16 @@
               color: $purple;
               margin-left: 10px;
               text-decoration: underline;
+
+              &:hover {
+                color: $darkPurple;
+                transition: all .25s
+              }
             }
+          }
+
+          .dontHaveAccount {
+            margin: 25px 0 10px 0;
           }
         }
       }
@@ -90,11 +112,49 @@
 
 @media screen and (max-width: 600px) {
   .authorization {
+    
+    &__title {
+
+      & > h1 {
+        font-size: 32px;
+      }
+  
+      & > p {
+        font-size: 16px;
+      }
+    }
     &__mainContent {
-      .logo,
+      margin-top: 2rem;
+
+      .logo {
+        display: none;
+      }
+
       .authorizationBox {
         width: 100%;
-        height: 50%;
+
+        .dataInputFields {
+          border-radius: 10px;
+          width: 90%;
+          min-width: 200px;
+          max-width: 450px;
+
+          .titleForm {
+            @include pStyle($fontSize: 24px);
+          }
+
+          .authorizationForm {
+
+            & > a {
+              font-size: 12px;
+            }
+
+            .existAccount,
+            .dontHaveAccount {
+              font-size: 12px;
+            }
+          }
+        }
       }
     }
   }

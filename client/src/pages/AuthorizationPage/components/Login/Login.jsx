@@ -2,7 +2,7 @@ import loginLogo from '../../../../assets/images/AuthorizationImages/loginLogo.p
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 
-import styles from '../../../../consts/Authorization.module.scss';
+import styles from '../../../../consts/styles/Authorization.module.scss';
 import { style } from '../../style.jsx';
 import validStyle from '../../../../consts/validation.module.scss';
 import { useState } from 'react';
@@ -44,7 +44,7 @@ const Login = () => {
     });
     // if (!user) {
     history.push(
-      location.state?.requestedPath ?? routes.AuthRoutes.pathToDashboard
+      location.state?.requestedPath ?? routes.AuthRoutes.pathToProjectList
     );
     // }
   };
@@ -58,7 +58,7 @@ const Login = () => {
         </div>
         <div className={styles.authorizationBox}>
           <div className={styles.dataInputFields}>
-            <p className={styles.nameOfPageLogin}>Login</p>
+            <p className={styles.titleForm}>Login</p>
             <form
               className={styles.authorizationForm}
               onSubmit={handleSubmit(onSubmit)}
@@ -68,7 +68,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder='Email'
-                sx={style.inputEmail}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.email && (
@@ -81,7 +81,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder='Password'
-                sx={style.inputPassword}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.password && (
@@ -96,7 +96,10 @@ const Login = () => {
               >
                 Login
               </Button>
-              <Link to='/registration'>I not have account. Register now.</Link>
+              <p className={styles.dontHaveAccount}>
+                Don`t have an account?
+                <Link to='/registration'>Register now</Link>
+              </p>
             </form>
           </div>
         </div>
