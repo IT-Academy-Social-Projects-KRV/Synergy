@@ -1,6 +1,13 @@
 import statusCode from 'http-status';
 import billSettingsService from '../services/billSettingsService';
 
+const generatePdf = async (req, res) => {
+  const { id } = req.params;
+  const billSettings = await billSettingsService.generatePdf(id);
+  res.status(statusCode.OK)
+    .json(billSettings);
+};
+
 const getBillSettings = async (req, res) => {
   const { id } = req.params;
   const billSettings = await billSettingsService.getBillSettings(id);
@@ -18,6 +25,7 @@ const updateBillSettings = async (req, res) => {
 };
 
 export {
+  generatePdf,
   getBillSettings,
   updateBillSettings,
 };

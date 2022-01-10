@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../db');
+import { DataTypes } from 'sequelize';
+import sequelize from '../../db';
 
 const Bill = sequelize.define('bill', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
