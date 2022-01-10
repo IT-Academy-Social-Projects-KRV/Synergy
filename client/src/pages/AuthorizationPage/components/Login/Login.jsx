@@ -44,7 +44,7 @@ const Login = () => {
     });
     // if (!user) {
     history.push(
-      location.state?.requestedPath ?? routes.AuthRoutes.pathToDashboard
+      location.state?.requestedPath ?? routes.AuthRoutes.pathToProjectList
     );
     // }
   };
