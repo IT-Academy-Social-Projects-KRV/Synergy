@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import statusCode from 'http-status';
 import userRepository from '../dal/userRepository';
 import { User } from '../models/modelsAssociations';
@@ -8,7 +9,7 @@ const getUsers = async () => {
   return {
     status: statusCode.OK,
     getAllUsers,
-}
+  }
 }
 
 const registerUser = async (firstName, lastName, email, password) => {
@@ -45,24 +46,25 @@ const loginUser = async (email, password) => {
         status: statusCode.UNAUTHORIZED,
         message: 'Authentification failed. User not found',
       };
-      }
-    if (user.password === password) {
-      const payload = {
-        id: user.id,
-        email: user.email,
+    }
+    const comparePassword = bcrypt.compareSync(password, user.password);
+    if (!comparePassword) {
+      return {
+        status: statusCode.UNAUTHORIZED,
+        message: 'Password is incorrect',
       };
-      const token = jwt.sign(payload, process.env.SECRET_KEY);
+    }
+    const payload = {
+      id: user.id,
+      email: user.email,
+    };
+    const token = jwt.sign(payload, process.env.SECRET_KEY);
       return {
         status: statusCode.OK,
         message: 'Success!',
         user,
         token,
-      };
-    }
-    return {
-        status: statusCode.UNAUTHORIZED,
-        message: 'Password is incorrect',
-      };
+    };
 }
 
 export default {
