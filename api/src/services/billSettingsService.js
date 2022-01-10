@@ -7,6 +7,7 @@ import options from '../helpers/options';
 import projectRepository from '../dal/projectRepository';
 
 const generatePdf = async (id) => {
+  const PORT = process.env.PORT || 5000;
   const html = fs.readFileSync(path.join(__dirname, '../views/templatePDF.html'), 'utf-8');
   const fileFormat = '_doc.pdf';
   const fileName = Math.random() + fileFormat;
@@ -38,9 +39,10 @@ const generatePdf = async (id) => {
       throw Error(err);
     });
 
+  const filepath = `http://localhost:${PORT}/docs/${fileName}`;
   return {
     status: statusCode.OK,
-    pdf,
+    filepath,
   }
 };
 
