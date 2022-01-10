@@ -1,7 +1,7 @@
 import routes from '../../../../configs/routes';
 import registrationLogo from '../../../../assets/images/AuthorizationImages/registrationLogo.png';
 
-import styles from '../../../../consts/Authorization.module.scss';
+import styles from '../../../../consts/styles/Authorization.module.scss';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import { Link, useHistory } from 'react-router-dom';
@@ -64,7 +64,7 @@ const Registration = () => {
         </div>
         <div className={styles.authorizationBox}>
           <div className={styles.dataInputFields}>
-            <p className={styles.nameOfPageRegistration}>Registration</p>
+            <p className={styles.titleForm}>Registration</p>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.authorizationForm}>
               <Input
                 {...register('name', valRequired)}
@@ -77,7 +77,7 @@ const Registration = () => {
                 name='name'
                 type='text'
                 placeholder='First Name'
-                sx={style.inputName}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.name && <p>{errors?.name?.message || 'Error, try again'}</p>}
@@ -93,7 +93,7 @@ const Registration = () => {
                 name='surname'
                 type='text'
                 placeholder='Last Name'
-                sx={style.inputName}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.name && <p>{errors?.name?.message || 'Error, try again'}</p>}
@@ -109,7 +109,7 @@ const Registration = () => {
                 name='email'
                 type='email'
                 placeholder='Email'
-                sx={style.inputEmail}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.email && <p>{errors?.email?.message || 'Error, try again'}</p>}
@@ -125,7 +125,7 @@ const Registration = () => {
                 name='password'
                 type='password'
                 placeholder='Password'
-                sx={style.inputPassword}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
                 {errors?.password && <p>{errors?.password?.message || 'Error, try again'}</p>}

@@ -1,4 +1,4 @@
-import styles from '../../consts/Authorization.module.scss';
+import styles from '../../consts/styles/Authorization.module.scss';
 import CLogo from '../../assets/images/MainPageImages/C.png';
 
 const AutorizationFooter = () => {
