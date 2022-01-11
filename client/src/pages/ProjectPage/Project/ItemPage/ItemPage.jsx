@@ -6,6 +6,10 @@ import Loader from '../../../../components/Loader';
 import STATUS from '../../../../consts/itemStatuses';
 import routes from '../../../../configs/routes';
 import Vector from '../../../../assets/images/ItemImages/Vector.png';
+import Approve from '../../../../shared/Buttons/Approve';
+import Reject from '../../../../shared/Buttons/Reject';
+import { Button } from '@mui/material';
+import { style } from '../ItemPage/style';
 import styles from './ItemPage.module.scss';
 
 const ItemPage = (props) => {
@@ -21,7 +25,7 @@ const ItemPage = (props) => {
   useEffect(() => {
     fetchItem();
   }, []);
-
+  
   return (
     isLoader ? <Loader /> :
       <div className={styles.content}>
@@ -37,11 +41,13 @@ const ItemPage = (props) => {
             </div>
             <div className={styles.input}>
               <p>Cost</p>
-              <p>${item.price}</p>
+              <p>$ {item.price}</p>
             </div>
             <div className={styles.input}>
               <p>Status</p>
-              <button className={styles.statusApprove}>{STATUS[item.statusId]}</button>
+              <Button variant='contained' disabled sx={style.disable}>
+                {STATUS[item.statusId]}
+              </Button>
             </div>
             <div className={styles.description}>
               <p>Description</p>
@@ -49,6 +55,8 @@ const ItemPage = (props) => {
                 {item.description}
               </p>
             </div>
+            <Approve sx={style.approve}/>
+            <Reject sx={style.reject}/>
           </div>
           <div className={styles.comments}>
             <div className={styles.header}>
