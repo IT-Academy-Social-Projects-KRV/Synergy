@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import routes from '../configs/routes';
 import ProjectList from '../pages/ProjectListPage';
-import Dashboard from '../pages/ProjectPage/Dashboard';
+import ProjectPage from '../pages/ProjectPage/Project';
 import CreatingProject from '../pages/CreatingProjectPage';
 import AuthRoute from './AuthRoute';
 import UnauthenticatedRoute from './UnauthenticatedRoute';
@@ -29,8 +29,8 @@ const Routes = () => {
       />
       <AuthRoute
         exact
-        path={routes.AuthRoutes.pathToDashboard}
-        component={Dashboard}
+        path={`${routes.AuthRoutes.pathToProject}/:id`}
+        component={ProjectPage}
       />
       <AuthRoute
         path={routes.AuthRoutes.pathToCreatingProject}
@@ -58,7 +58,7 @@ const Routes = () => {
         component={AccountPage}
       />
       <AuthRoute
-        path={routes.AuthRoutes.pathToItemPage}
+        path={`${routes.AuthRoutes.pathToItemPage}/:id`}
         exact
         component={ItemPage}
       />

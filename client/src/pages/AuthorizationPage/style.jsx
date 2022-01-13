@@ -4,33 +4,26 @@ export const style = {
     ml: 'auto',
     mr: 'auto',
     width: '200px',
-    backgroundColor: '#6c63ff',
+    fontSize: '14px',
+    backgroundColor: '#564FCC',
     '&:hover': {
       backgroundColor: '#39358d'
+    },
+    '@media (max-width: 600px)': {
+      fontSize: '12px',
+      width: '150px'
     }
   },
-  inputName: {
+  input: {
     width: '60%', 
     ml: 'auto', 
     mr: 'auto',
     mb: '20px',
-    fontSize: '15px',
-    fontWeight: 'bold'
-  },
-  inputEmail: {
-    width: '60%', 
-    ml: 'auto', 
-    mr: 'auto',
-    mb: '20px',
-    fontSize: '15px',
-    fontWeight: 'bold'
-  },
-  inputPassword: {
-    width: '60%', 
-    ml: 'auto', 
-    mr: 'auto',
-    mb: '20px',
-    fontSize: '15px',
-    fontWeight: 'bold'
+    fontSize: '14px',
+    fontWeight: 'bold',
+    '@media (max-width: 600px)': {
+      width: '80%',
+      fontSize: '12px'
+    }
   }
 };

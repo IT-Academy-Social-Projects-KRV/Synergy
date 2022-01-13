@@ -66,12 +66,13 @@ $headerMarginBottom: 40px;
   font-size: 10px;
   width: 205px;
   position: absolute;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 %marginTopLeftItem{
@@ -114,11 +115,11 @@ $headerMarginBottom: 40px;
   margin-bottom: 5px; 
 }
 
-@mixin pStyle() {
+@mixin pStyle($fontSize: 32px) {
   margin-top: 0;
   margin-bottom: 1.5rem;
   color: $purple;
-  font-size: 25px;
+  font-size: $fontSize;
   font-weight: bold;
 }
 
