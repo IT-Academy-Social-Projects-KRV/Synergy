@@ -7,15 +7,13 @@
   &__title {
     width: 100%;
     height: 15%;
-    margin-top: 4rem;
+    margin-top: 5%;
     text-align: center;
     & > h1 {
       text-transform: uppercase;
       color: $purple;
       margin: auto;
       height: 70px;
-      width: 341px;
-      top: 187px;
       font-weight: bold;
       border-radius: nullpx;
       font-size: 48px;
@@ -46,7 +44,7 @@
       @include flex($flexDirection: column);
       justify-content: center;
       .savedBack{
-        background-color:#EDF7ED;        ;
+        background-color:#EDF7ED;        
         position: absolute; 
         width: 100%;
         height: 48px;
@@ -63,34 +61,8 @@
           margin-left: 5px;
         }
       }
-      .logoCircleBig {
-        border: 0px solid#BEBAFF80;        ;
-        border-radius: 31px;
-        position: absolute;
-        width: 62px;
-        height: 62px;
-        top: 48px;
-        left: 279px;
-        margin-left: auto;
-        background-color: #BEBAFF80;
-        .logoCirclelittle {
-          border: 0px solid#AFAAFF99;
-          position: absolute;
-          background: #AFAAFF99;
-          border-radius: 31px;
-          width: 42px;
-          height: 42px;
-          left: 10px;
-          top: 10px;
-          .logo {
-            text-align: center;
-            width: 18px;
-            height: 18px;
-            position: absolute;
-            left: 12px;
-            top: 12px;
-          }
-        }
+      .logoCircle {
+        margin-top: -10%;
       }
       .nameOfBox {
         margin-top: 0;
@@ -104,20 +76,6 @@
       }
       .mainForm {
           @include flex($flexDirection: column);
-
-          .inputPas {
-            width: 60%;
-            margin: auto;
-            margin-top: 20px;
-          }
-
-          .resetButton {
-            width: 60%;
-            height: 40px;
-            margin: auto;
-            margin-top: 20px;
-            background-color: #7872D6;
-          }
 
           .loginHref {
             margin-top: 5px;

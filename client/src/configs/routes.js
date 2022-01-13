@@ -12,7 +12,7 @@ const routes = {
     pathToLogin: '/',
     pathToRegistration: '/registration',
     pathToReset: '/reset',
-    pathToForgotPassword: '/forgotpass',
+    pathToForgotPassword: '/forgot',
   }
 };
 
