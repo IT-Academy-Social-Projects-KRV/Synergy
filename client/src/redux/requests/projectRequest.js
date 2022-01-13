@@ -1,5 +1,5 @@
 import { setIsLoader, setRequestError, setProject } from '..';
-import { createProject, getProjectById } from '../../services/projects.service';
+import { createProject, getProjectById, getProjectForAccount } from '../../services/projects.service';
 
 export const fetchProjectById = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
@@ -24,3 +24,13 @@ export const fetchCreateProject = (payload) => async (dispatch) => {
   }
 };
 
+export const fetchProjectForAccount = (payload) => async (dispatch) => {
+  dispatch(setIsLoader(true));
+  try {
+    return await getProjectForAccount(payload);
+  } catch (e) {
+    dispatch(setRequestError(e));
+  } finally {
+    dispatch(setIsLoader(false));
+  }
+};

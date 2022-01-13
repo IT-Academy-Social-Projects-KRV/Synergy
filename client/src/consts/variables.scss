@@ -178,6 +178,20 @@ $headerMarginBottom: 40px;
     color: $darkPurple;
   }
 }
+@mixin lineSeparator {
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid $ligghtPurpleBg;
+    width: 99%;
+    margin: 0 auto;
+    margin-top: 5px;
+    bottom: -10px;
+    border-radius: 10px;
+    left: 0.5%;
+  }
+}
 
 @mixin textArea {
   outline: none;
@@ -199,4 +213,10 @@ $headerMarginBottom: 40px;
   padding: 5px 10px;
   margin-left: 16px;
   border-radius: 5px;
+}
+
+@mixin fontStyleAccount() {
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: 500;
 }
