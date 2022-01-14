@@ -137,19 +137,8 @@
         @extend %flexColumn;
         align-items: flex-start;
         margin-top: 40px;
-        position: relative;
-    
-        &:after {
-            content: "";
-            position: absolute;
-            border-bottom: 2px solid $ligghtPurpleBg;
-            width: 99%;
-            margin: 0 auto;
-            margin-top: 5px;
-            bottom: -10px;
-            border-radius: 10px;
-            left: 0.5%;
-        }
+        @include lineSeparator;
+
         .settings_security__header_title{
             margin-top: 40px;
             font-size: 20px;

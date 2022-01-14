@@ -1,0 +1,95 @@
+@import '../../../../consts/variables';
+.account_personal_data_container {
+    @extend %flexColumn;
+    margin-left: 32px;
+
+    .account_personal_inscription{
+        @extend %baseFlex;
+        flex-direction: column;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 32px 0 17px 0;
+    }
+
+    .account_personal_data_profile_tab{
+        @extend %baseFlex;
+        @include settingsTabs;
+    }
+}
+
+    .account_personal_header{
+        align-items: flex-start;
+        @include lineSeparator;
+
+        .account_personal_title{
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 23px;
+            color: $defaultGrayText;
+            margin-top: 40px;
+        }
+
+        .account_personal_subtitle{
+            @include settingsSubTitle;
+        }
+    }
+    
+    .account_personal_form{
+        @extend %flexColumn;
+        margin-top: 45px;
+
+        .account_personal_form_information{
+            @extend %flexColumn;
+            align-items: flex-start;
+
+            .account_data{
+                @extend %flexRow;
+                align-items: center;
+                color:$defaultGrayText;
+                margin-bottom: 16px;
+                font-weight: 500;
+                font-size: 16px;
+
+                    .email{
+                        margin-left: 31px;
+                        font-weight: 500;
+                    }
+            }
+            
+            .user_data{
+                font-size: 16px;
+                line-height: 19px;
+                font-weight: bold;
+                color: $purple;
+                margin: 0 20px 0 12px;
+
+            }
+        }
+    }
+
+.account_personal_form_information_data{
+    @extend %flexColumn;
+    margin-bottom: 43px;
+
+    .account_user_data{
+        @extend %flexAlign;
+        margin-bottom: 16px;
+        
+    }
+    .user_information{
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: bold;
+        color: $defaultGrayText;
+    }
+    .get_user_status{
+        @include fontStyleAccount;
+        color:$purple;
+        
+    }
+    .get_data_registration{
+        @include fontStyleAccount;
+        line-height: 16px;
+        color: $defaultGrayText;
+    }
+}

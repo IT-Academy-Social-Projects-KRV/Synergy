@@ -33,6 +33,26 @@ const getProjectById = (id) => {
 
 };
 
+const getProjectForAccount = (
+  {
+    name, 
+    capital,
+    dateStart,
+    dateFinish,
+    userId
+  },
+) => {
+  return api.get('/projects', {
+    params: {
+      name, 
+      capital,
+      dateStart,
+      dateFinish,
+      userId
+    }
+  });
+};
+
 const createProject = (payload) => {
   return api.post('/projects', payload);
 };
@@ -41,5 +61,6 @@ export {
   getAllProjects,
   createProject,
   getSortProjects,
-  getProjectById
+  getProjectById,
+  getProjectForAccount,
 };

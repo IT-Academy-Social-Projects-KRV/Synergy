@@ -1,8 +1,8 @@
 import projectRepository from '../dal/projectRepository';
 import { getFiltersForProject } from '../utils/helpers/filter';
 
-const getProjects = async (sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish) => {
-    const filters = getFiltersForProject(name, capital, dateStart, dateFinish);
+const getProjects = async (sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish, userId) => {
+    const filters = getFiltersForProject(name, capital, dateStart, dateFinish, userId);
     const sortData = !sortBy && !sortDirection ? ['id', 'ASC'] : [sortBy, sortDirection];
 
     const databaseResult = await projectRepository.getProjects(sortData, page || 1, size || 10, filters);

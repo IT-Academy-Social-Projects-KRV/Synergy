@@ -3,9 +3,9 @@ import projectsService from '../services/projectService';
 
 const projectList = async (req, res) => {
     const {
-        sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish,
+        sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish, userId,
     } = req.query;
-    const projects = await projectsService.getProjects(sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish);
+    const projects = await projectsService.getProjects(sortBy, sortDirection, page, size, name, capital, dateStart, dateFinish, userId);
     res.status(statusCode.OK)
         .json(projects);
 };

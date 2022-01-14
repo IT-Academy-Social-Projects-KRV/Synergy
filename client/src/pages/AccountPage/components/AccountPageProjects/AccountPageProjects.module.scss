@@ -1,0 +1,18 @@
+@import '../../../../consts/variables';
+.account_projects_container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+    
+    .account_projects_tab{
+        @extend %baseFlex;
+        @include settingsTabs;
+        margin-bottom: 16px;
+    }
+
+    .account_projects_subtitle{
+        @include settingsSubTitle;
+        @include lineSeparator;
+        margin-bottom: 30px;
+    }
+}

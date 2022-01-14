@@ -9,7 +9,7 @@ import './routes.scss';
 import Settings from '../pages/SettingsPage/components/AdminSettingsPage/AdminSettings';
 import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
-import Account from '../components/Account';
+import AccountPage from '../pages/AccountPage';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
 
@@ -55,7 +55,7 @@ const Routes = () => {
       <AuthRoute
         path={routes.AuthRoutes.pathToAccount}
         exact
-        component={Account}
+        component={AccountPage}
       />
       <AuthRoute
         path={`${routes.AuthRoutes.pathToItemPage}/:id`}

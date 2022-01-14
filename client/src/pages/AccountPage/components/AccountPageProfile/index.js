@@ -1,0 +1,1 @@
+export { default as AccountPageProfile } from './AccountPageProfile';

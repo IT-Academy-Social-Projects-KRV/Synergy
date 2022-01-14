@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
 import { statusesId } from '../../constans/constants';
 
-const getFiltersForProject = (name, capital, dateStart, dateFinish) => {
+const getFiltersForProject = (name, capital, dateStart, dateFinish, userId) => {
     const filters = {};
     if (name) {
         filters.name = { [Op.iLike]: `%${name}%` };
@@ -14,6 +14,9 @@ const getFiltersForProject = (name, capital, dateStart, dateFinish) => {
     }
     if (dateFinish) {
         filters.dateFinish = { [Op.lt]: dateFinish };
+    }
+    if (userId) {
+        filters.userId = { [Op.eq]: userId }
     }
     filters.statusId = { [Op.ne]: statusesId.DELETED }
     return filters;
