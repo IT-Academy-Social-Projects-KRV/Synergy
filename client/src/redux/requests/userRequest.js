@@ -5,7 +5,7 @@ import statusCode from '../../consts/statusCode';
 
 
 export const fetchLoginUser = (
-  //payload
+  // payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {

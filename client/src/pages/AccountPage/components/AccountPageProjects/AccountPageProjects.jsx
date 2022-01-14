@@ -12,7 +12,6 @@ import { styleAccount, headCells } from '../../../../consts/accountPageProject';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import routes from '../../../../configs/routes';
 import { Link } from 'react-router-dom';
-import { fetchItemById } from '../../../../redux';
 import { fetchProjectForAccount } from '../../../../redux';
 import { Button } from '@mui/material';
 import { useSelector } from 'react-redux';
@@ -46,10 +45,6 @@ const AccountPageProjects = () => {
       };
     }));
   }, []);
-
-  const redirectToItem = async (id) => {
-    await dispatch(fetchItemById(id));
-  };
 
   return (
     <>
@@ -90,8 +85,8 @@ const AccountPageProjects = () => {
                           </TableCell>);
                       })}
                       <TableCell sx={styleAccount.text}>
-                        <Button onClick={() => redirectToItem(row.id)}>
-                          <Link to={routes.AuthRoutes.pathToItemPage}>
+                        <Button>
+                          <Link to={`${routes.AuthRoutes.pathToItemPage}/${row.id}`}>
                             <OpenInNewIcon sx={{ color: '#7771D4' }} />
                           </Link>
                         </Button>
