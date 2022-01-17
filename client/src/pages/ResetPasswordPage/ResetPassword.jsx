@@ -5,6 +5,7 @@ import GreenVector from '../../assets/images/ResetPasswordImages/Vector.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import styles from './styles.module.scss';
+import { Link } from 'react-router-dom';
 
 const UpdatePassword = () => {
   const style = {
@@ -62,7 +63,7 @@ const UpdatePassword = () => {
             >
               Reset password
             </Button>
-            <a href='/login' className={styles.loginHref}>Back to log in</a>
+            <Link to='/'>Back to log in</Link>
           </form>
         </div>
         <div className={styles.bottomCText}>

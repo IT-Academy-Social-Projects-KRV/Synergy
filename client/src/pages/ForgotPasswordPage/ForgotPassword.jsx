@@ -4,6 +4,7 @@ import keyLogo from '../../assets/images/ResetPasswordImages/keyLogo.png';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import styles from './styles.module.scss';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const style = {
@@ -52,7 +53,7 @@ const ForgotPassword = () => {
             >
               Submit Email
             </Button>
-            <a href='/' className={styles.loginHref}>Back to log in</a>
+            <Link to='/'>Back to log in</Link>
           </form>
         </div>
         <div className={styles.bottomCText}>
