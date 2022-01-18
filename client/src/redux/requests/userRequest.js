@@ -1,24 +1,18 @@
 import { setIsLoader, setRequestError, setUser } from '..';
-import { register, userChanges } from '../../services/user.service';
+import { logIn, register, userChanges } from '../../services/user.service';
 import statusCode from '../../consts/statusCode';
-//add to import logIn
-
 
 export const fetchLoginUser = (
-  // payload
+  payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
-    sessionStorage.setItem('token', ('dfdsfsfsfsf'));
-    sessionStorage.setItem('user', JSON.stringify({ id: 1, roleId: 2 , firstName: 'Steve', lastName: 'Rogers' }));
-    dispatch(setUser(JSON.parse(sessionStorage.getItem('user'))));
-    // const res = await logIn(payload);
-
-    // if (res.status === statusCode.OK) {
-    //   sessionStorage.setItem('user',JSON.stringify(res.data.user));
-    //   sessionStorage.setItem('token', res.data.token);
-    //   dispatch(setUser(res.data.user));
-    // }
+    const res = await logIn(payload);
+    if (res.status === statusCode.OK) {
+      localStorage.setItem('user',JSON.stringify(res.data.user));
+      localStorage.setItem('token', res.data.token);
+      dispatch(setUser(res.data.user));
+    }
   }
   catch (e) {
     dispatch(setRequestError(e));

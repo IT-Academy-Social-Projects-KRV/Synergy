@@ -3,7 +3,7 @@ import { setUser } from '../actions/userAction';
 
 
 const initialState = {
-  user: JSON.parse(sessionStorage.getItem('user')) //! ??
+  user: JSON.parse(localStorage.getItem('user')) 
 };
 
 export const userReducer = createReducer(initialState, {
