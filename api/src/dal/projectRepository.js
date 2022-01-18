@@ -1,6 +1,6 @@
 import { statusesId } from '../constans/constants';
 import {
- Project, Item, User, Bill,
+ Project, Item, User,
 } from '../models/modelsAssociations';
 
 const getProjects = async (sortData, page, size, filters) => {
@@ -52,7 +52,6 @@ const getProject = async (id) => {
         attributes: ['firstName', 'lastName', 'email'],
       },
         Item,
-        Bill,
       ],
     });
     return data;

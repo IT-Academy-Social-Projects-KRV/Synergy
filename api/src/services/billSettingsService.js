@@ -2,27 +2,18 @@ import statusCode from 'http-status';
 import fs from 'fs';
 import path from 'path';
 import pdf from 'pdf-creator-node';
-import billSettingsRepository from '../dal/billSettingsRepository';
 import options from '../helpers/options';
 import projectRepository from '../dal/projectRepository';
+import billSettingsRepository from '../dal/billSettingsRepository';
 
 const generatePdf = async (id) => {
   const PORT = process.env.PORT || 5000;
   const html = fs.readFileSync(path.join(__dirname, '../views/templatePDF.html'), 'utf-8');
   const fileFormat = '_doc.pdf';
   const fileName = Math.random() + fileFormat;
-  const projectInfo = [];
 
-  const data = await projectRepository.getProject(id);
+  const projectInfo = await projectRepository.getProject(id);
 
-  data.forEach(el => {
-    const project = {
-      name: el.name,
-      description: el.description,
-      capital: el.capital,
-    }
-    projectInfo.push(project);
-  });
   const docInfo = {
     projectInfo,
   }
@@ -38,7 +29,6 @@ const generatePdf = async (id) => {
     .catch(err => {
       throw Error(err);
     });
-
   const filepath = `http://localhost:${PORT}/docs/${fileName}`;
   return {
     status: statusCode.OK,
