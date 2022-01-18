@@ -1,8 +1,5 @@
 import statusCode from 'http-status';
 import PDFDocument from 'pdfkit';
-// import path from 'path';
-// import pdf from 'pdf-creator-node';
-// import options from '../helpers/options';
 import projectRepository from '../dal/projectRepository';
 import billSettingsRepository from '../dal/billSettingsRepository';
 
