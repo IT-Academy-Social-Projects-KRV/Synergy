@@ -8,11 +8,22 @@ const generatePdf = async (id, res) => {
   const doc = new PDFDocument({ bufferPages: true });
 
   const projectInfo = await projectRepository.getProject(id);
-  const billData = await billSettingsRepository.getBillSettings();
+  const billInfo = await billSettingsRepository.getBillSettings();
   // eslint-disable-next-line no-console
-  console.log(billData.incomeTax);
-  let sumProjectItems = 0;
+  //console.log(billData);
+  let billData = {};
+  billInfo.map((el) => {
+    billData = {
+      incomeTax: el.incomeTax,
+      militaryTax: el.militaryTax,
+    }
+    return 0;
+  })
+
   const resIncomeTax = projectInfo.capital * billData.incomeTax;
+  const resMilitaryTax = projectInfo.capital * billData.militaryTax;
+  const totalTax = resIncomeTax + resMilitaryTax;
+  let sumProjectItems = 0;
   projectInfo.items.forEach(el => {
     sumProjectItems += el.price;
   });
@@ -30,7 +41,7 @@ const generatePdf = async (id, res) => {
 
   doc.font('Times-Roman')
     .fontSize(35)
-    .text(`Synecgy invoice`, {
+    .text(`Synergy invoice`, {
       align: 'center',
     });
   doc.moveDown();
@@ -47,6 +58,11 @@ const generatePdf = async (id, res) => {
   doc.text(`The price of all items is : ${sumProjectItems}`);
   doc.moveDown();
   doc.text(`Income tax is ${billData.incomeTax} : ${resIncomeTax}`);
+  doc.moveDown();
+  doc.text(`Military tax is ${billData.militaryTax} : ${resMilitaryTax}`);
+  doc.moveDown();
+  doc.text(`Total tax is : ${totalTax}`);
+  doc.moveDown();
   doc.text('© Synergy 2021', 20, doc.page.height - 50, {
     lineBreak: false,
   });
