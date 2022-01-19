@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { React }  from 'react';
 import style from '../AccountPageProfile/AccountPageProfile.module.scss';
 import username_icon from '../../../../assets//images/SettingsPageImages/username-icon.svg';
