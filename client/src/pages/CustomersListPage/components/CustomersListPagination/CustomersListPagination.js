@@ -11,7 +11,6 @@ const CustomersPagination = ({ currentPage, totalPages, setPaginateOptions }) =>
       shape='rounded'
     />
   );
-
 };
 
 export default CustomersPagination;

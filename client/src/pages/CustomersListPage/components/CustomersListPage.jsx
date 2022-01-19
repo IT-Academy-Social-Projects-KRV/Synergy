@@ -31,7 +31,7 @@ const CustomersListPage = () => {
 
   useEffect(async() => {
     
-    const response = await dispatch(fetchCustomersList({}));
+    const response = await dispatch(fetchCustomersList());
 
     const allUsers = response.data.getAllUsers.map((user) => {
       return {

@@ -35,7 +35,7 @@ const Routes = () => {
       />
       <AuthRoute
         exact
-        path={`${routes.AuthRoutes.pathToCustomers}`}
+        path={routes.AuthRoutes.pathToCustomers}
         component={CustomersListPage}
       />
       <AuthRoute
