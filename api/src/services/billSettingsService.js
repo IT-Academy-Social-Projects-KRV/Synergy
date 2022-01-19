@@ -9,8 +9,7 @@ const generatePdf = async (id, res) => {
 
   const projectInfo = await projectRepository.getProject(id);
   const billInfo = await billSettingsRepository.getBillSettings();
-  // eslint-disable-next-line no-console
-  //console.log(billData);
+
   let billData = {};
   billInfo.map((el) => {
     billData = {
@@ -67,6 +66,7 @@ const generatePdf = async (id, res) => {
     lineBreak: false,
   });
   doc.end();
+
   return {
     status: statusCode.OK,
     res,
