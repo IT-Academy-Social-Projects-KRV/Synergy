@@ -63,11 +63,6 @@
       }
       .mainForm {
           @include flex($flexDirection: column);
-
-          .loginHref {
-            margin-top: 5px;
-            font-size: 14px;
-          }
       }
     }
   }
