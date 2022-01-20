@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
 import passport from 'passport';
 import swaggerUi from 'swagger-ui-express';
 import docs from './src/swaggers';
@@ -15,7 +14,6 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use('/api', router);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(docs));
-app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 const start = async () => {
   try {
