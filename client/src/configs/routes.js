@@ -4,6 +4,8 @@ const routes = {
     pathToProjectList: '/project-list',
     pathToSettings: '/settings',
     pathToDashboard: '/dashboard',
+    pathToCustomers: '/customers',
+    pathToProject: '/project',
     pathToBillSettings: '/bill-settings',
     pathToAccount: '/account',
     pathToItemPage: '/item'
@@ -11,6 +13,8 @@ const routes = {
   NonAuthRoutes : {
     pathToLogin: '/',
     pathToRegistration: '/registration',
+    pathToReset: '/reset',
+    pathToForgotPassword: '/forgot',
   }
 };
 

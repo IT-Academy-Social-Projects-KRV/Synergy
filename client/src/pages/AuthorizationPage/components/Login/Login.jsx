@@ -2,7 +2,7 @@ import loginLogo from '../../../../assets/images/AuthorizationImages/loginLogo.p
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 
-import styles from '../../../../consts/Authorization.module.scss';
+import styles from '../../../../consts/styles/Authorization.module.scss';
 import { style } from '../../style.jsx';
 import validStyle from '../../../../consts/validation.module.scss';
 import { useState } from 'react';
@@ -13,8 +13,10 @@ import { Link, useHistory } from 'react-router-dom';
 import routes from '../../../../configs/routes';
 import AutorizationHeader from '../../../../shared/Autorization/AutorizationHeader';
 import AutorizationFooter from '../../../../shared/Autorization/AutorizationFooter';
-import { valEmail, valPassword } from '../../../../consts/validationPropertiesForFields';
-
+import {
+  valEmail,
+  valPassword,
+} from '../../../../consts/validationPropertiesForFields';
 
 const Login = () => {
   const history = useHistory();
@@ -38,11 +40,11 @@ const Login = () => {
   const onSubmit = () => {
     handleFetchLoginUser({
       email,
-      password
+      password,
     });
     // if (!user) {
     history.push(
-      location.state?.requestedPath ?? routes.AuthRoutes.pathToDashboard
+      location.state?.requestedPath ?? routes.AuthRoutes.pathToProjectList
     );
     // }
   };
@@ -56,36 +58,48 @@ const Login = () => {
         </div>
         <div className={styles.authorizationBox}>
           <div className={styles.dataInputFields}>
-            <p className={styles.nameOfPageLogin}>Login</p>
-            <form className={styles.authorizationForm} onSubmit={handleSubmit(onSubmit)}>
+            <p className={styles.titleForm}>Login</p>
+            <form
+              className={styles.authorizationForm}
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <Input
                 {...register('email', valEmail)}
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder='Email'
-                sx={style.inputEmail}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
-                {errors?.email && <p>{errors?.email?.message || 'Error, try again'}</p>}
+                {errors?.email && (
+                  <p>{errors?.email?.message || 'Error, try again'}</p>
+                )}
               </div>
               <Input
                 {...register('password', valPassword)}
                 type='password'
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder='Password'
-                sx={style.inputPassword}
+                sx={style.input}
               />
               <div className={validStyle.textBlock}>
-                {errors?.password && <p>{errors?.password?.message || 'Error, try again'}</p>}
+                {errors?.password && (
+                  <p>{errors?.password?.message || 'Error, try again'}</p>
+                )}
               </div>
               <Link to='/'>Forgot password?</Link>
               <Button
                 variant='contained'
                 type='submit'
-                sx={style.saveOrLoginBtn}>
+                sx={style.saveOrLoginBtn}
+              >
                 Login
               </Button>
+              <p className={styles.dontHaveAccount}>
+                Don`t have an account?
+                <Link to='/registration'>Register now</Link>
+              </p>
             </form>
           </div>
         </div>

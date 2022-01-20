@@ -29,6 +29,7 @@ $blockShadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
 $innerShadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
 $innerDescShadow: inset 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
 $iconBgShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+$authShadow: 0px 5px 100px 4px rgba(0, 0, 0, 0.05);
 
 $headerHeight: 64px;
 $headerMarginBottom: 40px;
@@ -65,12 +66,13 @@ $headerMarginBottom: 40px;
   font-size: 10px;
   width: 205px;
   position: absolute;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 %marginTopLeftItem{
@@ -113,11 +115,11 @@ $headerMarginBottom: 40px;
   margin-bottom: 5px; 
 }
 
-@mixin pStyle() {
+@mixin pStyle($fontSize: 32px) {
   margin-top: 0;
   margin-bottom: 1.5rem;
   color: $purple;
-  font-size: 25px;
+  font-size: $fontSize;
   font-weight: bold;
 }
 
@@ -177,6 +179,20 @@ $headerMarginBottom: 40px;
     color: $darkPurple;
   }
 }
+@mixin lineSeparator {
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid $ligghtPurpleBg;
+    width: 99%;
+    margin: 0 auto;
+    margin-top: 5px;
+    bottom: -10px;
+    border-radius: 10px;
+    left: 0.5%;
+  }
+}
 
 @mixin textArea {
   outline: none;
@@ -198,4 +214,10 @@ $headerMarginBottom: 40px;
   padding: 5px 10px;
   margin-left: 16px;
   border-radius: 5px;
+}
+
+@mixin fontStyleAccount() {
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: 500;
 }
