@@ -12,8 +12,13 @@ const register = (payload) => {
   return api.post('/users/register', payload);
 };
 
+const userList = (payload) => {
+  return api.get('/users', payload);
+};
+
 export {
   logIn,
   register,
   userChanges,
+  userList,
 };

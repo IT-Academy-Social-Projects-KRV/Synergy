@@ -11,7 +11,10 @@ import ItemPage from '../pages/ProjectPage/Project/ItemPage/ItemPage';
 import BillSettings from '../components/BillSettings';
 import AccountPage from '../pages/AccountPage';
 import Login from '../pages/AuthorizationPage/components/Login/Login';
+import UpdatePassword from '../pages/ResetPasswordPage/ResetPassword';
+import ForgotPassword from '../pages/ForgotPasswordPage/ForgotPassword';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
+import CustomersListPage from '../pages/CustomersListPage/components/CustomersListPage';
 
 
 const Routes = () => {
@@ -27,10 +30,25 @@ const Routes = () => {
         path={routes.NonAuthRoutes.pathToRegistration}
         component={Registration}
       />
+      <UnauthenticatedRoute
+        exact
+        path={routes.NonAuthRoutes.pathToReset}
+        component={UpdatePassword}
+      />
+      <UnauthenticatedRoute
+        exact
+        path={routes.NonAuthRoutes.pathToForgotPassword}
+        component={ForgotPassword}
+      />
       <AuthRoute
         exact
         path={`${routes.AuthRoutes.pathToProject}/:id`}
         component={ProjectPage}
+      />
+      <AuthRoute
+        exact
+        path={routes.AuthRoutes.pathToCustomers}
+        component={CustomersListPage}
       />
       <AuthRoute
         path={routes.AuthRoutes.pathToCreatingProject}
