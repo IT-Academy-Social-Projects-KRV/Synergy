@@ -8,7 +8,12 @@ const createItem = (payload) => {
   return api.post('/items', payload);
 };
 
+const updateItem = (payload, id) => {
+  return api.patch(`/items/${id}`, payload);
+};
+
 export {
   getItemById,
-  createItem
+  createItem,
+  updateItem,
 };

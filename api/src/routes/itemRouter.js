@@ -12,12 +12,13 @@ import { itemSchema } from '../validations/schemas';
 const router = new Router();
 
 router.get('/', getItems);
-router.get('/:id', validateMiddleware(itemSchema.itemId, 'params'), getOneItem);
+router.get('/:id', getOneItem);/*validateMiddleware(itemSchema.itemId,  'params')*/
 router.post('/', validateMiddleware(itemSchema.createItem, 'body'), createItem);
 router.patch(
   '/:id',
-  validateMiddleware(itemSchema.itemId, 'params'),
-  validateMiddleware(itemSchema.editItem, 'body'),
+
+/* validateMiddleware(itemSchema.itemId, 'params'),
+validateMiddleware(itemSchema.editItem, 'body'), */
   updateItem,
 );
 router.delete('/:id', validateMiddleware(itemSchema.itemId, 'params'), deleteItem);

@@ -8,9 +8,13 @@ import routes from '../../../../configs/routes';
 import Vector from '../../../../assets/images/ItemImages/Vector.png';
 import Approve from '../../../../shared/Buttons/Approve';
 import Reject from '../../../../shared/Buttons/Reject';
+import { Save } from '../../../../shared/Buttons';
 import { Button } from '@mui/material';
+import { Input } from '@mui/material';
+import { TextField } from '@mui/material';
 import { style } from '../ItemPage/style';
 import styles from './ItemPage.module.scss';
+import { updateItem } from '../../../../services/item.service';
 
 const ItemPage = (props) => {
   const [item, setItem] = useState(null);
@@ -22,38 +26,114 @@ const ItemPage = (props) => {
     setLoader(false);
   };
 
-  useEffect(() => {
-    fetchItem();
+  const handleUpdateItem = async () => {
+    const response = await updateItem(item, item.id);
+    //console.log(item+' '+item.id);
+    setItem(response.data);
+    setDisabled(true);
+    setLoader(false);
+  };
+
+  useEffect( async() => {
+    await fetchItem();
   }, []);
+
+  useEffect( () => {
+    //console.log(item);
+  }, [item]);
+
+  /* const dispatch = useDispatch(); */
+
+  const [disabled, setDisabled] = useState(true);
+
+  /* const [name, setName] = useState(item ? item.name : null);
+  const [price, setPrice] = useState(item ? item.price : null);
+  const [description, setDescription] = useState(item ? item.description : null); */
+
+  const editItem = () => {
+    setDisabled(prevState => !prevState);
+  };
+
+  /* const handleUpdateItem = () => {
+    dispatch(fetchUpdateItem(item));
+    //console.log(`${item.name}${item.price}${item.description}${item.id}`, '123');
+  };
+ */
+
+  /* const updateItem = async () => {
+    handleUpdateItem();
+    setDisabled(true);
+  }; */
   
   return (
     isLoader ? <Loader /> :
       <div className={styles.content}>
         <div className={styles.content__caption}>
           <Link to={`${routes.AuthRoutes.pathToProject}/${item.projectId}`}>&larr; Back</Link>
-          <h1>{item.name}</h1>
+          <h1>
+            <Input
+              name='name'
+              defaultValue={item.name}
+              onChange={(e) => setItem({ ...item, name: e.target.value })}
+              disabled={disabled}
+              inputProps={{ min: 0, style: { textAlign: 'center' } }}
+              disableUnderline={true}
+              sx={style.inputName}
+            />
+          </h1>
+          <Save clickHandler={editItem} text='Edit' variant='contained' type='submit' sx={style.button}/>
+          {disabled ?
+            null
+            :
+            <Save clickHandler={handleUpdateItem} variant='contained' type='submit' sx={style.button}/>
+          }
         </div>
         <div className={styles.content__main}>
           <div className={styles.information}>
             <div className={styles.input}>
               <p>Data added</p>
-              <p>{Moment(item.createdAt).format('DD.MM.YYYY')}</p>
+              <Input
+                name='date'
+                value={Moment(item.createdAt).format('DD.MM.YYYY')}
+                disabled={disabled}
+                disableUnderline={true}
+                sx={style.inputDate}
+              />
             </div>
             <div className={styles.input}>
               <p>Cost</p>
-              <p>$ {item.price}</p>
+              <Input
+                name='price'
+                defaultValue={item.price}
+                onChange={(e) => setItem({ ...item, price: e.target.value })}
+                disabled={disabled}
+                disableUnderline={true}
+                sx={style.inputPrice}
+              />
             </div>
             <div className={styles.input}>
               <p>Status</p>
-              <Button variant='contained' disabled sx={style.disable}>
+              <Button 
+                variant='contained' 
+                disabled sx={style.disable}
+              >
                 {STATUS[item.statusId]}
               </Button>
             </div>
             <div className={styles.description}>
               <p>Description</p>
-              <p>
-                {item.description}
-              </p>
+              <TextField
+                name='description'
+                defaultValue={item.description}
+                onChange={(e) => setItem({ ...item, description: e.target.value })}
+                disabled={disabled}
+                multiline
+                variant='standard'
+                InputProps={{
+                  disableUnderline: true
+                }}
+                sx={style.inputDescription}
+              />
             </div>
             <Approve sx={style.approve}/>
             <Reject sx={style.reject}/>
