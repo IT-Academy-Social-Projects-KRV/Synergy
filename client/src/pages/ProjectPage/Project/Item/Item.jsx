@@ -56,13 +56,13 @@ const Item = () => {
     dispatch(fetchCreateItem(itemForm));
   };
   const sendForm = async () => {
-    handleCreateIteam();
     setItemForm({
       name: '',
       description: '',
       price: '',
       priceMargin: '',
     });
+    handleCreateIteam();
   };
 
   return (
@@ -124,7 +124,17 @@ const Item = () => {
           <textarea
             className={styles.item__descText}
             placeholder='Description...'
+            {...register('description', valRequired)}
+            onChange={(e) =>
+              setItemForm({
+                ...itemForm,
+                description: e.target.value
+              })
+            }
           />
+          <div className={validStyle.textBlock, validStyle.validBlock}>
+            {errors?.description && <p>{errors?.descriptionF?.message || 'Error, try again'}</p>}
+          </div>
 
           <input
             type='number'
