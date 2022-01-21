@@ -56,9 +56,15 @@ const statuses = [
   },
 ]
 
+const billValue = {
+  INCOME_TAX: 0.13,
+  MILITARY_TAX: 0.015,
+}
+
 module.exports = {
   statusesId,
   userRoles,
   statusCategories,
   statuses,
+  billValue,
 }

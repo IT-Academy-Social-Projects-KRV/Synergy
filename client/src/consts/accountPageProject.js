@@ -11,7 +11,7 @@ const styleAccount = {
     fontSize: '16px',
     fontWeight: 'bold'
   },
-
+  
   textHead: {
     padding: '7px',
     fontSize: '16px',
@@ -23,6 +23,12 @@ const styleAccount = {
     color: '#564e45',
     fontSize: '16px',
     borderBottom: '1px solid #EEE6E7',
+  },
+
+  tableBody: {
+    '& > tr:nth-of-type(even)': {
+      backgroundColor: '#f1f3f2',
+    },
   },
 
   blockId: {

@@ -1,11 +1,11 @@
 import { setIsLoader, setRequestError, setUser } from '..';
-import { register, userChanges } from '../../services/user.service';
+import { register, userChanges, userList } from '../../services/user.service';
 import statusCode from '../../consts/statusCode';
 //add to import logIn
 
 
 export const fetchLoginUser = (
-  // payload
+  //payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
@@ -33,7 +33,7 @@ export const fetchUpdateUser = (payload) => async (dispatch) => {
   try {
     const res = await userChanges(payload);
     if (res.status === statusCode.OK) {
-      sessionStorage.setItem('user',JSON.stringify(res.data[1][0]));
+      sessionStorage.setItem('user', JSON.stringify(res.data[1][0]));
       dispatch(setUser(res.data[1][0]));
       return res.data[1][0];
     }
@@ -48,6 +48,17 @@ export const fetchRegisterUser = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
     await register(payload);
+  } catch (e) {
+    dispatch(setRequestError(e));
+  } finally {
+    dispatch(setIsLoader(false));
+  }
+};
+
+export const fetchCustomersList = (payload) => async (dispatch) => {
+  dispatch(setIsLoader(true));
+  try {
+    return await userList(payload);
   } catch (e) {
     dispatch(setRequestError(e));
   } finally {
