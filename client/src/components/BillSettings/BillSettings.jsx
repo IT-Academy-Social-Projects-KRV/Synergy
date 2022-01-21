@@ -5,6 +5,7 @@ import { Primary } from '../../shared/Buttons';
 import { getProjectForAccount } from '../../services/projects.service';
 import { FormControl, Select, MenuItem } from '@mui/material';
 import style from './BillSettings.module.scss';
+import { getPdfSettings } from '../../services/billSettings.service';
 
 const styles = {
   selectBox: {
@@ -35,6 +36,14 @@ const BillSettings = () => {
     setActiveProject(data.projects[0].id);
   };
 
+  const generatePdf = async () => {
+    const response = await getPdfSettings(activeProjectId);
+    
+    const file = new Blob([response.data], { type: 'application/pdf' });
+    const fileURL = URL.createObjectURL(file);
+    window.open(fileURL);
+  };
+
   useEffect(async () => {
     await fetchProjects();
   }, []);
@@ -61,7 +70,7 @@ const BillSettings = () => {
               ))}
             </Select>
           </FormControl>
-          <Primary value='Generate' />
+          <Primary value='Generate' clickHandler={generatePdf} />
         </div>
       }
       

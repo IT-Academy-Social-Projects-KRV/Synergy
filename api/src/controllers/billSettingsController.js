@@ -4,8 +4,7 @@ import billSettingsService from '../services/billSettingsService';
 const generatePdf = async (req, res) => {
   const { id } = req.params;
   const billSettings = await billSettingsService.generatePdf(id, res);
-  res.status(statusCode.OK)
-  res.body = billSettings;
+  res.status(billSettings.status).end(billSettings.res);
 };
 
 const getBillSettings = async (req, res) => {
