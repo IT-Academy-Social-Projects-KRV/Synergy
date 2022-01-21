@@ -5,7 +5,7 @@ import statusCode from '../../consts/statusCode';
 
 
 export const fetchLoginUser = (
-  // payload
+  //payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
@@ -33,7 +33,7 @@ export const fetchUpdateUser = (payload) => async (dispatch) => {
   try {
     const res = await userChanges(payload);
     if (res.status === statusCode.OK) {
-      sessionStorage.setItem('user',JSON.stringify(res.data[1][0]));
+      sessionStorage.setItem('user', JSON.stringify(res.data[1][0]));
       dispatch(setUser(res.data[1][0]));
       return res.data[1][0];
     }
