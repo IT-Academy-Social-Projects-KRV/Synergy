@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getItemById } from '../../../../services/item.service';
-import Moment from 'moment';
 import Loader from '../../../../components/Loader';
 import STATUS from '../../../../consts/itemStatuses';
 import routes from '../../../../configs/routes';
@@ -9,7 +8,6 @@ import Vector from '../../../../assets/images/ItemImages/Vector.png';
 import Approve from '../../../../shared/Buttons/Approve';
 import Reject from '../../../../shared/Buttons/Reject';
 import { Save } from '../../../../shared/Buttons';
-import { Button } from '@mui/material';
 import { Input } from '@mui/material';
 import { TextField } from '@mui/material';
 import { style } from '../ItemPage/style';
@@ -17,9 +15,11 @@ import styles from './ItemPage.module.scss';
 import { updateItem } from '../../../../services/item.service';
 
 const ItemPage = (props) => {
+
   const [item, setItem] = useState(null);
   const [isLoader, setLoader] = useState(true);
-
+  const [response, setResponse] = useState();
+  
   const fetchItem = async () => {
     const response = await getItemById(props.match.params.id);
     setItem(response.data);
@@ -28,7 +28,7 @@ const ItemPage = (props) => {
 
   const handleUpdateItem = async () => {
     const response = await updateItem(item, item.id);
-    //console.log(item+' '+item.id);
+    setResponse(response);
     setItem(response.data);
     setDisabled(true);
     setLoader(false);
@@ -36,35 +36,14 @@ const ItemPage = (props) => {
 
   useEffect( async() => {
     await fetchItem();
-  }, []);
-
-  useEffect( () => {
-    //console.log(item);
-  }, [item]);
-
-  /* const dispatch = useDispatch(); */
+  }, [response]);
 
   const [disabled, setDisabled] = useState(true);
-
-  /* const [name, setName] = useState(item ? item.name : null);
-  const [price, setPrice] = useState(item ? item.price : null);
-  const [description, setDescription] = useState(item ? item.description : null); */
 
   const editItem = () => {
     setDisabled(prevState => !prevState);
   };
 
-  /* const handleUpdateItem = () => {
-    dispatch(fetchUpdateItem(item));
-    //console.log(`${item.name}${item.price}${item.description}${item.id}`, '123');
-  };
- */
-
-  /* const updateItem = async () => {
-    handleUpdateItem();
-    setDisabled(true);
-  }; */
-  
   return (
     isLoader ? <Loader /> :
       <div className={styles.content}>
@@ -94,7 +73,7 @@ const ItemPage = (props) => {
               <p>Data added</p>
               <Input
                 name='date'
-                value={Moment(item.createdAt).format('DD.MM.YYYY')}
+                value={new Date(item.createdAt).toLocaleDateString()}
                 disabled={disabled}
                 disableUnderline={true}
                 sx={style.inputDate}
@@ -113,12 +92,14 @@ const ItemPage = (props) => {
             </div>
             <div className={styles.input}>
               <p>Status</p>
-              <Button 
+              <Input 
                 variant='contained' 
-                disabled sx={style.disable}
-              >
-                {STATUS[item.statusId]}
-              </Button>
+                sx={style.disable}
+                disabled
+                disableUnderline={true}
+                inputProps={{ style: { textAlign: 'center' } }}
+                defaultValue={ STATUS[item.statusId] }
+              />
             </div>
             <div className={styles.description}>
               <p>Description</p>
@@ -135,8 +116,8 @@ const ItemPage = (props) => {
                 sx={style.inputDescription}
               />
             </div>
-            <Approve sx={style.approve}/>
-            <Reject sx={style.reject}/>
+            <Approve sx={{ ...style.approveAndReject, ...style.approve }}/>
+            <Reject sx={style.approveAndReject}/>
           </div>
           <div className={styles.comments}>
             <div className={styles.header}>

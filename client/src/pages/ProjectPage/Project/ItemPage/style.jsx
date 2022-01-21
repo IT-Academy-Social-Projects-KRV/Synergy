@@ -1,16 +1,5 @@
 export const style = {
-  approve: {
-    marginLeft: '30px',
-    marginTop: '16px',
-    marginBottom: '30px',
-    '@media (max-width: 600px)': {
-      height: '30px',
-      width: '90px',
-      fontSize: '12px',
-      mt: '0'
-    }
-  },
-  reject: {
+  approveAndReject: {
     marginLeft: '16px',
     marginTop: '16px',
     marginBottom: '30px',
@@ -21,9 +10,15 @@ export const style = {
       mt: '0'
     }
   },
+  approve: {
+    marginLeft: '30px'
+  },
   disable: {
     width: '100px',
+    height: '35px',
+    background: 'silver',
     fontSize: '14px',
+    borderRadius: '5px',
     '@media (max-width: 600px)': {
       height: '30px',
       width: '90px',
