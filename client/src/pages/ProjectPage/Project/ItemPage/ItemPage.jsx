@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getItemById } from '../../../../services/item.service';
+import { updateItem } from '../../../../services/item.service';
 import Loader from '../../../../components/Loader';
 import STATUS from '../../../../consts/itemStatuses';
 import routes from '../../../../configs/routes';
@@ -12,7 +13,6 @@ import { Input } from '@mui/material';
 import { TextField } from '@mui/material';
 import { style } from '../ItemPage/style';
 import styles from './ItemPage.module.scss';
-import { updateItem } from '../../../../services/item.service';
 
 const ItemPage = (props) => {
 
@@ -55,8 +55,8 @@ const ItemPage = (props) => {
               defaultValue={item.name}
               onChange={(e) => setItem({ ...item, name: e.target.value })}
               disabled={disabled}
-              inputProps={{ min: 0, style: { textAlign: 'center' } }}
               disableUnderline={true}
+              inputProps={{ style: { textAlign: 'center' } }}
               sx={style.inputName}
             />
           </h1>
@@ -93,26 +93,24 @@ const ItemPage = (props) => {
             <div className={styles.input}>
               <p>Status</p>
               <Input 
-                variant='contained' 
-                sx={style.disable}
+                variant='contained'
+                defaultValue={ STATUS[item.statusId] }
                 disabled
                 disableUnderline={true}
                 inputProps={{ style: { textAlign: 'center' } }}
-                defaultValue={ STATUS[item.statusId] }
+                sx={style.disable}
               />
             </div>
             <div className={styles.description}>
               <p>Description</p>
               <TextField
                 name='description'
+                variant='standard'
+                multiline
                 defaultValue={item.description}
                 onChange={(e) => setItem({ ...item, description: e.target.value })}
                 disabled={disabled}
-                multiline
-                variant='standard'
-                InputProps={{
-                  disableUnderline: true
-                }}
+                InputProps={{ disableUnderline: true }}
                 sx={style.inputDescription}
               />
             </div>
