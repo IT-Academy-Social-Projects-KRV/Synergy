@@ -9,7 +9,9 @@ import validStyle from '../../../../consts/validation.module.scss';
 import { useParams } from 'react-router-dom';
 import { Save } from '../../../../shared/Buttons';
 
-const Item = ({ updateItem, setUpdateItem }) => {
+const STATUS_NEW = 1;
+
+const Item = ({ refreshList }) => {
 
   const style = {
     btnSubmit: {
@@ -49,14 +51,15 @@ const Item = ({ updateItem, setUpdateItem }) => {
     price: '',
     priceMargin: '',
     projectId: params.id,
+    statusId: STATUS_NEW
   });
 
-  const handleCreateIteam = () => {
-    dispatch(fetchCreateItem(itemForm));
+  const handleCreateItem = async () => {
+    await dispatch(fetchCreateItem(itemForm));
+    refreshList();
   };
   const sendForm = () => {
-    handleCreateIteam();
-    setUpdateItem(updateItem ? false : true);
+    handleCreateItem();
     reset();
   };
 

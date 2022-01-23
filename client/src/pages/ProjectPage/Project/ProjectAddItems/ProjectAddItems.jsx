@@ -2,7 +2,7 @@ import { Item } from '../Item';
 import Box from '@mui/material/Box';
 import styles from './ProjectAddItems.module.scss';
 
-const ProjectAddItems = ({ updateItem, setUpdateItem }) => {
+const ProjectAddItems = ({ handleSubmit }) => {
 
   return (
     <section>
@@ -13,7 +13,7 @@ const ProjectAddItems = ({ updateItem, setUpdateItem }) => {
 
         <Box className={styles.addItems__block}>
           <div className={styles.addItems__blockInput}>
-            <Item updateItem={updateItem} setUpdateItem={setUpdateItem} />
+            <Item refreshList={handleSubmit} />
           </div>
         </Box>
       </Box>

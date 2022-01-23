@@ -12,7 +12,6 @@ import { getProjectById } from '../../../services/projects.service';
 const Project = (props) => {
   const [project, setProject] = useState(null);
   const [isLoader, setLoader] = useState(true);
-  const [updateItem, setUpdateItem] = useState(false);
 
   const fetchProject = async () => {
     const response = await getProjectById(props.match.params.id);
@@ -23,10 +22,6 @@ const Project = (props) => {
   useEffect(() => {
     fetchProject();
   }, []);
-
-  useEffect(() => {
-    fetchProject();
-  }, [updateItem]);
 
   return (
     isLoader ?
@@ -58,7 +53,7 @@ const Project = (props) => {
           </div>
 
           <div className={styles.board__projectBlock}>
-            <ProjectAddItems updateItem={updateItem} setUpdateItem={setUpdateItem} />
+            <ProjectAddItems handleSubmit={fetchProject} />
           </div>
         </div>
       </main>
