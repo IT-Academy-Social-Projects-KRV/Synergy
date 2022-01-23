@@ -35,19 +35,11 @@ const getProjectById = (id) => {
 
 const getProjectForAccount = (
   {
-    name, 
-    capital,
-    dateStart,
-    dateFinish,
     userId
   },
 ) => {
   return api.get('/projects', {
     params: {
-      name, 
-      capital,
-      dateStart,
-      dateFinish,
       userId
     }
   });
