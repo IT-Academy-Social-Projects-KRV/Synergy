@@ -174,7 +174,7 @@ const ExistItems = ({ itemsData }) => {
                         <TableCell sx={style.text}>{row.nameItem}</TableCell>
                         <TableCell sx={style.text}>${row.costItem}</TableCell>
                         <TableCell sx={style.text}>
-                          {row.dataAddedItem}
+                          {new Date(row.dataAddedItem).toLocaleDateString()}
                         </TableCell>
                         <TableCell sx={style.text}>
                           <Box className={styles.statusApplied}>

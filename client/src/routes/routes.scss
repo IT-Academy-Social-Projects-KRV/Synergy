@@ -71,5 +71,10 @@ html, body, #root {
     }
   }
 }
-
-  
+@media screen and (max-width: 600px) {
+  .top {
+    aside {
+      display: none;
+    }
+  }
+}
