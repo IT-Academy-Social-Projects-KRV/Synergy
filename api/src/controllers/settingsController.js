@@ -18,26 +18,8 @@ const updatePassword = async (req, res) => {
   res.status(statusCode.OK)
     .json(resetPassword);
 };
-//! For next sprint
-const getBillSettings = async (req, res) => {
-  const { id } = req.params;
-  const billSettings = await settingsService.getBillSettings(id);
-  res.status(statusCode.OK)
-    .json(billSettings);
-};
-
-const updateBillSettings = async (req, res) => {
-  const {
-    tax, rate,
-  } = req.body;
-  const billSettings = await settingsService.updateBillSettings(tax, rate)
-  res.status(statusCode.OK)
-    .json(billSettings);
-};
 
 export {
   updateUserSettings,
   updatePassword,
-  getBillSettings,
-  updateBillSettings,
 };
