@@ -71,7 +71,7 @@ const ExistItems = ({ itemsData }) => {
 
   useEffect(() => {
     setItems(mappedItems(itemsData));
-  }, []);
+  }, [itemsData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';

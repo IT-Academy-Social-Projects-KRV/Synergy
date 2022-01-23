@@ -21,6 +21,7 @@ const Content = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm({
     mode: 'onSubmit',
   });
@@ -49,14 +50,7 @@ const Content = () => {
 
   const sendForm = async () => {
     handleCreateProject();
-    setProjectForm({
-      name: '',
-      description: '',
-      capital: '',
-      dateStart: '',
-      dateFinish: '',
-    });
-
+    reset();
   };
 
   return (

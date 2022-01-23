@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import styles from './Item.module.scss';
 import { useForm } from 'react-hook-form';
 import { fetchCreateItem } from '../../../../redux';
@@ -11,7 +9,7 @@ import validStyle from '../../../../consts/validation.module.scss';
 import { useParams } from 'react-router-dom';
 import { Save } from '../../../../shared/Buttons';
 
-const Item = () => {
+const Item = ({ updateItem, setUpdateItem }) => {
 
   const style = {
     btnSubmit: {
@@ -40,6 +38,7 @@ const Item = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm({
     mode: 'onSubmit',
   });
@@ -55,14 +54,10 @@ const Item = () => {
   const handleCreateIteam = () => {
     dispatch(fetchCreateItem(itemForm));
   };
-  const sendForm = async () => {
-    setItemForm({
-      name: '',
-      description: '',
-      price: '',
-      priceMargin: '',
-    });
+  const sendForm = () => {
     handleCreateIteam();
+    setUpdateItem(updateItem ? false : true);
+    reset();
   };
 
   return (
@@ -86,7 +81,7 @@ const Item = () => {
           />
 
           <div className={validStyle.textBlock, validStyle.validBlock}>
-            {errors?.name && <p>{errors?.name?.message || 'Error, try again'}</p>}
+            {errors?.name && <p className={styles.valBLock}>{errors?.name?.message || 'Error, try again'}</p>}
           </div>
 
           <input
@@ -102,21 +97,7 @@ const Item = () => {
             }
           />
           <div className={validStyle.textBlock, validStyle.validBlock}>
-            {errors?.price && <p>{errors?.price?.message || 'Error, try again'}</p>}
-          </div>
-
-          <div className={styles.item__submitMsg}>
-            <div className={styles.iconWrapper}>
-              <CheckCircleIcon />
-            </div>
-            <div className={styles.submitMsg}>Submited</div>
-          </div>
-
-          <div className={styles.item__errorMsg}>
-            <div className={styles.iconWrapper}>
-              <ErrorOutlineRoundedIcon />
-            </div>
-            <div className={styles.errorMsg}>Error</div>
+            {errors?.price && <p className={styles.valBLock}>{errors?.price?.message || 'Error, try again'}</p>}
           </div>
         </Box>
 
@@ -133,7 +114,10 @@ const Item = () => {
             }
           />
           <div className={validStyle.textBlock, validStyle.validBlock}>
-            {errors?.description && <p>{errors?.descriptionF?.message || 'Error, try again'}</p>}
+            {errors?.description && <p className={styles.valBLock}>
+              {
+                errors?.description?.message || 'Error, try again'}</p>
+            }
           </div>
 
           <input
@@ -149,7 +133,10 @@ const Item = () => {
             }
           />
           <div className={validStyle.textBlock, validStyle.validBlock}>
-            {errors?.priceMargin && <p>{errors?.priceMargin?.message || 'Error, try again'}</p>}
+            {errors?.priceMargin && <p className={styles.valBLock}>
+              {
+                errors?.priceMargin?.message || 'Error, try again'}</p>
+            }
           </div>
         </Box>
 

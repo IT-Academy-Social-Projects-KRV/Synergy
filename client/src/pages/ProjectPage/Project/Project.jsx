@@ -12,20 +12,25 @@ import { getProjectById } from '../../../services/projects.service';
 const Project = (props) => {
   const [project, setProject] = useState(null);
   const [isLoader, setLoader] = useState(true);
+  const [updateItem, setUpdateItem] = useState(false);
 
   const fetchProject = async () => {
     const response = await getProjectById(props.match.params.id);
     setProject(response.data);
     setLoader(false);
   };
-  
+
   useEffect(() => {
     fetchProject();
   }, []);
 
+  useEffect(() => {
+    fetchProject();
+  }, [updateItem]);
+
   return (
-    isLoader ? 
-      <Loader /> 
+    isLoader ?
+      <Loader />
       :
       <main>
         <div className={styles.board}>
@@ -36,7 +41,7 @@ const Project = (props) => {
                 <ProjectBill />
                 <ProjectInfo
                   firstName={project?.user?.firstName && project.user.firstName}
-                  lastName={project?.user?.lastName && project.user.lastName }
+                  lastName={project?.user?.lastName && project.user.lastName}
                   orderDate={project.dateStart}
                   releaseDate={project.dateFinish} />
                 <ProjectDescription description={project.description} />
@@ -53,7 +58,7 @@ const Project = (props) => {
           </div>
 
           <div className={styles.board__projectBlock}>
-            <ProjectAddItems />
+            <ProjectAddItems updateItem={updateItem} setUpdateItem={setUpdateItem} />
           </div>
         </div>
       </main>
