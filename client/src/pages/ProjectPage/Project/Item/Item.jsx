@@ -144,7 +144,6 @@ const Item = ({ refreshList }) => {
         </Box>
 
         <Box sx={style.boxBtn}>
-          <Save text='Add items' sx={style.btnSubmit} variant='contained' />
           <Save text='Save' sx={style.btnSubmit} variant='contained' type='submit' />
         </Box>
       </Box>
