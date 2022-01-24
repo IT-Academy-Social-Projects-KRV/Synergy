@@ -1,6 +1,4 @@
 import routes from '../../configs/routes';
-// TODO: Implement dashboard page
-// import dashboard from '../../assets/images/SideBarImages/dashboard_full.svg';
 import projects from '../../assets/images/SideBarImages/projects.svg';
 import customers from '../../assets/images/SideBarImages/customers.svg';
 import CreateProject from '../../assets/images/SideBarImages/create_project.svg';
@@ -10,12 +8,6 @@ import account from '../../assets/images/SideBarImages/account.svg';
 
 const fieldsForSideBar = {
   Admin: [
-    // {
-    //   route: routes.AuthRoutes.pathToDashboard,
-    //   image: dashboard,
-    //   alt: 'dashboard',
-    //   title: 'Dashboard',
-    // },
     {
       route: routes.AuthRoutes.pathToCustomers,
       image: customers,
@@ -54,12 +46,6 @@ const fieldsForSideBar = {
     },
   ],
   Customer: [
-    // {
-    //   route: routes.AuthRoutes.pathToDashboard,
-    //   image: dashboard,
-    //   alt: 'dashboard',
-    //   title: 'Dashboard',
-    // },
     {
       route: routes.AuthRoutes.pathToProjectList,
       image: projects,
@@ -67,10 +53,10 @@ const fieldsForSideBar = {
       title: 'Projects',
     },
     {
-      route: routes.AuthRoutes.pathToProjectList,
-      image: projects,
-      alt: 'projects',
-      title: 'Projects',
+      route: routes.AuthRoutes.pathToBillSettings,
+      image: bill,
+      alt: 'bill',
+      title: 'Bill settings',
     },
     {
       route: routes.AuthRoutes.pathToSettings,

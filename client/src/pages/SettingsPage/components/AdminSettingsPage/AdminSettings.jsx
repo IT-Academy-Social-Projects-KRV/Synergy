@@ -50,7 +50,6 @@ const AdminSettings = () => {
           </div>
         </div> : ''}
        
-
         <div className={style.settings_title}>
           <h1>Settings</h1>
         </div>
@@ -120,8 +119,7 @@ const AdminSettings = () => {
 
             <div className={style.settings_security__body}>
               <img src={resset_password_icon}></img>
-              <Link to={routes.AuthRoutes.pathToDashboard}>
-                {/*TODO-- must to change when link to be ready*/}
+              <Link to={routes.AuthRoutes.pathToReset}>
                 <span className={style.span_link}>Resset password by link</span>
               </Link>
             </div>

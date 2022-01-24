@@ -32,8 +32,12 @@ const BillSettings = () => {
 
   const fetchProjects = async () => {
     const { data } = await getProjectForAccount({ userId: user.id });
-    setProjects(data.projects);
-    setActiveProject(data.projects[0].id);
+    try {
+      setProjects(data.projects);
+      setActiveProject(data.projects[0].id);
+    } catch (e) {
+      console.error(e);
+    } 
   };
 
   const generatePdf = async () => {
@@ -73,7 +77,6 @@ const BillSettings = () => {
           <Primary value='Generate' clickHandler={generatePdf} />
         </div>
       }
-      
     </div>
   );
 };

@@ -56,7 +56,6 @@ const Content = () => {
       dateStart: '',
       dateFinish: '',
     });
-
   };
 
   return (
