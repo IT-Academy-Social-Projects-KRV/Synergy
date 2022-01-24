@@ -23,16 +23,16 @@ const AccountPageProjects = () => {
   const user = useSelector(userSelector);
 
   const [accountProjects, setAccountProjects] = useState([]);
-
-  useEffect(async () => {
+  
+  useEffect(async() => {
 
     const response = await dispatch(fetchProjectForAccount({
       userId: user.id,
     }));
 
-    setAccountProjects(response.data.projects.map((project, id) => {
+    setAccountProjects(response.data.projects.map((project) => {
       return {
-        id: id + 1,
+        id: project.id,
         title: project.name,
         capital: `${project.capital} $ `,
         dataAdded: project.dateStart,
@@ -71,13 +71,13 @@ const AccountPageProjects = () => {
                     <TableRow
                       key={key}>
                       {Object.keys(row).map((col, id) => {
-                        return (
+                        return(
                           <TableCell
                             key={id}
                             sx={(col === 'id' ? styleAccount.blockId : null)}
                             align={'left'}
                             scope='row'>
-                            {row[col]}
+                            { row[col] } 
                           </TableCell>);
                       })}
                       <TableCell sx={styleAccount.text}>
