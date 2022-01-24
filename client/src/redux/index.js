@@ -3,10 +3,12 @@ export * from './store';
 export * from './actions/userAction';
 export * from './actions/projectListAction';
 export * from './actions/helperAction';
+export * from './actions/itemAction';
 
 export * from './reducers/userReducer';
 export * from './reducers/projectListReducer';
 export * from './reducers/helperReducer';
+export * from './reducers/itemReducer';
 
 export * from './selectors/selectors';
 

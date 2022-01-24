@@ -1,4 +1,4 @@
-import { React, useState }  from 'react';
+import { React, useState } from 'react';
 import routes from '../../../../configs/routes';
 import { userSelector } from '../../../../redux';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import username_icon from '../../../../assets//images/SettingsPageImages/usernam
 import changes_was_saved_icon from '../../../../assets/images/SettingsPageImages/changes_was_saved.svg';
 import cancel from '../../../../assets/images/SettingsPageImages/cancel.svg';
 import style from './AdminSettings.module.scss';
-import { Save }  from '../../../../shared/Buttons';
+import { Save } from '../../../../shared/Buttons';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUpdateUser } from '../../../../redux/requests/userRequest';
 
@@ -18,7 +18,7 @@ const AdminSettings = () => {
   const user = useSelector(userSelector);
 
   const [isShowChanges, setShowChanges] = useState(false);
-  
+
   const [firstName, setFirstname] = useState(user.firstName);
 
   const [lastName, setLastname] = useState(user.lastName);
@@ -33,14 +33,14 @@ const AdminSettings = () => {
     });
   };
 
-  const sendUserName = async() => {
+  const sendUserName = async () => {
     handleFirstName();
   };
- 
+
   return (
     <>
       <section className={style.settings_container}>
-        {isShowChanges ?  <div className={style.alert}>
+        {isShowChanges ? <div className={style.alert}>
           <div className={style.alert_elements}>
             <img src={changes_was_saved_icon}></img>
             <span className={style.alert_title}>Changes was saved</span>
@@ -49,7 +49,6 @@ const AdminSettings = () => {
             <img onClick={() => setShowChanges(false)} src={cancel}></img>
           </div>
         </div> : ''}
-       
 
         <div className={style.settings_title}>
           <h1>Settings</h1>
@@ -91,19 +90,17 @@ const AdminSettings = () => {
                     onChange={(event) => setLastname(event.target.value)}
                   >
                   </input>
-                
+
                 </div>
               </div>
 
               <div className={style.settings_personal__form_actions}>
-                <Save clickHandler={sendUserName} variant='contained' type='submit'>
-                Save
-                </Save>
+                <Save clickHandler={sendUserName} text='SAVE' variant='contained' type='submit' />
                 <div className={style.password_tab}>
                   <span>Password</span>
                 </div>
               </div>
-            
+
             </div>
           </div>
 
@@ -120,13 +117,13 @@ const AdminSettings = () => {
 
             <div className={style.settings_security__body}>
               <img src={resset_password_icon}></img>
-              <Link to={routes.AuthRoutes.pathToDashboard}>
-                {/*TODO-- must to change when link to be ready*/}
+              
+              <Link to={routes.AuthRoutes.pathToReset}>
                 <span className={style.span_link}>Resset password by link</span>
               </Link>
             </div>
           </div>
-        
+          
         </div>
       </section>
     </>

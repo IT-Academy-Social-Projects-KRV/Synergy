@@ -22,5 +22,3 @@ describe('Should render ProjectDescription with all data', () => {
     expect(container.querySelector('[data-testid="description"]').textContent).toBe('description');
   });
 });
-
-

@@ -62,7 +62,6 @@
         "allow": ["arrowFunctions", "functions", "methods"]
       }
     ],
-    "no-alert": "warn",
     "no-empty-pattern": "error",
     "no-magic-numbers": [
       "off",

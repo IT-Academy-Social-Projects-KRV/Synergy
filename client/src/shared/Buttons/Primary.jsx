@@ -14,10 +14,10 @@ const style = {
   }
 };
 
-const SaveButton = ({ sx, clickHandler, text, type }) => {
-  return (
-    <Button onClick={clickHandler} type={type} sx={{ ...style, ...sx }}>{text}</Button>
+const PrimaryButton = ({ sx, clickHandler, value }) => {
+  return(
+    <Button onClick={clickHandler} sx={{ ...style, ...sx }}>{value}</Button>
   );
 };
 
-export default SaveButton;
+export default PrimaryButton;

@@ -32,9 +32,12 @@ const Comments = (props) => {
   };
 
   const handleDeleteComment = async (id) => {
-    await dispatch(fetchDeleteComment(id));
-    const response = await dispatch(fetchComments(props.item));
-    setComments(response.data);
+    const confirmation = confirm('Are you sure you want to delete?');
+    if (confirmation) {
+      await dispatch(fetchDeleteComment(id));
+      const response = await dispatch(fetchComments(props.item));
+      setComments(response.data);
+    }
   };
 
   const deleteComment = async (id) => {

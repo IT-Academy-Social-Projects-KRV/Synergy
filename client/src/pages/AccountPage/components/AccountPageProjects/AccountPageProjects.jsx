@@ -27,16 +27,12 @@ const AccountPageProjects = () => {
   useEffect(async() => {
 
     const response = await dispatch(fetchProjectForAccount({
-      name: '', 
-      capital: '',
-      dateStart: '',
-      dateFinish: '',
       userId: user.id,
     }));
 
-    setAccountProjects(response.data.projects.map((project, id) => {
+    setAccountProjects(response.data.projects.map((project) => {
       return {
-        id: id+1,
+        id: project.id,
         title: project.name,
         capital: `${project.capital} $ `,
         dataAdded: project.dateStart,
@@ -86,7 +82,7 @@ const AccountPageProjects = () => {
                       })}
                       <TableCell sx={styleAccount.text}>
                         <Button>
-                          <Link to={`${routes.AuthRoutes.pathToItemPage}/${row.id}`}>
+                          <Link to={`${routes.AuthRoutes.pathToProject}/${row.id}`}>
                             <OpenInNewIcon sx={{ color: '#7771D4' }} />
                           </Link>
                         </Button>
@@ -101,6 +97,5 @@ const AccountPageProjects = () => {
     </>
   );
 };
-
 
 export default AccountPageProjects;

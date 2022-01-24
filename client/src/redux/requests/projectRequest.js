@@ -1,7 +1,6 @@
 import { setIsLoader, setRequestError } from '..';
 import { createProject, getProjectForAccount } from '../../services/projects.service';
 
-
 export const fetchCreateProject = (payload) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
