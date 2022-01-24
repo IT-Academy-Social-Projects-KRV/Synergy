@@ -5,12 +5,12 @@ import Moment from 'moment';
 import Loader from '../../../../components/Loader';
 import STATUS from '../../../../consts/itemStatuses';
 import routes from '../../../../configs/routes';
-import Vector from '../../../../assets/images/ItemImages/Vector.png';
 import Approve from '../../../../shared/Buttons/Approve';
 import Reject from '../../../../shared/Buttons/Reject';
 import { Button } from '@mui/material';
 import { style } from '../ItemPage/style';
 import styles from './ItemPage.module.scss';
+import Comments from './CommentFunctionality/Comments';
 
 const ItemPage = (props) => {
   const [item, setItem] = useState(null);
@@ -58,40 +58,7 @@ const ItemPage = (props) => {
             <Approve sx={style.approve}/>
             <Reject sx={style.reject}/>
           </div>
-          <div className={styles.comments}>
-            <div className={styles.header}>
-              <p>COMMENTS</p>
-            </div>
-            <div className={styles.dialog}>
-              <div className={styles.info}>
-                <p>
-                  Admin Yuliia
-                </p>
-                <div className={styles.box}>
-                  <p>
-                    Hello, Peter! Do you have any questions about this item? I`d be glad to assist.
-                  </p>
-                </div>
-              </div>
-              <div className={styles.info}>
-                <p>
-                  Peter Parker
-                </p>
-                <div className={styles.box}>
-                  <p>
-                    Hi, Yuliia! I want to ask about cement`s sustainability.
-                    Is it save my house from natural disasters?
-                  </p>
-                </div>
-              </div>
-              <div className={styles.inputField}>
-                <input type='text' placeholder='Type message...'/>
-                <button>
-                  <img src={Vector} alt='Vector image'/>
-                </button>
-              </div>
-            </div>
-          </div>
+          <Comments item = {item.id}></Comments>
         </div>
       </div>
   );

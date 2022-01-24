@@ -2,7 +2,7 @@ import statusCode from 'http-status';
 import commentService from '../services/commentService';
 
 const getComments = async (req, res) => {
-    const { itemId } = req.body;
+    const { itemId } = req.query;
     const comments = await commentService.getComments(itemId);
     res.status(statusCode.OK)
         .json(comments);
@@ -17,9 +17,9 @@ const getOneComment = async (req, res) => {
 
 const createComment = async (req, res) => {
     const {
-        content, itemId, userId,
+        content, itemId, userId, createdAt,
     } = req.body;
-    const comment = await commentService.createComment(content, itemId, userId);
+    const comment = await commentService.createComment(content, itemId, userId, createdAt);
     res.status(statusCode.CREATED)
         .json(comment);
 };

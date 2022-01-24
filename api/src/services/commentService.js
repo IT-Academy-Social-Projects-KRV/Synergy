@@ -10,8 +10,8 @@ const getOneComment = async (id) => {
     return databaseResult;
 }
 
-const createComment = async (content, itemId, userId) => {
-    const databaseResult = await commentRepository.createComment(content, itemId, userId);
+const createComment = async (content, itemId, userId, createdAt) => {
+    const databaseResult = await commentRepository.createComment(content, itemId, userId, createdAt);
     return databaseResult;
 };
 
