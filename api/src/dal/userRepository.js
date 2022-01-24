@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+//import bcrypt from 'bcrypt';
 import { User } from '../models/modelsAssociations';
 import { statusesId } from '../constans/constants';
 
@@ -15,12 +15,13 @@ const getUsers = async () => {
 
 const registerUser = async (firstName, lastName, email, password) => {
   try {
-    const salt = await bcrypt.genSalt(10);
+    //const salt = await bcrypt.genSalt(10);
     const newUser = await User.create({
       firstName,
       lastName,
       email,
-      password: await bcrypt.hash(password, salt),
+      //password: await bcrypt.hash(password, salt),
+      password,
       roleId: 1,
       statusId: statusesId.NEW,
     });
