@@ -21,6 +21,7 @@ const Content = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm({
     mode: 'onSubmit',
   });
@@ -49,14 +50,7 @@ const Content = () => {
 
   const sendForm = async () => {
     handleCreateProject();
-    setProjectForm({
-      name: '',
-      description: '',
-      capital: '',
-      dateStart: '',
-      dateFinish: '',
-    });
-
+    reset();
   };
 
   return (
@@ -87,7 +81,7 @@ const Content = () => {
                         <BorderColorIcon sx={style.icons} />
                       </InputAdornment>
                     ),
-                    placeholder: 'Type title...'
+                    placeholder: 'Title...'
                   }}
                 />
                 <div className={validStyle.textBlock, validStyle.validBlock}>
@@ -107,7 +101,7 @@ const Content = () => {
                         <PersonIcon sx={style.icons} />
                       </InputAdornment>
                     ),
-                    placeholder: 'Type email...'
+                    placeholder: 'Email...'
                   }}
                 />
                 <div className={validStyle.textBlock, validStyle.validBlock}>
@@ -133,7 +127,7 @@ const Content = () => {
                       </InputAdornment>
                     ),
                     type: 'number',
-                    placeholder: 'Type capital...'
+                    placeholder: 'Capital...'
                   }}
                 />
                 <div className={validStyle.textBlock, validStyle.validBlock}>
@@ -154,7 +148,7 @@ const Content = () => {
                     })
                   }
                   className={styles.textareaDescription}
-                  placeholder='Type description...'
+                  placeholder='Description...'
                 />
               </div>
               <div className={styles.button}>

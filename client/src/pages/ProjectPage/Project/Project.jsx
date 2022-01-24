@@ -18,14 +18,14 @@ const Project = (props) => {
     setProject(response.data);
     setLoader(false);
   };
-  
+
   useEffect(() => {
     fetchProject();
   }, []);
 
   return (
-    isLoader ? 
-      <Loader /> 
+    isLoader ?
+      <Loader />
       :
       <main>
         <div className={styles.board}>
@@ -36,7 +36,7 @@ const Project = (props) => {
                 <ProjectBill />
                 <ProjectInfo
                   firstName={project?.user?.firstName && project.user.firstName}
-                  lastName={project?.user?.lastName && project.user.lastName }
+                  lastName={project?.user?.lastName && project.user.lastName}
                   orderDate={project.dateStart}
                   releaseDate={project.dateFinish} />
                 <ProjectDescription description={project.description} />
@@ -53,7 +53,7 @@ const Project = (props) => {
           </div>
 
           <div className={styles.board__projectBlock}>
-            <ProjectAddItems />
+            <ProjectAddItems handleSubmit={fetchProject} />
           </div>
         </div>
       </main>

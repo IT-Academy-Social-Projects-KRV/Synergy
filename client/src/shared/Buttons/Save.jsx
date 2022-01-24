@@ -14,9 +14,9 @@ const style = {
   }
 };
 
-const SaveButton = ({ sx, clickHandler, text = 'Save' }) => {
-  return(
-    <Button onClick={clickHandler} sx={{ ...style, ...sx }}>{text}</Button>
+const SaveButton = ({ sx, clickHandler, text, type }) => {
+  return (
+    <Button onClick={clickHandler} type={type} sx={{ ...style, ...sx }}>{text}</Button>
   );
 };
 
