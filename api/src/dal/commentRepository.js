@@ -4,7 +4,7 @@ const getComments = async (itemId) => {
     try {
         const data = await Comment.findAll(
             {
-                attributes: ['id', 'content', 'itemId'],
+                attributes: ['id', 'content', 'itemId', 'createdAt', 'updatedAt'],
                 where: {
                     itemId,
                 },
@@ -27,12 +27,13 @@ const getComments = async (itemId) => {
     }
 }
 
-const createComment = async (content, itemId, userId) => {
+const createComment = async (content, itemId, userId, createdAt) => {
     try {
         const data = await Comment.create({
             content,
             itemId,
             userId,
+            createdAt,
         });
         return data;
     } catch (err) {

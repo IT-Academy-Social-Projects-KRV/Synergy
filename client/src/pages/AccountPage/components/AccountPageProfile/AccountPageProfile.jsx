@@ -3,7 +3,7 @@ import style from '../AccountPageProfile/AccountPageProfile.module.scss';
 import username_icon from '../../../../assets//images/SettingsPageImages/username-icon.svg';
 import email from '../../../../assets/images/SettingsPageImages/email.svg';
 import { userSelector } from '../../../../redux';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const AccountPageProfile = () => {
 

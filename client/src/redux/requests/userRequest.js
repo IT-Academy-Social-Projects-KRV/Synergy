@@ -1,15 +1,15 @@
 import { setIsLoader, setRequestError, setUser } from '..';
 import { register, userChanges, userList } from '../../services/user.service';
 import statusCode from '../../consts/statusCode';
-//import { logIn } from '../../services/user.service';
+// import { logIn } from '../../services/user.service';
 
 export const fetchLoginUser = (
-  //payload
+  // payload
 ) => async (dispatch) => {
   dispatch(setIsLoader(true));
   try {
     sessionStorage.setItem('token', ('dfdsfsfsfsf'));
-    sessionStorage.setItem('user', JSON.stringify({ id: 1, roleId: 2, firstName: 'Steve', lastName: 'Rogers' }));
+    sessionStorage.setItem('user', JSON.stringify({ id: 1, roleId: 2 , firstName: 'Steve', lastName: 'Rogers' }));
     dispatch(setUser(JSON.parse(sessionStorage.getItem('user'))));
     // const res = await logIn(payload);
 
