@@ -64,7 +64,7 @@ const ItemPage = (props) => {
           {disabled ?
             null
             :
-            <Save clickHandler={handleUpdateItem} variant='contained' type='submit' sx={style.button}/>
+            <Save clickHandler={handleUpdateItem} text='Save' variant='contained' type='submit'  sx={style.button}/>
           }
         </div>
         <div className={styles.content__main}>

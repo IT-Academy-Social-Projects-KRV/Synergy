@@ -77,7 +77,6 @@ const BillSettings = () => {
           <Primary value='Generate' clickHandler={generatePdf} />
         </div>
       }
-      
     </div>
   );
 };

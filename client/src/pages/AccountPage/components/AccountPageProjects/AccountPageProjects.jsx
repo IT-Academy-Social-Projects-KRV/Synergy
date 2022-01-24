@@ -98,5 +98,4 @@ const AccountPageProjects = () => {
   );
 };
 
-
 export default AccountPageProjects;

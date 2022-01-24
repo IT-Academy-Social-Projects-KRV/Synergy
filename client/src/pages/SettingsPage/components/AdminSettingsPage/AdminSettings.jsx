@@ -117,7 +117,8 @@ const AdminSettings = () => {
 
             <div className={style.settings_security__body}>
               <img src={resset_password_icon}></img>
-              <Link to={routes.AuthRoutes.pathToDashboard}>
+              
+              <Link to={routes.AuthRoutes.pathToReset}>
                 <span className={style.span_link}>Resset password by link</span>
               </Link>
             </div>

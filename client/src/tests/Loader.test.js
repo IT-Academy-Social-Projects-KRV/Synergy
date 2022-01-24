@@ -22,5 +22,4 @@ describe('Should render Loader component with image', () => {
     
     expect(logoImg).toHaveAttribute('src');
   });
-
 });
