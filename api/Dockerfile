@@ -1,22 +1,21 @@
-FROM node:16.13.0
+FROM node:16.13.1
 
 WORKDIR /api
 
 COPY package.json .
 
-RUN npm install -g
+RUN npm install
 
-RUN npm install --save sequelize
+#RUN npm install --save sequelize
 
-RUN npm install -g sequelize-cli
+#RUN npm install -g sequelize-cli
 
 RUN npx sequelize-cli init
 
 RUN npm install mysql2 --save
-
 #RUN npx sequelize db:migrate
 
-#RUN npx sequelize db:seed:all
+#RUN npx sequelize-cli db:seed:all
 
 COPY . /api
 

@@ -17,12 +17,12 @@
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "start": "nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node -r ./node_modules/dotenv/config server.js",
     "test": "jest --verbose --rootDir=tests",
     "test:watch": "jest --verbose --rootDir=tests --watch",
     "test:coverage": "jest --verbose --rootDir=tests --coverage",
-    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec ./node_modules/.bin/babel-node.cmd -r ./node_modules/dotenv/config server.js"
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon --exec ./node_modules/.bin/babel-node -r ./node_modules/dotenv/config server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec ./node_modules/.bin/babel-node -r ./node_modules/dotenv/config server.js"
   },
   "repository": {
     "type": "git",
