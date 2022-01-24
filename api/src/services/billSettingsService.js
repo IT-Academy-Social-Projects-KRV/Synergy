@@ -3,7 +3,7 @@ import PDFDocument from 'pdfkit';
 import projectRepository from '../dal/projectRepository';
 import billSettingsRepository from '../dal/billSettingsRepository';
 
-const generatePdf = async (id, res) => {
+const generatePdf = async (id) => {
   const buffers = [];
   const doc = new PDFDocument({ bufferPages: true });
 
@@ -28,15 +28,6 @@ const generatePdf = async (id, res) => {
   });
 
   doc.on('data', buffers.push.bind(buffers));
-  doc.on('end', () => {
-    const pdfData = Buffer.concat(buffers);
-    res.writeHead(200, {
-      'Content-Length': Buffer.byteLength(pdfData),
-      'Content-Type': 'application/pdf',
-      'Content-disposition': 'attachment;filename=invoice.pdf',
-    })
-      .end(pdfData);
-  });
 
   doc.font('Times-Roman')
     .fontSize(35)
@@ -65,11 +56,10 @@ const generatePdf = async (id, res) => {
   doc.text('© Synergy 2021', 20, doc.page.height - 50, {
     lineBreak: false,
   });
-  doc.end();
 
   return {
     status: statusCode.OK,
-    res,
+    doc,
   }
 };
 

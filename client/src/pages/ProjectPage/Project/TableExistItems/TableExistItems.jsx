@@ -71,7 +71,7 @@ const ExistItems = ({ itemsData }) => {
 
   useEffect(() => {
     setItems(mappedItems(itemsData));
-  }, []);
+  }, [itemsData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -174,7 +174,7 @@ const ExistItems = ({ itemsData }) => {
                         <TableCell sx={style.text}>{row.nameItem}</TableCell>
                         <TableCell sx={style.text}>${row.costItem}</TableCell>
                         <TableCell sx={style.text}>
-                          {row.dataAddedItem}
+                          {new Date(row.dataAddedItem).toLocaleDateString()}
                         </TableCell>
                         <TableCell sx={style.text}>
                           <Box className={styles.statusApplied}>

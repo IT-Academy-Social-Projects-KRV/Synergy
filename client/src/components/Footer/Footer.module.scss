@@ -83,7 +83,7 @@
     .footer {
         &__content {
             width:100%;
-            font-size: 14px;
+            font-size: 12px;
         }
         &__logoSynergy {
             display: none;
@@ -91,9 +91,37 @@
         &__linksSupport {
             width: 100%;
             & > div {
+
                 & > a {
-                    margin-right: 16px;
+                    margin-right: 10px;
                     display: block;
+                }
+                
+                &:first-child {
+                    order: 1;
+                }
+
+                &:nth-child(2) {
+                    order: 3;
+                    
+                    & > a {
+                    margin-right: 0;
+                    }
+                }
+
+                &:last-child {
+                    order: 2;
+                }
+
+                .imgSocialMedia {
+                    
+                    & > a {
+                        margin-right: 10px;
+
+                        &:last-child {
+                            margin-right: 20px;
+                        }
+                    }
                 }
             }
         }

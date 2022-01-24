@@ -6,20 +6,18 @@ import {
   updateItem,
   deleteItem,
 } from '../controllers/itemController';
-import validateMiddleware from '../middlewares/validate';
-import { itemSchema } from '../validations/schemas';
+//import validateMiddleware from '../middlewares/validate';
+//import { itemSchema } from '../validations/schemas';
 
 const router = new Router();
 
 router.get('/', getItems);
-router.get('/:id', validateMiddleware(itemSchema.itemId, 'params'), getOneItem);
-router.post('/', validateMiddleware(itemSchema.createItem, 'body'), createItem);
-router.patch(
-  '/:id',
-  validateMiddleware(itemSchema.itemId, 'params'),
-  validateMiddleware(itemSchema.editItem, 'body'),
-  updateItem,
-);
-router.delete('/:id', validateMiddleware(itemSchema.itemId, 'params'), deleteItem);
+router.get('/:id', getOneItem);/*validateMiddleware(itemSchema.itemId,  'params')*/
+router.post('/', createItem); /* validateMiddleware(itemSchema.createItem, 'body'),  */
+router.patch('/:id', updateItem);
+
+/* validateMiddleware(itemSchema.itemId, 'params'),
+validateMiddleware(itemSchema.editItem, 'body'), */
+router.delete('/:id', deleteItem); /* validateMiddleware(itemSchema.itemId, 'params'),  */
 
 export default router;
