@@ -15,6 +15,7 @@ import UpdatePassword from '../pages/ResetPasswordPage/ResetPassword';
 import ForgotPassword from '../pages/ForgotPasswordPage/ForgotPassword';
 import Registration from '../pages/AuthorizationPage/components/Registration/Registration';
 import CustomersListPage from '../pages/CustomersListPage/components/CustomersListPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 
 const Routes = () => {
@@ -80,7 +81,7 @@ const Routes = () => {
         exact
         component={ItemPage}
       />
-      <Route path='/*' render={() => 'Not Found'}/>
+      <Route path='/*' render={() => <NotFoundPage/>}/>
     </Switch>
   );
 };
