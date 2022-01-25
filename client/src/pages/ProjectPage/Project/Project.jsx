@@ -3,7 +3,8 @@ import Loader from '../../../components/Loader';
 import { ProjectBill } from './ProjectBill';
 import { ProjectInfo } from './ProjectInfo';
 import { ProjectDescription } from './ProjectDescription';
-import { ProjectDiagram } from './ProjectDiagram';
+import 'chart.js/auto';
+import { Chart } from './ProjectDiagram';
 import { ProjectAddItems } from './ProjectAddItems';
 import { TableExistItems } from './TableExistItems';
 import styles from './SingleProject.module.scss';
@@ -43,7 +44,9 @@ const Project = (props) => {
               </div>
 
               <div className={styles.board__diagram}>
-                <ProjectDiagram />
+                <Chart 
+                  capital={project.capital}
+                  items={project.items} />
               </div>
             </div>
           </div>

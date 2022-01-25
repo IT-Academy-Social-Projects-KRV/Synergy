@@ -1,1 +1,1 @@
-export { default as ProjectDiagram } from './ProjectDiagram';
+export { default as Chart } from './ProjectDiagram';
