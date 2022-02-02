@@ -1,3 +1,4 @@
+import jwt from 'jwt-decode';
 import { setIsLoader, setRequestError, setUser } from '..';
 import { logIn, register, userChanges } from '../../services/user.service';
 import statusCode from '../../consts/statusCode';
@@ -9,6 +10,23 @@ export const fetchLoginUser = (
   try {
     const res = await logIn(payload);
     if (res.status === statusCode.OK) {
+
+      
+   
+      // axios.post(`${axios.defaults.baseURL}/auth`, { email, password })
+          // .then(res => {
+
+          //   const token = res.data.token;
+          //   const user = jwt(token); // decode your token here
+          //   localStorage.setItem('token', token);
+          //   dispatch(actions.authSuccess(token, user));
+          // })
+
+        //   .catch(err => {
+        //     dispatch(actions.loginUserFail());
+        // });
+
+
       localStorage.setItem('user',JSON.stringify(res.data.user));
       localStorage.setItem('token', res.data.token);
       dispatch(setUser(res.data.user));
